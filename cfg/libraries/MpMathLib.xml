@@ -1,0 +1,36 @@
+<JXR>
+
+	<!-- get access to master object for ClMath operators/functions -->
+	<void> <new  saveAs='mpmath'  package='CalctoolsLibs' name='ClMath' /> </void>
+	<call object='mpmath' method='setName'> <string>mpmath</string> </call>
+	
+	<class called='MPMathOp' package='CalctoolsSyms' name='CLMathOp'/>
+
+	<!-- create operator object for each symbol of that type using enumeration -->
+	<populate class='MPMathOp' using='mpmath' toBeCalled='Theta Loggamma Digamma Trigamma Mangoldt Lambda' saveListAs='opsList' />
+
+	<!-- create function object for each symbol of that type using enumeration -->
+	<populate class='Function' using='mpmath' toBeCalled='Corless Omega Polylog Polygamma' saveListAs='fullFuncList' />
+
+	<!-- configure each operator/function with appropriate bean set operations -->
+	<bean references='Omega'> <text Description='Lambert Omega function' Reference='LambertW' Symbol='omega' /> </bean>
+	<bean references='Corless'> <text Description='Corless function' Reference='Corless' Symbol='cp' />  <text Parameters='INIT' /> </bean>
+	<bean references='Polylog'> <text Description='Jonquiere Polylog function' Reference='Polylog' Symbol='polylog' /> </bean>
+	<bean references='Polygamma'> <text Description='Polygamma function' Reference='Polygamma' Symbol='polygamma' /> </bean>
+
+	<bean references='Theta'> <text Description='Siegel THETA' Reference='SiegelTheta' Symbol='THETA' /> <set Precedence='10'/> </bean>
+	<bean references='Loggamma'> <text Description='Loggamma' Reference='Loggamma' Symbol='loggamma' /> <set Precedence='10'/> </bean>
+	<bean references='Digamma'> <text Description='Digamma' Reference='Digamma' Symbol='digamma' /> <set Precedence='10'/> </bean>
+	<bean references='Trigamma'> <text Description='Trigamma' Reference='Trigamma' Symbol='trigamma' /> <set Precedence='10'/> </bean>
+	<bean references='Mangoldt'> <text Description='Mangoldt Psi' Reference='Psi' Symbol='mangoldt' /> <set Precedence='10'/> </bean>
+	<bean references='Lambda'> <text Description='Mangoldt Lambda' Reference='Lambda' Symbol='lambda' /> <set Precedence='10'/> </bean>
+
+	<!-- funcList must be set by calling script, NULL access will be seen if configuration is not consistent (Corless) -->
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='mpmathselected' />
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList'
+		excluding='Loggamma Lambda Mangoldt Theta'
+	 />
+
+	<Export using='mpmath' />		<!-- export library object -->
+
+</JXR>

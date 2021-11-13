@@ -1,0 +1,26 @@
+<JXR>
+
+	<!-- configure algebraic operators -->
+	<READ path='cfg/operators/AlgebraLib.xml' using='environment symbolTable' />
+
+	<!-- configure arithmetic operators -->
+	<READ path='cfg/operators/ArithLib.xml' using='environment symbolTable' />
+
+	<!-- configure boolean operators -->
+	<READ path='cfg/operators/BoolLib.xml' using='environment symbolTable' />
+
+	<!-- configure calculus operators -->
+	<READ path='cfg/operators/Calculus.xml' using='environment symbolTable' />
+
+	<!-- configure matrix operators -->
+	<READ path='cfg/operators/Matrix.xml' using='environment symbolTable' />
+
+	<!-- configure polynomial operators -->
+	<READ path='cfg/operators/polynomial.xml' using='environment symbolTable' />
+
+	<!-- configure vector operators -->
+	<READ path='cfg/operators/Vector.xml' using='environment symbolTable' />
+
+	<ExportAll />
+
+</JXR>

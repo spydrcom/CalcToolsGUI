@@ -1,0 +1,34 @@
+<JXR>
+
+	<!-- Anaconda SOA services are commonly available on 8080 -->
+	<SaveAs toBeCalled='hostAccess'> <string>LOCALHOST:8080</string> </SaveAs>
+
+	<!-- get access to master object for Anaconda operators/functions -->
+	<SaveAs toBeCalled='anaconda'> <new package='CalctoolsLibs' name='Anaconda' /> </SaveAs>
+	<call object='anaconda' method='setName'> <string>anaconda</string> </call>
+	
+	<!-- get access to implementation objects for Anaconda operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new classpath='net.myorb.external.anaconda.ComplexAnacondaRPC' /> </SaveAs>
+
+	<!-- verify Anaconda services are available on expected port -->
+	<call object='algorithms' method='configure' using='hostAccess' />
+
+	<!-- create function object for each symbol of that type -->
+	<populate class='Function' using='anaconda' toBeCalled='LambertW Polygamma Trigamma Polylog Polylog1 Zeta' saveListAs='funcList' />
+	
+	<!-- configure each operator/function with appropriate bean set operations -->
+	<bean references='Polylog'> <text Description='Jonquiere polylog function' Reference='Polylog' Symbol='polylog' /> </bean>
+	<bean references='Polylog1'> <text Description='Jonquiere polylog function' Reference='Polylog' Symbol='Li1' /> <text Parameters='1' /> </bean>
+	<bean references='LambertW'> <text Description='Lambert W (omega) function' Reference='Omega' Symbol='omega0' /> <text RenderAs='&#x03A9;' /> <text Parameters='0' /> </bean>
+	<bean references='Polygamma'> <text Description='Digamma (psi0) function' Reference='Polygamma' Symbol='psi0' /> <text RenderAs='&#x03A8;' /> <text Parameters='0' /> </bean>
+	<bean references='Trigamma'> <text Description='Trigamma (psi1) function' Reference='Polygamma' Symbol='psi1' /> <text RenderAs='&#x03A8;' /> <text Parameters='1' /> </bean>
+	<bean references='Zeta'> <text Description='Riemann Zeta function' Reference='Zeta' Symbol='zeta' /> <text RenderAs='&#x03B6;' /> <text Parameters='1' /> </bean>
+
+	<!-- invoke macro to generate symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
+
+<!-- excluding='Polylog1 Trigamma' -->
+
+	<Export using='anaconda' />			<!-- export library object -->
+
+</JXR>

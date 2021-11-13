@@ -1,0 +1,90 @@
+<JXR>
+
+
+	<!-- get access to master object for TrigPow operators/functions -->
+	<SaveAs toBeCalled='trigpow'> <new package='CalctoolsLibs' name='ClMath' /> </SaveAs>
+	<call object='trigpow' method='setName'> <string>trigpow</string> </call>
+
+
+	<class called='TrigPowSym' classpath='net.myorb.calctools.symbols.TrigPow'/>
+
+
+	<!-- create operator object for each symbol of library section -->
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Sinh Arsinh Asin Sin SinSq SinCb' saveListAs='opslist' />
+
+	<bean references='Sinh'> <text Description='Hyperbolic Sine Operator' Reference='TrigPow' Symbol='sinh' Op='sinh' /> <set Precedence='10'/> </bean>
+	<bean references='Arsinh'> <text Description='ARC Hyperbolic Sine Operator' Reference='TrigPow' Symbol='arsinh' Op='arsinh' /> <set Precedence='10'/> </bean>
+	<bean references='Asin'> <text Description='ARC Sine Operator' Reference='TrigPow' Symbol='asin' Op='asin' /> <set Precedence='10'/> </bean>
+	<bean references='Sin'> <text Description='Sine Operator' Reference='TrigPow' Symbol='sin' Op='sin' /> <set Precedence='10'/> </bean>
+	<bean references='SinSq'> <text Description='Sine Squared Operator' Reference='TrigPow' Symbol='sinSq' Op='sin' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='SinCb'> <text Description='Sine Cubed Operator' Reference='TrigPow' Symbol='sinCb' Op='sin' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Arcosh Cosh Acos Cos CosSq CosCb' saveListAs='opslist' />
+
+	<bean references='Arcosh'> <text Description='ARC Hyperbolic Cosine Operator' Reference='TrigPow' Symbol='arcosh' Op='arcosh' /> <set Precedence='10'/> </bean>
+	<bean references='Cosh'> <text Description='Hyperbolic Cosine Operator' Reference='TrigPow' Symbol='cosh' Op='cosh' /> <set Precedence='10'/> </bean>
+	<bean references='Acos'> <text Description='ARC Cosine Operator' Reference='TrigPow' Symbol='acos' Op='acos' /> <set Precedence='10'/> </bean>
+	<bean references='Cos'> <text Description='Cosine Operator' Reference='TrigPow' Symbol='cos' Op='cos' /> <set Precedence='10'/> </bean>
+	<bean references='CosSq'> <text Description='Cosine Squared Operator' Reference='TrigPow' Symbol='cosSq' Op='cos' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='CosCb'> <text Description='Cosine Cubed Operator' Reference='TrigPow' Symbol='cosCb' Op='cos' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Arsech Sech SechSq Asec Sec SecSq SecCb' saveListAs='opslist' />
+
+	<bean references='Arsech'> <text Description='ARC Hyperbolic Secant Operator' Reference='TrigPow' Symbol='arsech' Op='arsech' /> <set Precedence='10'/> </bean>
+	<bean references='Sech'> <text Description='Hyperbolic Secant Operator' Reference='TrigPow' Symbol='sech' Op='sech' /> <set Precedence='10'/> </bean>
+	<bean references='Asec'> <text Description='ARC Secant Operator' Reference='TrigPow' Symbol='asec' Op='asec' /> <set Precedence='10'/> </bean>
+	<bean references='Sec'> <text Description='Secant Operator' Reference='TrigPow' Symbol='sec' Op='sec' /> <set Precedence='10'/> </bean>
+	<bean references='SecSq'> <text Description='Secant Squared Operator' Reference='TrigPow' Symbol='secSq' Op='sec' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='SechSq'> <text Description='Hyperbolic Secant Squared Operator' Reference='TrigPow' Symbol='sechSq' Op='sech' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='SecCb'> <text Description='Secant Cubed Operator' Reference='TrigPow' Symbol='secCb' Op='sec' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Arcsch Csch CschSq Acsc Csc CscSq CscCb' saveListAs='opslist' />
+
+	<bean references='Arcsch'> <text Description='ARC Hyperbolic Cosecant Operator' Reference='TrigPow' Symbol='arcsch' Op='arcsch' /> <set Precedence='10'/> </bean>
+	<bean references='Csch'> <text Description='Hyperbolic Cosecant Operator' Reference='TrigPow' Symbol='csch' Op='csch' /> <set Precedence='10'/> </bean>
+	<bean references='Acsc'> <text Description='ARC Cosecant Operator' Reference='TrigPow' Symbol='acsc' Op='acsc' /> <set Precedence='10'/> </bean>
+	<bean references='Csc'> <text Description='Cosecant Operator' Reference='TrigPow' Symbol='csc' Op='csc' /> <set Precedence='10'/> </bean>
+	<bean references='CscSq'> <text Description='Cosecant Squared Operator' Reference='TrigPow' Symbol='cscSq' Op='csc' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='CschSq'> <text Description='Hyperbolic Cosecant Squared Operator' Reference='TrigPow' Symbol='cschSq' Op='csch' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='CscCb'> <text Description='Cosecant Cubed Operator' Reference='TrigPow' Symbol='cscCb' Op='csc' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Artanh Tanh Atan Tan TanSq TanCb' saveListAs='opslist' />
+
+	<bean references='Artanh'> <text Description='ARC Hyperbolic Tangent Operator' Reference='TrigPow' Symbol='artanh' Op='artanh' /> <set Precedence='10'/> </bean>
+	<bean references='Tanh'> <text Description='Hyperbolic Tangent Operator' Reference='TrigPow' Symbol='tanh' Op='tanh' /> <set Precedence='10'/> </bean>
+	<bean references='Atan'> <text Description='ARC Tangent Operator' Reference='TrigPow' Symbol='atan' Op='atan' /> <set Precedence='10'/> </bean>
+	<bean references='Tan'> <text Description='Tangent Operator' Reference='TrigPow' Symbol='tan' Op='tan' /> <set Precedence='10'/> </bean>
+	<bean references='TanSq'> <text Description='Tangent Squared Operator' Reference='TrigPow' Symbol='tanSq' Op='tan' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='TanCb'> <text Description='Tangent Cubed Operator' Reference='TrigPow' Symbol='tanCb' Op='tan' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<populate class='TrigPowSym' using='trigpow' toBeCalled='Arcoth Coth Acot Cot CotSq CotCb' saveListAs='opslist' />
+
+	<bean references='Arcoth'> <text Description='ARC Hyperbolic Cotangent Operator' Reference='TrigPow' Symbol='arcoth' Op='arcoth' /> <set Precedence='10'/> </bean>
+	<bean references='Coth'> <text Description='Hyperbolic Cotangent Operator' Reference='TrigPow' Symbol='coth' Op='coth' /> <set Precedence='10'/> </bean>
+	<bean references='Acot'> <text Description='ARC Cotangent Operator' Reference='TrigPow' Symbol='acot' Op='acot' /> <set Precedence='10'/> </bean>
+	<bean references='Cot'> <text Description='Cotangent Operator' Reference='TrigPow' Symbol='cot' Op='cot' /> <set Precedence='10'/> </bean>
+	<bean references='CotSq'> <text Description='Cotangent Squared Operator' Reference='TrigPow' Symbol='cotSq' Op='cot' /> <set Precedence='10' Pow='2' /> </bean>
+	<bean references='CotCb'> <text Description='Cotangent Cubed Operator' Reference='TrigPow' Symbol='cotCb' Op='cot' /> <set Precedence='10' Pow='3' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opslist' />
+
+
+	<Export using='trigpow' />			<!-- export library object -->
+
+
+</JXR>

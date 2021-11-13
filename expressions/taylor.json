@@ -1,0 +1,52 @@
+{
+   "Name": "taylor",
+   "Parameters": 
+   [
+      "x",
+      "n"
+   ],
+   "Description": "Boiler plate term for Taylor expansion polynomials ",
+   "Expression": 
+   {
+      "OpName": "/",
+      "Left": 
+      {
+         "OpName": "^",
+         "Left": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "x"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "n"
+         },
+         "OpType": "Binary"
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "!",
+         "PostFix": true,
+         "NodeType": "UnaryOP",
+         "Parameter": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "n"
+         }
+      },
+      "OpType": "Binary"
+   },
+   "NodeType": "Profile"
+}

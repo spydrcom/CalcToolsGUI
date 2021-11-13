@@ -1,0 +1,46 @@
+<JXR>
+
+
+	<!-- instance of ConfiguredEvaluationControl -->
+	<class called='EvalControl' classpath='net.myorb.math.expressions.algorithms.ConfiguredEvaluationControl' />
+	<saveas toBeCalled='evalCtrl'>  <new class='EvalControl' using='environment' />  </saveas>
+
+
+	<!-- initialize engine -->
+	<class called='EvalEngine' classpath='net.myorb.math.expressions.EvaluationEngine' />
+	<saveas toBeCalled='engine'>  <new class='EvalEngine' using='environment' />  </saveas>
+	<call object='engine' method='setControl'> <referto objectCalled='evalCtrl'/> </call>
+	<call object='evalCtrl' method='setEngine'> <referto objectCalled='engine'/> </call>
+
+
+	<!-- construct keyword map -->
+	<class called='KeywordMap' classpath='net.myorb.math.expressions.KeywordMap' />
+	<saveas toBeCalled='keywordMap'>  <new class='KeywordMap' using='engine F' />  </saveas>
+<!--
+	<call object='keywordMap' method='constructKeywordMap' />
+  -->
+	<call object='keywordMap' method='constructCoreKeywordMap' />
+
+	<!-- cross-link keyword map -->
+	<call object='engine' method='setKeywordMap'>
+		<referto objectCalled='keywordMap'/>
+	</call>
+
+
+	<!-- connect GUI -->
+	
+	<call object='evalCtrl' method='connectGui'>
+		<referto objectCalled='environment'/>
+	</call>
+	
+	
+	<!-- get command map -->
+
+	<bean references='keywordMap'>
+		<get commands='Commands' />
+	</bean>
+
+	<Export using='commands keywordMap' />
+
+
+</JXR>

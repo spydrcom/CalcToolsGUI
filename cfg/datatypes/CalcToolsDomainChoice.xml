@@ -1,0 +1,41 @@
+<JXR>
+
+	<package called='JXR'>net.myorb.jxr</package>
+	<class called='Choices' package='JXR' name='JxrScriptChoice'/>
+
+	<call class='Choices' method='setGlobalSymbols'>
+		<string>cfg/EstablishCommonSymbols.xml</string>
+	</call>
+
+	<call class='Choices' method='setFrameTitle'>
+		<string>Choose Data Type</string>
+	</call>
+
+	<call class='Choices' method='setPopUpDimensions'
+			using='300 100 20'
+	 />
+
+<!--
+	<call class='Choices' method='setNotification'>
+		<string>Configuration Accepted</string>
+	</call>
+  -->
+
+	<call class='Choices' method='addScript'>
+		<string>Real Numbers</string> 
+		<string>cfg/datatypes/RealNumbers.xml</string> 
+	</call>
+
+	<call class='Choices' method='addScript'>
+		<string>Factored Numbers</string> 
+		<string>cfg/datatypes/FactoredNumbers.xml</string> 
+	</call>
+
+	<call class='Choices' method='addScript'>
+		<string>Imaginary Numbers</string> 
+		<string>cfg/datatypes/Complex.xml</string> 
+	</call>
+
+	<call class='Choices' method='popUp' />
+
+</JXR>

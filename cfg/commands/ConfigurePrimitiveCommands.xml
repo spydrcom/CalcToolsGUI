@@ -1,0 +1,55 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_primitive' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_primitive' method='setName'> <string>keywords-primitive</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Primitives' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_primitive' saveListAs='cmdList'
+		toBeCalled='Calc Calculate Describe SetMode Recognize Assert Background PolyPrint PrettyPrint Show Radix Comment Verify Help Docs'
+	 />
+
+	<!-- configure each command with bean operations -->
+	<bean references='Help'> <text Keyword='Help' /> </bean>
+	<bean references='Assert'> <text Keyword='Assert' /> </bean>
+	<bean references='SetMode'> <text Keyword='SetMode' /> </bean>
+	<bean references='Recognize'> <text Keyword='Recognize' /> </bean>
+	<bean references='Background'> <text Keyword='Background' /> </bean>
+	<bean references='PrettyPrint'> <text Keyword='PrettyPrint' /> </bean>
+	<bean references='PolyPrint'> <text Keyword='PolyPrint' /> </bean>
+	<bean references='Describe'> <text Keyword='Describe' /> </bean>
+	<bean references='Verify'> <text Keyword='Verify' /> </bean>
+	<bean references='Radix'> <text Keyword='Radix' /> </bean>
+	<bean references='Docs'> <text Keyword='Docs' /> </bean>
+	<bean references='Show'> <text Keyword='Show' /> </bean>
+
+	<!-- CALCULATE command entered with full name and with Shorthand alias -->
+
+	<bean references='Calculate'> 
+		<text Reference='Calculate' SymbolUsing='CALCULATE_KEYWORD' />
+	</bean>
+
+	<bean references='Calc'>
+		<text Reference='Calculate'
+				SymbolUsing='CALC_ABBREVIATION_KEYWORD'
+				Description='Shorthand alias for CALCULATE command'
+		 />
+	</bean>
+
+	<bean references='Comment'>
+		<text Reference='Comment' SymbolUsing='COMMENT_PREFIX' />
+	</bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_primitive' />
+
+</JXR>

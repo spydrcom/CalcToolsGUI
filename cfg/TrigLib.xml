@@ -1,0 +1,13 @@
+<JXR>
+
+	<!-- create operator object for each symbol of that type -->
+	<populate  class='Operator'  using='trig' toBeCalled='Asin Acos Sin Cos' />
+	
+	<bean references='Asin'> <text Description='Complex ARC SIN function' Reference='Asin' Symbol='asin' /> <set Precedence='10' /> </bean>
+	<bean references='Acos'> <text Description='Complex ARC COS function' Reference='Acos' Symbol='acos' /> <set Precedence='10' /> </bean>
+	<bean references='Sin'> <text Description='Complex sin function of parameter' Reference='Sin' Symbol='sin' /> <set Precedence='10' /> </bean>
+	<bean references='Cos'> <text Description='Complex cos function of parameter' Reference='Cos' Symbol='cos' /> <set Precedence='10' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' including='Asin Acos Sin Cos' />
+
+</JXR>

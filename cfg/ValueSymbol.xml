@@ -1,0 +1,32 @@
+<JXR>
+
+	<!-- read properties from bean -->
+
+	<void>
+		<referto passedAs='symbolBean' />
+
+		<get
+			description='Description'
+			algorithm='AlgorithmAccess'
+			symbol='Symbol'
+			self='Me'
+		/>
+	</void>
+	
+	<!-- construct function symbol -->
+
+	<SaveAs toBeCalled='implementation'>
+		<evaluate object='algorithms' methodNamedIn='algorithm'>
+			<referto object='symbol' />
+		</evaluate>
+	</SaveAs>
+
+	<!-- post symbol and configure -->
+
+	<macro
+		symbolBean='self'
+		path='cfg/ImplementationSymbol.xml'
+		using='implementation description self symbolTable'
+	/>
+
+</JXR>

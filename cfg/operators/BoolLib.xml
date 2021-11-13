@@ -1,0 +1,75 @@
+<JXR>
+
+
+	<!-- get access to master object for boolean operators -->
+	<void><new saveAs='boolean_logical' package='CalctoolsLibs' name='Algebra' /></void>
+	<void><new saveAs='boolean_relational' package='CalctoolsLibs' name='Algebra' /></void>
+	<call object='boolean_logical' method='setName'> <string>boolean-logical</string> </call>
+	<call object='boolean_relational' method='setName'> <string>boolean-relational</string> </call>
+
+
+	<!-- get access to implementation objects for complex operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new package='Algorithms' name='BooleanPrimitives' using='environment' /> </SaveAs>
+
+
+	<!-- create value objects  -->
+	<populate class='Value' using='boolean_logical' toBeCalled='TRUE FALSE' saveListAs='valuesList' />
+
+	<bean references='TRUE'> <text Description='Logical TRUE' Reference='True' Symbol='TRUE' /> </bean>
+	<bean references='FALSE'> <text Description='Logical FALSE' Reference='False' Symbol='FALSE' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/ValueSymbol.xml' using='algorithms symbolTable' inclusionList='valuesList' />
+
+
+	<!-- create operator object for each symbol -->
+	<populate class='Operator' using='boolean_logical' saveListAs='opsList'
+		toBeCalled='NimpliedBy ImpliedBy Nimplies Implies Nxor Xor NOR NAND OR AND NOT Choose CC'
+	 />
+
+	<!-- configure each operator with bean set operations -->
+	<bean references='NimpliedBy'> <text Description='Logical NOT implied by' Reference='NimpliedBy' Symbol='~&lt;&lt;=' /> <set Precedence='10' /> </bean>
+	<bean references='ImpliedBy'> <text Description='Logical implied by' Reference='ImpliedBy' Symbol='&lt;&lt;=' /> <set Precedence='10' /> </bean>
+	<bean references='Nimplies'> <text Description='Logical NOT implies' Reference='Nimplies' Symbol='~=&gt;&gt;' /> <set Precedence='10' /> </bean>
+	<bean references='Implies'> <text Description='Logical implies' Reference='Implies' Symbol='=&gt;&gt;' /> <set Precedence='10' /> </bean>
+	<bean references='Nxor'> <text Description='Logical NOT XOR' Reference='Nxor' Symbol='~|~' /> <set Precedence='10' /> </bean>
+	<bean references='Xor'> <text Description='Logical XOR' Reference='Xor' Symbol='|~' /> <set Precedence='10' /> </bean>
+	<bean references='NOR'> <text Description='Logical NOR' Reference='Nor' Symbol='~|' /> <set Precedence='10' /> </bean>
+	<bean references='NAND'> <text Description='Logical NAND' Reference='Nand' Symbol='~&amp;' /> <set Precedence='10' /> </bean>
+	<bean references='OR'> <text Description='Logical OR' Reference='Or' Symbol='|' /> <set Precedence='10' /> </bean>
+	<bean references='AND'> <text Description='Logical AND' Reference='And' Symbol='&amp;' /> <set Precedence='10' /> </bean>
+	<bean references='NOT'> <text Description='Logical NOT' Reference='Not' Symbol='~' /> <set Precedence='10' /> </bean>
+	<bean references='Choose'> <text Description='Choice based on condition code' Reference='Choose' Symbol=':' /> <set Precedence='7' /> </bean>
+	<bean references='CC'> <text Description='Logical condition code set' Reference='ConditionCode' Symbol='?' /> <set Precedence='10' /> </bean>
+
+
+	<!-- invoke macro to generate operator symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='opsList'
+	 />
+
+
+	<!-- create operator object for each symbol -->
+	<populate class='Operator' using='boolean_relational' saveListAs='opsList'
+		toBeCalled='Eq Ne Ge GtAbs Gt Le LtAbs Lt'
+	 />
+
+	<bean references='Eq'> <text Description='Equal to' Reference='Eq' Symbol='==' /> <set Precedence='9' /> </bean>
+	<bean references='Ne'> <text Description='Not equal to' Reference='Ne' Symbol='~=' /> <set Precedence='9' /> </bean>
+	<bean references='Ge'> <text Description='Greater than or equal to' Reference='Ge' Symbol='&gt;=' /> <set Precedence='9' /> </bean>
+	<bean references='GtAbs'> <text Description='Greater than absolute value of' Reference='GtAbs' Symbol='&gt;||' /> <set Precedence='9' /> </bean>
+	<bean references='Gt'> <text Description='Greater than' Reference='Gt' Symbol='&gt;' /> <set Precedence='9' /> </bean>
+	<bean references='Le'> <text Description='Less than or equal to' Reference='Le' Symbol='&lt;=' /> <set Precedence='9' /> </bean>
+	<bean references='LtAbs'> <text Description='Less than absolute value of' Reference='LtAbs' Symbol='&lt;||' /> <set Precedence='9' /> </bean>
+	<bean references='Lt'> <text Description='Less than' Reference='Lt' Symbol='&lt;' /> <set Precedence='9' /> </bean>
+
+	<!-- invoke macro to generate operator symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='opsList'
+	 />
+
+
+	<Export using='boolean_logical' />			<!-- export library objects -->
+	<Export using='boolean_relational' />
+
+
+</JXR>

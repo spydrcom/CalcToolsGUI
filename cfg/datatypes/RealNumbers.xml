@@ -1,0 +1,158 @@
+<JXR>
+
+
+	<SaveAs toBeCalled='CurrentVersion'>
+	<string>2021.1201</string>
+	</SaveAs>
+
+
+	<!-- construct master object for Real Numbers library -->
+	<class called='MasterCfg' classpath='net.myorb.math.libraries.DefaultLibrary' />
+	<SaveAs toBeCalled='realCfg' > <new class='MasterCfg' /> </SaveAs>
+
+	<!-- construct generic configuration manager -->
+	<class called='ConfigMgrClass' package='Algorithms' name='ConfigurationManager'/>
+	<SaveAs toBeCalled='cfgMgr' > <new class='ConfigMgrClass' /> </SaveAs>
+
+	<!-- get symbol table object and environment object from configuration manager -->
+	<bean references='cfgMgr'> <set LibraryCollector='realCfg' />
+	<get symbolTable='SymbolMap' environment='Environment' />
+	</bean>
+
+
+	<!--
+			identify objects for plots and renders
+	  -->
+
+	<SaveAs toBeCalled='chartoptions' > <string>MeshPlotEdgeSize=50;ContourPlotEdgeSize=400</string> </SaveAs>
+
+	<class called='Renderer' classpath='net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib'/>
+	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.JfreeChartLib'/>
+
+
+	<!-- identify charting library -->
+	<class called='DisplayGraphAtomic' classpath='net.myorb.math.expressions.charting.DisplayGraphAtomic'/>
+	<call class='DisplayGraphAtomic' method='setActiveChartLibrary'> <new saveAs='charting' class='Charting'/> </call>
+
+
+	<!-- identify rendering object -->
+	<class called='PrettyPrinter' classpath='net.myorb.math.expressions.PrettyPrinter'/>
+	<call class='PrettyPrinter' method='setMathMarkupRenderer'> <new saveAs='renderer' class='Renderer'/> </call>
+
+
+	<!--
+			describe the application
+	  -->
+
+
+	<SaveAs toBeCalled='application'> <new package='CalctoolsLibs' name='RealOps'/> </SaveAs>
+	<call object='application' method='setName'> <string>application</string> </call>
+
+	<call object='application' method='connectedTo' varying='T' using='realCfg renderer charting' />
+	<call object='cfgMgr' method='processGraphicsParameters' using='chartoptions' />
+	<call object='application' method='connect' using='CurrentVersion' />
+
+
+	<!--
+			add all desired commands into keyword map
+	  -->
+
+
+	<READ path='cfg/commands/ConfigureCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureAppCommandGroups.xml' using='environment' />
+
+
+	<!--
+			provide software version information
+	  -->
+
+	<SaveAs toBeCalled='version'> <new class='Constant' using='application'/> </SaveAs>
+
+	<bean references='version'>
+		<text Description='software development version' Reference='Status' Symbol='VERSION' />
+		<set SpecifiedValue='CurrentVersion' />
+	</bean>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='version' method='getCompiledValue' using='environment'/>
+		<evaluate object='version' method='getDescription'/>
+	</call>
+
+
+	<!--
+			add all desired operator library symbols
+	  -->
+
+	<!-- configure common generic operators -->
+	<READ path='cfg/operators/GenericLibs.xml' using='environment symbolTable' />
+
+	<!-- configure statistics operators -->
+	<READ path='cfg/operators/StatsLib.xml' using='environment symbolTable' />
+
+
+	<!-- POWER FUNCTIONS -->
+
+	<class called='PowerImplementation' package='Algorithms' name='ComboPrimitives' />
+	<!-- get access to implementation objects for (generic) power operators/functions -->
+	<SaveAs toBeCalled='algorithms' > <new class='PowerImplementation' using='environment' /> </SaveAs>
+
+	<!-- read script to generate symbols for power operators -->
+	<SaveAs toBeCalled='power' > <new package='CalctoolsLibs' name='RealOps' /> </SaveAs>
+	<call object='power' method='setName'>  <string>power</string>  </call>
+	<READ path='cfg/PowerLib.xml' using='algorithms power symbolTable' />
+
+
+	<!-- TRIG FUNCTIONS -->
+
+	<!-- support for Trig-Pow primitives and implementations -->
+	<class called='TrigPow' package='Algorithms' name='TrigPowPrimitives' />
+	<class called='JREtrigPow' package='Algorithms' name='TrigPowJREImpl' />
+
+	<!-- instances of JRE implementation and the Trig-Pow algorithm classes -->
+	<SaveAs toBeCalled='JREtrigPowLib' > <new class='JREtrigPow' using='environment' /> </SaveAs>
+	<SaveAs toBeCalled='algorithms' > <new class='TrigPow' using='environment JREtrigPowLib'/> </SaveAs>
+
+	<!-- read script to generate symbols for trig operators -->
+	<READ path='cfg/TrigPowSyms.xml' using='algorithms symbolTable' />
+
+
+	<!-- COLT EXPANSION LIBRARY -->
+
+	<SaveAs toBeCalled='coltlibselected' > <string>I0 I0e I1 I1e J0 K0 Y0 Jn Kn Yn</string> </SaveAs>
+	<READ path='cfg/libraries/ColtLib.xml' using='symbolTable coltlibselected' />
+
+
+	<!--
+			ClMath library uses special generic architecture, algorithms are passed into macro
+	  -->
+
+	<!-- get access to implementation objects for ClMath operators/functions -->
+	<SaveAs toBeCalled='algorithms' > <new package='Algorithms' name='CLmathRealImplementations' /> </SaveAs>
+
+	<!-- configure operators and functions from CalcLib Math Library-->
+	<SaveAs toBeCalled='clmathselected' > <string>B Ei E1 li Jp</string> </SaveAs>
+	<READ path='cfg/libraries/ClRealOps.xml' using='environment algorithms symbolTable clmathselected' />
+	<SaveAs toBeCalled='clmathselected' > <string>Exp Loggamma Incgamma Gamma</string> </SaveAs>
+	<READ path='cfg/libraries/ClMathLib.xml' using='environment algorithms symbolTable clmathselected' />
+
+
+	<!-- get access to implementation objects for MpMath operators/functions -->
+	<SaveAs toBeCalled='mpmathselected' > <string>Corless Omega Polylog Polygamma</string> </SaveAs>
+	<SaveAs toBeCalled='algorithms' > <new classpath='net.myorb.mpmath.algorithms.RealMpmathPrimitives' /> </SaveAs>
+	<READ path='cfg/libraries/MpMathLib.xml' using='environment algorithms symbolTable mpmathselected' />
+
+
+	<!-- configure family collections -->
+	<READ path='cfg/libraries/InitFamilyLib.xml' using='environment symbolTable' />
+
+
+	<!-- configure color scheme factories for contour plots -->
+	<READ path='cfg/EstablishColorSchemes.xml' />
+
+
+	<ExportAll />		<!-- export for display-->
+
+	<tabulate />
+
+
+</JXR>

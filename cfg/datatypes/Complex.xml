@@ -1,0 +1,121 @@
+<JXR>
+
+
+	<SaveAs toBeCalled='CurrentVersion'>
+	<string>2021.1201</string>
+	</SaveAs>
+
+
+	<!-- construct library for complex number manipulation -->
+	<class called='MasterCfg' classpath='net.myorb.math.libraries.CmplxLibrary'/>
+	<void><new saveAs='cmplxCfg' class='MasterCfg'/></void>
+
+
+	<!-- instance of ConfigurationManager holding symbol table and environment objects -->
+	<SaveAs toBeCalled='cfgMgr'> <new package='Algorithms' name='ConfigurationManager' /> </SaveAs>
+
+	<!-- get symbols and environment -->
+	<bean references='cfgMgr'> <set LibraryCollector='cmplxCfg' />
+		<get symbolTable='SymbolMap' environment='Environment' />
+	</bean>
+
+
+	<!--
+			identify objects for plots and renders
+	  -->
+
+	<SaveAs toBeCalled='chartoptions' > <string>MeshPlotEdgeSize=50;ContourPlotEdgeSize=400</string> </SaveAs>
+
+	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.JfreeChartLib'/>
+	<class called='Renderer' classpath='net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib'/>
+
+
+	<!-- identify charting library -->
+	<class called='DisplayGraphAtomic' classpath='net.myorb.math.expressions.charting.DisplayGraphAtomic'/>
+	<call class='DisplayGraphAtomic' method='setActiveChartLibrary'> <new saveAs='charting' class='Charting'/> </call>
+
+
+	<!-- identify rendering object -->
+	<class called='PrettyPrinter' classpath='net.myorb.math.expressions.PrettyPrinter'/>
+	<call class='PrettyPrinter' method='setMathMarkupRenderer'> <new saveAs='renderer' class='Renderer'/> </call>
+
+
+	<!--
+			describe the application
+	  -->
+
+
+	<SaveAs toBeCalled='application'> <new package='CalctoolsLibs' name='CmplxOps'/> </SaveAs>
+	<call object='application' method='setName'> <string>application</string> </call>
+
+	<call object='application' method='connectedTo' varying='T' using='cmplxCfg renderer charting' />
+	<call object='cfgMgr' method='processGraphicsParameters' using='chartoptions' />
+	<call object='application' method='connect' using='CurrentVersion' />
+
+
+	<!--
+			add all desired commands into keyword map
+	  -->
+
+
+	<READ path='cfg/commands/ConfigureCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureAppCommandGroups.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureComplexCommands.xml' using='environment' />
+
+
+	<!--
+			provide software version information
+	  -->
+
+	<SaveAs toBeCalled='version'> <new class='Constant' using='application'/> </SaveAs>
+
+	<bean references='version'>
+		<text Description='software development version' Reference='Status' Symbol='VERSION' />
+		<set SpecifiedValue='CurrentVersion' />
+	</bean>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='version' method='getCompiledValue' using='environment'/>
+		<evaluate object='version' method='getDescription'/>
+	</call>
+
+
+	<!--
+			add all desired operator library symbols
+	  -->
+
+	<!-- configure common generic operators -->
+	<READ path='cfg/operators/GenericLibs.xml' using='environment symbolTable' />
+
+	<!-- configure complex operators -->
+	<READ path='cfg/libraries/CmplxLib.xml' using='environment symbolTable' />
+
+	<!-- configure operators and functions from Anaconda RPC Math Library-->
+	<READ path='cfg/libraries/Anaconda.xml' using='environment symbolTable' />
+
+
+	<!--
+			ClMath library uses special generic architecture, algorithms are passed into macro
+	  -->
+
+	<!-- get access to implementation objects for ClMath operators/functions -->
+	<class called='ComplexClmath' package='Algorithms' name='CLmathComplexImplementations' />
+	<SaveAs toBeCalled='algorithms'> <new class='ComplexClmath' /> </SaveAs>
+
+	<!-- configure operators and functions from CalcLib Math Library-->
+	<SaveAs toBeCalled='clmathselected' > <string>Exp Gamma Loggamma Incgamma</string> </SaveAs>
+	<READ path='cfg/libraries/ClMathLib.xml' using='environment algorithms symbolTable clmathselected' />
+
+
+	<!-- get access to implementation objects for MpMath operators/functions -->
+	<SaveAs toBeCalled='mpmathselected' > <string>Omega Polygamma</string> </SaveAs>
+	<SaveAs toBeCalled='algorithms' > <new classpath='net.myorb.mpmath.algorithms.ComplexMpmathPrimitives' /> </SaveAs>
+	<READ path='cfg/libraries/MpMathLib.xml' using='environment algorithms symbolTable mpmathselected' />
+
+
+	<ExportAll />		<!-- export for display-->
+
+	<tabulate />
+
+
+</JXR>

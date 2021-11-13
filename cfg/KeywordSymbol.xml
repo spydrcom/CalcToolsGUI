@@ -1,0 +1,42 @@
+<JXR>
+
+
+	<!-- read properties from bean -->
+
+	<void>
+		<referto passedAs='symbolBean' />
+
+		<get
+			description='Description'
+			algorithm='AlgorithmAccess'
+			symbol='Symbol'
+			self='Me'
+		/>
+	</void>
+	
+
+	<!-- construct keyword symbol -->
+
+	<SaveAs toBeCalled='implementation'>
+		<evaluate object='algorithms' methodNamedIn='algorithm' />
+	</SaveAs>
+
+
+	<!-- post symbol and configure -->
+	<!-- symbol set to point to command implementation -->
+	<call object='self' method='setImplementation' using='implementation' />
+	<!-- pass configuration parameter(s) to command implementation -->
+	<call object='self' method='applyConfiguration' />
+
+
+	<!-- post command keyword to dictionary -->
+
+	<call object='algorithms' method='id'>
+		<evaluate object='self' method='getKeywordCommand' />
+		<referto objectCalled='symbol'/>
+	</call>
+
+	<!-- new keyword has been added to dictionary -->
+
+
+</JXR>

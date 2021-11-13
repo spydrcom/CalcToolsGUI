@@ -1,0 +1,31 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_spline' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_spline' method='setName'> <string>keywords-spline</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='SplineOps' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_spline' saveListAs='cmdList'
+		toBeCalled='Encode Spline SetDomain StdDomain Optimize'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Spline'> <text Keyword='Spline' /> </bean>
+	<bean references='SetDomain'> <text Keyword='SetDomain' /> </bean>
+	<bean references='StdDomain'> <text Keyword='StdDomain' /> </bean>
+	<bean references='Optimize'> <text Keyword='Optimize' /> </bean>
+	<bean references='Encode'> <text Keyword='Encode' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_spline' />
+
+</JXR>

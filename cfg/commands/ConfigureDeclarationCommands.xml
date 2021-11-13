@@ -1,0 +1,46 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_declarations' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_declarations' method='setName'> <string>keywords-declarations</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Declarations' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_declarations' saveListAs='cmdList'
+		toBeCalled='Define DefineAlias Transform HGPolynomial LibImport TransformEnable SegmentedFunction Library Family'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Transform'> <text Reference='Transform' SymbolUsing='HG_POLYNOMIAL_PREFIX' /> </bean>
+	<bean references='HGPolynomial'> <text Reference='HGPolynomial' SymbolUsing='TRANSFORM_PREFIX' /> </bean>
+	<bean references='TransformEnable'> <text Reference='TransformEnable' SymbolUsing='TRANSFORM_ENABLE' /> </bean>
+	<bean references='LibImport'> <text Reference='LibImport' SymbolUsing='LIB_IMPORT_PREFIX' /> </bean>
+	<bean references='SegmentedFunction'> <text Reference='SegmentedFunction' SymbolUsing='SEGMENTED_PREFIX' /> </bean>
+	<bean references='Library'> <text Reference='Library' SymbolUsing='LIBRARY_KEYWORD' /> </bean>
+	<bean references='Family'> <text Reference='Family' SymbolUsing='FAMILY_KEYWORD' /> </bean>
+
+	<!-- DEFINE command entered with full name and with Shorthand alias -->
+
+	<bean references='Define'> 
+		<text Reference='Define' SymbolUsing='DEFINITION_KEYWORD' />
+	</bean>
+
+	<bean references='DefineAlias'>
+		<text   SymbolUsing='DEFINITION_PREFIX'
+				Description='Shorthand alias for DEFINE command'
+				Reference='Define'
+		 />
+	</bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_declarations' />
+
+</JXR>

@@ -1,0 +1,24 @@
+<JXR>
+
+
+	<!-- post operator symbol to symbol table -->
+
+	<call object='symbolTable' method='add'>
+		<referto objectCalled='implementation'/>
+		<referto objectCalled='description'/>
+	</call>
+
+	<!-- new operator symbol has been added to symbol table -->
+
+
+	<!-- symbol set to point to operator implementation -->
+
+	<call passedAs='symbolBean' method='setImplementation' using='implementation' />
+
+
+	<!-- pass configuration parameter(s) to implementation -->
+
+	<call passedAs='symbolBean' method='applyConfiguration' />
+
+
+</JXR>

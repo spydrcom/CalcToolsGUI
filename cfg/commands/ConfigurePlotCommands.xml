@@ -1,0 +1,42 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_plotting' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_plotting' method='setName'> <string>keywords-plotting</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Plotting' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_plotting' saveListAs='cmdList'
+		toBeCalled='Fft Plott Plotf Plotc Plotm Plot3d Chart Graph Derive Scatter Comparison SetContour Entitled'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Graph'> <text Keyword='Graph' /> </bean>
+	<bean references='Chart'> <text Keyword='Chart' /> </bean>
+	<bean references='Derive'> <text Keyword='Derive' /> </bean>
+	<bean references='Plotf'> <text Keyword='Plotf' /> </bean>
+	<bean references='Plott'> <text Keyword='Plott' /> </bean>
+	<bean references='Plotm'> <text Keyword='Plotm' /> </bean>
+	<bean references='Plot3d'> <text Keyword='Plot3d' /> </bean>
+	<bean references='Scatter'> <text Keyword='Scatter' /> </bean>
+	<bean references='SetContour'> <text Keyword='SetContour' /> </bean>
+	<bean references='Entitled'> <text Keyword='Entitled' /> </bean>
+	<bean references='Plotc'> <text Keyword='Plotc' /> </bean>
+	<bean references='Fft'> <text Keyword='Fft' /> </bean>
+
+	<bean references='Comparison'>
+		<text Reference='Comparison' SymbolUsing='SIDEBYSIDE_KEYWORD' />
+	</bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_plotting' />
+
+</JXR>

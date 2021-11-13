@@ -1,0 +1,20 @@
+<JXR>
+
+	<!-- instance of ConfiguredEvaluationControl -->
+	<class called='EvalControl' classpath='net.myorb.math.expressions.algorithms.ConfiguredEvaluationControl' />
+	<void><new saveAs='evalCtrl' class='EvalControl' using='environment T' /></void>
+
+	<!-- get execution engine and command map -->
+	<bean references='evalCtrl'>
+		<get execEngine='Engine' />
+	</bean>
+	<bean references='execEngine'>
+		<get cmdMap='KeywordMap' />
+	</bean>
+	<bean references='cmdMap'>
+		<get commands='Commands' />
+	</bean>
+
+	<Export using='commands' />
+
+</JXR>

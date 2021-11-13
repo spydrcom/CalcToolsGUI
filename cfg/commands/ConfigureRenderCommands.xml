@@ -1,0 +1,30 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_render' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_render' method='setName'> <string>keywords-render</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Rendering' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_render' saveListAs='cmdList'
+		toBeCalled='Render Select RenderFunction RenderDiffEq'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Render'> <text Keyword='Render' /> </bean>
+	<bean references='RenderFunction'> <text Reference='RenderFunction' SymbolUsing='RENDER_FUNCTION_KEYWORD' /> </bean>
+	<bean references='RenderDiffEq'> <text Reference='RenderDiffEq' SymbolUsing='RENDER_DIFFEQ_KEYWORD' /> </bean>
+	<bean references='Select'> <text Keyword='Select' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_render' />
+
+</JXR>

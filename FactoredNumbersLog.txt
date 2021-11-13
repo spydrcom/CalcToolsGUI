@@ -1,0 +1,151 @@
+Factorization Table Computation Starting, initialization complete
+5000000 Factorizations Computed
+---
+Sieve Of Eratosthenes used for prime generation
+Algorithm BINARY SQRT will be used for prime range selection
+Total primes recognized 348513
+---
+345ms
+---
+
+Library: application
+net.myorb.math.libraries.FactorizationLibrary@39837168
+net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib@a0fdd7d
+net.myorb.math.expressions.charting.implementations.JfreeChartLib@649c46f
+Graphics parameter processing: MeshPlotEdgeSize=50; ContourPlotEdgeSize=400; 
+2021.1022
+
+Library: arithmetic
+NEGATE  (Negate)  to render as -
+MINUS  (Subtraction)  to render as -
+*  (Multiplication)  to render as ·
+/  (Division)  to render as ÷
+
+Library: algebraic
+Symbol Override Detected for 'e' from library 'algebraic' by instance in 'algebraic'
+Symbol Override Detected for 'pi' from library 'algebraic' by instance in 'algebraic'
+
+Library: power
+
+Library: calculus
+'  (Prime)  to render as ?
+''  (DPrime)  to render as ?
+INTEGRALC  (Contour)  to render as ?
+INTEGRALS  (Integral)  to render as ?
+INTEGRALV  (Integral)  to render as ?
+
+Library: vector
+.  (Dot)  to render as ·
+SIGMA  (Summation)  to render as ?
+INTEGRAL  (Integral)  to render as ?
+SUMMATION  (Summation)  to render as ?
+PI  (Pi)  to render as ?
+
+******************************
+* Symbol Collection Compiled *
+******************************
+
+Algorithms: net.myorb.math.expressions.algorithms
+CalctoolsLibs: net.myorb.calctools.libraries
+CalctoolsSyms: net.myorb.calctools.symbols
+Charting: net.myorb.math.expressions.charting.implementations.JfreeChartLib
+CmplxLib: net.myorb.calctools.libraries.CmplxOps
+Constant: net.myorb.calctools.symbols.Constant
+CurrentVersion: 2021.1022
+DisplayGraphAtomic: net.myorb.math.expressions.charting.DisplayGraphAtomic
+FactorTableSize: 5000000
+Function: net.myorb.calctools.symbols.Function
+MasterCfg: net.myorb.math.libraries.FactorizationLibrary
+Operator: net.myorb.calctools.symbols.Operator
+PowerImplementation: net.myorb.math.expressions.algorithms.ComboPrimitives
+PrettyPrinter: net.myorb.math.expressions.PrettyPrinter
+Renderer: net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib
+Value: net.myorb.calctools.symbols.Value
+
+algebraic (9 symbols):
+	PlusMinus (+|-) {OP-7} - Plus or Minus operator
+	MinusPlus (-|+) {OP-7} - Minus or Plus operator
+	INF (INFINITY) {CON} '10000' * - Approximation to use for infinity
+	Abs (abs) {OP-11} - ABS function value of parameter
+	E (e) {VAL}  <algebraic> - Symbol for the irrational value of e; Epsilon base of natural log
+	e (e) {CON} '2217887688014775253706633418653155893774469751201/815915283247897734345611269596115894272000000000' >algebraic<  * - Epsilon base of natural log
+	Pi (pi) {VAL}  <algebraic> - Symbol for the irrational value of pi; Trigonometric ratio of circle diameter to perimeter
+	pi (pi) {CON} '21635435826223721014375660045008708443308032/6886773115381979726095656985041272208303935' >algebraic<  * - Symbol for the irrational value of pi
+	Sgn (sgn) {OP-7} - Sign SGN function value of parameter
+
+
+application (1 symbol):
+	Status (VERSION) {CON} '2021.1022' * - software development version
+
+
+arithmetic (7 symbols):
+	Fraction (#/#) {OP-8} - Arithmetic division operator (expressed as fraction)
+	Multiplication (*) {OP-8} '·' - Arithmetic multiplication operator
+	Addition (+) {OP-7} - Arithmetic addition operator
+	Subtraction (-) {OP-7} - Arithmetic (binary) subtraction or (unary) negate operator
+	Division (/) {OP-8} '÷' - Arithmetic division operator
+	Subtraction (MINUS) {OP-7} '-' - Arithmetic binary subtraction operator
+	Negate (NEGATE) {OP-8} '-' - Arithmetic unary negation operator
+
+
+calculus (12 symbols):
+	TrapQuad ($#) {OP-11} - Mark function call for Trapezoidal integral approximation
+	TrapAdjust ($%) {OP-11} - Mark function call for adjustment for brute force approximation
+	DCTQuad ($@) {OP-11} - Mark function call for Clenshaw-Curtis integral approximation
+	TSQuad ($|) {OP-11} - Mark function call for Tanh-Sinh integral approximation
+	Prime (') {OP-11} '?' - Mark function call for first derivative approximation
+	DPrime ('') {OP-11} '?' - Mark function call for second derivative approximation
+	IntegrationDelta (<*>) {OP-10} - Integral delta marker for presentation
+	Delta (<>) {OP-8} - Derivative approximation evaluated at left parameter using delta value in right parameter
+	Contour (INTEGRALC) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional contour integral notation
+	Integral (INTEGRALS) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional surface integral notation
+	Integral (INTEGRALV) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional volume integral notation
+	Interval (||) {OP-11} - Mark function call for interval evaluation
+
+chartoptions: MeshPlotEdgeSize=50;ContourPlotEdgeSize=400
+
+power (19 symbols):
+	Factorial (!) {OP-10} - Unary conventional factorial operator
+	DFactorial (!!) {OP-10} - Unary parity factorial operator
+	BC (##) {OP-10} - Binomial coefficient operator (n ## k)
+	Ffal (#/) {OP-9} - Binary Factorial falling operator
+	Rem (%) {OP-8} - Binary conventional remainder operator n%m; integer only
+	Exponentiation (**) {OP-9} - Binary conventional exponentiation operator x**y
+	Radical (*\) {OP-9} - Binary root operator (left [times root of] right)
+	Fris (/#) {OP-9} - Binary Factorial rising  operator
+	Poch (/#+) {OP-9} - Pochhammer rising operator
+	Lsh (<<) {OP-8} - Left shift operator
+	Rsh (>>) {OP-8} - Right shift operator
+	Bernoulli (BERNOULLI) {OP-10} - Bernoulli function B(m) for second (n=1) Bernoulli numbers
+	Harmonic (HARMONIC) {OP-10} - Harmonic function
+	Hypot (HYPOT) {FUN} - Distance in multi-dimensional space; SQRT of sum of squares of array elements
+	Root (\) {OP-9} - Binary root operator (left [root of] right)
+	Pow (^) {OP-9} - Binary conventional exponentiation operator x^n; intended for small integer exponents
+	Exp (exp) {OP-10} - Exponentiation (anti-log) operator
+	Log (ln) {OP-10} - Natural log function of complex value
+	Sqrt (sqrt) {OP-9} - Unary square root operator
+
+
+vector (21 symbols):
+	Indexing (#) {OP-12} - Array indexing operation implemented as a binary operator
+	Dot (.) {OP-10} '·' - Dot product of two arrays; lengths of arrays must match
+	Range (..) {OP-12} - Array range operation implemented as a binary operator
+	Append (APPEND) {FUN} - Append a series of arrays into one long array
+	Chebyshev (CHEBYSHEV) {FUN} - Apply Vandermonde matrix to solve for Chebyshev interpolation polynomial as curve of best fit
+	Dot (DOT) {FUN} - Dot product of two arrays; lengths of arrays must match
+	Dyadic (DYADIC) {FUN} - Compute dyadic product of 2 arrays
+	Fitexp (FITEXP) {FUN} - Apply non-linear (logarithmic) regression to find curve of best fit
+	Fitharmonic (FITHARMONIC) {FUN} - Apply harmonic series regression to find curve of best fit
+	Fitline (FITLINE) {FUN} - Apply least squares regression to find line of best fit
+	Fitpoly (FITPOLY) {FUN} - Apply Vandermonde matrix to solve for polynomial coefficients to find curve of best fit
+	Integral (INTEGRAL) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional integral notation
+	Interval (INTERVAL) {FUN} - Select sub-list of elements for interval lo-hi
+	Lagrange (LAGRANGE) {FUN} - Apply Lagrange series to derive interpolation polynomial as curve of best fit
+	Length (LENGTH) {FUN} - Length of an array treated as a unary function
+	Max (MAX) {FUN} - Maximum value found in array
+	Min (MIN) {FUN} - Minimum value found in array
+	Pearson (PEARSON) {FUN} - Compute Pearson regression coefficient for X/Y data set pair
+	Pi (PI) {FUN} '?' - Product of items of an array; traditional capital PI notation
+	Summation (SIGMA) {FUN} '?' - Sum of items of an array; traditional capital SIGMA notation
+	Summation (SUMMATION) {FUN} '?' - Sum of items of an array; summation functionality using SIGMA notation
+

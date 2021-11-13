@@ -1,0 +1,54 @@
+<JXR>
+
+
+	<!-- classes required for complex TrigPow algorithm implementation -->
+	<class called='CmplxLib' classpath='net.myorb.math.complexnumbers.ComplexLibrary' />
+	<class called='TrigPowPrim' package='Algorithms' name='TrigPowPrimitives' />
+	<class called='trigPow' classpath='net.myorb.math.TrigPowImplementation' />
+
+
+<!-- this refers to version coded in Java -->
+
+<!--
+
+	<SaveAs toBeCalled='algorithms'>
+		<evaluate class='CmplxLib' method='getTrigPowAlgorithms' using='environment' />
+	</SaveAs>
+
+  -->
+
+
+	<!--
+
+			TrigPowPrimitives provides algorithm for Trig-Pow
+					function evaluations and renders
+
+	  -->
+
+	<SaveAs toBeCalled='expressionManager'>
+		<!-- get space manager for complex library uses -->
+		<evaluate object='environment' method='getSpaceManager' />
+	</SaveAs>
+
+	<SaveAs toBeCalled='algorithms'>
+		<new class='TrigPowPrim'>
+			<referto object='environment' />
+			<new class='trigPow'>
+				<new class='CmplxLib'>
+					<evaluate
+						object='expressionManager'
+						method='getComponentManager'
+					 />
+					<referto object='expressionManager' />
+				</new>
+				<referto object='expressionManager' />
+			</new>
+		</new>
+	</SaveAs>
+
+	<!-- read script to generate symbols for trig operators -->
+	<READ path='cfg/TrigPowSyms.xml' using='algorithms trig symbolTable' />
+
+	<Export using='trigpow' />			<!-- export library object -->
+
+</JXR>

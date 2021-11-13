@@ -1,0 +1,70 @@
+<JXR>
+
+
+	<class called='CmplxLib' package='CalctoolsLibs' name='CmplxOps' />
+
+	<!-- get access to master object for complex operators/functions -->
+	<SaveAs toBeCalled='complex'> <new package='CalctoolsLibs' name='CmplxOps' /> </SaveAs>
+	<call object='complex' method='setName'> <string>complex</string> </call>
+
+	<common symbols='CmplxLib complex' />
+	
+
+	<!-- get access to implementation objects for complex operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new package='Algorithms' name='ComplexPrimitives' using='environment' /> </SaveAs>
+
+
+	<!-- create value object for the description of i -->
+	<SaveAs toBeCalled='i'> <new class='Value' using='complex'/> </SaveAs>
+	<bean references='i'> <text Description='Imaginary root of -1' Reference='I' Symbol='i' /> </bean>
+	<!-- named value object posted to symbol table / default for symbol i will be sqrt -1, alternately 0+!*1 -->
+	<macro symbolBean='i' path='cfg/ValueSymbol.xml' using='algorithms i symbolTable' />
+
+
+	<!-- create symbol operator objects  -->
+	<populate  class='Operator'  using='complex' 
+		toBeCalled='Real Imag Cmplx CmplxConj Conjugate CIS Arg Polar ModSq Abs'
+	 />
+
+	<!-- configure each operator with bean set operations -->
+	<bean references='Real'> <text Description='Real part of complex value' Reference='Re' Symbol='Re' />  <text RenderAs='&#x024C;' /> <set Precedence='10' /> </bean>
+	<bean references='Imag'> <text Description='Imaginary part of complex value' Reference='Im' Symbol='Im' />  <text RenderAs='&#x0249;' /> <set Precedence='10' /> </bean>
+	<bean references='Cmplx'> <text Description='Complex value (left + i * right) as a binary operator' Reference='Cmplx' Symbol='+!*' /> <set Precedence='10' /> </bean>
+	<bean references='CmplxConj'> <text Description='Complex value (left - i * right) as a binary operator' Reference='CmplxConj' Symbol='-!*' /> <set Precedence='10' /> </bean>
+	<bean references='Polar'> <text Description='Complex value (left * CIS right) as a binary (polar) operator' Reference='Polar' Symbol='@!#' /> <set Precedence='10' /> </bean>
+	<bean references='ModSq'> <text Description='Modulus (distance from origin) squared of parameter' Reference='ModSquared' Symbol='modSq' /> <set Precedence='10' /> </bean>
+	<bean references='Abs'> <text Description='Absolute value (distance from origin) of parameter' Reference='Abs' Symbol='abs' /> <set Precedence='10' /> </bean>
+	<bean references='CIS'> <text Description='Complex CIS (cos x + i * sin x) function operator' Reference='Cis' Symbol='cis' /> <set Precedence='10' /> </bean>
+	<bean references='Conjugate'> <text Description='Complex conjugate operator' Reference='Conj' Symbol='conj' /> <set Precedence='10' /> </bean>
+	<bean references='Arg'> <text Description='Phase angle of a complex value' Reference='Arg' Symbol='arg' /> <set Precedence='10' /> </bean>
+
+	<!-- invoke macro to generate operator symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' 
+			including='Real Imag Cmplx CmplxConj Conjugate CIS Arg Polar ModSq Abs' 
+	 />
+
+
+	<!-- TRIGONOMITRY -->
+
+	<READ path='cfg/CmplxTrigPow.xml' using='environment trig symbolTable' />
+	<READ path='cfg/CmplxTrigLib.xml' using='environment algorithms symbolTable' />
+
+
+	<!-- POWER FUNCTIONS -->
+
+	<!-- a new library for power operators/functions -->
+	<SaveAs toBeCalled='power'> <new class='CmplxLib' /> </SaveAs>
+	<call object='power' method='setName'>  <string>power</string>  </call>
+
+	<!-- get access to implementation objects for (generic) power operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new package='Algorithms' name='ComboPrimitives' using='environment' /> </SaveAs>
+
+	<!-- invoke macro to generate symbols for power operators -->
+	<macro symbolBean='power' path='cfg/PowerLib.xml' using='algorithms power symbolTable' />
+
+
+ 	<!-- export library objects -->
+	<Export using='complex trig trigpow htrig power' />
+
+
+</JXR>

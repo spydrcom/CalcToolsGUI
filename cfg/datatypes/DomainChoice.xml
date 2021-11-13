@@ -1,0 +1,24 @@
+<JXR>
+
+	<package called='config'>net.myorb.calctools.config</package>
+	<class called='Options' package='config' name='OptionList'/>
+	<class called='PopUp' package='config' name='OptionPopup'/>
+
+	<call class='Options' method='addOption'>
+	<string>Real Numbers</string> 
+	<string>cfg/datatypes/RealNumbers.xml</string> 
+	</call>
+
+	<call class='Options' method='addOption'>
+	<string>Factored Numbers</string> 
+	<string>cfg/datatypes/FactoredNumbers.xml</string> 
+	</call>
+
+	<call class='Options' method='addOption'>
+	<string>Imaginary Numbers</string> 
+	<string>cfg/datatypes/Complex.xml</string> 
+	</call>
+
+	<void> <new class='PopUp' /> </void>
+
+</JXR>

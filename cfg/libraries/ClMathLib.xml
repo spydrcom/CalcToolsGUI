@@ -1,0 +1,25 @@
+<JXR>
+
+	<!-- get access to master object for ClMath operators/functions -->
+	<void> <new  saveAs='clmath'  package='CalctoolsLibs' name='ClMath' /> </void>
+	<call object='clmath' method='setName'> <string>clmath</string> </call>
+	
+	<!-- create operator object for each symbol of that type -->
+	<void> <new  saveAs='EulerProduct'  class='Operator'  using='clmath' /> </void>
+
+	<!-- create function object for each symbol of that type using enumeration -->
+	<populate class='Function' using='clmath' toBeCalled='Exp Gamma Loggamma Incgamma' saveListAs='funcList' />
+
+	<!-- configure each operator/function with appropriate bean set operations -->
+	<bean references='Exp'> <text Description='Euler exponential function' Reference='Exp' Symbol='exp' /> </bean>
+	<bean references='Gamma'> <text Description='Lanczos Gamma function approximation' Reference='Gamma' Symbol='GAMMA' /> <text RenderAs='&#x0393;' /> <text Parameters='1000' /> </bean>
+	<bean references='EulerProduct'> <text Description='Euler Product function' Reference='EulerProduct' Symbol='ep' /> <set Precedence='10'/> <text Parameters='10000' /> </bean>
+	<bean references='Loggamma'> <text Description='Loggamma function' Reference='Loggamma' Symbol='loggamma' /> <text Parameters='1000' /> </bean>
+	<bean references='Incgamma'> <text Description='Incomplete Gamma function' Reference='IncompleteGamma' Symbol='gammainc' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='clmathselected' />
+	<macro symbolBean='EulerProduct' path='cfg/OperatorSymbol.xml' using='algorithms EulerProduct symbolTable' />
+
+	<Export using='clmath' />		<!-- export library object -->
+ 
+</JXR>

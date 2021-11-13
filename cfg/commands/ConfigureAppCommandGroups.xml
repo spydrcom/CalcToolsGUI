@@ -1,0 +1,18 @@
+<JXR>
+
+	<READ path='cfg/commands/ConfigureDeclarationCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigurePrimitiveCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureRenderCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigurePropertyCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureWorkspaceCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureSplineCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureScriptCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureTreeCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureMatrixCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigurePlotCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureDiffEqCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureFeatureCommands.xml' using='environment' />
+
+	<ExportAll />
+
+</JXR>

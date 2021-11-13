@@ -1,0 +1,29 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_tree' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_tree' method='setName'> <string>keywords-tree</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='ExpressionTree' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_tree' saveListAs='cmdList'
+		toBeCalled='Express SaveJson LoadJson'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Express'> <text Keyword='Express' /> </bean>
+	<bean references='SaveJson'> <text Keyword='SaveJson' /> </bean>
+	<bean references='LoadJson'> <text Keyword='LoadJson' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_tree' />
+
+</JXR>

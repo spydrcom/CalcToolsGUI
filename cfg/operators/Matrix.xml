@@ -1,0 +1,89 @@
+<JXR>
+
+
+	<!-- get access to master object for vector functions -->
+	<class called='MatrixLib' package='Algorithms' name='MatrixPrimitives' />
+	<void> <new saveAs='algorithms' class='MatrixLib' using='environment' /> </void>
+ 
+
+	<!-- create Function object for each symbol of that type -->
+	<void><new saveAs='matrix' package='CalctoolsLibs' name='ClMath' /></void>
+	<call object='matrix' method='setName'> <string>matrix</string> </call>
+
+	<void><new saveAs='matrix_access' package='CalctoolsLibs' name='ClMath' /></void>
+	<call object='matrix_access' method='setName'> <string>matrix-access</string> </call>
+
+	<void><new saveAs='matrix_arithmetic' package='CalctoolsLibs' name='ClMath' /></void>
+	<call object='matrix_arithmetic' method='setName'> <string>matrix-arithmetic</string> </call>
+
+	<void><new saveAs='matrix_linalg' package='CalctoolsLibs' name='ClMath' /></void>
+	<call object='matrix_linalg' method='setName'> <string>matrix-algebra</string> </call>
+
+
+	<populate class='Operator' using='matrix_access' saveListAs='opsList'
+			toBeCalled='Row Col Diag Tensor'
+	 />
+
+	<bean references='Row'> <text Description='Matrix indexing operation selecting row vector' Reference='Row' Symbol='-#' />  <set Precedence='10' /> </bean>
+	<bean references='Col'> <text Description='Matrix indexing operation selecting column vector' Reference='Col' Symbol='|#' />  <set Precedence='10' /> </bean>
+	<bean references='Diag'> <text Description='Matrix indexing operation selecting diag vector' Reference='Diag' Symbol='\#' />  <set Precedence='10' /> </bean>
+	<bean references='Tensor'> <text Description='Compute tensor product of two matrices' Reference='Tensor' Symbol='*^*' />  <set Precedence='10' /> </bean>
+
+	<!-- invoke macro to generate operator function and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='opsList'
+	 />
+
+
+	<populate class='Function' using='matrix' saveListAs='funcList'
+			toBeCalled='Trace Minor Adj Cofactor Comatrix Transpose'
+	 />
+	<populate class='Function' using='matrix_access' saveListAs='funcList_access'
+			toBeCalled='ROWF COLF Det Inv Augmented Triu Tril'
+	 />
+	<populate class='Function' using='matrix_arithmetic' saveListAs='funcList_arith'
+			toBeCalled='Add Mul Matrix Identity Characteristic'
+	 />
+	<populate class='Function' using='matrix_linalg' saveListAs='funcList_linalg'
+			toBeCalled='Eig Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
+	 />
+
+	<bean references='ROWF'> <text Description='Read row vector from matrix' Reference='Row' Symbol='ROW' /> </bean>
+	<bean references='COLF'> <text Description='Read column vector from matrix' Reference='Column' Symbol='COL' /> </bean>
+	<bean references='Add'> <text Description='Compute sum of two matrices' Reference='MatAdd' Symbol='MATADD' /> </bean>
+	<bean references='Mul'> <text Description='Compute product of two matrices' Reference='MatMul' Symbol='MATMUL' /> </bean>
+	<bean references='Matrix'> <text Description='Construct matrix from array with dimensions' Reference='Matrix' Symbol='MATRIX' /> </bean>
+	<bean references='Det'> <text Description='Compute determinant of matrix' Reference='Det' Symbol='DET' /> </bean>
+	<bean references='Trace'> <text Description='Compute trace of matrix' Reference='Trace' Symbol='TR' /> </bean>
+	<bean references='Inv'> <text Description='Compute inverse of matrix' Reference='Inv' Symbol='INV' /> </bean>
+	<bean references='Minor'> <text Description='Compute minor of matrix' Reference='Minor' Symbol='MINOR' /> </bean>
+	<bean references='Adj'> <text Description='Compute adjugate of matrix' Reference='Adj' Symbol='ADJ' /> </bean>
+	<bean references='Cofactor'> <text Description='Compute cofactor matrix from source' Reference='Cofactor' Symbol='COFACTOR' /> </bean>
+	<bean references='Comatrix'> <text Description='Compute comatrix matrix from source' Reference='Comatrix' Symbol='COMATRIX' /> </bean>
+	<bean references='Triu'> <text Description='Compute upper triangular matrix from source' Reference='Triu' Symbol='TRIU' /> </bean>
+	<bean references='Tril'> <text Description='Compute lower triangular matrix from source' Reference='Tril' Symbol='TRIL' /> </bean>
+	<bean references='Transpose'> <text Description='Compute transpose of matrix' Reference='Transpose' Symbol='TRANSPOSE' /> </bean>
+	<bean references='Eig'> <text Description='Compute Von Mises dominant eigen-pair' Reference='Eig' Symbol='EIG' /> </bean>
+	<bean references='Identity'> <text Description='Compute identity matrix with specified size' Reference='Identity' Symbol='IDENTITY' /> </bean>
+	<bean references='Vc31'> <text Description='Solve LUx=b using VC31LU to produce Chebyshev spline for function values' Reference='Vc31' Symbol='VC31' /> </bean>
+	<bean references='Characteristic'> <text Description='Compute characteristic polynomial for matrix' Reference='Characteristic' Symbol='CHARACTERISTIC' /> </bean>
+	<bean references='Luxb'> <text Description='matrix,Solve LUx=b general case from assignment array=LUXB(L;U;b)' Reference='Luxb' Symbol='LUXB' /> </bean>
+	<bean references='Gaussian'> <text Description='Solve linear equations with Gaussian elimination' Reference='Gaussian' Symbol='GAUSSIAN' /> </bean>
+	<bean references='Solve'> <text Description='Solve linear equations with column substitution' Reference='Solve' Symbol='SOLVE' /> </bean>
+	<bean references='Pivot'> <text Description='Reorder a vector to a specified pattern' Reference='Pivot' Symbol='PIVOT' /> </bean>
+	<bean references='Genknot'> <text Description='Construct a zero knot for odd or even functions' Reference='Genknot' Symbol='GENKNOT' /> </bean>
+	<bean references='Evalspline'> <text Description='Evaluate a VC31 spline function at specified parameter' Reference='Evalspline' Symbol='EVALSPLINE' /> </bean>
+	<bean references='Augmented'> <text Description='Construct augmented matrix from source matrix and additional column' Reference='Augmented' Symbol='AUGMENTED' /> </bean>
+	<bean references='Vanche'> <text Description='Construct Vandermonde matrix for a Chebyshev interpolation' Reference='Vanche' Symbol='VANCHE' /> </bean>
+
+	<!-- invoke macro to generate operator function and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList_access' />
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList_arith' />
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList_linalg' />
+
+
+	<Export using='matrix matrix_access matrix_arithmetic matrix_linalg' />
+
+
+</JXR>

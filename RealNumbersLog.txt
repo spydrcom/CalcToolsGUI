@@ -1,0 +1,382 @@
+
+Library: application
+Implementation of Real Numbers domain - net.myorb.math.libraries.DefaultLibrary
+net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib@6994abc2
+net.myorb.math.expressions.charting.implementations.JfreeChartLib@58501d9d
+Graphics parameter processing: MeshPlotEdgeSize=50; ContourPlotEdgeSize=400; 
+2021.1001
+
+Library: arithmetic
+NEGATE  (Negate)  to render as -
+MINUS  (Subtraction)  to render as -
+*  (Multiplication)  to render as ·
+/  (Division)  to render as ÷
+
+Library: algebraic
+Symbol Override Detected for 'e' from library 'algebraic' by instance in 'algebraic'
+Symbol Override Detected for 'pi' from library 'algebraic' by instance in 'algebraic'
+
+Library: boolean-logical
+
+Library: boolean-relational
+
+Library: calculus
+'  (Prime)  to render as ?
+''  (DPrime)  to render as ?
+INTEGRALC  (Contour)  to render as ?
+INTEGRALS  (Integral)  to render as ?
+INTEGRALV  (Integral)  to render as ?
+
+Library: vector
+.  (Dot)  to render as ·
+SIGMA  (Summation)  to render as ?
+INTEGRAL  (Integral)  to render as ?
+SUMMATION  (Summation)  to render as ?
+PI  (Pi)  to render as ?
+
+Library: matrix
+
+Library: matrix-access
+
+Library: matrix-arithmetic
+
+Library: matrix-algebra
+
+Library: power
+
+Library: trigpow
+
+Library: coltlib
+
+Library: clreal
+B  (BernoulliNumber)  to render as ?
+
+Library: clmath
+Symbol Override Detected for 'exp' from library 'power' by instance in 'clmath'
+GAMMA  (Gamma)  to render as ?
+Factorization Table Computation Starting, initialization complete
+10000 Factorizations Computed
+---
+Sieve Of Eratosthenes (DEFAULT) used for prime generation
+Algorithm TABLE SCAN will be used for prime range selection
+Total primes recognized 1229
+---
+5ms
+---
+Euler Product initialized, 1229 primes prepared as factors
+
+Library: mpmath
+Symbol Override Detected for 'loggamma' from library 'clmath' by instance in 'mpmath'
+
+Library: polynomial-computation
+
+Library: polynomial-evaluation
+
+Library: statistics
+
+******************************
+* Symbol Collection Compiled *
+******************************
+
+Algorithms: net.myorb.math.expressions.algorithms
+CalctoolsLibs: net.myorb.calctools.libraries
+CalctoolsSyms: net.myorb.calctools.symbols
+Charting: net.myorb.math.expressions.charting.implementations.JfreeChartLib
+ConfigMgrClass: net.myorb.math.expressions.algorithms.ConfigurationManager
+Constant: net.myorb.calctools.symbols.Constant
+CurrentVersion: 2021.1001
+DisplayGraphAtomic: net.myorb.math.expressions.charting.DisplayGraphAtomic
+Function: net.myorb.calctools.symbols.Function
+JREtrigPow: net.myorb.math.expressions.algorithms.TrigPowJREImpl
+MasterCfg: net.myorb.math.libraries.DefaultLibrary
+Operator: net.myorb.calctools.symbols.Operator
+PowerImplementation: net.myorb.math.expressions.algorithms.ComboPrimitives
+PrettyPrinter: net.myorb.math.expressions.PrettyPrinter
+Renderer: net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib
+TrigPow: net.myorb.math.expressions.algorithms.TrigPowPrimitives
+Value: net.myorb.calctools.symbols.Value
+
+algebraic (9 symbols):
+	PlusMinus (+|-) {OP-7} - Plus or Minus operator
+	MinusPlus (-|+) {OP-7} - Minus or Plus operator
+	INF (INFINITY) {CON} '10000' * - Approximation to use for infinity
+	Abs (abs) {OP-11} - ABS function value of parameter
+	E (e) {VAL}  <algebraic> - Symbol for the irrational value of e; Epsilon base of natural log
+	e (e) {CON} '2.718281828459' >algebraic<  * - Epsilon base of natural log
+	Pi (pi) {VAL}  <algebraic> - Symbol for the irrational value of pi; Trigonometric ratio of circle diameter to perimeter
+	pi (pi) {CON} '3.141592653589793' >algebraic<  * - Symbol for the irrational value of pi
+	Sgn (sgn) {OP-7} - Sign SGN function value of parameter
+
+
+application (1 symbol):
+	Status (VERSION) {CON} '2021.1001' * - software development version
+
+
+arithmetic (7 symbols):
+	Fraction (#/#) {OP-8} - Arithmetic division operator (expressed as fraction)
+	Multiplication (*) {OP-8} '·' - Arithmetic multiplication operator
+	Addition (+) {OP-7} - Arithmetic addition operator
+	Subtraction (-) {OP-7} - Arithmetic (binary) subtraction or (unary) negate operator
+	Division (/) {OP-8} '÷' - Arithmetic division operator
+	Subtraction (MINUS) {OP-7} '-' - Arithmetic binary subtraction operator
+	Negate (NEGATE) {OP-8} '-' - Arithmetic unary negation operator
+
+
+boolean_logical (15 symbols):
+	And (&) {OP-10} - Logical AND
+	Choose (:) {OP-7} - Choice based on condition code
+	ImpliedBy (<<=) {OP-10} - Logical implied by
+	Implies (=>>) {OP-10} - Logical implies
+	ConditionCode (?) {OP-10} - Logical condition code set
+	False (FALSE) {VAL} - Logical FALSE
+	True (TRUE) {VAL} - Logical TRUE
+	Or (|) {OP-10} - Logical OR
+	Xor (|~) {OP-10} - Logical XOR
+	Not (~) {OP-10} - Logical NOT
+	Nand (~&) {OP-10} - Logical NAND
+	NimpliedBy (~<<=) {OP-10} - Logical NOT implied by
+	Nimplies (~=>>) {OP-10} - Logical NOT implies
+	Nor (~|) {OP-10} - Logical NOR
+	Nxor (~|~) {OP-10} - Logical NOT XOR
+
+
+boolean_relational (8 symbols):
+	Lt (<) {OP-9} - Less than
+	Le (<=) {OP-9} - Less than or equal to
+	LtAbs (<||) {OP-9} - Less than absolute value of
+	Eq (==) {OP-9} - Equal to
+	Gt (>) {OP-9} - Greater than
+	Ge (>=) {OP-9} - Greater than or equal to
+	GtAbs (>||) {OP-9} - Greater than absolute value of
+	Ne (~=) {OP-9} - Not equal to
+
+
+calculus (12 symbols):
+	TrapQuad ($#) {OP-11} - Mark function call for Trapezoidal integral approximation
+	TrapAdjust ($%) {OP-11} - Mark function call for adjustment for brute force approximation
+	DCTQuad ($@) {OP-11} - Mark function call for Clenshaw-Curtis integral approximation
+	TSQuad ($|) {OP-11} - Mark function call for Tanh-Sinh integral approximation
+	Prime (') {OP-11} '?' - Mark function call for first derivative approximation
+	DPrime ('') {OP-11} '?' - Mark function call for second derivative approximation
+	IntegrationDelta (<*>) {OP-10} - Integral delta marker for presentation
+	Delta (<>) {OP-8} - Derivative approximation evaluated at left parameter using delta value in right parameter
+	Contour (INTEGRALC) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional contour integral notation
+	Integral (INTEGRALS) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional surface integral notation
+	Integral (INTEGRALV) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional volume integral notation
+	Interval (||) {OP-11} - Mark function call for interval evaluation
+
+chartoptions: MeshPlotEdgeSize=50;ContourPlotEdgeSize=400
+
+clmath (5 symbols):
+	Gamma (GAMMA) {FUN} '?' - Lanczos Gamma function approximation
+	EulerProduct (ep) {OP-10} - Euler Product function
+	Exp (exp) {FUN}  >power< - Euler exponential function
+	IncompleteGamma (gammainc) {FUN} - Incomplete Gamma function
+	Loggamma (loggamma) {FUN}  <mpmath> - Loggamma function
+
+clmathselected: Exp Gamma Loggamma Incgamma
+
+clreal (7 symbols):
+	AiryAi (Ai) {FUN} - Airy Ai function
+	BernoulliNumber (B) {OP-10} '?' - Bernoulli Number
+	AiryBi (Bi) {FUN} - Airy Bi function
+	E1Integral (E1) {OP-10} - E1 Exponential Integral
+	ExponentialIntegral (Ei) {OP-10} - Exponential Integral
+	Bessel (Jp) {OP-10} - Bessel Jp
+	LogarithmicIntegral (li) {OP-10} - Logarithmic Integral
+
+
+coltlib (10 symbols):
+	I0 (I0) {FUN} - Bessel I0 function
+	I0e (I0e) {FUN} - Bessel I0e function
+	I1 (I1) {FUN} - Bessel I1 function
+	I1e (I1e) {FUN} - Bessel I1e function
+	J0 (J0) {FUN} - Bessel J0 function
+	Jn (Jn) {FUN} - Bessel Jn function
+	K0 (K0) {FUN} - Bessel K0 function
+	Kn (Kn) {FUN} - Bessel Kn function
+	Y0 (Y0) {FUN} - Bessel Y0 function
+	Yn (Yn) {FUN} - Bessel Yn function
+
+coltlibselected: I0 I0e I1 I1e J0 K0 Y0 Jn Kn Yn
+
+matrix (6 symbols):
+	Adj (ADJ) {FUN} - Compute adjugate of matrix
+	Cofactor (COFACTOR) {FUN} - Compute cofactor matrix from source
+	Comatrix (COMATRIX) {FUN} - Compute comatrix matrix from source
+	Minor (MINOR) {FUN} - Compute minor of matrix
+	Trace (TR) {FUN} - Compute trace of matrix
+	Transpose (TRANSPOSE) {FUN} - Compute transpose of matrix
+
+
+matrix_access (11 symbols):
+	Tensor (*^*) {OP-10} - Compute tensor product of two matrices
+	Row (-#) {OP-10} - Matrix indexing operation selecting row vector
+	Augmented (AUGMENTED) {FUN} - Construct augmented matrix from source matrix and additional column
+	Column (COL) {FUN} - Read column vector from matrix
+	Det (DET) {FUN} - Compute determinant of matrix
+	Inv (INV) {FUN} - Compute inverse of matrix
+	Row (ROW) {FUN} - Read row vector from matrix
+	Tril (TRIL) {FUN} - Compute lower triangular matrix from source
+	Triu (TRIU) {FUN} - Compute upper triangular matrix from source
+	Diag (\#) {OP-10} - Matrix indexing operation selecting diag vector
+	Col (|#) {OP-10} - Matrix indexing operation selecting column vector
+
+
+matrix_arithmetic (5 symbols):
+	Characteristic (CHARACTERISTIC) {FUN} - Compute characteristic polynomial for matrix
+	Identity (IDENTITY) {FUN} - Compute identity matrix with specified size
+	MatAdd (MATADD) {FUN} - Compute sum of two matrices
+	MatMul (MATMUL) {FUN} - Compute product of two matrices
+	Matrix (MATRIX) {FUN} - Construct matrix from array with dimensions
+
+
+matrix_linalg (9 symbols):
+	Eig (EIG) {FUN} - Compute Von Mises dominant eigen-pair
+	Evalspline (EVALSPLINE) {FUN} - Evaluate a VC31 spline function at specified parameter
+	Gaussian (GAUSSIAN) {FUN} - Solve linear equations with Gaussian elimination
+	Genknot (GENKNOT) {FUN} - Construct a zero knot for odd or even functions
+	Luxb (LUXB) {FUN} - matrix,Solve LUx=b general case from assignment array=LUXB(L;U;b)
+	Pivot (PIVOT) {FUN} - Reorder a vector to a specified pattern
+	Solve (SOLVE) {FUN} - Solve linear equations with column substitution
+	Vanche (VANCHE) {FUN} - Construct Vandermonde matrix for a Chebyshev interpolation
+	Vc31 (VC31) {FUN} - Solve LUx=b using VC31LU to produce Chebyshev spline for function values
+
+
+mpmath (10 symbols):
+	SiegelTheta (Theta) {OP-10} - Siegel THETA
+	Corless (cp) {FUN} - Corless function
+	Digamma (digamma) {OP-10} - Digamma
+	Lambda (lambda) {OP-10} - Mangoldt Lambda
+	Loggamma (loggamma) {OP-10}  >clmath< - Loggamma
+	Psi (mangoldt) {OP-10} - Mangoldt Psi
+	LambertW (omega) {FUN} - Lambert Omega function
+	Polygamma (polygamma) {FUN} - Polygamma function
+	Polylog (polylog) {FUN} - Jonquiere Polylog function
+	Trigamma (trigamma) {OP-10} - Trigamma
+
+mpmathselected: Corless Omega Polylog Polygamma
+
+polynomial_computation (13 symbols):
+	ArrayDer (ARRAYDER) {FUN} - Compute derivative of function described by array
+	ArrayInt (ARRAYINT) {FUN} - Compute integral of function described by array
+	ChebDer (CHEBDER) {FUN} - Compute derivative of Chebyshev T polynomial
+	ChebInterp (CHEBINTERP) {FUN} - Generate Chebyshev interpolation polynomial for function described by array
+	ClenQuad (CLENQUAD) {FUN} - Compute integral of function described by Chebyshev polynomial
+	Conv (CONV) {FUN} - Compute product of polynomials
+	Deconv (DECONV) {FUN} - Compute quotient of polynomials
+	GaussQuad (GAUSSQUAD) {FUN} - Apply Gauss Quadrature to build an integral of an interpolated Lagrange polynomial
+	Interpolate (INTERPOLATE) {FUN} - Generate Lagrange interpolation polynomial for function described by array
+	PolyDer (POLYDER) {FUN} - Compute derivative of polynomial
+	PolyHg (POLYHG) {FUN} - Compute coefficients of hyper geometric polynomial
+	PolyInt (POLYINT) {FUN} - Compute integral of polynomial
+	Roots (ROOTS) {FUN} - Compute roots of polynomial
+
+
+polynomial_evaluation (9 symbols):
+	ExpEval (*^#) {OP-10} - Evaluate an exponential ( a * exp (b * x) ) defined by an array containing (a : b)
+	HarEval (+#*) {OP-10} - Evaluate a harmonic series defined by an array of coefficients ( c0 + c1*cos(x) + c2*cos(2x) + ... )
+	PolyEval (+*^) {OP-10} - Evaluate a polynomial defined by an array of coefficients ( c0 + c1*x + c2*x^2 + ... )
+	PolyPrime (+*^') {OP-10} - Evaluate a polynomial derivative defined by an array of coefficients ( c0 + c1*x + c2*x^2 + ... )
+	PolyDprime (+*^'') {OP-10} - Evaluate a polynomial second derivative defined by an array of coefficients ( c0 + c1*x + c2*x^2 + ... )
+	ArrayEval (@#) {OP-10} - Evaluate function defined by array at X
+	ClenshawEval (@*^) {OP-10} - Evaluate a Chebyshev polynomial using Clenshaw's special case defined by an array of coefficients ( c0 + c1*T[1](x) + c2*T[2](x) + ... )
+	ClenshawPrime (@*^') {OP-10} - Evaluate a Chebyshev polynomial derivative using Clenshaw's special case defined by an array of coefficients,ClenshawPrime
+	ClenshawDprime (@*^'') {OP-10} - Evaluate a Chebyshev polynomial second derivative using Clenshaw's special case defined by an array of coefficients
+
+
+power (19 symbols):
+	Factorial (!) {OP-10} - Unary conventional factorial operator
+	DFactorial (!!) {OP-10} - Unary parity factorial operator
+	BC (##) {OP-10} - Binomial coefficient operator (n ## k)
+	Ffal (#/) {OP-9} - Binary Factorial falling operator
+	Rem (%) {OP-8} - Binary conventional remainder operator n%m; integer only
+	Exponentiation (**) {OP-9} - Binary conventional exponentiation operator x**y
+	Radical (*\) {OP-9} - Binary root operator (left [times root of] right)
+	Fris (/#) {OP-9} - Binary Factorial rising  operator
+	Poch (/#+) {OP-9} - Pochhammer rising operator
+	Lsh (<<) {OP-8} - Left shift operator
+	Rsh (>>) {OP-8} - Right shift operator
+	Bernoulli (BERNOULLI) {OP-10} - Bernoulli function B(m) for second (n=1) Bernoulli numbers
+	Harmonic (HARMONIC) {OP-10} - Harmonic function
+	Hypot (HYPOT) {FUN} - Distance in multi-dimensional space; SQRT of sum of squares of array elements
+	Root (\) {OP-9} - Binary root operator (left [root of] right)
+	Pow (^) {OP-9} - Binary conventional exponentiation operator x^n; intended for small integer exponents
+	Exp (exp) {OP-10}  <clmath> - Exponentiation (anti-log) operator
+	Log (ln) {OP-10} - Natural log function of complex value
+	Sqrt (sqrt) {OP-9} - Unary square root operator
+
+
+statistics (6 symbols):
+	Cov (COV) {FUN} - Computed co-variance of an array of values
+	Mean (MEAN) {FUN} - Mean of an array of values
+	Median (MEDIAN) {FUN} - Median of an array of values
+	Mode (Mode) {FUN} - Mode of an array of values
+	StdDev (STDEV) {FUN} - Standard deviation of an array of values
+	Var (VAR) {FUN} - Computed variance of an array of values
+
+
+trigpow (38 symbols):
+	TrigPow (acos) {OP-10} - ARC Cosine Operator
+	TrigPow (acot) {OP-10} - ARC Cotangent Operator
+	TrigPow (acsc) {OP-10} - ARC Cosecant Operator
+	TrigPow (arcosh) {OP-10} - ARC Hyperbolic Cosine Operator
+	TrigPow (arcoth) {OP-10} - ARC Hyperbolic Cotangent Operator
+	TrigPow (arcsch) {OP-10} - ARC Hyperbolic Cosecant Operator
+	TrigPow (arsech) {OP-10} - ARC Hyperbolic Secant Operator
+	TrigPow (arsinh) {OP-10} - ARC Hyperbolic Sine Operator
+	TrigPow (artanh) {OP-10} - ARC Hyperbolic Tangent Operator
+	TrigPow (asec) {OP-10} - ARC Secant Operator
+	TrigPow (asin) {OP-10} - ARC Sine Operator
+	TrigPow (atan) {OP-10} - ARC Tangent Operator
+	TrigPow (cos) {OP-10} - Cosine Operator
+	TrigPow (cosCb) {OP-10} - Cosine Cubed Operator
+	TrigPow (cosSq) {OP-10} - Cosine Squared Operator
+	TrigPow (cosh) {OP-10} - Hyperbolic Cosine Operator
+	TrigPow (cot) {OP-10} - Cotangent Operator
+	TrigPow (cotCb) {OP-10} - Cotangent Cubed Operator
+	TrigPow (cotSq) {OP-10} - Cotangent Squared Operator
+	TrigPow (coth) {OP-10} - Hyperbolic Cotangent Operator
+	TrigPow (csc) {OP-10} - Cosecant Operator
+	TrigPow (cscCb) {OP-10} - Cosecant Cubed Operator
+	TrigPow (cscSq) {OP-10} - Cosecant Squared Operator
+	TrigPow (csch) {OP-10} - Hyperbolic Cosecant Operator
+	TrigPow (cschSq) {OP-10} - Hyperbolic Cosecant Squared Operator
+	TrigPow (sec) {OP-10} - Secant Operator
+	TrigPow (secCb) {OP-10} - Secant Cubed Operator
+	TrigPow (secSq) {OP-10} - Secant Squared Operator
+	TrigPow (sech) {OP-10} - Hyperbolic Secant Operator
+	TrigPow (sechSq) {OP-10} - Hyperbolic Secant Squared Operator
+	TrigPow (sin) {OP-10} - Sine Operator
+	TrigPow (sinCb) {OP-10} - Sine Cubed Operator
+	TrigPow (sinSq) {OP-10} - Sine Squared Operator
+	TrigPow (sinh) {OP-10} - Hyperbolic Sine Operator
+	TrigPow (tan) {OP-10} - Tangent Operator
+	TrigPow (tanCb) {OP-10} - Tangent Cubed Operator
+	TrigPow (tanSq) {OP-10} - Tangent Squared Operator
+	TrigPow (tanh) {OP-10} - Hyperbolic Tangent Operator
+
+
+vector (21 symbols):
+	Indexing (#) {OP-12} - Array indexing operation implemented as a binary operator
+	Dot (.) {OP-10} '·' - Dot product of two arrays; lengths of arrays must match
+	Range (..) {OP-12} - Array range operation implemented as a binary operator
+	Append (APPEND) {FUN} - Append a series of arrays into one long array
+	Chebyshev (CHEBYSHEV) {FUN} - Apply Vandermonde matrix to solve for Chebyshev interpolation polynomial as curve of best fit
+	Dot (DOT) {FUN} - Dot product of two arrays; lengths of arrays must match
+	Dyadic (DYADIC) {FUN} - Compute dyadic product of 2 arrays
+	Fitexp (FITEXP) {FUN} - Apply non-linear (logarithmic) regression to find curve of best fit
+	Fitharmonic (FITHARMONIC) {FUN} - Apply harmonic series regression to find curve of best fit
+	Fitline (FITLINE) {FUN} - Apply least squares regression to find line of best fit
+	Fitpoly (FITPOLY) {FUN} - Apply Vandermonde matrix to solve for polynomial coefficients to find curve of best fit
+	Integral (INTEGRAL) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional integral notation
+	Interval (INTERVAL) {FUN} - Select sub-list of elements for interval lo-hi
+	Lagrange (LAGRANGE) {FUN} - Apply Lagrange series to derive interpolation polynomial as curve of best fit
+	Length (LENGTH) {FUN} - Length of an array treated as a unary function
+	Max (MAX) {FUN} - Maximum value found in array
+	Min (MIN) {FUN} - Minimum value found in array
+	Pearson (PEARSON) {FUN} - Compute Pearson regression coefficient for X/Y data set pair
+	Pi (PI) {FUN} '?' - Product of items of an array; traditional capital PI notation
+	Summation (SIGMA) {FUN} '?' - Sum of items of an array; traditional capital SIGMA notation
+	Summation (SUMMATION) {FUN} '?' - Sum of items of an array; summation functionality using SIGMA notation
+

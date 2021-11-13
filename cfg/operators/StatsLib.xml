@@ -1,0 +1,34 @@
+<JXR>
+
+
+	<!-- get access to master object for statistics operators -->
+	<void><new saveAs='statistics' package='CalctoolsLibs' name='Algebra' /></void>
+	<call object='statistics' method='setName'> <string>statistics</string> </call>
+
+
+	<!-- get access to implementation objects for complex operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new package='Algorithms' name='StatisticsPrimitives' using='environment' /> </SaveAs>
+
+
+	<!-- create function object for each symbol -->
+	<populate class='Function' using='statistics' saveListAs='funcList'
+		toBeCalled='Mean Median StdDev Cov Var Mode'
+	 />
+
+	<bean references='Mean'> <text Description='Mean of an array of values' Reference='Mean' Symbol='MEAN' /> </bean>
+	<bean references='Median'> <text Description='Median of an array of values' Reference='Median' Symbol='MEDIAN' /> </bean>
+	<bean references='StdDev'> <text Description='Standard deviation of an array of values' Reference='StdDev' Symbol='STDEV' /> </bean>
+	<bean references='Cov'> <text Description='Computed co-variance of an array of values' Reference='Cov' Symbol='COV' /> </bean>
+	<bean references='Var'> <text Description='Computed variance of an array of values' Reference='Var' Symbol='VAR' /> </bean>
+	<bean references='Mode'> <text Description='Mode of an array of values' Reference='Mode' Symbol='Mode' /> </bean>
+
+	<!-- invoke macro to generate operator function and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='funcList'
+	 />
+
+
+	<Export using='statistics' />			<!-- export library objects -->
+
+
+</JXR>

@@ -1,0 +1,94 @@
+<JXR>
+
+
+	<class called='FactoredConstant' package='CalctoolsSyms' name='FactoredConstant'/>
+
+	<SaveAs toBeCalled='VpiF'>	<!-- value of PI to 20 decimal digits expressed as integer fraction -->
+	<string>21635435826223721014375660045008708443308032/6886773115381979726095656985041272208303935</string>
+	</SaveAs>
+	
+	<SaveAs toBeCalled='VeF'>	<!-- value of e to 20 decimal digits expressed as integer fraction -->
+	<string>2217887688014775253706633418653155893774469751201/815915283247897734345611269596115894272000000000</string>
+	</SaveAs>
+
+
+	<!-- get access to master object for algebraic operators -->
+	<void><new saveAs='algebraic' package='CalctoolsLibs' name='Algebra' /></void>
+	<call object='algebraic' method='setName'> <string>algebraic</string> </call>
+
+
+	<SaveAs toBeCalled='algorithms'>
+		<!-- get access to object holding operator algorithms -->
+		<evaluate object='algebraic' method='getAlgorithms'> <referto objectCalled='environment' /> </evaluate>
+	</SaveAs>
+
+
+	<!-- create value objects  -->
+	<populate class='Value' using='algebraic' toBeCalled='e Pi' saveListAs='valuesList' />
+
+	<!-- create value object for the description of e -->
+	<bean references='e'> <text Description='Symbol for the irrational value of e; Epsilon base of natural log' Reference='E' Symbol='e' /> </bean>
+
+	<!-- create value object for the description of pi -->
+	<bean references='Pi'> <text Description='Symbol for the irrational value of pi; Trigonometric ratio of circle diameter to perimeter' Reference='Pi' Symbol='pi' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/ValueSymbol.xml' using='algorithms symbolTable' inclusionList='valuesList' />
+
+
+	<SaveAs toBeCalled='Vinf'> <string>10000</string> </SaveAs>
+	<SaveAs toBeCalled='inf'> <new class='Constant' using='algebraic'/> </SaveAs>
+	<SaveAs toBeCalled='e'> <new class='FactoredConstant' using='algebraic'/> </SaveAs>
+	<SaveAs toBeCalled='pi'> <new class='FactoredConstant' using='algebraic'/> </SaveAs>
+
+	<bean references='e'> <text Description='Epsilon base of natural log' Reference='e' Symbol='e' /> <set SpecifiedValue='VeF' /> </bean>
+	<bean references='pi'> <text Description='Symbol for the irrational value of pi' Reference='pi' Symbol='pi' /> <set SpecifiedValue='VpiF' /> </bean>
+	<bean references='inf'> <text Description='Approximation to use for infinity' Reference='INF' Symbol='INFINITY' /> <set SpecifiedValue='Vinf' /> </bean>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='e' method='getCompiledValue' using='environment'/>
+		<evaluate object='e' method='getDescription'/>
+	</call>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='pi' method='getCompiledValue' using='environment'/>
+		<evaluate object='pi' method='getDescription'/>
+	</call>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='inf' method='getCompiledValue' using='environment'/>
+		<evaluate object='inf' method='getDescription'/>
+	</call>
+
+
+	<!-- create operator object for each operation symbol -->
+	<populate class='Operator' using='algebraic' toBeCalled='PlusOrMinus MinusOrPlus Sgn Abs' saveListAs='opsList' />
+	
+	<bean references='PlusOrMinus'> <text Description='Plus or Minus operator' Reference='PlusMinus' Symbol='+|-' /> <set Precedence='7' /> </bean>
+	<bean references='MinusOrPlus'> <text Description='Minus or Plus operator' Reference='MinusPlus' Symbol='-|+' /> <set Precedence='7' /> </bean>
+	<bean references='Sgn'> <text Description='Sign SGN function value of parameter' Reference='Sgn' Symbol='sgn' /> <set Precedence='7' /> </bean>
+	<bean references='Abs'> <text Description='ABS function value of parameter' Reference='Abs' Symbol='abs' /> <set Precedence='11' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
+
+
+	<SaveAs toBeCalled='algorithms'>
+		<new package='Algorithms' name='FactorizationPrimitives' using='environment' />
+	</SaveAs>
+
+
+	<!-- create function object for each operation symbol -->
+	<populate class='Function' using='algebraic' toBeCalled='Fudge Factors Primes Gcf Lcm' saveListAs='funcList' />
+
+	<bean references='Fudge'> <text Description='Adjust blob factor to reduce representation size' Reference='Fudge' Symbol='FUDGE' /> </bean>
+	<bean references='Factors'> <text Description='Get an array of all prime factors of the parameter' Reference='Factors' Symbol='FACTORS' /> </bean>
+	<bean references='Primes'> <text Description='Get an array of all primes less than parameter' Reference='Primes' Symbol='PRIMES' /> </bean>
+	<bean references='Gcf'> <text Description='Greatest common factor of two integers' Reference='Gcf' Symbol='gcf' /> </bean>
+	<bean references='Lcm'> <text Description='Least common multiple of two integers' Reference='Lcm' Symbol='lcm' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
+
+
+	<Export using='algebraic' />		<!-- export library object -->
+
+
+</JXR>

@@ -1,0 +1,32 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_properties' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_properties' method='setName'> <string>keywords-properties</string> </call>
+	<call object='commands_properties' method='setSuffix'> <string>Command</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='PropertyManagement' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_properties' saveListAs='cmdList'
+		toBeCalled='Pset Pdel Pclr Pload Psave'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Pset'> <text Keyword='Pset' /> </bean>
+	<bean references='Pdel'> <text Keyword='Pdel' /> </bean>
+	<bean references='Pclr'> <text Keyword='Pclr' /> </bean>
+	<bean references='Pload'> <text Keyword='Pload' /> </bean>
+	<bean references='Psave'> <text Keyword='Psave' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_properties' />
+
+</JXR>

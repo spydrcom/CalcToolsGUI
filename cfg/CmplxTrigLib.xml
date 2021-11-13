@@ -1,0 +1,29 @@
+<JXR>
+
+	<!-- basic/common trig functions -->
+	<SaveAs toBeCalled='trig'> <new class='CmplxLib'/> </SaveAs>
+	<call object='trig' method='setName'> <string>trig</string> </call>
+
+	<!-- invoke macro to generate symbols for trig operators -->
+	<!-- NOTE:  algorithms are taken from cmplxImp (ComplexPrimitives) as are other complex operators -->
+	<macro symbolBean='trig' path='cfg/TrigLib.xml' using='algorithms trig symbolTable' />
+
+	<!-- hyperbolic trig functions -->
+	<SaveAs toBeCalled='htrig'> <new saveAs='htrig' class='CmplxLib' /> </SaveAs>
+	<call object='htrig' method='setName'> <string>htrig</string> </call>
+	<macro symbolBean='htrig' path='cfg/HTrigLib.xml' using='algorithms htrig symbolTable' />
+
+	<!-- extended trig lib functions -->
+	<class called='trigIds' classpath='net.myorb.math.TrigIdentities' />
+	<class called='trigImp' package='Algorithms' name='TrigPrimitives' />
+
+	<SaveAs toBeCalled='spaceManager'> <evaluate object='environment' method='getSpaceManager' /> </SaveAs>
+	<SaveAs toBeCalled='trigLib'> <new class='trigIds' using='spaceManager' /> </SaveAs>
+
+	<!-- get access to implementation objects for complex trig operators/functions -->
+	<SaveAs toBeCalled='algorithms'> <new class='trigImp' using='environment trigLib' /> </SaveAs>
+	<macro symbolBean='trig' path='cfg/ExtTrigLib.xml' using='algorithms trig symbolTable' />
+
+	<Export using='trig htrig' />
+
+</JXR>

@@ -1,0 +1,124 @@
+<JXR>
+
+
+	<SaveAs toBeCalled='CurrentVersion'>
+	<string>2021.1201</string>
+	</SaveAs>
+
+
+	<SaveAs toBeCalled='FactorTableSize'>
+	<string>5000000</string>
+	</SaveAs>
+
+
+<!--
+	<READ path='cfg/EstablishCommonSymbols.xml' />
+-->
+
+
+	<!-- construct library for complex number manipulation -->
+	<class called='MasterCfg' classpath='net.myorb.math.libraries.FactorizationLibrary'/>
+	<void><new saveAs='factorCfg' class='MasterCfg'/></void>
+	<call object='factorCfg' method='configure'>
+	<referto objectCalled='FactorTableSize'/>
+	</call>
+
+
+	<!-- instance of ConfigurationManager holding symbol table and environment objects -->
+	<SaveAs toBeCalled='cfgMgr'> <new package='Algorithms' name='ConfigurationManager' /> </SaveAs>
+
+	<!-- get symbols and environment -->
+	<bean references='cfgMgr'> <set LibraryCollector='factorCfg' />
+		<get symbolTable='SymbolMap' environment='Environment' />
+	</bean>
+
+
+	<!--
+			identify objects for plots and renders
+	  -->
+
+	<SaveAs toBeCalled='chartoptions' > <string>MeshPlotEdgeSize=50;ContourPlotEdgeSize=400</string> </SaveAs>
+
+	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.JfreeChartLib'/>
+	<class called='Renderer' classpath='net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib'/>
+
+
+	<!-- identify charting library -->
+	<class called='DisplayGraphAtomic' classpath='net.myorb.math.expressions.charting.DisplayGraphAtomic'/>
+	<call class='DisplayGraphAtomic' method='setActiveChartLibrary'> <new saveAs='charting' class='Charting'/> </call>
+
+
+	<!-- identify rendering object -->
+	<class called='PrettyPrinter' classpath='net.myorb.math.expressions.PrettyPrinter'/>
+	<call class='PrettyPrinter' method='setMathMarkupRenderer'> <new saveAs='renderer' class='Renderer'/> </call>
+
+
+	<!--
+			describe the application
+	  -->
+
+
+	<SaveAs toBeCalled='application'> <new package='CalctoolsLibs' name='CmplxOps'/> </SaveAs>
+	<call object='application' method='setName'> <string>application</string> </call>
+
+	<call object='application' method='connectedTo' varying='T' using='factorCfg renderer charting' />
+	<call object='cfgMgr' method='processGraphicsParameters' using='chartoptions' />
+	<call object='application' method='connect' using='CurrentVersion' />
+
+
+	<!--
+			add all desired commands into keyword map
+	  -->
+
+
+	<READ path='cfg/commands/ConfigureCommands.xml' using='environment' />
+	<READ path='cfg/commands/ConfigureAppCommandGroups.xml' using='environment' />
+	<READ path='cfg/commands/ConfiguredFactoredCommands.xml' using='environment' />
+
+
+	<!--
+			provide software version information
+	  -->
+
+	<SaveAs toBeCalled='version'> <new class='Constant' using='application'/> </SaveAs>
+
+	<bean references='version'>
+		<text Description='software development version' Reference='Status' Symbol='VERSION' />
+		<set SpecifiedValue='CurrentVersion' />
+	</bean>
+
+	<call object='symbolTable' method='add'>
+		<evaluate object='version' method='getCompiledValue' using='environment'/>
+		<evaluate object='version' method='getDescription'/>
+	</call>
+
+
+	<!--
+			add all desired operator library symbols
+	  -->
+
+	<!-- configure common generic operators -->
+	<READ path='cfg/operators/GenericLibs.xml' using='environment symbolTable' />
+
+	<!-- configure algebraic operators -->
+	<READ path='cfg/libraries/FactoredAlgebraLib.xml' using='environment symbolTable' />
+
+
+	<!-- POWER FUNCTIONS -->
+
+	<class called='PowerImplementation' package='Algorithms' name='ComboPrimitives' />
+	<!-- get access to implementation objects for (generic) power operators/functions -->
+	<SaveAs toBeCalled='algorithms' > <new class='PowerImplementation' using='environment' /> </SaveAs>
+
+	<!-- read script to generate symbols for power operators -->
+	<SaveAs toBeCalled='power' > <new package='CalctoolsLibs' name='RealOps' /> </SaveAs>
+	<call object='power' method='setName'>  <string>power</string>  </call>
+	<READ path='cfg/PowerLib.xml' using='algorithms power symbolTable' />
+
+
+	<ExportAll />		<!-- export for display-->
+
+	<tabulate />
+
+
+</JXR>

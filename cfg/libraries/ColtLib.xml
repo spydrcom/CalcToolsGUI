@@ -1,0 +1,33 @@
+<JXR>
+
+
+	<!-- get access to master object for Colt functions -->
+	<SaveAs toBeCalled='coltlib'> <new package='CalctoolsLibs' name='ColtLib' /> </SaveAs>
+	<call object='coltlib' method='setName'> <string>coltlib</string> </call>
+
+	<!-- get access to implementation objects for ColtLib functions -->
+	<SaveAs toBeCalled='algorithms'> <new classpath='net.myorb.external.coltlib.RealColtLibPrimitives' /> </SaveAs>
+
+	<populate  class='Function'  using='coltlib' 
+		toBeCalled='I0 I0e I1 I1e J0 K0 Y0 Jn Kn Yn'
+	 />
+
+	<bean references='I0'> <text Description='Bessel I0 function' Reference='I0' Symbol='I0' /> </bean>
+	<bean references='I1'> <text Description='Bessel I1 function' Reference='I1' Symbol='I1' /> </bean>
+	<bean references='I0e'> <text Description='Bessel I0e function' Reference='I0e' Symbol='I0e' /> </bean>
+	<bean references='I1e'> <text Description='Bessel I1e function' Reference='I1e' Symbol='I1e' /> </bean>
+	<bean references='J0'> <text Description='Bessel J0 function' Reference='J0' Symbol='J0' /> </bean>
+	<bean references='K0'> <text Description='Bessel K0 function' Reference='K0' Symbol='K0' /> </bean>
+	<bean references='Y0'> <text Description='Bessel Y0 function' Reference='Y0' Symbol='Y0' /> </bean>
+	<bean references='Jn'> <text Description='Bessel Jn function' Reference='Jn' Symbol='Jn' /> </bean>
+	<bean references='Kn'> <text Description='Bessel Kn function' Reference='Kn' Symbol='Kn' /> </bean>
+	<bean references='Yn'> <text Description='Bessel Yn function' Reference='Yn' Symbol='Yn' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' 
+			inclusionList='coltlibselected' 
+			excluding='Y0'
+	 />
+
+	<Export using='coltlib' />
+
+</JXR>

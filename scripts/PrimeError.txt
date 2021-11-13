@@ -1,0 +1,20 @@
+
+LIBRARY ExpInt net.myorb.math.specialfunctions.ExponentialIntegral 
+
+LIBRARY SpecFunc net.myorb.math.specialfunctions.Library 
+
+!+ LI_IMPORT(x) = SpecFunc.li 
+
+!! li(x) = LI_IMPORT x 
+
+// Decimal expansion of Soldner's constant.
+A070769 = 1.4513692348833810502839684 
+
+// Decimal expansion of the derivative of logarithmic integral at its positive real root.
+A276709 = 2.684510350820707
+
+A276709Calc = li'(A070769 <> 1E-5) 
+
+error = abs ( A276709Calc - A276709 )
+
+prettyprint error

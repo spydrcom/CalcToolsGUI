@@ -1,0 +1,33 @@
+<JXR>
+
+	<!-- get access to master object for arithmetic operators -->
+	<void> <new saveAs='arithmetic' package='CalctoolsLibs' name='Arithmetic' /> </void>
+	<call object='arithmetic' method='setName'> <string>arithmetic</string> </call>
+
+	<SaveAs toBeCalled='algorithms'>
+		<!-- get access to object holding operator algorithms -->
+		<evaluate object='arithmetic' method='getAlgorithms'> <referto objectCalled='environment' /> </evaluate>
+	</SaveAs>
+
+	<!-- create operator object for each symbol -->
+	<populate class='Operator' using='arithmetic' saveListAs='opsList'
+		toBeCalled='addition subtraction multiplication division fraction negate minus'
+	 />
+
+	<!-- configure each operator with bean set operations -->
+	<bean references='addition'> <text Description='Arithmetic addition operator' Reference='Addition' Symbol='+' /> <set Precedence='7' /> </bean>
+	<bean references='negate'> <text Description='Arithmetic unary negation operator' Reference='Negate' Symbol='NEGATE' /> <text RenderAs='-' /> <set Precedence='8' /> </bean>
+	<bean references='minus'> <text Description='Arithmetic binary subtraction operator' Reference='Subtraction' Symbol='MINUS' /> <set Precedence='7' /> <text RenderAs='-' /> </bean>
+	<bean references='subtraction'> <text Description='Arithmetic (binary) subtraction or (unary) negate operator' Reference='Subtraction' Symbol='-' /> <set Precedence='7' /> </bean>
+	<bean references='multiplication'> <text Description='Arithmetic multiplication operator' Reference='Multiplication' Symbol='*' /> <text RenderAs='&#183;' /> <set Precedence='8' /> </bean>
+	<bean references='division'> <text Description='Arithmetic division operator' Reference='Division' Symbol='/' /> <text RenderAs='&#x00F7;' /> <set Precedence='8' /> </bean>
+	<bean references='fraction'> <text Description='Arithmetic division operator (expressed as fraction)' Reference='Fraction' Symbol='#/#' /> <set Precedence='8' /> </bean>
+
+	<!-- invoke macro to generate operator symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='opsList'
+	 />
+
+	<Export using='arithmetic' />		<!-- export library object -->
+
+</JXR>

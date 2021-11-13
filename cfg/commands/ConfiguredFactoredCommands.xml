@@ -1,0 +1,29 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_factored' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_factored' method='setName'> <string>keywords-factored</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Primes' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_factored' saveListAs='cmdList'
+		toBeCalled='Runsieve Primetable Primegaps'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Runsieve'> <text Keyword='Runsieve' /> </bean>
+	<bean references='Primetable'> <text Keyword='Primetable' /> </bean>
+	<bean references='Primegaps'> <text Keyword='Primegaps' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_factored' />
+
+</JXR>

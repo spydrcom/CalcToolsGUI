@@ -1,0 +1,297 @@
+
+Library: application
+Implementation of Imaginary Numbers domain - net.myorb.math.libraries.CmplxLibrary
+net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib@10b94103
+net.myorb.math.expressions.charting.implementations.JfreeChartLib@1c22117f
+Graphics parameter processing: MeshPlotEdgeSize=50; ContourPlotEdgeSize=400; 
+2021.1001
+
+Library: arithmetic
+NEGATE  (Negate)  to render as -
+MINUS  (Subtraction)  to render as -
+*  (Multiplication)  to render as ·
+/  (Division)  to render as ÷
+
+Library: algebraic
+Symbol Override Detected for 'e' from library 'algebraic' by instance in 'algebraic'
+Symbol Override Detected for 'pi' from library 'algebraic' by instance in 'algebraic'
+
+Library: calculus
+'  (Prime)  to render as ?
+''  (DPrime)  to render as ?
+INTEGRALC  (Contour)  to render as ?
+INTEGRALS  (Integral)  to render as ?
+INTEGRALV  (Integral)  to render as ?
+
+Library: vector
+.  (Dot)  to render as ·
+SIGMA  (Summation)  to render as ?
+INTEGRAL  (Integral)  to render as ?
+SUMMATION  (Summation)  to render as ?
+PI  (Pi)  to render as ?
+
+Library: complex
+Re  (Re)  to render as ?
+Im  (Im)  to render as ?
+Symbol Override Detected for 'abs' from library 'algebraic' by instance in 'complex'
+
+Library: trigpow
+
+Library: trig
+Symbol Override Detected for 'asin' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'acos' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'sin' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'cos' from library 'trigpow' by instance in 'trig'
+
+Library: htrig
+Symbol Override Detected for 'arsinh' from library 'trigpow' by instance in 'htrig'
+Symbol Override Detected for 'arcosh' from library 'trigpow' by instance in 'htrig'
+Symbol Override Detected for 'sinh' from library 'trigpow' by instance in 'htrig'
+Symbol Override Detected for 'cosh' from library 'trigpow' by instance in 'htrig'
+Symbol Override Detected for 'atan' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'sinSq' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'cosSq' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'tanSq' from library 'trigpow' by instance in 'trig'
+Symbol Override Detected for 'tan' from library 'trigpow' by instance in 'trig'
+
+Library: power
+
+Library: anaconda
+Anaconda services expected on LOCALHOST:8080
+Anaconda services are not currently available
+omega0  (Omega)  to render as ?
+psi0  (Polygamma)  to render as ?
+psi1  (Polygamma)  to render as ?
+zeta  (Zeta)  to render as ?
+
+Library: clmath
+Symbol Override Detected for 'exp' from library 'power' by instance in 'clmath'
+GAMMA  (Gamma)  to render as ?
+Factorization Table Computation Starting, initialization complete
+10000 Factorizations Computed
+---
+Sieve Of Eratosthenes (DEFAULT) used for prime generation
+Algorithm TABLE SCAN will be used for prime range selection
+Total primes recognized 1229
+---
+24ms
+---
+Euler Product initialized, 1229 primes prepared as factors
+
+Library: mpmath
+Symbol Override Detected for 'polylog' from library 'anaconda' by instance in 'mpmath'
+Symbol Override Detected for 'loggamma' from library 'clmath' by instance in 'mpmath'
+
+******************************
+* Symbol Collection Compiled *
+******************************
+
+Algorithms: net.myorb.math.expressions.algorithms
+CalctoolsLibs: net.myorb.calctools.libraries
+CalctoolsSyms: net.myorb.calctools.symbols
+Charting: net.myorb.math.expressions.charting.implementations.JfreeChartLib
+CmplxLib: net.myorb.calctools.libraries.CmplxOps
+ComplexClmath: net.myorb.math.expressions.algorithms.CLmathComplexImplementations
+Constant: net.myorb.calctools.symbols.Constant
+CurrentVersion: 2021.1001
+DisplayGraphAtomic: net.myorb.math.expressions.charting.DisplayGraphAtomic
+Function: net.myorb.calctools.symbols.Function
+MasterCfg: net.myorb.math.libraries.CmplxLibrary
+Operator: net.myorb.calctools.symbols.Operator
+PrettyPrinter: net.myorb.math.expressions.PrettyPrinter
+Renderer: net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib
+Value: net.myorb.calctools.symbols.Value
+
+algebraic (9 symbols):
+	PlusMinus (+|-) {OP-7} - Plus or Minus operator
+	MinusPlus (-|+) {OP-7} - Minus or Plus operator
+	INF (INFINITY) {CON} '10000' * - Approximation to use for infinity
+	Abs (abs) {OP-11}  <complex> - ABS function value of parameter
+	E (e) {VAL}  <algebraic> - Symbol for the irrational value of e; Epsilon base of natural log
+	e (e) {CON} '2.718281828459' >algebraic<  * - Epsilon base of natural log
+	Pi (pi) {VAL}  <algebraic> - Symbol for the irrational value of pi; Trigonometric ratio of circle diameter to perimeter
+	pi (pi) {CON} '3.141592653589793' >algebraic<  * - Symbol for the irrational value of pi
+	Sgn (sgn) {OP-7} - Sign SGN function value of parameter
+
+
+anaconda (6 symbols):
+	Polylog (Li1) {FUN} - Jonquiere polylog function
+	Omega (omega0) {FUN} '?' - Lambert W (omega) function
+	Polylog (polylog) {FUN}  <mpmath> - Jonquiere polylog function
+	Polygamma (psi0) {FUN} '?' - Digamma (psi0) function
+	Polygamma (psi1) {FUN} '?' - Trigamma (psi1) function
+	Zeta (zeta) {FUN} '?' - Riemann Zeta function
+
+
+application (1 symbol):
+	Status (VERSION) {CON} '2021.1001' * - software development version
+
+
+arithmetic (7 symbols):
+	Fraction (#/#) {OP-8} - Arithmetic division operator (expressed as fraction)
+	Multiplication (*) {OP-8} '·' - Arithmetic multiplication operator
+	Addition (+) {OP-7} - Arithmetic addition operator
+	Subtraction (-) {OP-7} - Arithmetic (binary) subtraction or (unary) negate operator
+	Division (/) {OP-8} '÷' - Arithmetic division operator
+	Subtraction (MINUS) {OP-7} '-' - Arithmetic binary subtraction operator
+	Negate (NEGATE) {OP-8} '-' - Arithmetic unary negation operator
+
+
+calculus (12 symbols):
+	TrapQuad ($#) {OP-11} - Mark function call for Trapezoidal integral approximation
+	TrapAdjust ($%) {OP-11} - Mark function call for adjustment for brute force approximation
+	DCTQuad ($@) {OP-11} - Mark function call for Clenshaw-Curtis integral approximation
+	TSQuad ($|) {OP-11} - Mark function call for Tanh-Sinh integral approximation
+	Prime (') {OP-11} '?' - Mark function call for first derivative approximation
+	DPrime ('') {OP-11} '?' - Mark function call for second derivative approximation
+	IntegrationDelta (<*>) {OP-10} - Integral delta marker for presentation
+	Delta (<>) {OP-8} - Derivative approximation evaluated at left parameter using delta value in right parameter
+	Contour (INTEGRALC) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional contour integral notation
+	Integral (INTEGRALS) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional surface integral notation
+	Integral (INTEGRALV) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional volume integral notation
+	Interval (||) {OP-11} - Mark function call for interval evaluation
+
+chartoptions: MeshPlotEdgeSize=50;ContourPlotEdgeSize=400
+
+clmath (5 symbols):
+	Gamma (GAMMA) {FUN} '?' - Lanczos Gamma function approximation
+	EulerProduct (ep) {OP-10} - Euler Product function
+	Exp (exp) {FUN}  >power< - Euler exponential function
+	IncompleteGamma (gammainc) {FUN} - Incomplete Gamma function
+	Loggamma (loggamma) {FUN}  <mpmath> - Loggamma function
+
+clmathselected: Exp Gamma Loggamma Incgamma
+
+complex (11 symbols):
+	Cmplx (+!*) {OP-10} - Complex value (left + i * right) as a binary operator
+	CmplxConj (-!*) {OP-10} - Complex value (left - i * right) as a binary operator
+	Polar (@!#) {OP-10} - Complex value (left * CIS right) as a binary (polar) operator
+	Im (Im) {OP-10} '?' - Imaginary part of complex value
+	Re (Re) {OP-10} '?' - Real part of complex value
+	Abs (abs) {OP-10}  >algebraic< - Absolute value (distance from origin) of parameter
+	Arg (arg) {OP-10} - Phase angle of a complex value
+	Cis (cis) {OP-10} - Complex CIS (cos x + i * sin x) function operator
+	Conj (conj) {OP-10} - Complex conjugate operator
+	I (i) {VAL} - Imaginary root of -1
+	ModSquared (modSq) {OP-10} - Modulus (distance from origin) squared of parameter
+
+
+htrig (4 symbols):
+	Arcosh (arcosh) {OP-10}  >trigpow< - Complex ARC COSH function
+	Arsinh (arsinh) {OP-10}  >trigpow< - Complex ARC SINH function
+	Cosh (cosh) {OP-10}  >trigpow< - Complex cosh function of parameter
+	Sinh (sinh) {OP-10}  >trigpow< - Complex sinh function of parameter
+
+
+mpmath (10 symbols):
+	SiegelTheta (Theta) {OP-10} - Siegel THETA
+	Corless (cp) {FUN}  * - Corless function
+	Digamma (digamma) {OP-10} - Digamma
+	Lambda (lambda) {OP-10} - Mangoldt Lambda
+	Loggamma (loggamma) {OP-10}  >clmath< - Loggamma
+	Psi (mangoldt) {OP-10} - Mangoldt Psi
+	LambertW (omega) {FUN} - Lambert Omega function
+	Polygamma (polygamma) {FUN} - Polygamma function
+	Polylog (polylog) {FUN}  >anaconda<  * - Jonquiere Polylog function
+	Trigamma (trigamma) {OP-10} - Trigamma
+
+mpmathselected: Omega Polygamma
+
+power (19 symbols):
+	Factorial (!) {OP-10} - Unary conventional factorial operator
+	DFactorial (!!) {OP-10} - Unary parity factorial operator
+	BC (##) {OP-10} - Binomial coefficient operator (n ## k)
+	Ffal (#/) {OP-9} - Binary Factorial falling operator
+	Rem (%) {OP-8} - Binary conventional remainder operator n%m; integer only
+	Exponentiation (**) {OP-9} - Binary conventional exponentiation operator x**y
+	Radical (*\) {OP-9} - Binary root operator (left [times root of] right)
+	Fris (/#) {OP-9} - Binary Factorial rising  operator
+	Poch (/#+) {OP-9} - Pochhammer rising operator
+	Lsh (<<) {OP-8} - Left shift operator
+	Rsh (>>) {OP-8} - Right shift operator
+	Bernoulli (BERNOULLI) {OP-10} - Bernoulli function B(m) for second (n=1) Bernoulli numbers
+	Harmonic (HARMONIC) {OP-10} - Harmonic function
+	Hypot (HYPOT) {FUN} - Distance in multi-dimensional space; SQRT of sum of squares of array elements
+	Root (\) {OP-9} - Binary root operator (left [root of] right)
+	Pow (^) {OP-9} - Binary conventional exponentiation operator x^n; intended for small integer exponents
+	Exp (exp) {OP-10}  <clmath> - Exponentiation (anti-log) operator
+	Log (ln) {OP-10} - Natural log function of complex value
+	Sqrt (sqrt) {OP-9} - Unary square root operator
+
+
+trig (9 symbols):
+	Acos (acos) {OP-10}  >trigpow< - Complex ARC COS function
+	Asin (asin) {OP-10}  >trigpow< - Complex ARC SIN function
+	Atan (atan) {FUN}  >trigpow< - Complex ARC Tan function
+	Cos (cos) {OP-10}  >trigpow< - Complex cos function of parameter
+	CosSq (cosSq) {OP-10}  >trigpow< - Complex cos (squared) function of parameter
+	Sin (sin) {OP-10}  >trigpow< - Complex sin function of parameter
+	SinSq (sinSq) {OP-10}  >trigpow< - Complex sin (squared) function of parameter
+	Tan (tan) {OP-10}  >trigpow< - Complex tan function of parameter
+	TanSq (tanSq) {OP-10}  >trigpow< - Complex tan (squared) function of parameter
+
+
+trigpow (38 symbols):
+	TrigPow (acos) {OP-10}  <trig> - ARC Cosine Operator
+	TrigPow (acot) {OP-10} - ARC Cotangent Operator
+	TrigPow (acsc) {OP-10} - ARC Cosecant Operator
+	TrigPow (arcosh) {OP-10}  <htrig> - ARC Hyperbolic Cosine Operator
+	TrigPow (arcoth) {OP-10} - ARC Hyperbolic Cotangent Operator
+	TrigPow (arcsch) {OP-10} - ARC Hyperbolic Cosecant Operator
+	TrigPow (arsech) {OP-10} - ARC Hyperbolic Secant Operator
+	TrigPow (arsinh) {OP-10}  <htrig> - ARC Hyperbolic Sine Operator
+	TrigPow (artanh) {OP-10} - ARC Hyperbolic Tangent Operator
+	TrigPow (asec) {OP-10} - ARC Secant Operator
+	TrigPow (asin) {OP-10}  <trig> - ARC Sine Operator
+	TrigPow (atan) {OP-10}  <trig> - ARC Tangent Operator
+	TrigPow (cos) {OP-10}  <trig> - Cosine Operator
+	TrigPow (cosCb) {OP-10} - Cosine Cubed Operator
+	TrigPow (cosSq) {OP-10}  <trig> - Cosine Squared Operator
+	TrigPow (cosh) {OP-10}  <htrig> - Hyperbolic Cosine Operator
+	TrigPow (cot) {OP-10} - Cotangent Operator
+	TrigPow (cotCb) {OP-10} - Cotangent Cubed Operator
+	TrigPow (cotSq) {OP-10} - Cotangent Squared Operator
+	TrigPow (coth) {OP-10} - Hyperbolic Cotangent Operator
+	TrigPow (csc) {OP-10} - Cosecant Operator
+	TrigPow (cscCb) {OP-10} - Cosecant Cubed Operator
+	TrigPow (cscSq) {OP-10} - Cosecant Squared Operator
+	TrigPow (csch) {OP-10} - Hyperbolic Cosecant Operator
+	TrigPow (cschSq) {OP-10} - Hyperbolic Cosecant Squared Operator
+	TrigPow (sec) {OP-10} - Secant Operator
+	TrigPow (secCb) {OP-10} - Secant Cubed Operator
+	TrigPow (secSq) {OP-10} - Secant Squared Operator
+	TrigPow (sech) {OP-10} - Hyperbolic Secant Operator
+	TrigPow (sechSq) {OP-10} - Hyperbolic Secant Squared Operator
+	TrigPow (sin) {OP-10}  <trig> - Sine Operator
+	TrigPow (sinCb) {OP-10} - Sine Cubed Operator
+	TrigPow (sinSq) {OP-10}  <trig> - Sine Squared Operator
+	TrigPow (sinh) {OP-10}  <htrig> - Hyperbolic Sine Operator
+	TrigPow (tan) {OP-10}  <trig> - Tangent Operator
+	TrigPow (tanCb) {OP-10} - Tangent Cubed Operator
+	TrigPow (tanSq) {OP-10}  <trig> - Tangent Squared Operator
+	TrigPow (tanh) {OP-10} - Hyperbolic Tangent Operator
+
+
+vector (21 symbols):
+	Indexing (#) {OP-12} - Array indexing operation implemented as a binary operator
+	Dot (.) {OP-10} '·' - Dot product of two arrays; lengths of arrays must match
+	Range (..) {OP-12} - Array range operation implemented as a binary operator
+	Append (APPEND) {FUN} - Append a series of arrays into one long array
+	Chebyshev (CHEBYSHEV) {FUN} - Apply Vandermonde matrix to solve for Chebyshev interpolation polynomial as curve of best fit
+	Dot (DOT) {FUN} - Dot product of two arrays; lengths of arrays must match
+	Dyadic (DYADIC) {FUN} - Compute dyadic product of 2 arrays
+	Fitexp (FITEXP) {FUN} - Apply non-linear (logarithmic) regression to find curve of best fit
+	Fitharmonic (FITHARMONIC) {FUN} - Apply harmonic series regression to find curve of best fit
+	Fitline (FITLINE) {FUN} - Apply least squares regression to find line of best fit
+	Fitpoly (FITPOLY) {FUN} - Apply Vandermonde matrix to solve for polynomial coefficients to find curve of best fit
+	Integral (INTEGRAL) {FUN} '?' - Sum of items of an array constructed based on delta terms; using traditional integral notation
+	Interval (INTERVAL) {FUN} - Select sub-list of elements for interval lo-hi
+	Lagrange (LAGRANGE) {FUN} - Apply Lagrange series to derive interpolation polynomial as curve of best fit
+	Length (LENGTH) {FUN} - Length of an array treated as a unary function
+	Max (MAX) {FUN} - Maximum value found in array
+	Min (MIN) {FUN} - Minimum value found in array
+	Pearson (PEARSON) {FUN} - Compute Pearson regression coefficient for X/Y data set pair
+	Pi (PI) {FUN} '?' - Product of items of an array; traditional capital PI notation
+	Summation (SIGMA) {FUN} '?' - Sum of items of an array; traditional capital SIGMA notation
+	Summation (SUMMATION) {FUN} '?' - Sum of items of an array; summation functionality using SIGMA notation
+

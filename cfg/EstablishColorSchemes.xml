@@ -1,0 +1,29 @@
+<JXR>
+
+	<package called='Colors'>net.myorb.math.expressions.charting.colormappings</package>
+
+	<class called='Schemes' package='Colors' name='ContourColorSchemeRequest' />
+
+	<class called='PointCountWeighted' package='Colors' name='PointCountWeighted' />
+	<call class='PointCountWeighted' method='addToColorList'> <string>PointCountWeighted</string></call>
+
+	<class called='IterationCrossRefWeighted' package='Colors' name='IterationCrossRefWeighted' />
+	<call class='IterationCrossRefWeighted' method='addToColorList'> <string>IterationCrossRefWeighted</string></call>
+
+	<class called='PointCountWeightedWithSaturation' package='Colors' name='PointCountWeightedWithSaturation' />
+	<call class='PointCountWeightedWithSaturation' method='addToColorList'> <string>PointCountWeightedWithSaturation</string></call>
+
+	<class called='PointCountWeightedWithValueSaturation' package='Colors' name='PointCountWeightedWithValueSaturation' />
+	<call class='PointCountWeightedWithValueSaturation' method='addToColorList'> <string>PointCountWeightedWithValueSaturation</string></call>
+
+	<class called='LegacyAlternativeAlgorithmColorScheme' package='Colors' name='LegacyAlternativeAlgorithmColorScheme' />
+	<call class='LegacyAlternativeAlgorithmColorScheme' method='addToColorList'> <string>LegacyAlternativeAlgorithm</string></call>
+
+	<class called='ValueWeightedWithAggregation' package='Colors' name='ValueWeightedWithAggregation' />
+	<call class='ValueWeightedWithAggregation' method='addToColorList'> <string>ValueWeightedWithAggregation</string></call>
+
+	<class called='IterationWeighted' package='Colors' name='IterationWeighted' />
+	<call class='IterationWeighted' method='addToColorList'> <string>IterationWeighted</string></call>
+
+	
+</JXR>

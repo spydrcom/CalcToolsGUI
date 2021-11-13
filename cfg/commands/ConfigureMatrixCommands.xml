@@ -1,0 +1,28 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_matrix' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_matrix' method='setName'> <string>keywords-Matrix</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='MatrixIO' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_matrix' saveListAs='cmdList'
+		toBeCalled='Import Export'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Import'> <text Keyword='Import' /> </bean>
+	<bean references='Export'> <text Keyword='Export' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_matrix' />
+
+</JXR>

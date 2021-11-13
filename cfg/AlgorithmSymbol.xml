@@ -1,0 +1,31 @@
+<JXR>
+
+	<!-- read properties from bean -->
+
+	<SaveAs toBeCalled='algorithm'>
+		<evaluate passedAs='symbolBean' method='getAlgorithmAccess' />
+	</SaveAs>
+
+	<!-- construct operator symbol -->
+
+	<SaveAs toBeCalled='implementation'>
+		<evaluate object='algorithms' methodNamedIn='algorithm'>
+			<evaluate passedAs='symbolBean' method='getSymbol' />
+			<evaluate passedAs='symbolBean' method='getPrecedence' />
+		</evaluate>
+	</SaveAs>
+
+	<!-- post operator symbol to symbol table -->
+
+	<call object='symbolTable' method='add'>
+		<referto objectCalled='implementation'/>
+		<evaluate passedAs='symbolBean' method='getDescription' />
+	</call>
+
+	<!-- new operator symbol has been added to symbol table -->
+
+	<call object='implementation' method='addParameterization'>
+		<evaluate passedAs='symbolBean' method='getParameters' />
+	</call>
+
+</JXR>

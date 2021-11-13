@@ -1,0 +1,21 @@
+<JXR>
+
+	<!-- create operator object for each symbol of that type -->
+
+	<void> <new saveAs='Atan' class='Function' using='trig' /> </void>
+
+	<populate class='Operator' using='trig' toBeCalled='Tan SinSq CosSq TanSq' />
+
+	<bean references='Atan'> <text Description='Complex ARC Tan function' Reference='Atan' Symbol='atan' /> </bean>
+	<bean references='SinSq'> <text Description='Complex sin (squared) function of parameter' Reference='SinSq' Symbol='sinSq' /> <set Precedence='10' /> </bean>
+	<bean references='CosSq'> <text Description='Complex cos (squared) function of parameter' Reference='CosSq' Symbol='cosSq' /> <set Precedence='10' /> </bean>
+	<bean references='TanSq'> <text Description='Complex tan (squared) function of parameter' Reference='TanSq' Symbol='tanSq' /> <set Precedence='10' /> </bean>
+	<bean references='Tan'> <text Description='Complex tan function of parameter' Reference='Tan' Symbol='tan' /> <set Precedence='10' /> </bean>
+
+	<macro symbolBean='Atan' path='cfg/FunctionSymbol.xml' using='algorithms Atan symbolTable' />
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' 
+			including='Tan SinSq CosSq TanSq'
+	 />
+
+</JXR>

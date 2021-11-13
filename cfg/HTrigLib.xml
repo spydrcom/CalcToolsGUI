@@ -1,0 +1,13 @@
+<JXR>
+
+	<!-- create operator object for each symbol of that type -->
+	<populate  class='Operator'  using='htrig' toBeCalled='Arsinh Arcosh Sinh Cosh' />
+
+	<bean references='Arsinh'> <text Description='Complex ARC SINH function' Reference='Arsinh' Symbol='arsinh' /> <set Precedence='10' /> </bean>
+	<bean references='Arcosh'> <text Description='Complex ARC COSH function' Reference='Arcosh' Symbol='arcosh' /> <set Precedence='10' /> </bean>
+	<bean references='Sinh'> <text Description='Complex sinh function of parameter' Reference='Sinh' Symbol='sinh' /> <set Precedence='10' /> </bean>
+	<bean references='Cosh'> <text Description='Complex cosh function of parameter' Reference='Cosh' Symbol='cosh' /> <set Precedence='10' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' including='Arsinh Arcosh Sinh Cosh' />
+
+</JXR>

@@ -1,0 +1,33 @@
+<JXR>
+
+	<SaveAs toBeCalled='commands_features' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_features' method='setName'> <string>keywords-features</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='Features' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_features' saveListAs='cmdList'
+		toBeCalled='Rpn MaxMin Root Dct Mandelbrot Polynomial'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Mandelbrot'> <text Keyword='Mandelbrot' /> </bean>
+	<bean references='Polynomial'> <text Keyword='Polynomial' /> </bean>
+	<bean references='Rpn'> <text Keyword='Rpn' /> </bean>
+	<bean references='Dct'> <text Keyword='Dct' /> </bean>
+
+	<bean references='MaxMin'> <text Reference='MaxMin' SymbolUsing='MAXMINOF_KEYWORD' /> </bean>
+	<bean references='Root'> <text Reference='Root' SymbolUsing='ROOTOF_KEYWORD' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_features' />
+
+</JXR>

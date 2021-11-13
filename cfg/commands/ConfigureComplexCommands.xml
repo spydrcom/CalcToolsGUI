@@ -1,0 +1,40 @@
+<JXR>
+
+
+	<SaveAs toBeCalled='commands_complex' > <new package='CalctoolsLibs' name='Keyword' /> </SaveAs>
+	<call object='commands_complex' method='setName'> <string>keywords-complex</string> </call>
+
+	<SaveAs toBeCalled='mgr'> <evaluate object='environment' method='getSpaceManager'/> </SaveAs>
+
+<!--
+	<SaveAs toBeCalled='dclPost' > <new package='Dictionary' name='DeclarationsPosting' using='mgr'/> </SaveAs>
+	<call object='dclPost' method='postAll' />
+
+	<SaveAs toBeCalled='polarPost' > <new package='Dictionary' name='ComplexPlotsPosting' using='mgr'/> </SaveAs>
+	<call object='polarPost' method='postAll' />
+  -->
+
+	<SaveAs toBeCalled='algorithms' > <new package='CalctoolsCommands' name='ComplexPlots' using='mgr'/> </SaveAs>
+
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_complex' saveListAs='cmdList'
+		toBeCalled='Splot Plotri Angular Radial'
+	 />
+
+	<!-- configure each command with bean set operations -->
+	<bean references='Splot'> <text Reference='Splot' SymbolUsing='SPLOT_KEYWORD' /> </bean>
+	<bean references='Angular'> <text Reference='Angular' SymbolUsing='POLAR_ANGULAR_KEYWORD' /> </bean>
+	<bean references='Radial'> <text Reference='Radial' SymbolUsing='POLAR_RADIAL_KEYWORD' /> </bean>
+	<bean references='Plotri'> <text Reference='Plotri' SymbolUsing='PLOTRI_KEYWORD' /> </bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='cmdList'
+	 />
+
+
+	<Export using='commands_complex' />
+
+
+</JXR>

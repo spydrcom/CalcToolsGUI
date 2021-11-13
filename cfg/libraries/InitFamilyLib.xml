@@ -1,0 +1,51 @@
+<JXR>
+
+	<package called='SF'>net.myorb.math.specialfunctions</package>
+	<package called='Polynomial'>net.myorb.math.polynomial</package>
+
+	<class called='PolyFamily' package='Polynomial' name='PolynomialFamilyManager' />
+	<class called='SFunctionFamily' package='SF' name='SpecialFunctionFamilyManager' />
+
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Hermite</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Bernoulli</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Chebyshev</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Gegenbauer</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Legendre</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Laguerre</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='PolyFamily' method='importFamilyDescription'>
+		<string>Jacobi</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+	<call class='SFunctionFamily' method='importFamilyDescription'>
+		<string>Bessel</string>  <string>*</string>
+		<referTo objectCalled='environment' />
+	</call>
+
+
+</JXR>
