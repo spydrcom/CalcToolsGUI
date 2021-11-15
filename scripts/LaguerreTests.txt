@@ -1,0 +1,33 @@
+
+
+READ LaguerreDE.txt
+
+family Laguerre 6
+
+
+L2_2 = 2 * l2
+L3_6 = 6 * l3
+L4_24 = 24 * l4
+L5_120 = 120 * l5
+L6_720 = 720 * l6
+
+POLYPRINT L2_2
+POLYPRINT L3_6
+POLYPRINT L4_24
+POLYPRINT L5_120
+POLYPRINT L6_720
+
+
+GRAPH LIM 6 [0 <= x <= 10 <> 0.01] ( L0(x), L1(x), L2(x), L3(x), L4(x), L5(x) )
+
+
+L5_root12=12
+rootof L5 L5_root12
+PLOTF L5  [  0 <=    x    <= 13  <>  0.01  ]  
+PRETTYPRINT L5_root12
+
+
+L5_max11 = 11
+MAXMINOF L5 L5_max11
+PRETTYPRINT L5_max11
+
