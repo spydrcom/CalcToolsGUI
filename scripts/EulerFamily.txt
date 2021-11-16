@@ -9,6 +9,14 @@ E = (1,0,-1,0,5,0,-61,0,1385,0,-50521,0,2702765,0)
 !!En(x, n) = SIGMA [0 <= k <= n/2] ( (-1)^k * E#k / 2^(2*k) * n##(2*k) * (x-1/2) ^ (n-2*k) )
 !!Em(x, m) = SIGMA [0 <= k <= m] ( m##k * E#k / 2^k * (x-1/2) ^ (m-k) )
 
+!! EN (n) = 2^n*Em (0.5,n)
+Ecalc = ( EN 0, EN 1, EN 2, EN 3, EN 4, EN 5, EN 6, EN 7, EN 8, EN 9, EN 10, EN 11, EN 12, EN 13 )
+
+errors = Ecalc - E
+PRETTYPRINT Ecalc
+PRETTYPRINT E
+PRETTYPRINT errors
+
 RENDERF Ek
 RENDER "Euler number recurrence formula" TOP
 
@@ -24,8 +32,8 @@ RENDER "Euler polynomial equations" TOP
 
 !! test (n) = 2^n * Em(1,n)
 
-A155585 = ( -2, 16, -272, 7936, -353792 )
-calculations = ( test 3, test 5, test 7, test 9, test 11 )
+A155585 = ( -2, 16, -272, 7936, -353792, 22368256 )
+calculations = ( test 3, test 5, test 7, test 9, test 11, test 13 )
 errors = calculations - A155585
 
 PRETTYPRINT calculations
