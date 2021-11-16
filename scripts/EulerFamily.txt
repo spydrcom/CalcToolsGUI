@@ -18,3 +18,18 @@ RENDERF En
 RENDERF Em
 RENDER "Euler polynomial equations" TOP
 
+//A155585		a(n) = 2^n*E(n, 1) where E(n, x) are the Euler polynomials.		+4042
+// 1, 1, 0, -2, 0, 16, 0, -272, 0, 7936, 0, -353792, 0, 22368256, 0, -1903757312, 0, 209865342976, 0, 
+//    -29088885112832, 0, 4951498053124096, 0, -1015423886506852352, 0, 246921480190207983616, 0,
+
+!! test (n) = 2^n * Em(1,n)
+
+A155585 = ( -2, 16, -272, 7936, -353792 )
+calculations = ( test 3, test 5, test 7, test 9, test 11 )
+errors = calculations - A155585
+
+PRETTYPRINT calculations
+PRETTYPRINT A155585
+PRETTYPRINT errors
+
+
