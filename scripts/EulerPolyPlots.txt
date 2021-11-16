@@ -1,0 +1,11 @@
+
+
+READ EulerFamily.txt
+
+
+!! E3(x) = Em(x,3) 
+!! E4(x) = Em(x,4)
+!! E5(x) = Em(x,5) 
+
+graph LIM 20 [0<x<5<>0.01](E4 x, E3 x, E5 x)
+

@@ -1,5 +1,6 @@
 
-E#0 = 1 ; E#1 = 1
+//E#0 = 1 ; E#1 = 1
+E = (1,0,-1,0,0,0,0)
 
 !!Ek(k) = SIGMA [0 <= l <= k] ( (-1)^l * ((2*k)##(2*l)) * E#l ) 
 
@@ -18,6 +19,6 @@ RENDERF En
 RENDERF Em
 RENDER "Euler polynomial equations" TOP
 
-E#2 = Ek(2)
+E#4 = Ek(4)
 
 calc E
