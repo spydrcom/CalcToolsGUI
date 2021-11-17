@@ -5,3 +5,12 @@
 !! BODE(Tn,Yn) = q(Tn) * Yn^b - p(Tn) * Yn
 !! bernoulliODE(x) = y'(x) - q(t) * y(x)^b + p(t) * y(x)
 DIFEQ bernoulliODE BODE "Bernoulli Equation"
+
+!! bernoulliDE(x) = f'(x) + P(x) * f(x) - Q(x) * f(x)^n
+DIFEQ bernoulliDE "Bernoulli Differential Equation"
+
+SELECT "Differential Equations"
+
+RENDERD bernoulliDE
+
+RENDER "Bernoulli Differential Equation" TOP
