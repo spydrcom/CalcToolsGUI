@@ -1,24 +1,56 @@
 
 
+// fast convergence so don't waste time
 INFINITY = 10
 
 // modified Bessel Ialpha and Kalpha
-
 !! Ialpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( (x #/# 2)^(2*m+alpha) / (m! * GAMMA (m+alpha+1)) )
 !! Kalpha(alpha,x) = pi/2 * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / sin (pi*alpha)
 
 
-// Airy
-
+// Airy Ai/Bi functions
 !! Ai(x) = 1/pi * sqrt(x/3) * Kalpha( 1/3, 2/3 * sqrt(x^3) )
 !! Bi(x) = sqrt(x/3) * ( Ialpha( 1/3, 2/3 * sqrt(x^3) ) + Ialpha( -1/3, 2/3 * sqrt(x^3) ) )
 
 
-plotri Ai [-6<x<0<>0.1]
-plotri Bi [-6<x<0<>0.1]
+// function renders
 
+RENDERF Ai
+RENDERF Bi
+RENDER " Airy / Stokes Equations based on Bessel functions " TOP
+
+RENDERF Ialpha
+RENDERF Kalpha
+RENDER " modified Bessel Ialpha and Kalpha " TOP
+
+
+// complex real/imag plots of Ai and Bi
+
+plotri Ai [-6<x<0<>0.1]
+ENTITLED Airy Ai Function using Bessel identities
+
+plotri Bi [-6<x<0<>0.1]
+ENTITLED Airy Bi Function using Bessel identities
+
+
+// compute and plot errors of Ai/Bi approximations
 
 READ AiryDEtests.txt
 
+// plot the computed errors
 graph LIM 0.1 [-6<x<0<>0.1]  ( errA(x), errB(x) ) 
+ENTITLED Differential Equation errors of Airy Ai / Bi Functions
+
+
+// render functions used to compute differential equation errors
+
+// second derivatives of Ai and Bi
+RENDERF Ai2
+RENDERF Bi2
+
+// treat differential equation as error function
+RENDERF errA
+RENDERF errB
+
+RENDER " error computations for Ai / Bi algorithms " TOP
 
