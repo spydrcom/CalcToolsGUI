@@ -1,0 +1,24 @@
+
+
+INFINITY = 10
+
+// modified Bessel Ialpha and Kalpha
+
+!! Ialpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( (x #/# 2)^(2*m+alpha) / (m! * GAMMA (m+alpha+1)) )
+!! Kalpha(alpha,x) = pi/2 * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / sin (pi*alpha)
+
+
+// Airy
+
+!! Ai(x) = 1/pi * sqrt(x/3) * Kalpha( 1/3, 2/3 * sqrt(x^3) )
+!! Bi(x) = sqrt(x/3) * ( Ialpha( 1/3, 2/3 * sqrt(x^3) ) + Ialpha( -1/3, 2/3 * sqrt(x^3) ) )
+
+
+plotri Ai [-6<x<0<>0.1]
+plotri Bi [-6<x<0<>0.1]
+
+
+READ AiryDEtests.txt
+
+graph LIM 0.1 [-6<x<0<>0.1]  ( errA(x), errB(x) ) 
+

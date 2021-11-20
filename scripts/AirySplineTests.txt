@@ -7,11 +7,7 @@ LIBRARY AiFunc net.myorb.math.specialfunctions.AiryFunctions
 !+ BI_IMPORT(x) = AiFunc.BiS4
 !! Bi(x) = BI_IMPORT x
 
-!! Ai2(x) = Ai''(x <> 0.001)
-!! Bi2(x) = Bi''(x <> 0.001)
-
-!! errA(x) = abs ( Ai2(x) - x * Ai(x) )
-!! errB(x) = abs ( Bi2(x) - x * Bi(x) )
+READ AiryDEtests.txt
 
 n = 4
 
