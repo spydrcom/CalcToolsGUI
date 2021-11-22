@@ -10,7 +10,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_primitive' saveListAs='cmdList'
-		toBeCalled='Calc Calculate Describe SetMode Recognize Assert Background PolyPrint PrettyPrint Show Radix Comment Verify Help Docs'
+		toBeCalled='Calc Calculate Describe SetMode Recognize Assert Background PolyPrint PrettyPrint Configure Show Radix Comment ScriptTip Verify Help Docs'
 	 />
 
 	<!-- configure each command with bean operations -->
@@ -19,6 +19,7 @@
 	<bean references='SetMode'> <text Keyword='SetMode' /> </bean>
 	<bean references='Recognize'> <text Keyword='Recognize' /> </bean>
 	<bean references='Background'> <text Keyword='Background' /> </bean>
+	<bean references='Configure'> <text Keyword='Configure' /> </bean>
 	<bean references='PrettyPrint'> <text Keyword='PrettyPrint' /> </bean>
 	<bean references='PolyPrint'> <text Keyword='PolyPrint' /> </bean>
 	<bean references='Describe'> <text Keyword='Describe' /> </bean>
@@ -42,6 +43,10 @@
 
 	<bean references='Comment'>
 		<text Reference='Comment' SymbolUsing='COMMENT_PREFIX' />
+	</bean>
+
+	<bean references='ScriptTip'>
+		<text Reference='ScriptTip' SymbolUsing='TIP_PREFIX' />
 	</bean>
 
 	<!-- invoke macro to generate keyword symbol and add to table -->

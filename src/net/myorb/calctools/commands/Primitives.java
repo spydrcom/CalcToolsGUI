@@ -289,6 +289,34 @@ public class Primitives<T> extends Context<T>
 
 
 	/**
+	 * configure a function or an operation from command line
+	 * @return a keyword command for the CONFIGURE prefix
+	 */
+	public KeywordCommand constructConfigureKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Configure a function or an operation from command line"; }
+			public void execute (CommandSequence tokens) {}
+		};
+	}
+
+
+	/**
+	 * Associate a comment with a script
+	 * @return a keyword command for the COMMENT prefix
+	 */
+	public KeywordCommand constructScriptTipKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Associate a comment with a script"; }
+			public void execute (CommandSequence tokens) {}
+		};
+	}
+
+
+	/**
 	 * Add a comment to the output stream
 	 * @return a keyword command for the COMMENT prefix
 	 */

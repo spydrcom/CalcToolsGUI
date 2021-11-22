@@ -5,7 +5,7 @@ INFINITY = 10
 
 // modified Bessel Ialpha and Kalpha
 !! Ialpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( (x #/# 2)^(2*m+alpha) / (m! * GAMMA (m+alpha+1)) )
-!! Kalpha(alpha,x) = pi/2 * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / sin (pi*alpha)
+!! Kalpha(alpha,x) = pi * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / ( 2 * sin (pi*alpha) )
 
 
 // Airy Ai/Bi functions
