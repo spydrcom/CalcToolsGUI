@@ -1,4 +1,6 @@
 
+//* OEIS tests for Gamma function
+
 !! GammaFactor (t,n) = n / (t+n) * (n / (n-1))^t
 !! F (x) = 1 / ( x * (x+1) )
 

@@ -1,4 +1,6 @@
 
+//* Bessel function spline generated using Lagrange
+
 IMPORT  bessel bessel.TDF
 
 bessel1 = bessel|#1

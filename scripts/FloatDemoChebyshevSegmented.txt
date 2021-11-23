@@ -1,4 +1,6 @@
 
+//* demo of Chebyshev interpolation
+
 SCRIPTPRINT FloatDemoChebyshevSegmented.txt
 
 // constants for approximation purposes

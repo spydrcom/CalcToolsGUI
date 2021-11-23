@@ -1,4 +1,5 @@
 
+//* demo of statistical operator functionality
 
 
 SCRIPTPRINT FloatDemoStats.txt

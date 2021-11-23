@@ -1,4 +1,6 @@
 
+//* simple tests of Euler product
+
 p = PRIMES (200)
 // p = PRIMES (2000)
 INFINITY = LENGTH p

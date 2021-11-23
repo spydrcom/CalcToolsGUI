@@ -1,4 +1,5 @@
 
+//* critical region RI plots of GAMMA and loggamma
 
 graph LIM 5 [-5<x<5<>0.01] (GAMMA (x))
 

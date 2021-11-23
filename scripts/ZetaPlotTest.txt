@@ -1,4 +1,6 @@
 
+//* RI plots of sections of zeta critical region
+
 !! A (z) = Re(z)^2 + Im(z)^2  
 
 // !! Z(x,y) = A (zeta (x+i*y) )

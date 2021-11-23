@@ -1,4 +1,5 @@
 
+//* Gamma functions imported from Colt
 
 LIBRARY Gamma cern.jet.stat.Gamma
 

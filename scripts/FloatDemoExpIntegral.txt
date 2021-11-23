@@ -1,4 +1,7 @@
 
+//* demo script for Ei and E1
+
+
 SCRIPTPRINT FloatDemoExpIntegral.txt
 
 READ JavaMath.txt

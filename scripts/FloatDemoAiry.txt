@@ -1,4 +1,6 @@
 
+//* demo script for Airy equation
+
 READ JavaMath.txt
 
 INFINITY = 100

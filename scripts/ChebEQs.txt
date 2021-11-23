@@ -1,4 +1,5 @@
 
+//* tests for Chebyshev equations calculus
 
 // use Chebyshev T5 as test function
 T5 = (0,   0,   0,   0,   0,  1)

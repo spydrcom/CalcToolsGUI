@@ -1,5 +1,5 @@
 
-
+//* tests for Chebyshev recurrance equations
 
 ct7 = (0, -7, 0, 56, 0, -112, 0, 64)
 cu7 = (0, -8, 0, 80, 0, -192, 0, 128)

@@ -1,4 +1,6 @@
 
+//* demo of Gamma function splines
+
 LIBRARY SpecFunc net.myorb.math.specialfunctions.Library
 !+ GAMMAINC_IMPORT(s,x) = SpecFunc.gammaIncompleteLower
 !! gamma (s, x) = GAMMAINC_IMPORT (s, x)

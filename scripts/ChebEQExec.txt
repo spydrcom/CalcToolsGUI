@@ -1,4 +1,5 @@
 
+//* Chebyshev equation plots and error tests
 
 // plot Tn and Un with derivatives
 //  also plot DiffEQ errors for Tn and Un

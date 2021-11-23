@@ -1,4 +1,6 @@
 
+//* demo of spline for Bell curve
+
 
 //
 // Bell curve { exp (-x^2) } has no anti-derivative form

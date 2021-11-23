@@ -1,4 +1,6 @@
 
+//* GAMMA / PSI spline plots
+
 LIBRARY SpecFunc net.myorb.math.specialfunctions.Library
 
 !+ GAMMA(x) = SpecFunc.gamma

@@ -1,4 +1,6 @@
 
+//* error plots for Airy Ai and Bi splines
+
 LIBRARY AiFunc net.myorb.math.specialfunctions.AiryFunctions
 
 !+ AI_IMPORT(x) = AiFunc.AiS4

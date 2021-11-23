@@ -1,4 +1,6 @@
 
+//* Test for Airy OEIS calculations
+
 // Ai(0)
 A284867 = 0.35502805388781723926
 aiAtZero = Ai 0 ; aiAtZeroErr = abs ( aiAtZero - A284867 )

@@ -1,4 +1,5 @@
 
+//* demonstrate complex solutions for Airy Ai and Bi using Bessel functions
 
 // fast convergence so don't waste time
 INFINITY = 10

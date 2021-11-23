@@ -1,4 +1,5 @@
 
+//* original tests for CHEBINTERP and CLENQUAD
 
 !! f(x) = 2\ (1 - x^2)
 

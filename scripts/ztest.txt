@@ -1,4 +1,6 @@
 
+//* tests for MPMATH zeta translation
+
 LIBRARY RiemannSecond net.myorb.mpmath.functions.zeta.SecondZeta
 
 !+ zeta2 (s, a) = RiemannSecond.Z2 (s, a)

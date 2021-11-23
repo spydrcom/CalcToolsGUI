@@ -1,4 +1,6 @@
 
+//* demo of plot property options
+
 
 PDEL CHART GRAL_LEGEND
 PSET CHART GRAL_LEGEND 0 0 VERTICAL

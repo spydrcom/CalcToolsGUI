@@ -1,4 +1,6 @@
 
+//* tests for Chebyshev recurrance equations
+
 x = (0,1)
 
 T0 = (1)

@@ -1,4 +1,6 @@
 
+//* demo of combinatorial operators
+
 // Bernoulli numbers are notoriously difficult to calculate.
 // brute force calculation is beyond basic capabilities of most computers
 

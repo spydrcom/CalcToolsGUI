@@ -1,4 +1,6 @@
 
+//* Basel calculation test
+
 
 zeta2 = zeta 2
 calc zeta2

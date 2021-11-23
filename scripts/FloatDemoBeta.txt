@@ -1,4 +1,6 @@
 
+//* demo of Beta function
+
 INFINITY = 100
 
 dt = 1 / INFINITY 

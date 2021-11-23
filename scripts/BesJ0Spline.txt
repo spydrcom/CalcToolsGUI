@@ -1,4 +1,5 @@
 
+//* Bessel spline using CalcLib VC31 and built-in spline tools
 
 READ VC31Prep.txt
 READ BesselFunctions.txt

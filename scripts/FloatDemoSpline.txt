@@ -1,4 +1,6 @@
 
+//* demo of results of spline tools
+
 SCRIPTPRINT FloatDemoSpline.txt
 
 // constants for approximation purposes

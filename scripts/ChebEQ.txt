@@ -1,4 +1,5 @@
 
+//* demo for Chebyshev family functions
 
 // display difference in Diff EQ error plots 
 //  between actual derivative formulas and 

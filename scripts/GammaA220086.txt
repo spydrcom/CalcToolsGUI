@@ -1,4 +1,6 @@
 
+//* OEIS A220086
+
 x = 1/7
 A220086 = 6.548062940247824437714
 gammaPart = F (x); n = 2; ITERATE 8000 GammaIteration.sub

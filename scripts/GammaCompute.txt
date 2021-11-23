@@ -1,4 +1,6 @@
 
+//* iterative script for Gamma computation
+
 VERIFY x
 
 !! GammaFactor (t,n) = n / (t+n) * (n / (n-1))^t

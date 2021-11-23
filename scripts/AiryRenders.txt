@@ -1,4 +1,6 @@
 
+//* renders of Airy solution equations
+
 SELECT "Airy Equations"
 
 RENDER f''(x) - x * f(x) = 0

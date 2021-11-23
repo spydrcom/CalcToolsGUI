@@ -1,6 +1,6 @@
 
 
-// compare locally built spline to J0 from Colt Library
+//* compare locally built spline to J0 from Colt Library
 
 
 alpha=0

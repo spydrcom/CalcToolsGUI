@@ -1,4 +1,6 @@
 
+//* experiment with zeta calculation
+
 //
 // implementation of zeta entirely in script
 //

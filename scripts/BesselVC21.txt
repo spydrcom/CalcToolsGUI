@@ -1,4 +1,5 @@
 
+//* original VC21 spline tests
 
 X = [-1 <= xi <= 1 <> 0.1] (xi)
 

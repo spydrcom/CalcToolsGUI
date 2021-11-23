@@ -1,4 +1,6 @@
 
+//* Airy solution function error plots
+
 // PLOTF LIM 1.0 err  [ -20  <=   x    <= -2  <>  0.01  ]  
 // ENTITLED Error in approximation of Ai(x) as solution of DE for -20 <= x <= -2 using Stokes equations
 

@@ -1,4 +1,6 @@
 
+//* critical region Zeta calculations
+
 A002410 = (14, 21, 25, 30, 33, 38, 41, 43, 48, 50, 53, 56, 59, 61, 65, 67, 70)
 
 !! msq (z) = Re(z)^2 + Im(z)^2

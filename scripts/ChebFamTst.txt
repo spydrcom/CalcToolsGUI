@@ -1,4 +1,5 @@
 
+//* tests for Chebyshev family equations
 
 // run DiffEQ tests with PREPARE command
 

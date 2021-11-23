@@ -1,4 +1,5 @@
 
+//* compare VC31 spline with Colt
 
 READ VC31Prep.txt
 READ BesselSpline.txt

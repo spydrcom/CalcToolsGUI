@@ -1,3 +1,6 @@
+
+//* demo of Gamma computation
+
 x = 6
 
 READ GammaCompute.txt

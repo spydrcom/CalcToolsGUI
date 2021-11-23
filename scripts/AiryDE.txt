@@ -1,4 +1,6 @@
 
+//* Airy differential equation declaration and render
+
 // Airy Equation
 
 // f''(x) - x * f(x) = 0

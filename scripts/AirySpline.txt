@@ -1,4 +1,6 @@
 
+//* generate spline functions for Airy Ai and Bi using VC31
+
 READ VC31Prep.txt
 
 LIBRARY AiFunc net.myorb.math.specialfunctions.AiryFunctions

@@ -1,4 +1,5 @@
 
+//* demo script for CHEBINTERP and CLENQUAD
 
 
 // equation for a unit circle

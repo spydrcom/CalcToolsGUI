@@ -1,4 +1,6 @@
 
+//* script log
+
 !! gp(x,t) = exp(-t) * t^(x-1)
 
 !! gh(t) = gp(1.5,t) 

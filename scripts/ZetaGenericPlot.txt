@@ -1,4 +1,6 @@
 
+//* comparison of zeta with Euler product
+
 READ ZetaGeneric.txt
 READ ZetaEuler.txt
 

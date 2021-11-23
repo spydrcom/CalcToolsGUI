@@ -1,4 +1,6 @@
 
+//* renders and tests for Stokes approximatins of Airy Ai function
+
 RENDER Ai(x) = exp ( - 2/3 * x^(3/2) ) / ( 2 * 2\pi * x^(1/4))
 RENDER Ai(-x) = sin ( 2/3 * x^(3/2) + pi/4 ) / ( 2\pi * x^(1/4))
 RENDER " Stokes approximations for Ai equation " TOP

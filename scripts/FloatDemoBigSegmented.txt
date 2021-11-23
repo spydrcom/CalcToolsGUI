@@ -1,4 +1,6 @@
 
+//* demo for large segmented spline
+
 SCRIPTPRINT FloatDemoBigSegmented.txt
 
 // constants for approximation purposes

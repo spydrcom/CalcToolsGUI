@@ -1,4 +1,6 @@
 
+//* RI plot of zeta between 10i .. 20i
+
 P = 0.5 + 10*i 
 
 E = 0.5 + 20*i 

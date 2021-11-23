@@ -1,1 +1,4 @@
+
+//* simple plot of sine function
+
 graph [-pi<=x<=pi<>0.1](sin x)

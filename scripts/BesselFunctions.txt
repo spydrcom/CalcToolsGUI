@@ -1,4 +1,5 @@
 
+//* tests of Bessel function imported from Colt library
 
 LIBRARY Bessel cern.jet.math.Bessel
 

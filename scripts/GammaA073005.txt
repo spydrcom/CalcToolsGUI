@@ -1,4 +1,6 @@
 
+//* OEIS A073005
+
 x = 1/3
 gammaPart = F (x); n = 2;
 ITERATE 8000 GammaIteration.sub

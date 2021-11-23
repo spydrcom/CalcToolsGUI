@@ -1,4 +1,6 @@
 
+//* demo of eliptical integral
+
 INFINITY = 100
 
 dt = 1 / INFINITY 

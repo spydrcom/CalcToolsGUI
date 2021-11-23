@@ -1,4 +1,6 @@
 
+//* Airy differential equation declarations for error testing
+
 !! Ai2(x) = Ai''(x <> 0.001)
 !! Bi2(x) = Bi''(x <> 0.001)
 

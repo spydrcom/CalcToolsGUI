@@ -1,4 +1,6 @@
 
+//* test Lagrange spline generation for Airy Ai solution function
+
 READ AiryDeclarations.txt
 READ AiryDE.txt
 
