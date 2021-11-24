@@ -10,12 +10,24 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_script' saveListAs='cmdList'
-		toBeCalled='Iterate ScriptPrint'
+		toBeCalled='Iterate ScriptPrint Cache Files Active'
 	 />
 
 	<!-- configure each command with bean set operations -->
 	<bean references='ScriptPrint'> <text Keyword='ScriptPrint' /> </bean>
 	<bean references='Iterate'> <text Keyword='Iterate' /> </bean>
+
+	<bean references='Cache'>
+		<text Reference='ScriptCache' Symbol='SHOWCACHE' />
+	</bean>
+
+	<bean references='Files'>
+		<text Reference='ScriptFiles' Symbol='SHOWFILES' />
+	</bean>
+
+	<bean references='Active'>
+		<text Reference='ActiveScripts' Symbol='SHOWACTIVE' />
+	</bean>
 
 	<!-- invoke macro to generate keyword symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
