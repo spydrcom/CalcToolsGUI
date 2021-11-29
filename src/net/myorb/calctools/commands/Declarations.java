@@ -138,6 +138,23 @@ public class Declarations<T> extends Context<T>
 
 
 	/**
+	 * process a configure command
+	 * @return a keyword command for the CONFIGURE keyword
+	 */
+	public KeywordCommand constructConfigureKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () 
+			{ return "Configure a library of functions"; }
+
+			public void execute (CommandSequence tokens)
+			{ engine.getFunctionManager ().configureLibrary (tokens); }
+		};
+	}
+
+
+	/**
 	 * process a family command
 	 * @return a keyword command for the FAMILY keyword
 	 */

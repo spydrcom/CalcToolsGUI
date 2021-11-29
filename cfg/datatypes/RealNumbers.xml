@@ -127,10 +127,10 @@
 	  -->
 
 	<!-- get access to implementation objects for ClMath operators/functions -->
-	<SaveAs toBeCalled='algorithms' > <new package='Algorithms' name='CLmathRealImplementations' /> </SaveAs>
+	<SaveAs toBeCalled='algorithms' > <new package='Algorithms' name='CLmathRealImplementations' using='environment' /> </SaveAs>
 
 	<!-- configure operators and functions from CalcLib Math Library-->
-	<SaveAs toBeCalled='clmathselected' > <string>B Ei E1 li Jp</string> </SaveAs>
+	<SaveAs toBeCalled='clmathselected' > <string>B Ei E1 li Jp Ka</string> </SaveAs>
 	<READ path='cfg/libraries/ClRealOps.xml' using='environment algorithms symbolTable clmathselected' />
 	<SaveAs toBeCalled='clmathselected' > <string>Exp Loggamma Incgamma Gamma</string> </SaveAs>
 	<READ path='cfg/libraries/ClMathLib.xml' using='environment algorithms symbolTable clmathselected' />

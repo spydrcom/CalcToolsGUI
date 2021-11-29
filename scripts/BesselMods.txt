@@ -1,0 +1,11 @@
+
+
+//* Bessel modified first and second kind definitions
+
+INFINITY = 10
+
+// modified Bessel I and K
+
+!! Ialpha(alpha,x) = SIGMA [ 0 <= m <= INFINITY ] ( (x #/# 2) ^ (2*m+alpha) / ( m! * GAMMA (m+alpha+1) ) )
+!! Kalpha(alpha,x) = pi * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / ( 2 * sin (pi*alpha) )
+

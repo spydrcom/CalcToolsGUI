@@ -57,19 +57,29 @@ LIBRARY Bessel cern.jet.math.Bessel
 
 // modified Bessel Ialpha and Kalpha
 
-!! Ialpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( POW (x/2,2*m+alpha) / ( m! * GAMMA (m+alpha+1) ) )
-!! Kalpha(alpha,x) = pi/2 * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / sin (pi*alpha)
+!! Ialpha (alpha,x) = SIGMA [0<=m<=INFINITY] ( POW (x/2,2*m+alpha) / ( m! * GAMMA (m+alpha+1) ) )
+!! Kalpha (alpha,x) = pi * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / ( 2 * sin (pi*alpha) )
 
-// modified Bessel Jalpha and Yalpha
+// ordinary Bessel Jalpha and Yalpha
 
-!! Jalpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( (-1)^m * POW (x/2,2*m+alpha) / ( m! * GAMMA (m+alpha+1) ) )
-!! Yalpha(alpha,x) = ( Jalpha(alpha,x) * COS (alpha*pi) - Jalpha(-alpha,x) ) / (SIN (alpha*pi))
+!! Jalpha (alpha,x) = SIGMA [0<=m<=INFINITY] ( (-1)^m * POW (x/2,2*m+alpha) / ( m! * GAMMA (m+alpha+1) ) )
+!! Yalpha (alpha,x) = ( Jalpha(alpha,x) * COS (alpha*pi) - Jalpha(-alpha,x) ) / (SIN (alpha*pi))
+
+// comlex
+
+!! Ialphaz (alpha, z) = i ^ ( -a ) * Jalpha ( alpha, i * z )
+
+// Jalpha (i*z) = Jalphaz (z)
+!! Jalphaz (alpha, z) = exp ( alpha * pi * i / 2 ) * Ialphaz (alpha, z)
+
+// Yalpha (i*z) = Yalphaz (z)
+!! Yalphaz (alpha, z) = exp ( (alpha+1) * pi * i / 2 ) * Ialphaz (alpha, z) - (2/pi) * exp ( - alpha * pi * i / 2) * Kalpha (alpha,z) 
 
 
 // Airy
 
-!! Ai(x) = 1/pi * 2\(x/3) * Kalpha( 1/3, 2/3 * POW(x,3/2) )
-!! Bi(x) = 2\(x/3) * ( Ialpha( 1/3, 2/3 * POW(x,3/2) ) + Ialpha( -1/3, 2/3 * POW(x,3/2) ) )
+!! Ai(x) = 1/pi * 2\(x/3) * Kalpha ( 1/3, 2/3 * POW (x, 3/2) )
+!! Bi(x) = 2\(x/3) * ( Ialpha( 1/3, 2/3 * POW (x, 3/2) ) + Ialpha( -1/3, 2/3 * POW(x,3/2) ) )
 
 
 // Bessel equation 

@@ -13,9 +13,10 @@
 	<!-- configure each operator/function with appropriate bean set operations -->
 	<bean references='Exp'> <text Description='Euler exponential function' Reference='Exp' Symbol='exp' /> </bean>
 	<bean references='Gamma'> <text Description='Lanczos Gamma function approximation' Reference='Gamma' Symbol='GAMMA' /> <text RenderAs='&#x0393;' /> <text Parameters='1000' /> </bean>
-	<bean references='EulerProduct'> <text Description='Euler Product function' Reference='EulerProduct' Symbol='ep' /> <set Precedence='10'/> <text Parameters='10000' /> </bean>
 	<bean references='Loggamma'> <text Description='Loggamma function' Reference='Loggamma' Symbol='loggamma' /> <text Parameters='1000' /> </bean>
 	<bean references='Incgamma'> <text Description='Incomplete Gamma function' Reference='IncompleteGamma' Symbol='gammainc' /> </bean>
+
+	<bean references='EulerProduct'> <text Description='Euler Product function' Reference='EulerProduct' Symbol='ep' /> <set Precedence='10'/> <text Parameters='10000' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='clmathselected' />
 	<macro symbolBean='EulerProduct' path='cfg/OperatorSymbol.xml' using='algorithms EulerProduct symbolTable' />

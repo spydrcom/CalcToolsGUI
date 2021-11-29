@@ -1,0 +1,42 @@
+
+//* Airy functions built on second order Bessel function optimized with JRE
+
+INFINITY = 10
+
+LIBRARY JRE java.lang.Math
+
+!+ pow(x,y)   = JRE.pow
+!+ sin(x)     = JRE.sin
+
+LIBRARY Gamma cern.jet.stat.Gamma
+
+!+ GAMMA(x)   = Gamma.gamma
+
+
+// modified Bessel Ialpha and Kalpha
+
+READ BesselMods.txt
+
+
+// Airy
+
+!! Ai(x) = 1/pi * sqrt(x/3) * Kalpha( 1/3, 2/3 * sqrt(pow(x,3)) )
+!! Bi(x) = sqrt(x/3) * ( Ialpha( 1/3, 2/3 * sqrt(pow(x,3)) ) + Ialpha( -1/3, 2/3 * sqrt(pow(x,3)) ) )
+
+
+// complex RI plots
+
+plotri Ai [-6<x<0<>0.1]
+plotri Bi [-6<x<0<>0.1]
+
+
+// compute and plot errors of Ai/Bi approximations
+
+READ AiryDEtests.txt
+
+
+// plot the computed errors
+
+graph LIM 0.1 [-6<x<0<>0.1]  ( errA(x), errB(x) ) 
+ENTITLED Differential Equation errors of Airy Ai / Bi Functions
+

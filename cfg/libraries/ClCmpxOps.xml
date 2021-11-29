@@ -1,0 +1,31 @@
+<JXR>
+
+	<!-- get access to master object for ClMath operators/functions -->
+	<void> <new  saveAs='clcmpx'  package='CalctoolsLibs' name='ClMath' /> </void>
+	<call object='clcmpx' method='setName'> <string>clcmpx</string> </call>
+	
+	<class called='CLMathOp' package='CalctoolsSyms' name='CLMathOp'/>
+	<class called='CLMathFun' package='CalctoolsSyms' name='CLMathFun'/>
+
+	<!-- create operator object for each symbol of that type using enumeration -->
+	<populate class='CLMathOp' using='clcmpx' toBeCalled='Ip In Jp Ka' saveListAs='opsList' />
+	<populate class='CLMathFun' using='clcmpx' toBeCalled='J2 Ip3 In3 K3' saveListAs='funList' />
+
+	<!-- configure each operator/function with appropriate bean set operations -->
+
+	<bean references='Ip'> <text Description='Bessel Ip' Reference='Bessel' Symbol='Ip' /> <set Precedence='10'/> <text Parameters='I;1/3' /> </bean>
+	<bean references='In'> <text Description='Bessel In' Reference='Bessel' Symbol='In' /> <set Precedence='10'/> <text Parameters='I;-1/3' /> </bean>
+	<bean references='Jp'> <text Description='Bessel Jp' Reference='Bessel' Symbol='Jp' /> <set Precedence='10'/> <text Parameters='J;5/2' /> </bean>
+	<bean references='Ka'> <text Description='Bessel Ka' Reference='Bessel' Symbol='Ka' /> <set Precedence='10'/> <text Parameters='K;1/3' /> </bean>
+
+	<bean references='Ip3'> <text Description='Bessel I function 1/3' Reference='BesFun' Symbol='Ip3' /> <text Parameters='I;1/3' /> </bean>
+	<bean references='In3'> <text Description='Bessel I function -1/3' Reference='BesFun' Symbol='In3' /> <text Parameters='I;-1/3' /> </bean>
+	<bean references='K3'> <text Description='Bessel K function' Reference='BesFun' Symbol='K3' /> <text Parameters='K;1/3' /> </bean>
+	<bean references='J2'> <text Description='Bessel J function' Reference='BesFun' Symbol='J2' /> <text Parameters='J;2.5' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='clmathselected' />
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funList' />
+
+	<Export using='clcmpx' />		<!-- export library object -->
+
+</JXR>

@@ -100,7 +100,11 @@
 
 	<!-- get access to implementation objects for ClMath operators/functions -->
 	<class called='ComplexClmath' package='Algorithms' name='CLmathComplexImplementations' />
-	<SaveAs toBeCalled='algorithms'> <new class='ComplexClmath' /> </SaveAs>
+	<SaveAs toBeCalled='algorithms'> <new class='ComplexClmath' using='environment' /> </SaveAs>
+
+	<!-- configure operators from complex CalcLib Math Library-->
+	<SaveAs toBeCalled='clmathselected' > <string>Ip In Jp Ka</string> </SaveAs>
+	<READ path='cfg/libraries/ClCmpxOps.xml' using='environment algorithms symbolTable clmathselected' />
 
 	<!-- configure operators and functions from CalcLib Math Library-->
 	<SaveAs toBeCalled='clmathselected' > <string>Exp Gamma Loggamma Incgamma</string> </SaveAs>

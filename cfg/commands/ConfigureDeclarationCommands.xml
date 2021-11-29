@@ -10,15 +10,16 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_declarations' saveListAs='cmdList'
-		toBeCalled='Define DefineAlias Transform HGPolynomial LibImport TransformEnable SegmentedFunction Library Family'
+		toBeCalled='Define DefineAlias Transform HGPolynomial LibImport TransformEnable SegmentedFunction Library Configure Family'
 	 />
 
 	<!-- configure each command with bean set operations -->
+	<bean references='LibImport'> <text Reference='LibImport' SymbolUsing='LIB_IMPORT_PREFIX' /> </bean>
 	<bean references='Transform'> <text Reference='Transform' SymbolUsing='HG_POLYNOMIAL_PREFIX' /> </bean>
 	<bean references='HGPolynomial'> <text Reference='HGPolynomial' SymbolUsing='TRANSFORM_PREFIX' /> </bean>
 	<bean references='TransformEnable'> <text Reference='TransformEnable' SymbolUsing='TRANSFORM_ENABLE' /> </bean>
-	<bean references='LibImport'> <text Reference='LibImport' SymbolUsing='LIB_IMPORT_PREFIX' /> </bean>
 	<bean references='SegmentedFunction'> <text Reference='SegmentedFunction' SymbolUsing='SEGMENTED_PREFIX' /> </bean>
+	<bean references='Configure'> <text Reference='Configure' SymbolUsing='CONFIGURE_KEYWORD' /> </bean>
 	<bean references='Library'> <text Reference='Library' SymbolUsing='LIBRARY_KEYWORD' /> </bean>
 	<bean references='Family'> <text Reference='Family' SymbolUsing='FAMILY_KEYWORD' /> </bean>
 
