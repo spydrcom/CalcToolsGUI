@@ -1,4 +1,14 @@
 
-LIBRARY Gamma cern.jet.stat.Gamma
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
-configure Gamma alpha "1/3" terms "30" p3 "p3"
+configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I(1/3)"
+
+instance BIp3 Bessel
+
+configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I(-1/3)"
+
+instance BIn3 Bessel
+
+configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K(1/3)"
+
+instance BK3 Bessel
