@@ -25,7 +25,7 @@
 
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' 
 			inclusionList='coltlibselected' 
-			excluding='Y0'
+			excluding='Y0x'
 	 />
 
 	<Export using='coltlib' />

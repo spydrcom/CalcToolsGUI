@@ -13,10 +13,12 @@ instance BIn3 Bessel
 configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3)"
 instance BK3 Bessel
 
+
 !+ getBk3Alpha()   = BK3.getAlpha
+calc getBk3Alpha()
 kalpha = getBk3Alpha()
 prettyprint kalpha
-
+calc kalpha
 
 // Airy Ai/Bi functions
 !! Ai(x) = 1/pi * sqrt(x/3) * BK3( 2/3 * sqrt(x^3) )
