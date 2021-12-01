@@ -155,6 +155,23 @@ public class Declarations<T> extends Context<T>
 
 
 	/**
+	 * process an instance command
+	 * @return a keyword command for the INSTANCE keyword
+	 */
+	public KeywordCommand constructInstanceKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () 
+			{ return "Instance a symbol described by a library"; }
+
+			public void execute (CommandSequence tokens)
+			{ engine.getFunctionManager ().instanceSymbol (tokens); }
+		};
+	}
+
+
+	/**
 	 * process a family command
 	 * @return a keyword command for the FAMILY keyword
 	 */

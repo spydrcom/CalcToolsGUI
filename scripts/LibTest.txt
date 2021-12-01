@@ -1,14 +1,40 @@
 
+
+//* In-line function configuration test
+
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
-configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I(1/3)"
-
+configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3)"
 instance BIp3 Bessel
 
-configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I(-1/3)"
-
+configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3)"
 instance BIn3 Bessel
 
-configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K(1/3)"
-
+configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3)"
 instance BK3 Bessel
+
+!+ getBk3Alpha()   = BK3.getAlpha
+kalpha = getBk3Alpha()
+prettyprint kalpha
+
+
+// Airy Ai/Bi functions
+!! Ai(x) = 1/pi * sqrt(x/3) * BK3( 2/3 * sqrt(x^3) )
+!! Bi(x) = sqrt(x/3) * ( BIp3( 2/3 * sqrt(x^3) ) + BIn3( 2/3 * sqrt(x^3) ) )
+
+
+// function renders
+
+RENDERF Ai
+RENDERF Bi
+RENDER " Airy / Stokes Equations based on Bessel functions " TOP
+
+
+// complex real/imag plots of Ai and Bi
+
+plotri Ai [-6 < x < -0.2 <> 0.1]
+ENTITLED Airy Ai Function using Bessel identities
+
+plotri Bi  [-6 < x < -0.2 <> 0.1]
+ENTITLED Airy Bi Function using Bessel identities
+
