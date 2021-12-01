@@ -2,7 +2,13 @@
 
 //* In-line function configuration test
 
+
+// access to CalcLib Math Bessel Function Solutions
+
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+
+
+// configuration and instance
 
 configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3)"
 instance BIp3 Bessel
@@ -14,13 +20,16 @@ configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K 
 instance BK3 Bessel
 
 
-!+ getBk3Alpha()   = BK3.getAlpha
-calc getBk3Alpha()
-kalpha = getBk3Alpha()
-prettyprint kalpha
-calc kalpha
+// prepare for Diff EQ tests
+
+!+ getIp3Alpha()   = BIp3.getAlpha
+!+ getIn3Alpha()   = BIn3.getAlpha
+!+ getK3Alpha()   = BK3.getAlpha
+dx = 0.0001
+
 
 // Airy Ai/Bi functions
+
 !! Ai(x) = 1/pi * sqrt(x/3) * BK3( 2/3 * sqrt(x^3) )
 !! Bi(x) = sqrt(x/3) * ( BIp3( 2/3 * sqrt(x^3) ) + BIn3( 2/3 * sqrt(x^3) ) )
 
@@ -39,4 +48,39 @@ ENTITLED Airy Ai Function using Bessel identities
 
 plotri Bi  [-6 < x < -0.2 <> 0.1]
 ENTITLED Airy Bi Function using Bessel identities
+
+
+// Bessel function plots
+
+graph LIM 3 [-2 < x < 2 <> 0.01] ( BK3 (x), BIn3 (x), BIp3 (x))  
+ENTITLED Bessel function plots around origin
+
+
+// Differential Equation precision tests
+//  plots should show flat zero lines
+
+
+!! f(x) = BK3 (x)
+!! BesBk3DE (x, alpha) = x^2 * f''(x<>dx) + x * f'(x<>dx) - (x^2 + alpha^2) * f(x)
+!! BesModBk3DE (x) = BesBk3DE ( x, getK3Alpha() )
+
+graph [2 < x < 5 <> 0.01] ( BesModBk3DE (x) )
+ENTITLED Bessel function K3 DiffEQ error plot
+
+
+!! f(x) = BIn3 (x)
+!! BesIn3DE (x, alpha) = x^2 * f''(x<>dx) + x * f'(x<>dx) - (x^2 + alpha^2) * f(x)
+!! BesModBIn3DE (x) = BesIn3DE ( x, getIn3Alpha() )
+
+graph [2 < x < 5 <> 0.01] ( BesModBIn3DE (x) )
+ENTITLED Bessel function In3 DiffEQ error plot
+
+
+!! f(x) = BIp3 (x)
+!! BesBIp3DE (x, alpha) = x^2 * f''(x<>dx) + x * f'(x<>dx) - (x^2 + alpha^2) * f(x)
+!! BesModIp3DE (x) = BesBIp3DE ( x, getIp3Alpha() )
+
+graph [2 < x < 5 <> 0.01] ( BesModIp3DE (x) )
+ENTITLED Bessel function Ip3 DiffEQ error plot
+
 
