@@ -2,6 +2,7 @@
 package net.myorb.calctools.libraries;
 
 import net.myorb.calctools.atomic.Library;
+import net.myorb.math.complexnumbers.ComplexValue;
 import net.myorb.math.expressions.algorithms.CLmathComplexImplementations;
 import net.myorb.math.expressions.evaluationstates.Environment;
 
@@ -12,9 +13,9 @@ import net.myorb.math.expressions.evaluationstates.Environment;
 public class ClMath extends Library
 {
 
-	public static <T> CLmathComplexImplementations getAlgorithms (Environment<T> environment)
+	public static CLmathComplexImplementations getAlgorithms (Environment<ComplexValue<Double>> environment)
 	{
-		return new CLmathComplexImplementations();
+		return new CLmathComplexImplementations (environment);
 	}
 
 	private static final long serialVersionUID = -4607431977408905063L;
