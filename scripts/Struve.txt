@@ -1,0 +1,84 @@
+
+
+//* In-line function configuration test for derivative render
+
+
+// simple Bessel function as f(x)
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+
+configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3)"
+instance In3 Bessel
+!! f(x) = In3(x)
+
+configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3)"
+instance Ip3 Bessel
+!! f(x) = Ip3(x)
+
+configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3)"
+instance K3 Bessel
+!! f(x) = K3(x)
+
+// INFINITY = 20
+// !! Ialpha(alpha,x) = SIGMA [0<=m<=INFINITY] ( (x #/# 2)^(2*m+alpha) / (m! * GAMMA (m+alpha+1)) )
+// !! Kalpha(alpha,x) = pi * ( Ialpha(-alpha,x) - Ialpha(alpha,x) ) / ( 2 * sin (pi*alpha) )
+
+// !! Ip3(x) = Ialpha (1/3,x)
+// !! In3(x) = Ialpha (-1/3,x)
+// !! K3(x) = Kalpha (1/3,x)
+!! f(x) = Ip3(x)
+
+
+// access to CalcLib Derivative formatting Solutions
+
+LIBRARY dfdx net.myorb.math.expressions.algorithms.ClMathDerivative
+dx = 0.0001
+
+
+// configuration and instance
+
+configure dfdx symbol "d" order "1" function "f" variable "x" run "dx" description "df/dx"
+instance dfdx1 dfdx
+
+configure dfdx symbol "d" order "2" function "f" variable "x" run "dx" description "d2f/dx2"
+instance dfdx2 dfdx
+
+!! Bessel (x,alpha) = x^2 * dfdx2() + x * dfdx1() - (x^2 + alpha^2) * f(x)
+!! Struve (x,alpha) = (4 * (x #/# 2)^(alpha+1)) / ( 2\pi * GAMMA (alpha+1/2) )
+
+RENDERF Bessel
+RENDERF Struve
+
+graph [0.5 < x < 3 <> 0.01] (Bessel(x,1/3))
+
+!! Bessel (x, alpha) = x^2 * f''(x<>dx) + x * f'(x<>dx) - (x^2 + alpha^2) * f(x)
+
+graph [0.5 < x < 3 <> 0.01] (Bessel(x,1/3))
+
+!! dif(x) = dfdx2() - f''(x <> dx)
+
+graph [0.5 < x < 3 <> 0.01] (dif(x))
+
+
+!! Ai(x) = 1/pi * sqrt(x/3) * K3( 2/3 * sqrt(x^3) )
+!! Bi(x) = sqrt(x/3) * ( Ip3( 2/3 * sqrt(x^3) ) + In3( 2/3 * sqrt(x^3) ) )
+
+
+configure dfdx symbol "d" order "2" function "Ai" variable "x" run "dx" description "d2f/dx2"
+instance Ai2 dfdx
+
+!! errA(x) = abs ( Ai2() - x * Ai(x) )
+
+configure dfdx symbol "d" order "2" function "Bi" variable "x" run "dx" description "d2f/dx2"
+instance Bi2 dfdx
+
+!! errB(x) = abs ( Bi2(x) - x * Bi(x) )
+
+graph [-5<x<0<>0.01]  ( Ai(x), Bi(x) ) 
+graph LIM 0.1 [-5<x<0<>0.01]  ( errA(x), errB(x) ) 
+
+plotri Ai [-6 < x < -0.2 <> 0.1]
+ENTITLED Airy Ai Function using Bessel identities
+
+plotri Bi  [-6 < x < -0.2 <> 0.1]
+ENTITLED Airy Bi Function using Bessel identities
+
