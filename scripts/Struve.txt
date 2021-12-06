@@ -6,16 +6,16 @@
 // simple Bessel function as f(x)
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
-configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3)"
-instance In3 Bessel
+configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3) in-line"
+// instance In3 Bessel
 !! f(x) = In3(x)
 
-configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3)"
-instance Ip3 Bessel
+configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3) in-line"
+// instance Ip3 Bessel
 !! f(x) = Ip3(x)
 
-configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3)"
-instance K3 Bessel
+configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3) in-line"
+// instance K3 Bessel
 !! f(x) = K3(x)
 
 // INFINITY = 20
@@ -54,9 +54,10 @@ graph [0.5 < x < 3 <> 0.01] (Bessel(x,1/3))
 
 graph [0.5 < x < 3 <> 0.01] (Bessel(x,1/3))
 
-!! dif(x) = dfdx2() - f''(x <> dx)
+!! dif1(x) = 1 + dfdx1() - f'(x <> dx)
+!! dif2(x) = 2 + dfdx2() - f''(x <> dx)
 
-graph [0.5 < x < 3 <> 0.01] (dif(x))
+graph [0.5 < x < 3 <> 0.01] ( dif1(x), dif2(x) )
 
 
 !! Ai(x) = 1/pi * sqrt(x/3) * K3( 2/3 * sqrt(x^3) )
