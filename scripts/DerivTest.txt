@@ -1,0 +1,22 @@
+
+
+//* compare dfdx with f'
+
+
+LIBRARY dfdx net.myorb.math.expressions.algorithms.ClMathDerivative
+!! f(x) = K3(x)
+dx = 0.0001
+
+
+configure dfdx symbol "d" order "1" function "f" variable "x" run "dx" description "df/dx"
+instance dfdx1 dfdx
+
+configure dfdx symbol "d" order "2" function "f" variable "x" run "dx" description "d2f/dx2"
+instance dfdx2 dfdx
+
+
+!! dif1(x) = 1 + dfdx1() - f'(x <> dx)
+!! dif2(x) = 2 + dfdx2() - f''(x <> dx)
+
+graph [0.5 < x < 3 <> 0.01] ( dif1(x), dif2(x) )
+
