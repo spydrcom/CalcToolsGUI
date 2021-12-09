@@ -1,0 +1,126 @@
+
+
+//* calculation tests for family library of Bessel functions
+
+
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+
+configure Bessel kind "J" alpha "0" terms "40" description "Bessel function J (0)"
+instance J0x Bessel
+
+configure Bessel kind "I" alpha "0" terms "20" description "Bessel function I (0)"
+instance I0x Bessel
+
+
+// first zero of J0
+A115368 = 2.4048255576957727686
+
+
+// Colt calculated zero of J0
+
+J0zeroColt2 = 2
+ROOTOF J0 J0zeroColt2 
+PRETTYPRINT J0zeroColt2
+A115368_Colt_Error = J0zeroColt2 - A115368
+prettyprint A115368_Colt_Error
+
+
+J0zero1 = J0zeroColt2
+
+J0zero2 = 6
+ROOTOF J0 J0zero2
+
+J0zero3 = 9
+ROOTOF J0 J0zero3 
+
+J0zero4 = 12
+ROOTOF J0 J0zero4 
+
+J0zero5 = 15
+ROOTOF J0 J0zero5 
+
+J0zero6 = 18
+ROOTOF J0 J0zero6 
+
+J0zero7 = 21
+ROOTOF J0 J0zero7
+
+J0zero8 = 24
+ROOTOF J0 J0zero8
+
+ColtResults = (J0zero1, J0zero2, J0zero3, J0zero4, J0zero5, J0zero6, J0zero7, J0zero8)
+
+
+// ClMath calculated zero of J0
+
+J0zeroCLib2 = 2
+ROOTOF J0x J0zeroCLib2 
+PRETTYPRINT J0zeroCLib2
+A115368_CLib_Error = J0zeroCLib2 - A115368
+prettyprint A115368_CLib_Error
+
+
+J0zero1 = J0zeroCLib2
+
+J0zero2 = 6
+ROOTOF J0x J0zero2
+
+J0zero3 = 9
+ROOTOF J0x J0zero3 
+
+J0zero4 = 12
+ROOTOF J0x J0zero4 
+
+J0zero5 = 15
+ROOTOF J0x J0zero5 
+
+J0zero6 = 18
+ROOTOF J0x J0zero6 
+
+J0zero7 = 21
+ROOTOF J0x J0zero7
+
+J0zero8 = 24
+ROOTOF J0x J0zero8
+
+// ClMath calculated zero of J0
+CLibResults = (J0zero1, J0zero2, J0zero3, J0zero4, J0zero5, J0zero6, J0zero7, J0zero8)
+
+
+// J0 zeros
+A000134 = (2, 6, 9, 12, 15, 18, 21, 24, 27, 31, 34, 37, 40, 43, 46, 49)
+prettyprint A000134
+
+// compare ClMath with Colt
+prettyprint ColtResults
+prettyprint CLibResults
+
+// array of differences
+diff = ColtResults - CLibResults
+prettyprint diff
+
+
+// I0 test
+
+// I0(1)
+A197036 = 1.2660658777520083355982
+A197036_Colt_Error = I0(1) - A197036
+prettyprint A197036_Colt_Error
+
+A197036_CLib_Error = I0x(1) - A197036
+prettyprint A197036_CLib_Error
+
+
+// Bessel Polynomial tests
+
+// Yn(3) Bessel Polynomial
+A001518 = (1, 4, 37, 559, 11776, 318511, 10522639)
+
+// Yn(-2) Bessel Polynomial
+A002119 = (1, -1, 7, -71, 1001, -18089, 398959, -10391023, 312129649)
+
+// Yn'(1) Bessel Polynomial
+A001514 = (0, 1, 9, 81, 835, 9990, 137466, 2148139, 37662381)
+
+
+

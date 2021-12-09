@@ -1,5 +1,8 @@
 
 
+//* declarations of Bessel differential equations
+
+
 // Bessel Equation
 
 // x^2 * Jn''(x) + x * Jn'(x) + (x^2 - n^2) * Jn(x) = 0

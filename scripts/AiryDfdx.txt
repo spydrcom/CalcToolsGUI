@@ -18,15 +18,15 @@ INFINITY = 30
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
 configure Bessel kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3) in-line"
-// instance In3 Bessel
+instance In3 Bessel
 // !! f(x) = In3(x)
 
 configure Bessel kind "I" alpha "1/3" terms "20" description "Bessel function I (1/3) in-line"
-// instance Ip3 Bessel
+instance Ip3 Bessel
 // !! f(x) = Ip3(x)
 
 configure Bessel kind "K" alpha "1/3" terms "20" description "Bessel function K (1/3) in-line"
-// instance K3 Bessel
+instance K3 Bessel
 // !! f(x) = K3(x)
 
 

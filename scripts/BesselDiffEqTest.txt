@@ -1,5 +1,8 @@
 
 
+//* differential equations tests of members of Bessel family
+
+
 alpha=2
 // test Jn 2
 family Bessel 3 First
@@ -52,5 +55,16 @@ READ BesselDE.txt
 
 !! KaSolutionError(x) = BesModDE (x)
 PLOTF KaSolutionError  [  2 <=    x    <= 8  <>  0.01  ]   
-entitled Error function for K(a=3.7)
+entitled Error function for K(a=3.7) family config
+
+
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+configure Bessel kind "K" alpha "3.7" terms "20" description "Bessel function K (3.7)"
+instance KA3 Bessel
+prepare KA3 f 0.001
+READ BesselDE.txt
+
+!! KaSolutionError(x) = BesModDE (x)
+PLOTF KaSolutionError  [  2 <=    x    <= 8  <>  0.01  ]   
+entitled Error function for K(a=3.7) in-line config
 
