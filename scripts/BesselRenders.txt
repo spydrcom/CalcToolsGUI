@@ -1,0 +1,17 @@
+
+
+//* render Bessel function identities
+
+
+n=0
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel 
+configure Bessel kind "J" alpha "n" terms "20" description "Bessel function J (n)"  ;  instance BJn Bessel 
+configure Bessel kind "Y" alpha "n" terms "20" description "Bessel function Y (n)"  ;  instance BYn Bessel 
+
+render BYn(x) = 2/pi * BJn(z) * ln (z/2)
+
+render - ( z^n / ( 2^n * pi ) * SUMMATION [0 <= k <= INFINITY] ( (-1)^k * (psi(k+1) + psi(n+k+1)) * z^(2*k) / ( 4^k * k! * (n+k)! ) ) )
+
+render -2^n / ( pi * z^n ) * SUMMATION [0 <= k <= n-1] ( (z^2 / 4)^k * ( (n - k - 1)! / k! ) )
+
+

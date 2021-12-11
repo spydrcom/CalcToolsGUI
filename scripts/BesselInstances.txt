@@ -1,0 +1,18 @@
+
+
+//* declaration of Bessel function instances
+
+
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+
+configure Bessel kind "K" alpha "n" terms "20" description "Bessel function K (n)"
+instance BKn Bessel
+
+configure Bessel kind "I" alpha "n" terms "20" description "Bessel function I (n)"
+instance BIn Bessel
+
+configure Bessel kind "J" alpha "n" terms "20" description "Bessel function J (n)"
+instance BJn Bessel
+
+configure Bessel kind "Y" alpha "n" terms "20" description "Bessel function Y (n)"
+instance BYn Bessel

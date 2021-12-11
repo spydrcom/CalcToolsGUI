@@ -1,0 +1,28 @@
+
+
+
+//* calculate Bessel function Yn in-line
+
+
+n = 1
+INFINITY = 40
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel 
+configure Bessel kind "J" alpha "n" terms "40" description "Bessel function J (n)"  ;  instance BJn Bessel 
+
+dz = 0.0001
+!! g(z) = GAMMA(z)
+!! psi(z) = g'(z <> dz) / g(z)
+
+!! BYnTerm1(z) = 2 * BJn(z) * ln (z/2)
+
+!! BYnSeries(z) = SUMMATION [0 <= k <= INFINITY] ( (-1)^k * (psi(k+1) + psi(n+k+1)) * z^(2*k) / ( 4^k * k! * (n+k)! ) )
+
+!! BYnTerm2(z) = (z / 2)^n * BYnSeries(z)
+
+!! BYnTerm3(z) = (2 / z)^n * SUMMATION [0 <= k <= n-1] ( (z^2 / 4)^k * ( (n - k - 1)! / k! ) )
+
+!! BYn(z) = 1/pi * (BYnTerm1(z) - BYnTerm2(z) - BYnTerm3(z))
+
+graph [1<x<20<>0.1] (BYn x)
+
+
