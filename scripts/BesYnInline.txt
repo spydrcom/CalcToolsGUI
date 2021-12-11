@@ -25,4 +25,10 @@ dz = 0.0001
 
 graph [1<x<20<>0.1] (BYn x)
 
+!! Y(x) = BYn (x) ; dx = 0.0001
+LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
+configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
+configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
+!! Yn_DE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
+GRAPH LIM 0.2 [1 < x < 20 <> 0.1] ( Yn_DE x )
 
