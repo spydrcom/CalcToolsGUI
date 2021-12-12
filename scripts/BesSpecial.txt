@@ -3,7 +3,7 @@
 //* special case bessel algorithms
 
 
-dx = 0.001
+dx = 0.00001
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 
 
@@ -31,3 +31,16 @@ configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" descripti
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! Yn_DE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
 GRAPH LIM 0.2 [1 < x < 20 <> 0.1] ( Yn_DE x )
+
+n = 3
+// In special case
+configure Bessel kind "i" alpha "n" terms "60" description "Bessel function I (n)" ; instance In Bessel
+GRAPH LIM 5 [0 < x < 20 <> 0.1] ( In x )
+
+!! Y(x) = In (x)
+LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
+configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
+configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
+!! In_DE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
+GRAPH LIM 0.5 [0 < x < 20 <> 0.1] ( In_DE x )
+
