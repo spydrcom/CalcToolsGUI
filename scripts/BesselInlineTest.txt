@@ -3,7 +3,7 @@
 //* validation of Bessel functions
 
 
-n = 0
+n = 3
 READ BesselInstances.txt
 GRAPH LIM 5 [0 < x < 5 <> 0.01] ( BIn x, BJn x, BKn x, BYn x )
 
@@ -15,26 +15,27 @@ LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 !! Y(x) = BKn (x)
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
-!! Kn_MDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
-GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( Kn_MDE x )
+!! KnDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
+GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( KnDE x )
 
 
 !! Y(x) = BIn (x)
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
-!! In_MDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
-GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( In_MDE x )
+!! InDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
+GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( InDE x )
 
 
 !! Y(x) = BJn (x)
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
-!! Jn_MDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
-GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( Jn_MDE x )
+!! JnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
+GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( JnDE x )
+
 
 !! Y(x) = BYn (x)
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
-!! Yn_MDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
-GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( Yn_MDE x )
+!! YnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
+GRAPH LIM 5 [0.5 < x < 5 <> 0.01] ( YnDE x )
 

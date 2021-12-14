@@ -3,7 +3,7 @@
 //* Bessel Ia Integral form
 
 
-//	!! iap2 (x,a,t) = exp ( - x * cosh ( (1-a) * t)
+//	!! iap2 (x,a,t) = exp ( - x * cosh (t) - a*t )
 //	!! iap1 (x,a,t) = exp ( x * cos (t) ) * cos (a * t)
 
 //	!! Ia (x,a) = 1/pi * ( INTEGRAL [0 <= t <= pi <> dt] (iap1 (x, a, t) * <*> t) -
@@ -13,7 +13,7 @@ alpha = 3
 INFINITY = 50
 
 dt = 0.01
-!! iai2 (x,a,t) = exp ( - x * cosh ( (1-a) * t) )
+!! iai2 (x,a,t) = exp ( - x * cosh (t) - a * t )
 !! iap2 (x,a) = INTEGRAL [0 <= t <= INFINITY <> dt] (iai2 (x, a, t) * <*> t)
 
 dt = 0.001

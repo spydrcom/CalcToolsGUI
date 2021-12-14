@@ -1,0 +1,39 @@
+
+
+//* Bessel Ja Integral form
+
+
+//	!! jap1 (x,a,t) = cos ( a * t - x * sin (t) ) )
+//	!! jap2 (x,a,t) = exp ( - x * sinh (t) - a * t )
+
+//	!! Ja (x,a) = 1/pi * ( INTEGRAL [0 <= t <= pi <> dt] (jap1 (x, a, t) * <*> t) -
+//			sin (a * pi) * INTEGRAL [0 <= t <= INFINITY <> dt] (jap2 (x, a, t) * <*> t) )
+
+
+alpha = 2
+INFINITY = 10
+
+dtpt2 = 0.1
+!! jai2 (x,a,t) = exp ( - x * sinh (t) - a * t )
+!! jap2 (x,a) = INTEGRAL [0 <= t <= INFINITY <> dtpt2] (jai2 (x, a, t) * <*> t)
+
+dtpt1 = 0.001
+!! jai1 (x,a,t) = cos ( a * t - x * sin (t) )
+!! jap1 (x,a) = INTEGRAL [0 <= t <= pi <> dtpt1] (jai1 (x, a, t) * <*> t)
+
+!! ja (x,a) = 1/pi * ( jap1 (x,a) - sin (a * pi) * jap2 (x,a) )
+
+graph LIM 5 [0 < x < 20 <> 0.1] ( ja (x, alpha) )
+
+
+n = alpha
+dx = 0.0001
+!! Y(x) = ja (x, alpha)
+LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
+configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
+configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
+
+!! JnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
+GRAPH LIM 5 [1 < x < 20 <> 0.1] ( JnDE x )
+
+
