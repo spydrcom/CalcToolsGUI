@@ -4,7 +4,7 @@
 //* calculate Bessel function Yn in-line
 
 
-n = 1
+n = 3
 INFINITY = 40
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel 
 configure Bessel kind "J" alpha "n" terms "40" description "Bessel function J (n)"  ;  instance BJn Bessel 

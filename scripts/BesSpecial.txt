@@ -22,9 +22,9 @@ configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" descripti
 GRAPH LIM 0.2 [0.2 < x < 5 <> 0.01] ( KnDE x )
 
 
-// n = 3
+n = 1
 // Yn special case
-configure Bessel kind "N" alpha "n" terms "60" precision "1E-6" description "Bessel function Y (n)" ; instance Yn Bessel
+configure Bessel kind "N" alpha "n" terms "40" precision "1E-6" description "Bessel function Y (n)" ; instance Yn Bessel
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( Yn x )
 
 !! Y(x) = Yn (x)
@@ -32,7 +32,7 @@ LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! YnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
-GRAPH LIM 0.2 [1 < x < 20 <> 0.1] ( YnDE x )
+GRAPH LIM 5 [1 < x < 20 <> 0.1] ( YnDE x )
 
 
 // n = 3
@@ -50,7 +50,7 @@ GRAPH LIM 0.5 [0 < x < 20 <> 0.1] ( InDE x )
 
 // n = 3
 // Jn special case
-configure Bessel kind "j" alpha "n" terms "60" precision "1E-6" description "Bessel function J (n)" ; instance Jn Bessel
+configure Bessel kind "j" alpha "n" terms "40" precision "1E-8" description "Bessel function J (n)" ; instance Jn Bessel
 GRAPH LIM 5 [0 < x < 20 <> 0.1] ( Jn x )
 
 !! Y(x) = Jn (x)
