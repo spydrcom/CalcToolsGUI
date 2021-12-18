@@ -1,0 +1,37 @@
+
+
+
+//* calculate Bessel function Yn in-line using polynomial
+
+
+n = 3
+INFINITY = 40
+LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel 
+configure Bessel kind "J" alpha "n" terms "40" description "Bessel function J (n)"  ;  instance BJn Bessel 
+
+dz = 0.0001
+!! g(z) = GAMMA(z)
+!! psi(z) = g'(z <> dz) / g(z)
+
+c1 = [0 <= k <= INFINITY] ( (-1)^k * (psi(k+1) + psi(n+k+1)) / ( 4^k * k! * (n+k)! ) )
+c2 = [0 <= k <= n-1] ( (n - k - 1)! / ( 4^k * k! ) )
+
+!! BYnTerm1(z) = 2 * BJn(z) * ln (z/2)
+
+!! BYnTerm2(z,z2n) = z2n * SUMMATION [0 <= k <= INFINITY] ( c1#k * z^(2*k) )
+
+!! BYnTerm3(z,z2n) = z2n * SUMMATION [0 <= k <= n-1] ( c2#k * z^(2*k) )
+
+!! digest23(z,z2n) = BYnTerm2(z,z2n) + BYnTerm3(z,1/z2n)
+
+!! BYn(z) = 1/pi * (BYnTerm1(z) - digest23(z,(z/2)^n))
+
+graph [1<x<20<>0.1] (BYn x)
+
+!! Y(x) = BYn (x) ; dx = 0.0001
+LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
+configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
+configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
+!! Yn_DE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
+GRAPH LIM 0.2 [1 < x < 20 <> 0.1] ( Yn_DE x )
+
