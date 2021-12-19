@@ -10,9 +10,9 @@ LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
 
-n = 2
+n = 3
 // Ka special case
-configure Bessel kind "A" alpha "n" terms "20" description "Bessel function K (n)" ; instance Kn Bessel
+configure Bessel form "integral" kind "K" alpha "n" terms "20" precision "1E-4" description "Bessel function K (n)" ; instance Kn Bessel
 GRAPH LIM 5 [0.2 < x < 5 <> 0.1] ( Kn x )
 
 !! Y(x) = Kn (x)
@@ -22,9 +22,9 @@ configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" descripti
 GRAPH LIM 0.2 [0.2 < x < 5 <> 0.01] ( KnDE x )
 
 
-n = 1
+// n = 3
 // Yn special case
-configure Bessel kind "N" alpha "n" terms "40" precision "1E-6" description "Bessel function Y (n)" ; instance Yn Bessel
+configure Bessel form "digamma" kind "Y" method "polynomial" alpha "n" terms "40" description "Bessel function Y (n)" ; instance Yn Bessel
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( Yn x )
 
 !! Y(x) = Yn (x)
@@ -37,7 +37,7 @@ GRAPH LIM 5 [1 < x < 20 <> 0.1] ( YnDE x )
 
 // n = 3
 // In special case
-configure Bessel kind "i" alpha "n" terms "40" description "Bessel function I (n)" ; instance In Bessel
+configure Bessel form "integral" kind "I" alpha "n" terms "40" precision "1E-4" description "Bessel function I (n)" ; instance In Bessel
 GRAPH LIM 5 [0 < x < 20 <> 0.1] ( In x )
 
 !! Y(x) = In (x)
@@ -50,13 +50,13 @@ GRAPH LIM 0.5 [0 < x < 20 <> 0.1] ( InDE x )
 
 // n = 3
 // Jn special case
-configure Bessel kind "j" alpha "n" terms "40" precision "1E-8" description "Bessel function J (n)" ; instance Jn Bessel
-GRAPH LIM 5 [0 < x < 20 <> 0.1] ( Jn x )
+configure Bessel form "integral" kind "J" alpha "n" terms "40" precision "1E-10" description "Bessel function J (n)" ; instance Jn Bessel
+GRAPH LIM 5 [0 < x < 10 <> 0.1] ( Jn x )
 
 !! Y(x) = Jn (x)
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! JnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
-GRAPH LIM 5 [0 < x < 20 <> 0.1] ( JnDE x )
+GRAPH LIM 5 [0 < x < 10 <> 0.1] ( JnDE x )
 

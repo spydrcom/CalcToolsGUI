@@ -9,13 +9,13 @@ dx = 0.0001
 
 LIBRARY StruveLib net.myorb.math.expressions.algorithms.ClMathBessel
 
-configure StruveLib kind "h" alpha "1" terms "20" description "Struve function H (1)"
+configure StruveLib form "struve" kind "H" alpha "1" terms "20" description "Struve function H (1)"
 instance h1 StruveLib
 
-configure StruveLib kind "h" alpha "2" terms "20" description "Struve function H (2)"
+configure StruveLib form "struve" kind "H" alpha "2" terms "20" description "Struve function H (2)"
 instance h2 StruveLib
 
-configure StruveLib kind "h" alpha "3" terms "20" description "Struve function H (3)"
+configure StruveLib form "struve" kind "H" alpha "3" terms "20" description "Struve function H (3)"
 instance h3 StruveLib
 
 graph [-7 < x < 7 <> 0.1] ( h1(x), h2(x), h3(x) )
@@ -61,13 +61,13 @@ instance dfdx2 dfdx
 graph [-7 < x < 7 <> 0.1] (StruveDE(x,2))
 
 
-configure StruveLib kind "l" alpha "1" terms "20" description "Struve function L (1)"
+configure StruveLib form "struve" kind "L" alpha "1" terms "20" description "Struve function L (1)"
 instance l1 StruveLib
 
-configure StruveLib kind "l" alpha "2" terms "20" description "Struve function L (2)"
+configure StruveLib form "struve" kind "L" alpha "2" terms "20" description "Struve function L (2)"
 instance l2 StruveLib
 
-configure StruveLib kind "l" alpha "3" terms "20" description "Struve function L (3)"
+configure StruveLib form "struve" kind "L" alpha "3" terms "20" description "Struve function L (3)"
 instance l3 StruveLib
 
 graph [-7 < x < 7 <> 0.1] ( l1(x), l2(x), l3(x) )
