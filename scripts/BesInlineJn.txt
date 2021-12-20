@@ -24,6 +24,7 @@ dtpt1 = 0.001
 !! ja (x,a) = 1/pi * ( jap1 (x,a) - sin (a * pi) * jap2 (x,a) )
 
 graph LIM 5 [0 < x < 20 <> 0.1] ( ja (x, alpha) )
+ENTITLED Ja plot computed inline from INTEGRAL 
 
 
 n = alpha
@@ -35,5 +36,6 @@ configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" descripti
 
 !! JnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( JnDE x )
+ENTITLED Differential Equation error plot for Ja computed inline from INTEGRAL 
 
 

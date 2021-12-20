@@ -3,29 +3,32 @@
 //* special case bessel algorithms
 
 
-dx = 0.00001
+dx = 0.0001
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 
 
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
 
-n = 3
+n = 2
 // Ka special case
-configure Bessel form "integral" kind "K" alpha "n" terms "20" precision "1E-4" description "Bessel function K (n)" ; instance Kn Bessel
+configure Bessel form "integral" kind "K" method "CTA" alpha "n" delta "0.001" terms "20" precision "1E-4" description "Bessel function K (n)" ; instance Kn Bessel
 GRAPH LIM 5 [0.2 < x < 5 <> 0.1] ( Kn x )
+ENTITLED Ka plot computed computed based on inline configuration
 
 !! Y(x) = Kn (x)
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! KnDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
-GRAPH LIM 0.2 [0.2 < x < 5 <> 0.01] ( KnDE x )
+GRAPH LIM 0.2 [0.2 < x < 5 <> 0.1] ( KnDE x )
+ENTITLED Differential Equation error plot for Kn computed based on inline configuration 
 
 
 // n = 3
 // Yn special case
 configure Bessel form "digamma" kind "Y" method "polynomial" alpha "n" terms "40" description "Bessel function Y (n)" ; instance Yn Bessel
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( Yn x )
+ENTITLED Yn plot computed computed based on inline configuration
 
 !! Y(x) = Yn (x)
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
@@ -33,12 +36,14 @@ configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" descripti
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! YnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( YnDE x )
+ENTITLED Differential Equation error plot for Yn computed based on inline configuration 
 
 
 // n = 3
 // In special case
-configure Bessel form "integral" kind "I" alpha "n" terms "40" precision "1E-4" description "Bessel function I (n)" ; instance In Bessel
+configure Bessel form "integral" kind "I" method "CTA" alpha "n" delta "0.001" terms "40" precision "1E-4" description "Bessel function I (n)" ; instance In Bessel
 GRAPH LIM 5 [0 < x < 20 <> 0.1] ( In x )
+ENTITLED In plot computed computed based on inline configuration
 
 !! Y(x) = In (x)
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
@@ -46,17 +51,20 @@ configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" descripti
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! InDE(x) = x^2 * dYdx2() + x * dYdx1() - (x^2 + n^2) * Y(x)
 GRAPH LIM 0.5 [0 < x < 20 <> 0.1] ( InDE x )
+ENTITLED Differential Equation error plot for In computed based on inline configuration 
 
 
 // n = 3
 // Jn special case
-configure Bessel form "integral" kind "J" alpha "n" terms "40" precision "1E-10" description "Bessel function J (n)" ; instance Jn Bessel
-GRAPH LIM 5 [0 < x < 10 <> 0.1] ( Jn x )
+configure Bessel form "integral" kind "J" method "CTA" delta "0.001" alpha "n" terms "10" precision "1E-10" description "Bessel function J (n)" ; instance Jn Bessel
+GRAPH LIM 5 [0 < x < 20 <> 0.1] ( Jn x )
+ENTITLED Jn plot computed computed based on inline configuration
 
 !! Y(x) = Jn (x)
 LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
 configure dydx symbol "d" order "2" function "Y" variable "x" run "dx" description "d2Y/dx2" ; instance dYdx2 dydx
 configure dydx symbol "d" order "1" function "Y" variable "x" run "dx" description "dY/dx" ; instance dYdx1 dydx
 !! JnDE(x) = x^2 * dYdx2() + x * dYdx1() + (x^2 - n^2) * Y(x)
-GRAPH LIM 5 [0 < x < 10 <> 0.1] ( JnDE x )
+GRAPH LIM 5 [0 < x < 20 <> 0.1] ( JnDE x )
+ENTITLED Differential Equation error plot for Jn computed based on inline configuration 
 
