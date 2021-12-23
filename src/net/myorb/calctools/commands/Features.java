@@ -1,12 +1,15 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.math.expressions.gui.UserInteractions;
+
 import net.myorb.math.expressions.commands.CosineTransform;
 import net.myorb.math.expressions.commands.MandelbrotGraphics;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
+
 import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
 
@@ -53,6 +56,32 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{ plot (GraphManager.Types.POLY_EVALUATION, tokens, getAccess ()); }
+		};
+	}
+
+
+	/**
+	 * request value from user
+	 * @return a keyword command for the REQUEST keyword
+	 */
+	public KeywordCommand constructRequestKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Request a value be entered for the specified variable"; }
+			public void execute (CommandSequence tokens)
+			{
+				String variable = tokens.get (1).getTokenImage ();
+				String prompt = "Enter value for " + variable;
+
+				environment.postAssignment
+				(
+					UserInteractions.requestValue
+						(prompt, environment),
+					variable
+				);
+			}
 		};
 	}
 
