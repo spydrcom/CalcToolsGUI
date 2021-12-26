@@ -27,18 +27,22 @@ public class Features<T> extends Context<T>
 
 
 	/**
-	 * process a mandelbrot command
-	 * @return a keyword command for the mandelbrot keyword
+	 * process a Mandelbrot command
+	 * @return a keyword command for the Mandelbrot keyword
 	 */
 	public KeywordCommand constructMandelbrotKeywordCommand ()
 	{
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Display a plot of the Mandelbrot set"; }
+			{
+				return "Display a plot of the Mandelbrot set";
+			}
 
 			public void execute (CommandSequence tokens)
-			{ new MandelbrotGraphics<T>(environment).plot (tokens); }
+			{
+				new MandelbrotGraphics<T>(environment).plot (tokens);
+			}
 		};
 	}
 
@@ -52,10 +56,14 @@ public class Features<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Analyze a polynomial and tabulate key points"; }
+			{
+				return "Analyze a polynomial and tabulate key points";
+			}
 
 			public void execute (CommandSequence tokens)
-			{ plot (GraphManager.Types.POLY_EVALUATION, tokens, getAccess ()); }
+			{
+				plot (GraphManager.Types.POLY_EVALUATION, tokens, getAccess ());
+			}
 		};
 	}
 
@@ -69,7 +77,10 @@ public class Features<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Request a value be entered for the specified variable"; }
+			{
+				return "Request a value be entered for the specified variable";
+			}
+
 			public void execute (CommandSequence tokens)
 			{
 				String variable = tokens.get (1).getTokenImage ();
@@ -95,7 +106,10 @@ public class Features<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Find root of function near specified approximation"; }
+			{
+				return "Find root of function near specified approximation";
+			}
+
 			public void execute (CommandSequence tokens)
 			{
 				StringBuffer functionName = new StringBuffer ();
@@ -120,7 +134,10 @@ public class Features<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Find Max/Min of function near specified approximation"; }
+			{
+				return "Find Max/Min of function near specified approximation";
+			}
+
 			public void execute (CommandSequence tokens)
 			{
 				StringBuffer functionName = new StringBuffer ();
@@ -144,10 +161,14 @@ public class Features<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe ()
-			{ return "Apply Discrete Cosine Tranform to function"; }
+			{
+				return "Apply Discrete Cosine Tranform to function";
+			}
 
 			public void execute (CommandSequence tokens)
-			{ new CosineTransform<T>(environment).analyze (tokens); }
+			{
+				new CosineTransform<T>(environment).analyze (tokens);
+			}
 		};
   	}
 
@@ -166,6 +187,7 @@ public class Features<T> extends Context<T>
 				scriptManager.readSymbols ("BuiltInFunctions.txt"); scriptManager.readSymbols ("TrigIdentities.txt");
 				new Thread (new net.myorb.math.expressions.gui.rpn.Calculator<T> (environment)).start ();
 			}
+
 			public String describe () { return "Start the RPN calculator"; }
 		};
 	}

@@ -26,7 +26,7 @@ RENDERF KnDE
 
 
 // Yn special case
-configure Bessel form "digamma" kind "Y" method "polynomial" alpha "n" terms "40" description "Bessel function Y (n)" ; instance Yn Bessel
+configure Bessel form "integral" kind "Y" method "CTA" alpha "n" terms "2" delta "0.0001" description "Bessel function Y (n)" ; instance Yn Bessel
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( Yn x ) ; ENTITLED Yn plot computed based on in-line configuration
 
 !! Y_n(x) = Yn (x) ; // run DE test on Yn function
