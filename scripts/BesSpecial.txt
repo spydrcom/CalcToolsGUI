@@ -13,7 +13,7 @@ LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 
 
 // Ka special case
-configure Bessel form "integral" kind "K" method "CTA" alpha "n" delta "0.001" terms "20" precision "1E-4" description "Bessel function K (n)" ; instance Kn Bessel
+configure Bessel form "integral" kind "K" method "CCQ" alpha "n" delta "0.001" terms "20" precision "1E-4" description "Bessel function K (n)" ; instance Kn Bessel
 GRAPH LIM 5 [0.2 < x < 5 <> 0.1] ( Kn x ) ; ENTITLED Ka plot computed based on in-line configuration
 
 !! K_n(x) = Kn (x) ; // run DE test on Kn function
@@ -26,7 +26,7 @@ RENDERF KnDE
 
 
 // Yn special case
-configure Bessel form "integral" kind "Y" method "CTA" alpha "n" terms "2" delta "0.0001" description "Bessel function Y (n)" ; instance Yn Bessel
+configure Bessel form "integral" kind "Y" method "CCQ" alpha "n" terms "2" delta "0.0001" description "Bessel function Y (n)" ; instance Yn Bessel
 GRAPH LIM 5 [1 < x < 20 <> 0.1] ( Yn x ) ; ENTITLED Yn plot computed based on in-line configuration
 
 !! Y_n(x) = Yn (x) ; // run DE test on Yn function
