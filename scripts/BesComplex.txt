@@ -1,0 +1,17 @@
+
+
+//* demonstration of complex form of Bessel J and I functions using integral form
+
+dt = 0.05
+
+!! J(z, n) = 1/(2*pi) * INTEGRAL [-pi <= t <= pi <> dt] ( exp( i * (z*sin t - n*t) ) * <*> t )
+
+!! I(z, a) = i^(-a) * J(i*z, a)
+
+!! J2(z) = J (z, 2)
+!! I2(z) = I (z, 2)
+
+plotri J2 [1 < x < 10 <> 0.1]
+plotri I2 [1 < x < 4 <> 0.1]
+
+
