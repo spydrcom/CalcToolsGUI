@@ -1,0 +1,24 @@
+
+
+//* HGF used to compute COS z
+
+// cos z = 0F1 ( : 1/2 : -z^2/4 )
+!! z24(x) = - x^2 / 4
+
+theta = pi/4
+expected = cos theta
+// cos pi/4 = 0.707106
+
+INFINITY = 10
+READ HGFrender.txt
+
+t = z24(theta)
+num = (     ) ; den = ( 1/2 )
+testComputation = F ( num, den, t )
+error = testComputation - expected
+
+SCRIPTPRINT HGFtest.txt
+PRETTYPRINT error
+
+cosPi3 = F ( num, den, z24 (pi/3) )
+PRETTYPRINT cosPi3

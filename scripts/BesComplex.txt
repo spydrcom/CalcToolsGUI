@@ -2,6 +2,7 @@
 
 //* demonstration of complex form of Bessel J and I functions using integral form
 
+
 dt = 0.05
 
 !! J(z, n) = 1/(2*pi) * INTEGRAL [-pi <= t <= pi <> dt] ( exp( i * (z*sin t - n*t) ) * <*> t )
@@ -11,7 +12,27 @@ dt = 0.05
 !! J2(z) = J (z, 2)
 !! I2(z) = I (z, 2)
 
-plotri J2 [1 < x < 10 <> 0.1]
-plotri I2 [1 < x < 4 <> 0.1]
+plotri J2 [0 < x < 12 <> 0.1]
+plotri I2 [1 < x < 5 <> 0.1]
 
+
+n = 2
+dx = 0.0001
+
+!! J_2(x) = J2 (x)
+LIBRARY dydx net.myorb.math.expressions.algorithms.ClMathDerivative
+configure dydx symbol "d" order "1" function "J_2" variable "x" run "dx" description "dJ/dx" ; instance dJdx1 dydx
+configure dydx symbol "d" order "2" function "J_2" variable "x" run "dx" description "d2J/dx2" ; instance dJdx2 dydx
+
+!! J2DE(x) = x^2 * dJdx2() + x * dJdx1() + (x^2 - n^2) * J_2(x) ; // definition of differential equation as a function
+// GRAPH LIM 5 [0 < x < 12 <> 0.1] ( J2DE x ) ; ENTITLED Differential Equation error plot for Jn computed based on in-line configuration 
+plotri J2DE [1 < x < 12 <> 0.1]  ; ENTITLED Differential Equation error plot for J2 computed based on in-line configuration 
+
+!! I_2(x) = I2 (x)
+configure dydx symbol "d" order "1" function "I_2" variable "x" run "dx" description "dJ/dx" ; instance dIdx1 dydx
+configure dydx symbol "d" order "2" function "I_2" variable "x" run "dx" description "d2J/dx2" ; instance dIdx2 dydx
+
+!! I2DE(x) = x^2 * dIdx2() + x * dIdx1() - (x^2 + n^2) * I_2(x) ; // definition of differential equation as a function
+// GRAPH LIM 5 [0 < x < 4 <> 0.1] ( I2DE x ) ; ENTITLED Differential Equation error plot for I2 computed based on in-line configuration 
+plotri I2DE [1 < x < 5 <> 0.1]
 

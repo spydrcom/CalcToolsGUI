@@ -1,0 +1,24 @@
+
+
+//* HGF used to compute Bessel J2
+
+
+// Ja z = [ (z/2)^a / GAMMA (a+1) ] * 0F1 ( : a+1 : -z^2/4 )
+!! x24(x) = - x^2 / 4
+
+INFINITY = 15
+READ HGFdefinition.txt
+
+alpha = 2
+num = (     ) ; den = ( alpha+1 )
+!! Ja (x,a) = (x/2)^a / GAMMA (a+1)
+!! J2 (x) = Ja (x,alpha) * F ( num, den, x24(x) )
+
+graph [0 < x < 11 <> 0.1] ( J2 x )
+
+
+!! JD2(x) = J2''(x <> 0.001)
+!! JD1(x) = J2'(x <> 0.001)
+
+!! JDE(x) = x^2 * JD2(x) + x * JD1(x) + (x^2 - alpha^2) * J2(x) ;
+GRAPH  [0 < x < 11 <> 0.1] ( JDE x ) ; ENTITLED Differential Equation error plot for J2 
