@@ -1,0 +1,21 @@
+
+
+//* Dilogarithm computed with HGF
+
+
+// Li2(x) = x * 3F2 ( 1,1,1 : 2,2 : x )
+
+
+INFINITY = 20
+READ HGFdefinition.txt
+
+A3 = (1,1,1) ; B2 = (2,2)
+
+!! Li2(x) = x * F ( A3, B2, x )
+
+graph [ -1 <= x <= 1 <> 0.1 ] ( Li2 (x) )
+
+calc Li2 (0)
+calc Li2(-1)*12 + pi^2
+calc Li2 (1)*6 - pi^2
+

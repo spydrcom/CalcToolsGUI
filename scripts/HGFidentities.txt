@@ -1,0 +1,52 @@
+
+
+//* HGF series names and definitions
+
+
+// 0F0 (::z) = e^z
+
+// Binomial series
+// 1F0 (a::z) = ( 1 - z ) ^ (-a)
+// z 1F0 (2::z) = z ( 1 - z ) ^ -2
+
+// cos z
+// 0F1 (: 1/2 : -z^2/4 ) = cos z
+
+// Bessel Functions
+// 0F1 (: a+1 : -1/4x^2) * (x/2)^a / GAMMA (a+1) = Ja(x)
+// 0F1 (: a+1 :  1/4x^2) * (x/2)^a / GAMMA (a+1) = Ia(x)
+
+// Confluent HGF
+// 1F1 (a:b:z)   also called   M(a:b:z)
+// special case  gamma(a,z)
+
+// Laguerre and Hermite polynomials
+// 1F1 (-n : b : z)
+
+// Exponential Integral
+// 2F0 Ei(z)
+
+// Gauss HGF
+// 2F1 (a,b : c : z)
+
+// HG DE
+// z(1-z) d^2w/dz^2 + [c - (a+b+1)*z] * dw/dz - a*b*w = 0
+// soution: z^(1-c) 2F1 (1+a-c, 1+b-c : 2 - c : z)
+
+// Mott polynomials
+// s#n (x) = (-x/2)^n * 3F0 ( -n, (1-n)/2, 1-n/2 :: -4/x^2 )
+
+// Bessel functions
+// 3F1
+
+// Dilogarithm
+// Li2(x) = x * 3F2 ( 1,1,1 : 2,2 : x )
+
+// Hahn polynomials
+// Qn (x : alpha, beta, N) = 3F2 ( -n, -x, n + alpha + beta + 1 : alpha + 1, -N + 1 : 1 )
+
+// Wilson polynomials
+// 4F3
+
+
+
