@@ -1,6 +1,18 @@
 
-!!f(x)=sinSq(2*x) - cos(pi/4*x) * secCb(x/4)
 
-graph [0<x<pi<>0.01](f(x))
+//* test TRIG library instance configuration from command line
+
+
+// LIBRARY TRIG net.myorb.math.expressions.algorithms.ClMathRealTrig
+LIBRARY TRIG net.myorb.math.expressions.algorithms.ClMathComplexTrig
+
+CONFIGURE TRIG OP "sin" POW "3" description "sin3"
+INSTANCE s3 TRIG
+
+!!f(x)=sinSq(2*x) - cos(pi/4*x) * secCb(x/4)
+!!g(x)=s3 (x)
+
+graph [0<x<pi<>0.01] (f(x), g(x))
 
 renderf f
+renderf g
