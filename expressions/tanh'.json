@@ -7,7 +7,7 @@
    "Description": "First derivative of hyperbolic Tangent function ",
    "Expression": 
    {
-      "OpName": "sechSq",
+      "OpName": "sech2",
       "PostFix": false,
       "NodeType": "UnaryOP",
       "Parameter": 

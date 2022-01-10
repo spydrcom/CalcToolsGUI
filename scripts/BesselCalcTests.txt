@@ -3,13 +3,11 @@
 //* calculation tests for family library of Bessel functions
 
 
-LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
+configure BESSEL kind "J" alpha "0" terms "40" description "Bessel function J (0)"
+instance J0x BESSEL
 
-configure Bessel kind "J" alpha "0" terms "40" description "Bessel function J (0)"
-instance J0x Bessel
-
-configure Bessel kind "I" alpha "0" terms "20" description "Bessel function I (0)"
-instance I0x Bessel
+configure BESSEL kind "I" alpha "0" terms "20" description "Bessel function I (0)"
+instance I0x BESSEL
 
 
 // first zero of J0

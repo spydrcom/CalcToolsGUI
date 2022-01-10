@@ -12,7 +12,7 @@
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "asec",
+         "OpName": "arcsec",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 

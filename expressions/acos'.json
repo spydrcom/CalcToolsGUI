@@ -12,7 +12,7 @@
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "asin",
+         "OpName": "arcsin",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 

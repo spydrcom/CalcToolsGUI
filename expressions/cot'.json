@@ -12,7 +12,7 @@
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "cscSq",
+         "OpName": "csc2",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 

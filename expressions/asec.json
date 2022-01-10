@@ -7,7 +7,7 @@
    "Description": "Trigonometric inverse secant function ",
    "Expression": 
    {
-      "OpName": "acos",
+      "OpName": "arccos",
       "PostFix": false,
       "NodeType": "UnaryOP",
       "Parameter": 

@@ -12,7 +12,7 @@
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "cschSq",
+         "OpName": "csch2",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 

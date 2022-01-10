@@ -4,7 +4,7 @@
 
 
 // LIBRARY TRIG net.myorb.math.expressions.algorithms.ClMathRealTrig
-LIBRARY TRIG net.myorb.math.expressions.algorithms.ClMathComplexTrig
+// LIBRARY TRIG net.myorb.math.expressions.algorithms.ClMathComplexTrig
 
 CONFIGURE TRIG OP "sin" POW "3" description "sin3"
 INSTANCE s3 TRIG
@@ -14,5 +14,14 @@ INSTANCE s3 TRIG
 
 graph [0<x<pi<>0.01] (f(x), g(x))
 
+CONFIGURE TRIG OP "asin" POW "1" ARC "sin" description "sin^-1"
+INSTANCE as TRIG
+
+!!h(x)=as (x)
+
 renderf f
 renderf g
+renderf h
+
+calc h(0.5) * 6 / pi
+

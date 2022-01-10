@@ -6,8 +6,8 @@ INFINITY = 200
 
 PLOTF E1'  [  0.1 <=    x    <= 10  <>  0.01  ]  
 
-!! E1(x) = E1p $| (x, INFINITY, 0.1)
-// !! E1(x) = INTEGRAL [ x <= t <= INFINITY <> 0.1 ] ( E1p(t) * <*> t )
+// !! E1(x) = E1p $| (x, INFINITY, 0.1)
+!! E1(x) = INTEGRAL [ x <= t <= INFINITY <> 0.1 ] ( E1p(t) * <*> t )
 !! Ei(x) = - E1 ( -x )
 
 PLOTF E1  [  0.1 <=    x    <= 10  <>  0.05  ]  

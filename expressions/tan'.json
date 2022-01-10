@@ -12,7 +12,7 @@
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "tanSq",
+         "OpName": "tan2",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 

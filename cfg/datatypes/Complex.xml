@@ -81,6 +81,23 @@
 
 
 	<!--
+			add all desired library management objects
+	  -->
+
+	<class called='LIBRARIAN' classpath='net.myorb.math.expressions.evaluationstates.FunctionDefinition' />
+
+	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>BESSEL</string> <string>net.myorb.math.expressions.algorithms.ClMathBessel</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>TRIG</string> <string>net.myorb.math.expressions.algorithms.ClMathComplexTrig</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+
+	<!--
 			add all desired operator library symbols
 	  -->
 

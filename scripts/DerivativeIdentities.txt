@@ -34,12 +34,17 @@ savejson ln' First derivative of natural logarithm
 
 READ TrigIdentities.txt
 
+CONFIGURE TRIG OP "tan" POW "2" description "tan squared" ; INSTANCE tan2 TRIG
+CONFIGURE TRIG OP "csc" POW "2" description "csc squared" ; INSTANCE csc2 TRIG
+
 !! sin'(x) = cos(x)
 !! cos'(x) = - (sin(x))
-!! cot'(x) = - (cscSq(x))
-!! tan'(x) = 1 + tanSq(x) 
+!! cot'(x) = - (csc2(x))
+!! tan'(x) = 1 + tan2(x) 
 !! sec'(x) = sec(x) * tan(x)
 !! csc'(x) = - (csc(x) * cot(x))
+
+LIBRARY TRIG RESET
 
 DESCRIBE sin' First derivative of Sine function
 DESCRIBE cos' First derivative of Cosine function
@@ -65,9 +70,9 @@ savejson csc' First derivative of Cosecant function
 !! asin'(x) = 1 / sqrt (1 - x^2)
 !! asec'(x) = 1 / (abs(x) * sqrt (x^2 - 1))
 !! atan'(x) = 1 / (x^2 + 1)
-!! acos'(x) = - (asin(x))
-!! acot'(x) = - (atan(x))
-!! acsc'(x) = - (asec(x))
+!! acos'(x) = - (arcsin(x))
+!! acot'(x) = - (arctan(x))
+!! acsc'(x) = - (arcsec(x))
 
 DESCRIBE asin' First derivative of inverse Sine function
 DESCRIBE acos' First derivative of inverse Cosine function
@@ -90,12 +95,17 @@ savejson atan' First derivative of inverse Tangent function
 savejson asec' First derivative of inverse Secant function
 savejson acsc' First derivative of inverse Cosecant function
 
+CONFIGURE TRIG OP "sech" POW "2" description "sech squared" ; INSTANCE sech2 TRIG
+CONFIGURE TRIG OP "csch" POW "2" description "csch squared" ; INSTANCE csch2 TRIG
+
 !! cosh'(x) = sinh(x)
-!! coth'(x) = - (cschSq(x))
+!! coth'(x) = - (csch2(x))
 !! csch'(x) = - (coth(x) * csch(x))
 !! sech'(x) = - (tanh(x) * sech(x))
-!! tanh'(x) = sechSq(x)
+!! tanh'(x) = sech2(x)
 !! sinh'(x) = cosh(x)
+
+LIBRARY TRIG RESET
 
 DESCRIBE sinh' First derivative of hyperbolic Sine function
 DESCRIBE cosh' First derivative of hyperbolic Cosine function

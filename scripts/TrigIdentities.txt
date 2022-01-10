@@ -33,13 +33,20 @@ savejson hyperbola First quadrant hyperbola function
 
 // circular trigonometric identities:
 
+CONFIGURE TRIG OP "asin" ARC "sin" description "arc sine" ; INSTANCE arcsin TRIG
+CONFIGURE TRIG OP "acos" ARC "cos" description "arc cosine" ; INSTANCE arccos TRIG
+CONFIGURE TRIG OP "atan" ARC "tan" description "arc tangent" ; INSTANCE arctan TRIG
+CONFIGURE TRIG OP "asec" ARC "sec" description "arc secant" ; INSTANCE arcsec TRIG
+
 !! cot(x) = 1 / tan x 
 !! csc(x) = 1 / sin x 
 !! sec(x) = 1 / cos x 
-!! acos(x) = pi / 2 - asin x 
-!! acot(x) = pi / 2 - atan x 
-!! asec(x) = acos ( 1 / x ) 
-!! acsc(x) = pi / 2 - asec x 
+!! acos(x) = pi / 2 - arcsin x 
+!! acot(x) = pi / 2 - arctan x 
+!! asec(x) = arccos ( 1 / x ) 
+!! acsc(x) = pi / 2 - arcsec x 
+
+LIBRARY TRIG RESET
 
 DESCRIBE cot Trigonometric cotangent function
 DESCRIBE csc Trigonometric cosecant function

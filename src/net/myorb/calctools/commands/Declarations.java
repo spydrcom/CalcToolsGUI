@@ -132,7 +132,7 @@ public class Declarations<T> extends Context<T>
 			{ return "Construct a library of functions"; }
 
 			public void execute (CommandSequence tokens)
-			{ engine.getFunctionManager ().defineLibrary (tokens); }
+			{ engine.getFunctionManager ().processLibrary (tokens); }
 		};
 	}
 
