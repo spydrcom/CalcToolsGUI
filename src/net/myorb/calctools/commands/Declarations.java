@@ -132,7 +132,7 @@ public class Declarations<T> extends Context<T>
 			{ return "Construct a library of functions"; }
 
 			public void execute (CommandSequence tokens)
-			{ engine.getFunctionManager ().processLibrary (tokens); }
+			{ engine.getFunctionManager ().getLibrarian ().processLibrary (tokens); }
 		};
 	}
 
@@ -149,7 +149,7 @@ public class Declarations<T> extends Context<T>
 			{ return "Configure a library of functions"; }
 
 			public void execute (CommandSequence tokens)
-			{ engine.getFunctionManager ().configureLibrary (tokens); }
+			{ engine.getFunctionManager ().getLibrarian ().configureLibrary (tokens); }
 		};
 	}
 
@@ -166,7 +166,7 @@ public class Declarations<T> extends Context<T>
 			{ return "Instance a symbol described by a library"; }
 
 			public void execute (CommandSequence tokens)
-			{ engine.getFunctionManager ().instanceSymbol (tokens); }
+			{ engine.getFunctionManager ().getLibrarian ().instanceSymbol (tokens); }
 		};
 	}
 
@@ -183,7 +183,7 @@ public class Declarations<T> extends Context<T>
 			{ return "Import polynomial power functions for named family"; }
 
 			public void execute (CommandSequence tokens)
-			{ engine.getFunctionManager ().importFamily (tokens); }
+			{ engine.getFunctionManager ().getLibrarian ().importFamily (tokens); }
 		};
 	}
 

@@ -2,7 +2,7 @@
 
 
 	<SaveAs toBeCalled='CurrentVersion'>
-	<string>2021.1201</string>
+	<string>2022.0112</string>
 	</SaveAs>
 
 
@@ -83,10 +83,15 @@
 			add all desired library management objects
 	  -->
 
-	<class called='LIBRARIAN' classpath='net.myorb.math.expressions.evaluationstates.FunctionDefinition' />
+	<class called='LIBRARIAN' classpath='net.myorb.math.expressions.symbols.LibraryManager' />
 
 	<call class='LIBRARIAN' method='defineLibrary' >
 		<string>BESSEL</string> <string>net.myorb.math.expressions.algorithms.ClMathBessel</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>DFDX</string> <string>net.myorb.math.expressions.algorithms.ClMathDerivative</string>
 		<referto objectCalled='environment'/>
 	</call>
 
