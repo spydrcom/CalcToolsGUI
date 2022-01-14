@@ -1,13 +1,16 @@
 
 
+//* plots of Fresnel Integrals
+
 !! S(x) = INTEGRAL [0 <= t <= x <> 0.01] ( sin (pi / 2 * t^2 ) * <*> t )
-
 !! C(x) = INTEGRAL [0 <= t <= x <> 0.01] ( cos (pi / 2 * t^2 ) * <*> t )
-
-RENDERF  S
-RENDERF  C
+EXPRESS S ; EXPRESS S
 
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+ENTITLED Fresnel Integrals C and S Functions
 
 GRAPH  [  0 <=    x    <= 4  <>  0.01] ( sin ( pi/2 * x^2 ) )
+ENTITLED Fresnel Integral integrand used for S Function
+
+RENDERF  S ; RENDERF  C
 

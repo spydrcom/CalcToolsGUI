@@ -4,26 +4,53 @@
 
 
 // LIBRARY QUAD net.myorb.math.expressions.algorithms.ClMathQuad
-configure QUAD terms "20" description "custom quadrature library entry"
-instance Q QUAD
+// configure QUAD method "CTA" delta "0.01" description "custom quadrature using trapezoid rules"
 
-dx = 1
-!! test(a) = Q [0<x<3 <> dx] ( sqrt x * <*> x )
-express test
+configure QUAD method "CCQ" description "custom quadrature using Clenshaw-Curtis"
+instance CCQ QUAD
 
-calc test(0)
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQ QUAD
 
-renderf test
 
+// test TSQ
 
 dt = 1
-!! S(x) = Q [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t )
-!! C(x) = Q [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t )
-express S
-express C
-
-RENDERF  S
-RENDERF  C
+!! S(x) = TSQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
+!! C(x) = TSQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+RENDERF  S ; RENDERF  C
 
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
-GRAPH  [  0 <=    x    <= 4  <>  0.01] ( sin ( pi/2 * x^2 ) )
+ENTITLED Fresnel Integrals C and S Functions using TSQ
+
+
+// test CCQ
+
+dt = 1
+!! S(x) = CCQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
+!! C(x) = CCQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+ENTITLED Fresnel Integrals C and S Functions using CCQ
+
+
+// simple function evaluations
+
+// A099289		Decimal expansion of the Fresnel sine integral function at 1.
+A099289 = 0.438259147390354766 ; A099289_error = A099289 - S(1)
+prettyprint A099289_error
+
+// A099290		Decimal expansion of the Fresnel cosine integral function at 1.
+A099290 = 0.77989340037 ; A099290_error = A099290 - C(1)
+prettyprint A099290_error
+
+
+// infinite integral evaluation
+
+INFINITY = 500
+// this test fails, expression diverges over range
+// A206160		Decimal expansion of the Fresnel Integral int_{x=0..infinity} x*sin(x^3) dx
+!! S3(x) = CCQ [0 <= t <= INFINITY <> dt] ( t * sin ( t ^ 3 ) * <*> t ) ; express S3
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   (  x * sin ( x ^ 3 ) )
+A206160 = 0.39090017842 ; A206160_error = A206160 - S3(0)
+prettyprint A206160_error
+
