@@ -1,0 +1,29 @@
+
+
+//* test the ClMathQuad library
+
+
+// LIBRARY QUAD net.myorb.math.expressions.algorithms.ClMathQuad
+configure QUAD terms "20" description "custom quadrature library entry"
+instance Q QUAD
+
+dx = 1
+!! test(a) = Q [0<x<3 <> dx] ( sqrt x * <*> x )
+express test
+
+calc test(0)
+
+renderf test
+
+
+dt = 1
+!! S(x) = Q [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t )
+!! C(x) = Q [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t )
+express S
+express C
+
+RENDERF  S
+RENDERF  C
+
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+GRAPH  [  0 <=    x    <= 4  <>  0.01] ( sin ( pi/2 * x^2 ) )
