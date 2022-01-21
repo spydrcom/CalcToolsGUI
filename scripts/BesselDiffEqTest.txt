@@ -17,7 +17,7 @@ entitled Error function for J(n=2)
 alpha=2.5
 // test Jp 2.5
 family Bessel 3 Jp,2.5
-prepare JP2_50 f 0.001
+prepare Jp2_50 f 0.001
 READ BesselDE.txt
 
 !! JpSolutionError(x) = BesDE (x)
@@ -28,7 +28,7 @@ entitled Error function for J(p=2.5)
 alpha=3.5
 // test Ya 3.5
 family Bessel 3 Ya,3.5
-prepare YA3_50 f 0.001
+prepare Ya3_50 f 0.001
 READ BesselDE.txt
 
 !! YaSolutionError(x) = BesDE (x)
@@ -39,7 +39,7 @@ entitled Error function for Y(a=3.5)
 alpha=2.2
 // test Ia 2.2
 family Bessel 3 Ia,2.2
-prepare IA2_20 f 0.001
+prepare Ia2_20 f 0.001
 READ BesselDE.txt
 
 !! IaSolutionError(x) = BesModDE (x)
@@ -50,7 +50,7 @@ entitled Error function for I(a=2.2)
 alpha=3.7
 // test Ka 3.7
 family Bessel 3 Ka,3.7
-prepare KA3_70 f 0.001
+prepare Ka3_70 f 0.001
 READ BesselDE.txt
 
 !! KaSolutionError(x) = BesModDE (x)
@@ -60,8 +60,8 @@ entitled Error function for K(a=3.7) family config
 
 LIBRARY Bessel net.myorb.math.expressions.algorithms.ClMathBessel
 configure Bessel kind "K" alpha "3.7" terms "20" description "Bessel function K (3.7)"
-instance KA3 Bessel
-prepare KA3 f 0.001
+instance Ka3 Bessel
+prepare Ka3 f 0.001
 READ BesselDE.txt
 
 !! KaSolutionError(x) = BesModDE (x)

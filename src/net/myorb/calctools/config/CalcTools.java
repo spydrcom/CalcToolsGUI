@@ -4,10 +4,10 @@ package net.myorb.calctools.config;
 import net.myorb.math.expressions.gui.DisplayIO;
 import net.myorb.gui.components.MdiFrameController;
 
-import javax.swing.ImageIcon;
-
 import net.myorb.gui.components.GuiToolkit;
 import net.myorb.jxr.JxrScriptChoice;
+
+import javax.swing.ImageIcon;
 
 /**
  * main entry for XML driver using JXR.

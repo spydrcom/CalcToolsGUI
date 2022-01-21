@@ -1,0 +1,96 @@
+{
+   "Name": "E1",
+   "Parameters": 
+   [
+      "x"
+   ],
+   "Description": null,
+   "Expression": 
+   {
+      "Hi": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "INFINITY"
+      },
+      "Target": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "OpName": "/",
+            "Left": 
+            {
+               "OpName": "exp",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "OpName": "-",
+                  "Left": 0,
+                  "NodeType": "BinaryOP",
+                  "Right": 
+                  {
+                     "Operator": null,
+                     "Symbol": "LocalVariable",
+                     "NodeType": "Identifier",
+                     "Kind": "Local",
+                     "Name": "t"
+                  },
+                  "OpType": "Binary"
+               }
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "Operator": null,
+               "Symbol": "LocalVariable",
+               "NodeType": "Identifier",
+               "Kind": "Local",
+               "Name": "t"
+            },
+            "OpType": "Binary"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "<*>",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": "LocalVariable",
+               "NodeType": "Identifier",
+               "Kind": "Local",
+               "Name": "t"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "Hbnd": "<=",
+      "Variable": "t",
+      "Lo": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "x"
+      },
+      "Consumer": "IntegralConsumer",
+      "Delta": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "dt"
+      },
+      "NodeType": "Range",
+      "Lbnd": "<="
+   },
+   "NodeType": "Profile"
+}

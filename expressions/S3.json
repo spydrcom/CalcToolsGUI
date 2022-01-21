@@ -1,0 +1,17 @@
+{
+   "Name": "S3",
+   "Parameters": 
+   [
+      "x"
+   ],
+   "Description": null,
+   "Expression": 
+   {
+      "Operator": null,
+      "Symbol": null,
+      "NodeType": "Identifier",
+      "Kind": "Unknown",
+      "Name": "CCQ"
+   },
+   "NodeType": "Profile"
+}

@@ -1,6 +1,6 @@
 
 
-// tests for Hyper-Geometric Functions
+//* tests for Hyper-Geometric Functions
 
 
 // Hermite script shows variations on use of HGF script

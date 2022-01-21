@@ -101,4 +101,5 @@
  <PLOT PointsSize='5' TransformIdentity='Dendrite' PointsPerAxis='200' EdgeSize='0.045566604' X='0.10103806853294373' Y='-0.3752378821372986' Title='Dendrite : (0.10103806853294373,-0.3752378821372986) - 0.045566604' PlotParent='1098' PlotNumber='1099'/>
  <PLOT PointsSize='5' TransformIdentity='Dendrite' MaxResult='1000' PointsPerAxis='200' EdgeSize='0.7205882' X='-0.16176468133926392' Y='-0.5882352590560913' Title='Julia Dendrite : c= + i' PlotParent='-1' AltEdgeSize='0.7205882' PlotNumber='1100'/>
  <PLOT PointsSize='5' TransformIdentity='Dendrite' MaxResult='1000' PointsPerAxis='200' EdgeSize='0.7205882' X='-0.16176468133926392' Y='-0.5882352590560913' Title='Julia Dendrite : c= + i' PlotParent='-1' AltEdgeSize='0.7205882' PlotNumber='1101'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='3.8' Title='BETA' EquationProfile='BETA(x, y)' AltEdgeSize='3.8' EquationBody='GAMMA ( x ) * GAMMA ( y ) / GAMMA ( x + y ) ' PlotNumber='1102' PointsSize='3' PointsPerAxis='400' X='-1.9' Multiplier='100.0' Y='-1.9' PlotParent='-4'/>
 </PLOTS>

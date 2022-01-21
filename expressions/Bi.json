@@ -1,0 +1,124 @@
+{
+   "Name": "Bi",
+   "Parameters": 
+   [
+      "x"
+   ],
+   "Description": null,
+   "Expression": 
+   {
+      "OpName": "*",
+      "Left": 
+      {
+         "OpName": "sqrt",
+         "PostFix": false,
+         "NodeType": "UnaryOP",
+         "Parameter": 
+         {
+            "OpName": "/",
+            "Left": 
+            {
+               "Operator": null,
+               "Symbol": "AssignedVariableStorage",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "x"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 3.0,
+            "OpType": "Binary"
+         }
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "+",
+         "Left": 
+         {
+            "OpName": "Ip3",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "OpName": "*",
+               "Left": 
+               {
+                  "OpName": "/",
+                  "Left": 2.0,
+                  "NodeType": "BinaryOP",
+                  "Right": 3.0,
+                  "OpType": "Binary"
+               },
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "sqrt",
+                  "PostFix": false,
+                  "NodeType": "UnaryOP",
+                  "Parameter": 
+                  {
+                     "OpName": "^",
+                     "Left": 
+                     {
+                        "Operator": null,
+                        "Symbol": "AssignedVariableStorage",
+                        "NodeType": "Identifier",
+                        "Kind": "Variable",
+                        "Name": "x"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 3.0,
+                     "OpType": "Binary"
+                  }
+               },
+               "OpType": "Binary"
+            }
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "In3",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "OpName": "*",
+               "Left": 
+               {
+                  "OpName": "/",
+                  "Left": 2.0,
+                  "NodeType": "BinaryOP",
+                  "Right": 3.0,
+                  "OpType": "Binary"
+               },
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "sqrt",
+                  "PostFix": false,
+                  "NodeType": "UnaryOP",
+                  "Parameter": 
+                  {
+                     "OpName": "^",
+                     "Left": 
+                     {
+                        "Operator": null,
+                        "Symbol": "AssignedVariableStorage",
+                        "NodeType": "Identifier",
+                        "Kind": "Variable",
+                        "Name": "x"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 3.0,
+                     "OpType": "Binary"
+                  }
+               },
+               "OpType": "Binary"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "OpType": "Binary"
+   },
+   "NodeType": "Profile"
+}

@@ -1,7 +1,7 @@
 
 
 
-// ChebyshevFamily.txt
+// Chebyshev T and U VS Gegenbauer lambda=1
 
 
 

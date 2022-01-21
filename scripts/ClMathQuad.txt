@@ -36,12 +36,22 @@ ENTITLED Fresnel Integrals C and S Functions using CCQ
 // simple function evaluations
 
 // A099289		Decimal expansion of the Fresnel sine integral function at 1.
-A099289 = 0.438259147390354766 ; A099289_error = A099289 - S(1)
-prettyprint A099289_error
+A099289 = 0.438259147390354766 ; A099289_error_CCQ = A099289 - S(1)
+prettyprint A099289_error_CCQ
 
 // A099290		Decimal expansion of the Fresnel cosine integral function at 1.
-A099290 = 0.77989340037 ; A099290_error = A099290 - C(1)
-prettyprint A099290_error
+A099290 = 0.77989340037 ; A099290_error_CCQ = A099290 - C(1)
+prettyprint A099290_error_CCQ
+
+
+!! Stsq(x) = TSQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express Stsq
+!! Ctsq(x) = TSQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express Ctsq
+
+A099289_error_TSQ = A099289 - Stsq(1)
+prettyprint A099289_error_TSQ
+
+A099290_error_TSQ = A099290 - Ctsq(1)
+prettyprint A099290_error_TSQ
 
 
 // infinite integral evaluation
