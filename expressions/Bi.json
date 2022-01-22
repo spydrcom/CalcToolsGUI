@@ -5,6 +5,25 @@
       "x"
    ],
    "Description": null,
+   "Imports": 
+   {
+      "Ip3": 
+      {
+         "terms": "20",
+         "kind": "I",
+         "alpha": "1/3",
+         "description": "Bessel function I (+1/3) in-line",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathBessel"
+      },
+      "In3": 
+      {
+         "terms": "20",
+         "kind": "I",
+         "alpha": "-1/3",
+         "description": "Bessel function I (-1/3) in-line",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathBessel"
+      }
+   },
    "Expression": 
    {
       "OpName": "*",

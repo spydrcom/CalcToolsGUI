@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": null,
+   "Imports": 
+   {
+      "s3": 
+      {
+         "OP": "sin",
+         "POW": "3",
+         "description": "sin3",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "s3",

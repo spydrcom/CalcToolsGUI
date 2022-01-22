@@ -5,6 +5,19 @@
       "x"
    ],
    "Description": null,
+   "Imports": 
+   {
+      "Ai2": 
+      {
+         "symbol": "d",
+         "function": "Ai",
+         "variable": "x",
+         "description": "d2f/dx2",
+         "run": "dx",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
+         "order": "2"
+      }
+   },
    "Expression": 
    {
       "OpName": "abs",
