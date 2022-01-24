@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": "First derivative of hyperbolic Cotangent function ",
+   "Imports": 
+   {
+      "csch2": 
+      {
+         "OP": "csch",
+         "POW": "2",
+         "description": "csch squared",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "-",
@@ -18,9 +28,9 @@
          "Parameter": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          }
       },

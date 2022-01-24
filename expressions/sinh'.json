@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "First derivative of hyperbolic Sine function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "cosh",
@@ -13,9 +14,9 @@
       "Parameter": 
       {
          "Operator": null,
-         "Symbol": null,
+         "Symbol": "AssignedVariableStorage",
          "NodeType": "Identifier",
-         "Kind": "Unknown",
+         "Kind": "Variable",
          "Name": "x"
       }
    },

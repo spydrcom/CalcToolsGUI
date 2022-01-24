@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "Hyperbolic inverse cotangent function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "*",
@@ -31,9 +32,9 @@
                "Left": 
                {
                   "Operator": null,
-                  "Symbol": null,
+                  "Symbol": "AssignedVariableStorage",
                   "NodeType": "Identifier",
-                  "Kind": "Unknown",
+                  "Kind": "Variable",
                   "Name": "x"
                },
                "NodeType": "BinaryOP",
@@ -47,9 +48,9 @@
                "Left": 
                {
                   "Operator": null,
-                  "Symbol": null,
+                  "Symbol": "AssignedVariableStorage",
                   "NodeType": "Identifier",
-                  "Kind": "Unknown",
+                  "Kind": "Variable",
                   "Name": "x"
                },
                "NodeType": "BinaryOP",

@@ -1,19 +1,29 @@
 {
-   "Name": "csch",
+   "Name": "l",
    "Parameters": 
    [
       "x"
    ],
-   "Description": "Hyperbolic cosecant function ",
-   "Imports": null,
+   "Description": null,
+   "Imports": 
+   {
+      "j": 
+      {
+         "symbol": "d",
+         "function": "f",
+         "variable": "x",
+         "description": "d2f/dx",
+         "run": "0.001",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
+         "order": "1"
+      }
+   },
    "Expression": 
    {
       "OpName": "/",
-      "Left": 1.0,
-      "NodeType": "BinaryOP",
-      "Right": 
+      "Left": 
       {
-         "OpName": "sinh",
+         "OpName": "j",
          "PostFix": false,
          "NodeType": "UnaryOP",
          "Parameter": 
@@ -25,6 +35,8 @@
             "Name": "x"
          }
       },
+      "NodeType": "BinaryOP",
+      "Right": 3.0,
       "OpType": "Binary"
    },
    "NodeType": "Profile"

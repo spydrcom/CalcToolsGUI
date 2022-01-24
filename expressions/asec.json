@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": "Trigonometric inverse secant function ",
+   "Imports": 
+   {
+      "arccos": 
+      {
+         "OP": "acos",
+         "ARC": "cos",
+         "description": "arc cosine",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "arccos",
@@ -18,9 +28,9 @@
          "Right": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          },
          "OpType": "Binary"

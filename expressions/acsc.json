@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": "Trigonometric inverse cosecant function ",
+   "Imports": 
+   {
+      "arcsec": 
+      {
+         "OP": "asec",
+         "ARC": "sec",
+         "description": "arc secant",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "-",
@@ -32,9 +42,9 @@
          "Parameter": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          }
       },

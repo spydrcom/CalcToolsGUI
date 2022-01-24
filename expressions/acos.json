@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": "Trigonometric inverse cosine function ",
+   "Imports": 
+   {
+      "arcsin": 
+      {
+         "OP": "asin",
+         "ARC": "sin",
+         "description": "arc sine",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "-",
@@ -32,9 +42,9 @@
          "Parameter": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          }
       },

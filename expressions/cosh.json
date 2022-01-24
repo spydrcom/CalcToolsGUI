@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "Hyperbolic cosine function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "/",
@@ -19,9 +20,9 @@
             "Parameter": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
             }
          },
@@ -39,9 +40,9 @@
                "Right": 
                {
                   "Operator": null,
-                  "Symbol": null,
+                  "Symbol": "AssignedVariableStorage",
                   "NodeType": "Identifier",
-                  "Kind": "Unknown",
+                  "Kind": "Variable",
                   "Name": "x"
                },
                "OpType": "Binary"

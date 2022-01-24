@@ -5,92 +5,26 @@
       "x"
    ],
    "Description": null,
+   "Imports": null,
    "Expression": 
    {
-      "OpName": "-",
+      "OpName": "*",
       "Left": 
       {
-         "OpName": "sinSq",
-         "PostFix": false,
-         "NodeType": "UnaryOP",
-         "Parameter": 
-         {
-            "OpName": "*",
-            "Left": 2.0,
-            "NodeType": "BinaryOP",
-            "Right": 
-            {
-               "Operator": null,
-               "Symbol": "AssignedVariableStorage",
-               "NodeType": "Identifier",
-               "Kind": "Variable",
-               "Name": "x"
-            },
-            "OpType": "Binary"
-         }
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "x"
       },
       "NodeType": "BinaryOP",
       "Right": 
       {
-         "OpName": "*",
-         "Left": 
-         {
-            "OpName": "cos",
-            "PostFix": false,
-            "NodeType": "UnaryOP",
-            "Parameter": 
-            {
-               "OpName": "*",
-               "Left": 
-               {
-                  "OpName": "/",
-                  "Left": 
-                  {
-                     "Operator": null,
-                     "Symbol": "AssignedVariableStorage",
-                     "NodeType": "Identifier",
-                     "Kind": "Variable",
-                     "Name": "pi"
-                  },
-                  "NodeType": "BinaryOP",
-                  "Right": 4.0,
-                  "OpType": "Binary"
-               },
-               "NodeType": "BinaryOP",
-               "Right": 
-               {
-                  "Operator": null,
-                  "Symbol": "AssignedVariableStorage",
-                  "NodeType": "Identifier",
-                  "Kind": "Variable",
-                  "Name": "x"
-               },
-               "OpType": "Binary"
-            }
-         },
-         "NodeType": "BinaryOP",
-         "Right": 
-         {
-            "OpName": "secCb",
-            "PostFix": false,
-            "NodeType": "UnaryOP",
-            "Parameter": 
-            {
-               "OpName": "/",
-               "Left": 
-               {
-                  "Operator": null,
-                  "Symbol": "AssignedVariableStorage",
-                  "NodeType": "Identifier",
-                  "Kind": "Variable",
-                  "Name": "x"
-               },
-               "NodeType": "BinaryOP",
-               "Right": 4.0,
-               "OpType": "Binary"
-            }
-         },
-         "OpType": "Binary"
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "x"
       },
       "OpType": "Binary"
    },

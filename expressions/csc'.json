@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "First derivative of Cosecant function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "-",
@@ -21,9 +22,9 @@
             "Parameter": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
             }
          },
@@ -36,9 +37,9 @@
             "Parameter": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
             }
          },

@@ -1,8 +1,9 @@
 
 
+//* declare derivative functions based on identities
+
 
 // Exponentiation:
-
 
 !! exp'(x) = exp(x)
 DESCRIBE exp' First derivative of exponential
@@ -128,12 +129,27 @@ savejson tanh' First derivative of hyperbolic Tangent function
 savejson sech' First derivative of hyperbolic Secant function
 savejson csch' First derivative of hyperbolic Cosecant function
 
-!! arsinh'(x) = 1 / sqrt (x^2 + 1)
 !! arcoth'(x) = 1 / (1 - x^2)
-!! arsech'(x) = - (asin'(x) / x)
-!! arcsch'(x) = - (arsinh'(x) / abs(x))
+!! arsech'(x) = -1 / ( x * sqrt (1 - x^2) )
+!! arcsch'(x) = -1 / ( abs(x) * sqrt (x^2 + 1) )
+!! arsinh'(x) = 1 / sqrt (x^2 + 1)
 !! arcosh'(x) = 1 / sqrt (x^2 - 1)
 !! artanh'(x) = 1 / (1 - x^2)
+
+// alternate version using derivative approximations follows:
+//  identity version offers preferred accuracy, approximation version renders better
+//  derivative PRIME syntax fails expression tree representation, 
+//  derivative import representation works correctly
+
+// !! arcsin(x) = asin(x)
+// configure DFDX syntax "Lagrange" order "1" variable "x" run "0.001" 
+// configure DFDX function "arcsin" description "ASIN'" ; instance DxASIN DFDX  
+// configure DFDX function "arsinh" description "ARSINH'" ; instance DxARSINH DFDX  
+
+// !! arcsch'(x) = - (DxARSINH(x) / abs(x))
+// !! arsech'(x) = - (DxASIN(x) / x)
+
+// LIBRARY DFDX RESET
 
 DESCRIBE arsinh' First derivative of inverse hyperbolic Sine function
 DESCRIBE arcosh' First derivative of inverse hyperbolic Cosine function

@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "First quadrant hyperbola function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "sqrt",
@@ -19,9 +20,9 @@
             "Left": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
             },
             "NodeType": "BinaryOP",

@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "Hyperbolic inverse sine function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",
@@ -16,9 +17,9 @@
          "Left": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          },
          "NodeType": "BinaryOP",
@@ -36,9 +37,9 @@
                   "Left": 
                   {
                      "Operator": null,
-                     "Symbol": null,
+                     "Symbol": "AssignedVariableStorage",
                      "NodeType": "Identifier",
-                     "Kind": "Unknown",
+                     "Kind": "Variable",
                      "Name": "x"
                   },
                   "NodeType": "BinaryOP",

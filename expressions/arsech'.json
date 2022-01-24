@@ -5,6 +5,19 @@
       "x"
    ],
    "Description": "First derivative of inverse hyperbolic Secant function ",
+   "Imports": 
+   {
+      "DxASIN": 
+      {
+         "function": "arcsin",
+         "variable": "x",
+         "syntax": "Lagrange",
+         "description": "ASIN'",
+         "run": "0.001",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
+         "order": "1"
+      }
+   },
    "Expression": 
    {
       "OpName": "-",
@@ -15,25 +28,25 @@
          "OpName": "/",
          "Left": 
          {
-            "Operator": "'",
-            "Function": "asin",
-            "Parameters": 
+            "OpName": "DxASIN",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
-            },
-            "NodeType": "Calculus"
+            }
          },
          "NodeType": "BinaryOP",
          "Right": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          },
          "OpType": "Binary"

@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "First derivative of natural logarithm ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "/",
@@ -13,9 +14,9 @@
       "Right": 
       {
          "Operator": null,
-         "Symbol": null,
+         "Symbol": "AssignedVariableStorage",
          "NodeType": "Identifier",
-         "Kind": "Unknown",
+         "Kind": "Variable",
          "Name": "x"
       },
       "OpType": "Binary"

@@ -7,27 +7,64 @@
    "Description": null,
    "Imports": 
    {
-      "s3": 
+      "DxF": 
       {
-         "OP": "sin",
-         "POW": "3",
-         "description": "sin3",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+         "function": "f",
+         "variable": "x",
+         "syntax": "Lagrange",
+         "description": "df/dx",
+         "run": "0.001",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
+         "order": "1"
       }
    },
    "Expression": 
    {
-      "OpName": "s3",
-      "PostFix": false,
-      "NodeType": "UnaryOP",
-      "Parameter": 
+      "OpName": "-",
+      "Left": 
       {
-         "Operator": null,
-         "Symbol": "AssignedVariableStorage",
-         "NodeType": "Identifier",
-         "Kind": "Variable",
-         "Name": "x"
-      }
+         "OpName": "DxF",
+         "PostFix": false,
+         "NodeType": "UnaryOP",
+         "Parameter": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "x"
+         }
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "x"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "f",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": "AssignedVariableStorage",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "x"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "OpType": "Binary"
    },
    "NodeType": "Profile"
 }

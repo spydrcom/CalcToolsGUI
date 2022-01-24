@@ -5,6 +5,16 @@
       "x"
    ],
    "Description": "First derivative of hyperbolic Tangent function ",
+   "Imports": 
+   {
+      "sech2": 
+      {
+         "OP": "sech",
+         "POW": "2",
+         "description": "sech squared",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathRealTrig"
+      }
+   },
    "Expression": 
    {
       "OpName": "sech2",
@@ -13,9 +23,9 @@
       "Parameter": 
       {
          "Operator": null,
-         "Symbol": null,
+         "Symbol": "AssignedVariableStorage",
          "NodeType": "Identifier",
-         "Kind": "Unknown",
+         "Kind": "Variable",
          "Name": "x"
       }
    },

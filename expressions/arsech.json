@@ -5,6 +5,7 @@
       "x"
    ],
    "Description": "Hyperbolic inverse secant function ",
+   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",
@@ -26,9 +27,9 @@
                "Parameter": 
                {
                   "Operator": null,
-                  "Symbol": null,
+                  "Symbol": "AssignedVariableStorage",
                   "NodeType": "Identifier",
-                  "Kind": "Unknown",
+                  "Kind": "Variable",
                   "Name": "x"
                }
             },
@@ -38,9 +39,9 @@
          "Right": 
          {
             "Operator": null,
-            "Symbol": null,
+            "Symbol": "AssignedVariableStorage",
             "NodeType": "Identifier",
-            "Kind": "Unknown",
+            "Kind": "Variable",
             "Name": "x"
          },
          "OpType": "Binary"

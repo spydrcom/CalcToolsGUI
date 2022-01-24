@@ -1,0 +1,37 @@
+
+
+//* test DFDX library instance
+
+
+!! f(x) = x*x 
+!! drv(x) = f(x)
+
+configure DFDX syntax "Lagrange" order "1" run "0.001" 
+configure DFDX function "f" variable "x" description "df/dx"
+instance DxF DFDX  
+
+
+!! drv'(x) = DxF(x)
+
+calc drv' 4
+
+!! g(x) = DxF(x) - x * f(x)
+
+
+RENDERF f
+RENDERF drv'
+RENDERF g
+
+
+calc g 3
+
+
+express f
+express drv'
+express g
+
+
+savejson f
+savejson drv'
+savejson g
+
