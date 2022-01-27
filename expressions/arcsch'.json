@@ -5,19 +5,7 @@
       "x"
    ],
    "Description": "First derivative of inverse hyperbolic Cosecant function ",
-   "Imports": 
-   {
-      "DxARSINH": 
-      {
-         "function": "arsinh",
-         "variable": "x",
-         "syntax": "Lagrange",
-         "description": "ARSINH'",
-         "run": "0.001",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
-         "order": "1"
-      }
-   },
+   "Imports": null,
    "Expression": 
    {
       "OpName": "-",
@@ -26,34 +14,55 @@
       "Right": 
       {
          "OpName": "/",
-         "Left": 
-         {
-            "OpName": "DxARSINH",
-            "PostFix": false,
-            "NodeType": "UnaryOP",
-            "Parameter": 
-            {
-               "Operator": null,
-               "Symbol": "AssignedVariableStorage",
-               "NodeType": "Identifier",
-               "Kind": "Variable",
-               "Name": "x"
-            }
-         },
+         "Left": 1.0,
          "NodeType": "BinaryOP",
          "Right": 
          {
-            "OpName": "abs",
-            "PostFix": false,
-            "NodeType": "UnaryOP",
-            "Parameter": 
+            "OpName": "*",
+            "Left": 
             {
-               "Operator": null,
-               "Symbol": "AssignedVariableStorage",
-               "NodeType": "Identifier",
-               "Kind": "Variable",
-               "Name": "x"
-            }
+               "OpName": "abs",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "Operator": null,
+                  "Symbol": null,
+                  "NodeType": "Identifier",
+                  "Kind": "Unknown",
+                  "Name": "x"
+               }
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "sqrt",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "OpName": "+",
+                  "Left": 
+                  {
+                     "OpName": "^",
+                     "Left": 
+                     {
+                        "Operator": null,
+                        "Symbol": null,
+                        "NodeType": "Identifier",
+                        "Kind": "Unknown",
+                        "Name": "x"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 2.0,
+                     "OpType": "Binary"
+                  },
+                  "NodeType": "BinaryOP",
+                  "Right": 1.0,
+                  "OpType": "Binary"
+               }
+            },
+            "OpType": "Binary"
          },
          "OpType": "Binary"
       },

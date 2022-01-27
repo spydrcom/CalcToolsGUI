@@ -1,5 +1,5 @@
 {
-   "Name": "S",
+   "Name": "C",
    "Parameters": 
    [
       "x"
@@ -30,7 +30,7 @@
          "OpName": "*",
          "Left": 
          {
-            "OpName": "sin",
+            "OpName": "cos",
             "PostFix": false,
             "NodeType": "UnaryOP",
             "Parameter": 

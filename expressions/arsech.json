@@ -27,9 +27,9 @@
                "Parameter": 
                {
                   "Operator": null,
-                  "Symbol": "AssignedVariableStorage",
+                  "Symbol": null,
                   "NodeType": "Identifier",
-                  "Kind": "Variable",
+                  "Kind": "Unknown",
                   "Name": "x"
                }
             },
@@ -39,9 +39,9 @@
          "Right": 
          {
             "Operator": null,
-            "Symbol": "AssignedVariableStorage",
+            "Symbol": null,
             "NodeType": "Identifier",
-            "Kind": "Variable",
+            "Kind": "Unknown",
             "Name": "x"
          },
          "OpType": "Binary"

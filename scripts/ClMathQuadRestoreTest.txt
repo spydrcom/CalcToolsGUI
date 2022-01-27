@@ -1,0 +1,28 @@
+
+
+//* test restored JSON tree functions
+
+
+dt=1
+
+loadjson S
+loadjson C
+
+RENDERF C
+RENDERF S
+
+
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+ENTITLED Fresnel Integrals C and S Functions using restored JSON tree reps
+
+
+// simple function evaluations
+
+// A099289		Decimal expansion of the Fresnel sine integral function at 1.
+A099289 = 0.438259147390354766 ; A099289_error_CCQ = A099289 - S(1)
+prettyprint A099289_error_CCQ
+
+// A099290		Decimal expansion of the Fresnel cosine integral function at 1.
+A099290 = 0.77989340037 ; A099290_error_CCQ = A099290 - C(1)
+prettyprint A099290_error_CCQ
+

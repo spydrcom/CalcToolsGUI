@@ -25,9 +25,9 @@
                "Left": 
                {
                   "Operator": null,
-                  "Symbol": "AssignedVariableStorage",
+                  "Symbol": null,
                   "NodeType": "Identifier",
-                  "Kind": "Variable",
+                  "Kind": "Unknown",
                   "Name": "x"
                },
                "NodeType": "BinaryOP",

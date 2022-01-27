@@ -137,14 +137,18 @@ savejson csch' First derivative of hyperbolic Cosecant function
 !! artanh'(x) = 1 / (1 - x^2)
 
 // alternate version using derivative approximations follows:
+// configure DFDX syntax "Lagrange" order "1" variable "x" run "0.001" 
+
 //  identity version offers preferred accuracy, approximation version renders better
 //  derivative PRIME syntax fails expression tree representation, 
 //  derivative import representation works correctly
 
+// configure DFDX function "arsinh" description "ARSINH'"
+// instance DxARSINH DFDX  
+
 // !! arcsin(x) = asin(x)
-// configure DFDX syntax "Lagrange" order "1" variable "x" run "0.001" 
-// configure DFDX function "arcsin" description "ASIN'" ; instance DxASIN DFDX  
-// configure DFDX function "arsinh" description "ARSINH'" ; instance DxARSINH DFDX  
+// configure DFDX function "arcsin" description "ASIN'"  
+// instance DxASIN DFDX
 
 // !! arcsch'(x) = - (DxARSINH(x) / abs(x))
 // !! arsech'(x) = - (DxASIN(x) / x)

@@ -7,17 +7,17 @@
 // configure QUAD method "CTA" delta "0.01" description "custom quadrature using trapezoid rules"
 
 configure QUAD method "CCQ" description "custom quadrature using Clenshaw-Curtis"
-instance CCQ QUAD
+instance CCQuad QUAD
 
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
-instance TSQ QUAD
+instance TSQuad QUAD
 
 
 // test TSQ
 
 dt = 1
-!! S(x) = TSQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
-!! C(x) = TSQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+!! S(x) = TSQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
+!! C(x) = TSQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
 RENDERF  S ; RENDERF  C
 
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
@@ -27,8 +27,8 @@ ENTITLED Fresnel Integrals C and S Functions using TSQ
 // test CCQ
 
 dt = 1
-!! S(x) = CCQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
-!! C(x) = CCQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+!! S(x) = CCQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
+!! C(x) = CCQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
 ENTITLED Fresnel Integrals C and S Functions using CCQ
 
@@ -44,8 +44,8 @@ A099290 = 0.77989340037 ; A099290_error_CCQ = A099290 - C(1)
 prettyprint A099290_error_CCQ
 
 
-!! Stsq(x) = TSQ [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express Stsq
-!! Ctsq(x) = TSQ [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express Ctsq
+!! Stsq(x) = TSQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express Stsq
+!! Ctsq(x) = TSQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express Ctsq
 
 A099289_error_TSQ = A099289 - Stsq(1)
 prettyprint A099289_error_TSQ
@@ -59,8 +59,12 @@ prettyprint A099290_error_TSQ
 INFINITY = 500
 // this test fails, expression diverges over range
 // A206160		Decimal expansion of the Fresnel Integral int_{x=0..infinity} x*sin(x^3) dx
-!! S3(x) = CCQ [0 <= t <= INFINITY <> dt] ( t * sin ( t ^ 3 ) * <*> t ) ; express S3
+!! S3(x) = CCQuad [0 <= t <= INFINITY <> dt] ( t * sin ( t ^ 3 ) * <*> t ) ; express S3
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   (  x * sin ( x ^ 3 ) )
 A206160 = 0.39090017842 ; A206160_error = A206160 - S3(0)
 prettyprint A206160_error
+
+
+SAVEJSON  S
+SAVEJSON  C
 
