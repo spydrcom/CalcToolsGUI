@@ -1,0 +1,14 @@
+
+
+//* test the ClMathFourier library
+
+
+LIBRARY FOURIER net.myorb.math.expressions.algorithms.ClMathFourier
+configure FOURIER basis "xi" description "custom Fourier Transform using trapezoid integral approximation"
+instance Fourier FOURIER
+
+dt = 0.01
+!! T(xi) = Fourier [0 <= t <= 10 <> dt] ( 12 * sin ( 2*t ) + 8 * sin ( 3*t ) + 2 * cos ( 5*t ) ) ; express T
+
+PLOTRI   T  [  0 <=    x    <= 1  <>  0.01  ]
+

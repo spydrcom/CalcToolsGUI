@@ -1,0 +1,140 @@
+{
+   "Name": "T",
+   "Parameters": 
+   [
+      "xi"
+   ],
+   "Description": null,
+   "Imports": 
+   {
+      "Fourier": 
+      {
+         "SYMBOL": "Fourier",
+         "description": "custom Fourier Transform using trapezoid integral approximation",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathFourier",
+         "basis": "xi"
+      }
+   },
+   "Expression": 
+   {
+      "Hi": 10.0,
+      "Target": 
+      {
+         "OpName": "+",
+         "Left": 
+         {
+            "OpName": "+",
+            "Left": 
+            {
+               "OpName": "*",
+               "Left": 12.0,
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "sin",
+                  "PostFix": false,
+                  "NodeType": "UnaryOP",
+                  "Parameter": 
+                  {
+                     "OpName": "*",
+                     "Left": 2.0,
+                     "NodeType": "BinaryOP",
+                     "Right": 
+                     {
+                        "Operator": null,
+                        "Symbol": "LocalVariable",
+                        "NodeType": "Identifier",
+                        "Kind": "Local",
+                        "Name": "t"
+                     },
+                     "OpType": "Binary"
+                  }
+               },
+               "OpType": "Binary"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "*",
+               "Left": 8.0,
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "sin",
+                  "PostFix": false,
+                  "NodeType": "UnaryOP",
+                  "Parameter": 
+                  {
+                     "OpName": "*",
+                     "Left": 3.0,
+                     "NodeType": "BinaryOP",
+                     "Right": 
+                     {
+                        "Operator": null,
+                        "Symbol": "LocalVariable",
+                        "NodeType": "Identifier",
+                        "Kind": "Local",
+                        "Name": "t"
+                     },
+                     "OpType": "Binary"
+                  }
+               },
+               "OpType": "Binary"
+            },
+            "OpType": "Binary"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "*",
+            "Left": 2.0,
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "cos",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "OpName": "*",
+                  "Left": 5.0,
+                  "NodeType": "BinaryOP",
+                  "Right": 
+                  {
+                     "Operator": null,
+                     "Symbol": "LocalVariable",
+                     "NodeType": "Identifier",
+                     "Kind": "Local",
+                     "Name": "t"
+                  },
+                  "OpType": "Binary"
+               }
+            },
+            "OpType": "Binary"
+         },
+         "OpType": "Binary"
+      },
+      "Hbnd": "<=",
+      "Variable": "t",
+      "Lo": 0.0,
+      "Consumer": "QuadratureConsumer",
+      "Delta": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "dt"
+      },
+      "Config": 
+      {
+         "SYMBOL": "Fourier",
+         "description": "custom Fourier Transform using trapezoid integral approximation",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathFourier",
+         "basis": "xi"
+      },
+      "NodeType": "Range",
+      "Lbnd": "<="
+   },
+   "NodeType": "Profile"
+}
