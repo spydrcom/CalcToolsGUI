@@ -1,0 +1,82 @@
+{
+   "Name": "Tg",
+   "Parameters": 
+   [
+      "xi"
+   ],
+   "Description": null,
+   "Imports": 
+   {
+      "FT": 
+      {
+         "SYMBOL": "FT",
+         "nucleus": "kernel",
+         "description": "custom Fourier Transform using trapezoid integral approximation",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathTransform",
+         "type": "complex",
+         "basis": "xi"
+      }
+   },
+   "Expression": 
+   {
+      "Hi": 10.0,
+      "Target": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "OpName": "g",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": "LocalVariable",
+               "NodeType": "Identifier",
+               "Kind": "Local",
+               "Name": "t"
+            }
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "<*>",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": "LocalVariable",
+               "NodeType": "Identifier",
+               "Kind": "Local",
+               "Name": "t"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "Hbnd": "<=",
+      "Variable": "t",
+      "Lo": 0.0,
+      "Consumer": "QuadratureConsumer",
+      "Delta": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "dt"
+      },
+      "Config": 
+      {
+         "SYMBOL": "FT",
+         "nucleus": "kernel",
+         "description": "custom Fourier Transform using trapezoid integral approximation",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathTransform",
+         "type": "complex",
+         "basis": "xi"
+      },
+      "NodeType": "Range",
+      "Lbnd": "<="
+   },
+   "NodeType": "Profile"
+}

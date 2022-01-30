@@ -1,0 +1,22 @@
+
+
+//* compute Fourier transform of function
+
+
+// Fourier Cosine transform
+!! K_Fc(u,t) = sqrt (2/pi) * cos(u*t)
+
+!! g(t) = 12 * sin ( 2*t ) + 3 * sin ( 3*t ) + 7 * cos ( 5*t )
+
+dt=0.01
+!!f(xi) = INTEGRAL [0<t<10<>dt] ( K_Fc(xi,t) * g(t) * <*> t )
+
+// GRAPH [ 0 <= x <= 1 <> 0.01 ] ( f(x) )
+
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+!!h(xi) = TSQuad [0<t<10<>dt] ( K_Fc(xi,t) * g(t) * <*> t )
+
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( h(x) )
+

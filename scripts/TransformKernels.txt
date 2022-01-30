@@ -1,0 +1,102 @@
+
+
+//* declarations of transform kernels
+
+
+SELECT "Transform Kernel Equations"
+
+RENDER "Declarations of Transform Kernels as functions of two parameters" CENTER red
+
+
+// Abel transform
+
+!! K_A(u,t) = 2*t / sqrt (t^2 - u^2)
+!! KI_A(t,u) = -1 / (pi * sqrt (u^2 - t^2))
+
+RENDERF K_A
+RENDER "Abel transform kernel, [t1,t2] = [u,INFINITY]" TOP
+
+RENDERF KI_A
+RENDER "Abel transform inverse kernel, [u1,u2] = [t,INFINITY]" TOP
+
+
+// Fourier transform
+
+!! K_F(u,t) = exp (-2*pi*i*u*t)
+!! KI_F(t,u) = exp (2*pi*i*u*t)
+
+RENDERF K_F
+RENDER "Fourier transform kernel, [t1,t2] = [-INFINITY,INFINITY]" TOP
+
+RENDERF KI_F
+RENDER "Fourier transform inverse kernel, [u1,u2] = [-INFINITY,INFINITY]" TOP
+
+
+// Fourier Sine transform
+
+!! K_Fs(u,t) = sqrt (2/pi) * sin(u*t)
+
+RENDERF K_Fs
+RENDER "Fourier Sine (symmetric) transform kernel, [t1,t2] = [0,INFINITY]" TOP
+
+
+// Fourier Cosine transform
+
+!! K_Fc(u,t) = sqrt (2/pi) * cos(u*t)
+
+RENDERF K_Fc
+RENDER "Fourier Cosine (symmetric) transform kernel, [t1,t2] = [0,INFINITY]" TOP
+
+
+// Fourier Bessel transform
+
+!! K_Fb(u,t) = t * Jv(u*t)
+!! KI_Fb(t,u) = u * Jv(u*t)
+
+RENDERF K_Fb
+RENDER "Fourier Bessel transform kernel, [t1,t2] = [0,INFINITY]" TOP
+
+RENDERF KI_Fb
+RENDER "Fourier Bessel transform inverse kernel, [u1,u2] = [0,INFINITY]" TOP
+
+
+// Hartley transform
+
+!! K_Fh(u,t) = sqrt (1/(2*pi)) * (cos(u*t) + sin(u*t))
+
+RENDERF K_Fh
+RENDER "Hartley (symmetric) transform kernel, [t1,t2] = [-INFINITY,INFINITY]" TOP
+
+
+// Hilbert transform
+
+!! K_H(u,t) = 1 / ( pi * (u - t) )
+
+RENDERF K_H
+RENDER "Hilbert (symmetric) transform kernel, [t1,t2] = [-INFINITY,INFINITY]" TOP
+
+
+// Laplace transform
+
+!! K_L(u,t) = exp (-u*t)
+!! KI_L(t,u) = exp (u*t) / (2*pi*i)
+
+RENDERF K_L
+RENDER "Laplace transform kernel, [t1,t2] = [0,INFINITY]" TOP
+
+RENDERF KI_L
+RENDER "Laplace transform inverse kernel, [u1,u2] = [c - i*INFINITY, c + i*INFINITY]" TOP
+
+
+// Mellin transform
+
+!! K_M(u,t) = t ^ (u-1)
+!! KI_M(t,u) = t ^ (-u) / (2*pi*i)
+
+RENDERF K_M
+RENDER "Mellin transform kernel, [t1,t2] = [0,INFINITY]" TOP
+
+RENDERF KI_M
+RENDER "Mellin transform inverse kernel, [u1,u2] = [c - i*INFINITY, c + i*INFINITY]" TOP
+
+

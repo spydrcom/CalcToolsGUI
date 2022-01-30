@@ -20,6 +20,14 @@
 	</bean>
 
 
+	<!-- prepare built-in Library for environment -->
+	<class called='BuiltinLibrary' classpath='net.myorb.math.expressions.algorithms.TrigPowJREImpl'/>
+
+	<call object='environment' method='setCyclicAndPowerLibrary'>
+		<new class='BuiltinLibrary' using='environment' />
+	</call>
+
+
 	<!--
 			identify objects for plots and renders
 	  -->

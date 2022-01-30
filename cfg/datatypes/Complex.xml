@@ -20,6 +20,14 @@
 	</bean>
 
 
+	<!-- prepare Complex Library for environment -->
+	<class called='ComplexLibrary' classpath='net.myorb.math.complexnumbers.ComplexLibrary'/>
+
+	<call object='environment' method='setCyclicAndPowerLibrary'>
+		<new class='ComplexLibrary' using='environment' />
+	</call>
+
+
 	<!--
 			identify objects for plots and renders
 	  -->

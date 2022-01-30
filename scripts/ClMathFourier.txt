@@ -3,12 +3,31 @@
 //* test the ClMathFourier library
 
 
-LIBRARY FOURIER net.myorb.math.expressions.algorithms.ClMathFourier
-configure FOURIER basis "xi" description "custom Fourier Transform using trapezoid integral approximation"
-instance Fourier FOURIER
+LIBRARY TRANSFORM net.myorb.math.expressions.algorithms.ClMathTransform
+configure TRANSFORM kind "FOURIER" type "complex" nucleus "kernel" basis "xi" description "custom Fourier Transform using trapezoid integral approximation"
+instance FT TRANSFORM
 
 dt = 0.01
-!! T(xi) = Fourier [0 <= t <= 10 <> dt] ( 12 * sin ( 2*t ) + 8 * sin ( 3*t ) + 2 * cos ( 5*t ) ) ; express T
+pi2 = 2 * pi
 
-PLOTRI   T  [  0 <=    x    <= 1  <>  0.01  ]
+!! f(t) = cos (3*t*pi2) * exp (-pi*t^2)
+GRAPH [ -2 <= x <= 2 <> 0.01 ] ( f(x) )
+
+!! ig(t) = exp ( -pi2 * i * 3 * t ) * f(t)
+PLOTRI   ig  [  -2 <=    x    <= 2  <>  0.01  ]
+
+
+!! Tf(xi) = FT [0 <= t <= 10 <> dt] ( f(t) * <*> t ) ; express Tf
+
+// PLOTRI   Tf  [  0 <=    x    <= 5  <>  0.1  ]
+// GRAPH [ 0 <= x <= 5 <> 0.1 ] ( abs(Tf(x)) )
+
+
+!! g(t) = 12 * sin ( 2*t ) + 3 * sin ( 3*t ) + 7 * cos ( 5*t )
+GRAPH [ 0 <= x <= 6 <> 0.01 ] ( g(x) )
+
+!! Tg(xi) = FT [0 <= t <= 10 <> dt] ( g(t) * <*> t ) ; express Tg
+
+// PLOTRI   Tg  [  0 <=    x    <= 1  <>  0.01  ]
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( abs(Tg(x)) )
 
