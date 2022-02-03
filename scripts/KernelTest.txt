@@ -3,20 +3,41 @@
 //* compute Fourier transform of function
 
 
-// Fourier Cosine transform
-!! K_Fc(u,t) = sqrt (2/pi) * cos(u*t)
-
+// waveform for test
 !! g(t) = 12 * sin ( 2*t ) + 3 * sin ( 3*t ) + 7 * cos ( 5*t )
 
+
+// Fourier Cosine transform
+!! K_Fc(u,t) = sqrt (2/pi)  *  cos (u*t)
+
+
 dt=0.01
+// classic integral transform
 !!f(xi) = INTEGRAL [0<t<10<>dt] ( K_Fc(xi,t) * g(t) * <*> t )
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( f(x) )
 
-// GRAPH [ 0 <= x <= 1 <> 0.01 ] ( f(x) )
 
-configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
-instance TSQuad QUAD
-
-!!h(xi) = TSQuad [0<t<10<>dt] ( K_Fc(xi,t) * g(t) * <*> t )
-
+ configure QUAD method "CCQ" description "custom quadrature" ; instance Q QUAD
+// classic integral transform changed to use quadrature as more efficient computation
+!!h(xi) = Q [0<t<10<>dt] ( K_Fc(xi,t) * g(t) ) ; express h
 GRAPH [ 0 <= x <= 1 <> 0.01 ] ( h(x) )
+
+
+// difference between TRAP and QUAD
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( h(x) - f(x) )
+
+
+// dt=1
+LIBRARY TRANSFORM net.myorb.math.expressions.algorithms.ClMathTransform
+configure  TRANSFORM  kind "FOURIER"  type "cos"  nucleus "kernel"  basis "xi" 
+
+
+configure  TRANSFORM  method "CCQ"  description "custom Fourier Cosine Transform using CCQ integral approximation" ;  instance FTC TRANSFORM
+!!c(xi) = FTC [0<t<10<>dt] ( g(t) ) ; express c
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( c(x) )
+
+
+configure  TRANSFORM  method "TSQ"  description "custom Fourier Cosine Transform using TSQ integral approximation" ;  instance FTD TRANSFORM
+!!d(xi) = FTD [0<t<10<>dt] ( g(t) ) ; express d
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( d(x) )
 
