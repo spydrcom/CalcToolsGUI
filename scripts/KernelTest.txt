@@ -19,7 +19,7 @@ GRAPH [ 0 <= x <= 1 <> 0.01 ] ( f(x) )
 
  configure QUAD method "CCQ" description "custom quadrature" ; instance Q QUAD
 // classic integral transform changed to use quadrature as more efficient computation
-!!h(xi) = Q [0<t<10<>dt] ( K_Fc(xi,t) * g(t) ) ; express h
+!!h(xi) = Q [ 0 < t < 10 ] ( K_Fc(xi,t) * g(t) * <*> t ) ; express h
 GRAPH [ 0 <= x <= 1 <> 0.01 ] ( h(x) )
 
 
@@ -33,11 +33,17 @@ configure  TRANSFORM  kind "FOURIER"  type "cos"  nucleus "kernel"  basis "xi"
 
 
 configure  TRANSFORM  method "CCQ"  description "custom Fourier Cosine Transform using CCQ integral approximation" ;  instance FTC TRANSFORM
-!!c(xi) = FTC [0<t<10<>dt] ( g(t) ) ; express c
+!!c(xi) = FTC [0<t<10<>dt] ( g(t) * <*> t ) ; express c
 GRAPH [ 0 <= x <= 1 <> 0.01 ] ( c(x) )
 
 
 configure  TRANSFORM  method "TSQ"  description "custom Fourier Cosine Transform using TSQ integral approximation" ;  instance FTD TRANSFORM
-!!d(xi) = FTD [0<t<10<>dt] ( g(t) ) ; express d
+!!d(xi) = FTD [0<t<10<>dt] ( g(t) * <*> t ) ; express d
 GRAPH [ 0 <= x <= 1 <> 0.01 ] ( d(x) )
+
+
+// a=1
+// testing evaluation point syntax of range descriptor
+// !!kkk(xi) = FTC [t=a] ( g(t) ) ; // express kkk
+
 

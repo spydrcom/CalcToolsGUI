@@ -1,0 +1,25 @@
+
+
+//* GLQ test attempting to build GAMMA
+
+
+configure QUAD method "GAUSS" type "LAGUERRE" description "custom quadrature using Gauss-Laguerre"
+configure QUAD order "25" hi "100" show "lists" using "L20"
+instance GLQ QUAD
+
+
+!! G (x) = GLQ [ 0 < t < INFINITY ] ( t^(x-1) * <*> t ) ; express G
+
+
+calc G (4)
+calc G (5)
+
+
+graph [  1 < x < 5 <> 0.05  ] ( GAMMA(x),  G(x) )
+
+graph [  1 < x < 5 <> 0.05  ] ( GAMMA(x) - G(x) ) 
+
+graph [ 0.1 < x < 5 <> 0.05 ] ( GAMMA(x),  G(x) ) 
+
+graph [ 0.1 < x < 5 <> 0.05 ] ( GAMMA(x) - G(x) )  
+
