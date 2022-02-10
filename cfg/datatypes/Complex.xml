@@ -105,6 +105,11 @@
 	</call>
 
 	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>QUAD</string> <string>net.myorb.math.expressions.algorithms.ClMathComplexQuad</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
 		<string>TRIG</string> <string>net.myorb.math.expressions.algorithms.ClMathComplexTrig</string>
 		<referto objectCalled='environment'/>
 	</call>

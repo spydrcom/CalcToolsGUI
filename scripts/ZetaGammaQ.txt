@@ -1,0 +1,69 @@
+
+
+//* zeta computed based on zeta(s) * GAMMA(s) (using quadrature)
+
+
+z1 = 0.5+14.0*i
+z1g = -4.0537030780372815e-10 -i*5.7732998345536051e-10
+z1z = 0.022241142609993589 -0.10325812326645006*i
+
+z2 = 0.5+18.0*i
+z2g = -1.1376125036610601e-12 + i*6.6427508748461917e-13
+z2z = 2.3291548730492018 -0.18886600580072346*i
+
+z3 = 1.5+18.0*i
+z3g = -1.2525757826553675e-11 -i*2.0144887522156771e-11
+
+z4 = 5.5+14.0*i
+z4g = 3.5028218796487307e-5 -i*0.00041847119186902003
+
+
+configure QUAD method "GAUSS" type "LAGUERRE" description "custom quadrature using Gauss-Laguerre"
+//configure QUAD order "25" hi "100" show "lists" using "L20"
+configure QUAD using "L20"
+instance GLQ QUAD
+
+
+!! G (x) = GLQ [ 0 < t < INFINITY ] ( t^(x-1) * <*> t ) ; express G
+RENDERF G
+
+Gz1 = G z1
+prettyprint Gz1
+
+
+!! Z (x) = 1/G(x) * GLQ [ 0 < t < INFINITY ] ( t^(x-1) / (1-exp(-t)) * <*> t ) ; express Z
+RENDERF Z
+
+Zz1 = Z z1
+prettyprint Zz1
+
+
+configure QUAD method "CCQ" description "custom quadrature using Clenshaw-Curtis"
+instance CCQ QUAD
+
+
+!! Gcc (x) = CCQ [ 0 < t < INFINITY ] ( exp(-t) * t^(x-1) * <*> t ) ; express Gcc
+RENDERF Gcc
+
+Gz1cc = Gcc z1
+prettyprint Gz1cc
+prettyprint z1g
+
+Gz2cc = Gcc z2
+prettyprint Gz2cc
+
+
+configure QUAD method "TSQ" description "custom quadrature using Tanh-Sinh"
+instance TSQ QUAD
+
+
+!! Gts (x) = TSQ [ 0 < t < INFINITY ] ( exp(-t) * t^(x-1) * <*> t ) ; express Gts
+RENDERF Gts
+
+Gz1ts = Gts z1
+prettyprint Gz1ts
+prettyprint z1g
+
+Gz2ts = Gts z2
+prettyprint Gz2ts
+

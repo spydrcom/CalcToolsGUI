@@ -1,0 +1,55 @@
+
+
+//* zeta computed based on zeta(s) * GAMMA(s)
+
+
+INFINITY = 20
+
+!! G (z) = INTEGRAL [ 0 < t < INFINITY <> 0.05 ] ( t ^ (z-1) * exp (-t) * <*> t )
+
+!! iz ( s, t ) = t ^ (s-1) / ( exp (t) - 1 )
+!! izg ( s, t ) = iz ( s, t ) / GAMMA (s)
+
+
+// !! zeta (s) = 1/GAMMA(s) * INTEGRAL [ 0 < t < INFINITY <> 0.1 ] ( iz (s,t) * <*> t )
+!! zeta (s) = 1/G(s) * INTEGRAL [ 0 < t < INFINITY <> 0.1 ] ( iz (s,t) * <*> t )
+
+graph [ 2 < x < 4 <> 0.1 ] ( zeta(x) )
+
+
+!! Z(y) = zeta ( 0.5 + i*y )
+
+// plotri Z [ 2 < x < 10 <> 0.1 ] 
+
+
+// !! cizg(x) = izg ( 0.5 + i*14, x )
+// plotri cizg [ 4 < x < 30 <> 0.5 ] 
+
+
+// !! cizg(x) = izg ( 0.5 + i*14, x )
+// plotri cizg [ 4 < x < 30 <> 0.5 ] 
+
+// plotri cizg [ 4 < x < 7 <> 0.1 ]  
+
+// plotri cizg [ 4 < x < 7 <> 0.05 ]  
+
+// plotri cizg [ 4 < x < 10 <> 0.05 ]   
+
+plotri Z [ 10 < x < 20 <> 0.1 ] 
+
+
+
+!! gi(s,t) = t^(s-1) * exp(-t)
+
+!! crit(x) = gi ( 0.5*i*14, x)
+
+plotri crit [0<x<10<>0.05]
+
+plotri crit [0<x<1<>0.005] 
+
+
+plotri crit [0<x<0.2<>0.005]  
+
+plotri crit [0<x<0.2<>0.0005]   
+
+plotri crit [0<x<0.1<>0.00005]   

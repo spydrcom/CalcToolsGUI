@@ -17,3 +17,22 @@ seventh = 1/7 ; g17 = GAMMA seventh
 errA220086 = abs ( A220086 - g17 )
 prettyprint errA220086
 prettyprint g17
+
+correct32 = 0.8862269254527580136
+three2 = 3/2 ; g32 = GAMMA three2
+error32 = abs ( correct32 - g32 )
+prettyprint error32
+prettyprint g32
+
+correct52 = 1.329340388179137020
+five2 = 5/2 ; g52 = GAMMA five2
+error52 = abs ( correct52 - g52 )
+prettyprint error52
+prettyprint g52
+
+correct72 = 3.32335097044784255
+seven2 = 7/2 ; g72 = GAMMA seven2
+error72 = abs ( correct72 - g72 )
+prettyprint error72
+prettyprint g72
+
