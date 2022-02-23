@@ -3,6 +3,8 @@
 //* VC quad testing
 
 
+z0 = 1.5+10.0*i
+//z0 = 0.5+10.0*i
 z1 = 0.5+14.0*i ; z5 = 5 + 5*i
 z1g = -4.0537030780372815e-10 -i*5.7732998345536051e-10
 z5g = -0.97439524180523907 + i*2.0066898827226298
@@ -12,7 +14,8 @@ INFINITY = 16
 !! ig(x,t) = exp(-t) * t^(x-1)
 RENDERF ig
 
-!! igz (t) = ig(z5,t)
+!! igz (t) = ig(z0,t)
+// !! igz (t) = ig(z5,t)
 plotri igz [0 < x < INFINITY <> 0.01]
 
 
