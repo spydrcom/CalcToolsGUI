@@ -58,16 +58,43 @@ configure QUAD delta "0.005"
 instance VCQ QUAD
 
 
-!! Gvc (x) = VCQ [ 0 < t <= 8 ] ( ig(x,t) * <*> t ) ; express Gvc
+!! Gvc (x) = VCQ [ 0 <= t <= 1 ] ( ig(x,t) * <*> t ) ; express Gvc
 
 Gzvc = Gvc z5
 prettyprint Gzvc
+Gsum = Gzvc
+prettyprint Gsum
 
 
-!! Gvc2 (x) = VCQ [ 8 < t <= 16 ] ( ig(x,t) * <*> t ) ; express Gvc2
+!! Gvc1 (x) = VCQ [ 1 <= t <= 3 ] ( ig(x,t) * <*> t ) ; express Gvc1
+
+Gzvc1 = Gvc1 z5
+prettyprint Gzvc1
+Gsum = Gsum + Gzvc1
+prettyprint Gsum
+
+
+!! Gvc2 (x) = VCQ [ 3 <= t <= 8 ] ( ig(x,t) * <*> t ) ; express Gvc2
 
 Gzvc2 = Gvc2 z5
 prettyprint Gzvc2
+Gsum = Gsum + Gzvc2
+prettyprint Gsum
+
+!! Gvc3 (x) = VCQ [ 8 <= t <= 15 ] ( ig(x,t) * <*> t ) ; express Gvc3
+
+Gzvc3 = Gvc3 z5
+prettyprint Gzvc3
+Gsum = Gsum + Gzvc3
+prettyprint Gsum
+
+!! Gvc4 (x) = VCQ [ 15 <= t <= 60 ] ( ig(x,t) * <*> t ) ; express Gvc4
+
+Gzvc4 = Gvc4 z5
+prettyprint Gzvc4
+Gsum = Gsum + Gzvc4
+prettyprint Gsum
+
 
 
  rc = (-0.3970372270865141, -1.251228345402564, -2.265677750052326, 0.04752614506102596, 1.8968790782392662, -0.5667199631704222, -0.4556319410738853, 0.34516998093229606, -0.05371407336987389, -0.03927997063442141, 0.02725695029722214, -0.007484633170429185, 1.0354278395083599E-4, 8.507938669093865E-4, -4.400357322247979E-4, 1.3363880715498017E-4, -2.4139892915414206E-5, -5.306063183542426E-7, 2.591706262608305E-6, -1.3219037598419715E-6, 4.774652704963363E-7, -1.340200682692275E-7, 3.331867814036918E-8, -1.0567342447143461E-8, 3.066952923833386E-9, -2.7235103957852715E-9, 4.7040991487845E-10, 1.1244925415016855E-9, -3.990607500775619E-10, -5.289422942537933E-11, 2.4495207845291524E-11)
