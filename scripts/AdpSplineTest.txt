@@ -1,0 +1,20 @@
+
+//* test MD adaptive spline loaded from JSON
+
+
+loadjson G55.json
+
+!!G(t) = G55 t
+
+plotri G [0 < t < 8 <> 0.01]
+
+Z = 5+5*i
+
+!! B(t) = t^(Z-1)*exp(-t)
+
+plotri B [0 < t < 8 <> 0.01] 
+
+!! D(t) = B t - G t
+
+plotri D [0.1 < t < 8 <> 0.01]  
+
