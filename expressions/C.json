@@ -1,20 +1,9 @@
 {
-   "Name": "C",
    "Parameters": 
    [
       "x"
    ],
    "Description": null,
-   "Imports": 
-   {
-      "CCQuad": 
-      {
-         "SYMBOL": "CCQuad",
-         "method": "CCQ",
-         "description": "custom quadrature using Clenshaw-Curtis",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
-      }
-   },
    "Expression": 
    {
       "Hi": 
@@ -109,5 +98,16 @@
       "NodeType": "Range",
       "Lbnd": "<="
    },
-   "NodeType": "Profile"
+   "NodeType": "Profile",
+   "Imports": 
+   {
+      "CCQuad": 
+      {
+         "SYMBOL": "CCQuad",
+         "method": "CCQ",
+         "description": "custom quadrature using Clenshaw-Curtis",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
+      }
+   },
+   "Name": "C"
 }

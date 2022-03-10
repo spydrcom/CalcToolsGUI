@@ -68,3 +68,22 @@ prettyprint A206160_error
 SAVEJSON  S
 SAVEJSON  C
 
+
+// new ASQ feature 
+configure QUAD method "ASQ" description "custom quadrature using ADP Spline Quad"
+configure QUAD factory "net.myorb.spline.ASQFactory" trace "0"
+instance ASQuad QUAD
+
+// test ASQ
+
+dt = 1
+!! S(x) = ASQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
+!! C(x) = ASQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+ENTITLED Fresnel Integrals C and S Functions using ASQ
+
+A099289_error_ASQ = A099289 - S(1)
+prettyprint A099289_error_ASQ
+
+A099290_error_ASQ = A099290 - C(1)
+prettyprint A099290_error_ASQ
