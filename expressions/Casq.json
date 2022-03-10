@@ -1,14 +1,16 @@
 {
-   "Name": "C",
+   "Name": "Casq",
    "Parameter": "x",
-   "Description": null,
+   "Description": "Fresnel Integral C ",
    "Imports": 
    {
-      "CCQuad": 
+      "ASQuad": 
       {
-         "SYMBOL": "CCQuad",
-         "method": "CCQ",
-         "description": "custom quadrature using Clenshaw-Curtis",
+         "factory": "net.myorb.spline.ASQFactory",
+         "trace": "0",
+         "SYMBOL": "ASQuad",
+         "method": "ASQ",
+         "description": "custom quadrature using ADP Spline Quad",
          "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
       }
    },
@@ -98,9 +100,11 @@
       },
       "Config": 
       {
-         "SYMBOL": "CCQuad",
-         "method": "CCQ",
-         "description": "custom quadrature using Clenshaw-Curtis",
+         "factory": "net.myorb.spline.ASQFactory",
+         "trace": "0",
+         "SYMBOL": "ASQuad",
+         "method": "ASQ",
+         "description": "custom quadrature using ADP Spline Quad",
          "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
       },
       "NodeType": "Range",

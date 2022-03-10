@@ -77,13 +77,20 @@ instance ASQuad QUAD
 // test ASQ
 
 dt = 1
-!! S(x) = ASQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
-!! C(x) = ASQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
-GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
+!! Sasq(x) = ASQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express Sasq
+!! Casq(x) = ASQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express Casq
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( Casq(x), Sasq(x) )
 ENTITLED Fresnel Integrals C and S Functions using ASQ
+DESCRIBE Sasq Fresnel Integral S
+DESCRIBE Casq Fresnel Integral C
 
-A099289_error_ASQ = A099289 - S(1)
+A099289_error_ASQ = A099289 - Sasq(1)
 prettyprint A099289_error_ASQ
 
-A099290_error_ASQ = A099290 - C(1)
+A099290_error_ASQ = A099290 - Casq(1)
 prettyprint A099290_error_ASQ
+
+SAVEJSON  Sasq
+SAVEJSON  Casq
+
+

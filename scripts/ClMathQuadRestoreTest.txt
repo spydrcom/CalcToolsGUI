@@ -16,6 +16,13 @@ GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
 ENTITLED Fresnel Integrals C and S Functions using restored JSON tree reps
 
 
+loadjson Sasq
+loadjson Casq
+
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( Casq(x), Sasq(x) )
+ENTITLED Fresnel Integrals C and S Functions using restored ASQ Spline reps
+
+
 // simple function evaluations
 
 // A099289		Decimal expansion of the Fresnel sine integral function at 1.
