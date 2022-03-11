@@ -31,6 +31,8 @@ dt = 1
 !! C(x) = CCQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
 ENTITLED Fresnel Integrals C and S Functions using CCQ
+DESCRIBE S Fresnel Integral S using quadrature
+DESCRIBE C Fresnel Integral C using quadrature
 
 
 // simple function evaluations

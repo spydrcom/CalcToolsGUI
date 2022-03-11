@@ -1,7 +1,7 @@
 {
    "Name": "S",
    "Parameter": "x",
-   "Description": null,
+   "Description": "Fresnel Integral S using quadrature ",
    "Imports": 
    {
       "CCQuad": 
