@@ -36,6 +36,7 @@ GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
 ENTITLED Fresnel Integrals C and S Functions using CCQ
 DESCRIBE S Fresnel Integral S using quadrature
 DESCRIBE C Fresnel Integral C using quadrature
+SAVEJSON  S ; SAVEJSON  C
 
 
 // simple function evaluations
@@ -70,14 +71,11 @@ A206160 = 0.39090017842 ; A206160_error = A206160 - S3(0)
 prettyprint A206160_error
 
 
-SAVEJSON  S
-SAVEJSON  C
-
-
 // new ASQ feature 
 configure QUAD method "ASQ" description "custom quadrature using ADP Spline Quad"
 configure QUAD factory "net.myorb.spline.ASQFactory" trace "0"
 instance ASQuad QUAD
+
 
 // test ASQ
 
@@ -103,10 +101,14 @@ SAVEJSON  Casq
 
 LOADJSON FC.json
 
+// CCQ applied to a spline function
 !! ifc (x) = CCQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express ifc
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( ifc(x) )
 ENTITLED Fresnel Integral C Function using CCQ on spline
 
+// CPC applied to a spline function
 !! cpc (x) = CPQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express cpc
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( cpc(x) )
 ENTITLED Fresnel Integral C Function using CPC on spline
+
+
