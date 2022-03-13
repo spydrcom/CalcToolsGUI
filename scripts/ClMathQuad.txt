@@ -12,6 +12,9 @@ instance CCQuad QUAD
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
+configure QUAD method "CPC" description "custom quadrature using CPC"
+instance CPQuad QUAD
+
 
 // test TSQ
 
@@ -96,3 +99,14 @@ SAVEJSON  Sasq
 SAVEJSON  Casq
 
 
+// test quad of JSON spline
+
+LOADJSON FC.json
+
+!! ifc (x) = CCQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express ifc
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( ifc(x) )
+ENTITLED Fresnel Integral C Function using CCQ on spline
+
+!! cpc (x) = CPQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express cpc
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( cpc(x) )
+ENTITLED Fresnel Integral C Function using CPC on spline
