@@ -1,0 +1,26 @@
+
+
+//* test the ClMathSpline library
+
+
+// spline tools provided in ClMath algorithms library objects
+LIBRARY SPL net.myorb.math.expressions.algorithms.ClMathSpline
+
+// a description provided for the algorithms object
+configure SPL description "custom spline generator using CPC"
+
+// specify the factory to use in generation of splines
+configure SPL factory "net.myorb.spline.ASQFactory" 
+
+// enable the trace of the spline generation
+configure SPL trace "1"
+
+// name a new instance of the spline tool object
+instance CPC SPL
+
+// define a function to be fit in the modeling algorithm
+!! FC (x) = cos (pi / 2 * x^2 )
+
+// apply the spline tool to the UDF and specify the domain
+apply CPC FC [ 0 <= x <= 10 ]
+

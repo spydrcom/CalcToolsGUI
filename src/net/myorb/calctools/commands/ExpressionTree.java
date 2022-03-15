@@ -1,6 +1,7 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.math.computational.splines.SplineTool;
 import net.myorb.math.expressions.commands.JsonExpressions;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
@@ -66,6 +67,23 @@ public class ExpressionTree<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{ new JsonExpressions<T>(environment).loadJson (tokens); }
+		};
+	}
+
+
+	/**
+	 * attribute a spline fit to an Expression Tree
+	 * @return a keyword command for the APPLY keyword
+	 */
+	public KeywordCommand constructApplyKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Apply a spline fit to an Expression Tree"; }
+
+			public void execute (CommandSequence tokens)
+			{ new SplineTool<T>(environment).applyTool (tokens); }
 		};
 	}
 
