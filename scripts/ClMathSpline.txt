@@ -10,17 +10,49 @@ LIBRARY SPL net.myorb.math.expressions.algorithms.ClMathSpline
 configure SPL description "custom spline generator using CPC"
 
 // specify the factory to use in generation of splines
+// configure SPL factory "net.myorb.spline.ComplexSplineFactory" 
 configure SPL factory "net.myorb.spline.ASQFactory" 
 
 // enable the trace of the spline generation
-configure SPL trace "1"
+// configure SPL show "1"
+configure SPL trace "0"
 
 // name a new instance of the spline tool object
 instance CPC SPL
 
 // define a function to be fit in the modeling algorithm
-!! FC (x) = cos (pi / 2 * x^2 )
+!! FC (x) = cos (pi / 2 * x^2 )  ; express FC
+!! FS (x) = sin (pi / 2 * x^2 )  ; express FS
 
 // apply the spline tool to the UDF and specify the domain
 apply CPC FC [ 0 <= x <= 10 ]
+apply CPC FS [ 0 <= x <= 10 ]
+
+// loadjson FC.json
+
+// these should be computed by the spline
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( FC(x), FS(x) )
+
+// apply to quadrature
+
+dt = 1
+configure QUAD method "CPC" description "custom quadrature using CPC"
+instance CPQuad QUAD
+
+// CPC applied to a spline function
+!! cpc (x) = CPQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express cpc
+!! cps (x) = CPQuad [0 <= t <= x <> dt] ( FS (t) * <*> t ) ; express cps
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( cpc(x), cps(x) )
+ENTITLED Fresnel Integrals C and S Function using CPC on spline
+
+
+!! fc (x) = cos (pi / 2 * x^2 )
+!! fs (x) = sin (pi / 2 * x^2 )
+
+loadjson FC.json
+
+!! cd (x) = fc(x) - FC(x)
+!! sd (x) = fs(x) - FS(x)
+
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( cd(x), sd(x) )
 
