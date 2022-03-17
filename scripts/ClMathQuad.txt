@@ -3,17 +3,11 @@
 //* test the ClMathQuad library
 
 
-// LIBRARY QUAD net.myorb.math.expressions.algorithms.ClMathQuad
-// configure QUAD method "CTA" delta "0.01" description "custom quadrature using trapezoid rules"
-
 configure QUAD method "CCQ" description "custom quadrature using Clenshaw-Curtis"
 instance CCQuad QUAD
 
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
-
-configure QUAD method "CPC" description "custom quadrature using CPC"
-instance CPQuad QUAD
 
 
 // test TSQ
@@ -32,8 +26,11 @@ ENTITLED Fresnel Integrals C and S Functions using TSQ
 dt = 1
 !! S(x) = CCQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express S
 !! C(x) = CCQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express C
+
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( C(x), S(x) )
 ENTITLED Fresnel Integrals C and S Functions using CCQ
+
+// save to portable format
 DESCRIBE S Fresnel Integral S using quadrature
 DESCRIBE C Fresnel Integral C using quadrature
 SAVEJSON  S ; SAVEJSON  C
@@ -49,6 +46,8 @@ prettyprint A099289_error_CCQ
 A099290 = 0.77989340037 ; A099290_error_CCQ = A099290 - C(1)
 prettyprint A099290_error_CCQ
 
+
+// test TSQ
 
 !! Stsq(x) = TSQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express Stsq
 !! Ctsq(x) = TSQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express Ctsq
@@ -106,9 +105,23 @@ LOADJSON FC.json
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( ifc(x) )
 ENTITLED Fresnel Integral C Function using CCQ on spline
 
+
+configure QUAD method "CPC" description "custom quadrature using CPC"
+instance CPQuad QUAD
+
 // CPC applied to a spline function
 !! cpc (x) = CPQuad [0 <= t <= x <> dt] ( FC (t) * <*> t ) ; express cpc
 GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( cpc(x) )
 ENTITLED Fresnel Integral C Function using CPC on spline
 
+
+// test generic spline quadrature
+configure SQUAD description "generic quadrature using CPC on splines"
+instance GenQuad SQUAD
+
+!! cpg (x) = GenQuad [0 <= t <= x <> dt] ( FC (t) * <*> t )
+express cpg
+
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( cpg(x) )
+ENTITLED Fresnel Integral C Function using generic CPC on spline
 

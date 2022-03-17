@@ -4,36 +4,31 @@
 
 
 // spline tools provided in ClMath algorithms library objects
-LIBRARY SPL net.myorb.math.expressions.algorithms.ClMathSpline
-
-// a description provided for the algorithms object
-configure SPL description "custom spline generator using CPC"
+configure SPLINE description "custom spline generator using CPC"
 
 // specify the factory to use in generation of splines
-configure SPL factory "net.myorb.spline.ComplexSplineFactory" 
-// configure SPL factory "net.myorb.spline.ASQFactory" 
+configure SPLINE factory "net.myorb.spline.ComplexSplineFactory" 
 
 // enable the trace of the spline generation
-configure SPL trace "1"
+configure SPLINE trace "1"
+configure SPLINE show "1"
 
 // name a new instance of the spline tool object
-instance CPC SPL
+instance CPC SPLINE
 
-// complex example
+// define function to be integrated
 
 dt = 1
 Z = 5 + i*5
 !! G(t) = t^(Z-1) * exp(-t)
 express G
 
-
 // CPC applied to a spline function
 apply CPC G [ 0 <= x <= 70 ]
 
-
 // apply to quadrature
-configure QUAD method "CPC" description "custom quadrature using CPC"
-instance CPQuad QUAD
+configure SQUAD description "custom quadrature using CPC on splines"
+instance CPQuad SQUAD
 
 !! cpg (x) = CPQuad [0 <= t <= 50 <> dt] ( G (t) * <*> t ) ; express cpg
 // GRAPH  [  0 <=    x    <= 30  <>  0.01  ]   ( cpg(x) )

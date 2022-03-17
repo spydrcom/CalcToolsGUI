@@ -2,7 +2,7 @@
 
 
 	<SaveAs toBeCalled='CurrentVersion'>
-	<string>2022.0112</string>
+	<string>2022.0317</string>
 	</SaveAs>
 
 
@@ -105,7 +105,17 @@
 	</call>
 
 	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>SPLINE</string> <string>net.myorb.math.expressions.algorithms.ClMathSpline</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
 		<string>QUAD</string> <string>net.myorb.math.expressions.algorithms.ClMathComplexQuad</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>SQUAD</string> <string>net.myorb.math.expressions.algorithms.ClMathSplineQuad</string>
 		<referto objectCalled='environment'/>
 	</call>
 
