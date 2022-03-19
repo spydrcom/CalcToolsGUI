@@ -1,0 +1,11 @@
+
+
+//* complex plot for ZETA spline
+
+
+LOADJSON ZETA.json
+
+!! Z (z) = ZETA z
+
+plotri Z  [ 0 <= x <= 40 <> 0.1 ] 
+
