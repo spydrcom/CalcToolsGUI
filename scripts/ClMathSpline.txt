@@ -24,7 +24,8 @@ instance CPC SPLINE
 apply CPC FC [ 0 <= x <= 10 ]
 apply CPC FS [ 0 <= x <= 10 ]
 
-// loadjson FC.json
+savejson FC.json
+savejson FS.json
 
 // these should be computed by the spline
 GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( FC(x), FS(x) )
@@ -41,15 +42,4 @@ instance CPQuad SQUAD
 !! cps (x) = CPQuad [0 <= t <= x <> dt] ( FS (t) * <*> t ) ; express cps
 GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( cpc(x), cps(x) )
 ENTITLED Fresnel Integrals C and S Function using CPC on spline
-
-
-!! fc (x) = cos (pi / 2 * x^2 )
-!! fs (x) = sin (pi / 2 * x^2 )
-
-loadjson FC.json
-
-!! cd (x) = fc(x) - FC(x)
-!! sd (x) = fs(x) - FS(x)
-
-GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( cd(x), sd(x) )
 

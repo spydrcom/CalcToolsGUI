@@ -1,0 +1,80 @@
+{
+   "Name": "cpc",
+   "Parameter": "x",
+   "Description": null,
+   "Imports": 
+   {
+      "CPQuad": 
+      {
+         "SYMBOL": "CPQuad",
+         "description": "custom quadrature using CPC on splines",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
+      }
+   },
+   "Expression": 
+   {
+      "Hi": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "x"
+      },
+      "Target": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "OpName": "FC",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": null,
+               "NodeType": "Identifier",
+               "Kind": "Unknown",
+               "Name": "t"
+            }
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "<*>",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": null,
+               "NodeType": "Identifier",
+               "Kind": "Unknown",
+               "Name": "t"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "Hbnd": "<=",
+      "Variable": "t",
+      "Lo": 0.0,
+      "Consumer": "QuadratureConsumer",
+      "Delta": 
+      {
+         "Operator": null,
+         "Symbol": "AssignedVariableStorage",
+         "NodeType": "Identifier",
+         "Kind": "Variable",
+         "Name": "dt"
+      },
+      "Config": 
+      {
+         "SYMBOL": "CPQuad",
+         "description": "custom quadrature using CPC on splines",
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
+      },
+      "NodeType": "Range",
+      "Lbnd": "<="
+   },
+   "NodeType": "Profile"
+}

@@ -33,3 +33,27 @@ prettyprint A099289_error_CCQ
 A099290 = 0.77989340037 ; A099290_error_CCQ = A099290 - C(1)
 prettyprint A099290_error_CCQ
 
+
+// test generic spline quadrature
+configure SQUAD description "generic quadrature using CPC on splines"
+instance GenQuad SQUAD
+
+dt = 1
+loadjson FS ; loadjson FC
+!! cpc (x) = GenQuad [0 <= t <= x <> 0.01] ( FC (t) * <*> t ) ; express cpc
+!! cps (x) = GenQuad [0 <= t <= x <> 0.01] ( FS (t) * <*> t ) ; express cps
+
+GRAPH  [  0 <=    x    <= 4  <>  0.01  ]   ( cps(x), cpc(x) )
+ENTITLED Fresnel Integrals C and S Function using SQUAD on spline
+
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+!! tsqs(x) = TSQuad [0 <= t <= x <> dt] ( sin (pi / 2 * t^2 ) * <*> t ) ; express tsqs
+!! tsqc(x) = TSQuad [0 <= t <= x <> dt] ( cos (pi / 2 * t^2 ) * <*> t ) ; express tsqc
+
+!! cd (x) = tsqc(x) - cpc(x)
+!! sd (x) = tsqs(x) - cps(x)
+
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( cd(x), sd(x) )
+

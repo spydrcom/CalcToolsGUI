@@ -1,0 +1,56 @@
+
+
+//* complex plot for Zeta * Gamma product
+
+
+LOADJSON GammaZ.json
+LOADJSON ZETA.json
+
+!! ZG (z) = GammaZ (z) * ZETA (z)
+
+plotri ZG  [ 0 <= x <= 20 <> 0.1 ] 
+
+
+// Anaconda MPMATH supplies the model
+!! ANAZ(z) = zeta z
+
+// map as a UDF
+!! AZ(z) = ANAZ (0.5+i*z)
+
+// Anaconda MPMATH supplies the model
+!! ANAG(z) = Gamma z
+
+// map as a UDF
+!! AG(z) = ANAG (0.5+i*z)
+
+
+// plot error between spline and model
+
+!! d(x) = AZ(x)*AG(x) - ZG(x)
+
+// check a portion at very high (10x) resolution
+plotri d  [ 0 <= x <= 5 <> 0.01 ]  
+
+// full domain check at half resolution
+plotri d  [ 0 <= x <= 20 <> 0.2 ]   
+
+
+!! zg (z) = AG (z) * AZ (z)
+
+
+// spline tools provided in ClMath algorithms library objects
+configure SPLINE description "custom spline generator using CPC"
+
+// specify the factory to use in generation of splines
+configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory"
+
+// enable the trace of the spline generation
+// configure SPLINE trace "1"
+configure SPLINE show "1"
+
+// name a new instance of the spline tool object
+instance CPC SPLINE
+
+// CPC applied to a spline function
+apply CPC zg [ 0 <= x <= 20 ]
+

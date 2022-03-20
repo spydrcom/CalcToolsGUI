@@ -1,0 +1,26 @@
+
+
+//* complex plot for GammaZ spline
+
+
+LOADJSON GammaZ.json
+
+!! Z (z) = GammaZ z
+
+plotri Z  [ 0 <= x <= 20 <> 0.1 ] 
+
+
+// plot error between spline and model
+
+!! z(x) = Gamma (0.5+i*x)
+
+// Z is spline and z is Anaconda with domain adjusted
+//  spline was built for critical segment Gamma (0.5 + i*x)
+!! d(x) = Z(x) - z(x)
+
+// check a portion at very high (10x) resolution
+plotri d  [ 0 <= x <= 5 <> 0.01 ]  
+
+// full domain check at half resolution
+plotri d  [ 0 <= x <= 20 <> 0.2 ]   
+

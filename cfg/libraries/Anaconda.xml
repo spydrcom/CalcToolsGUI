@@ -14,9 +14,10 @@
 	<call object='algorithms' method='configure' using='hostAccess' />
 
 	<!-- create function object for each symbol of that type -->
-	<populate class='Function' using='anaconda' toBeCalled='LambertW Polygamma Trigamma Polylog Polylog1 Zeta' saveListAs='funcList' />
+	<populate class='Function' using='anaconda' toBeCalled='LambertW Gamma Polygamma Trigamma Polylog Polylog1 Zeta' saveListAs='funcList' />
 	
 	<!-- configure each operator/function with appropriate bean set operations -->
+	<bean references='Gamma'> <text Description='Gamma function' Reference='Gamma' Symbol='Gamma' /> </bean>
 	<bean references='Polylog'> <text Description='Jonquiere polylog function' Reference='Polylog' Symbol='polylog' /> </bean>
 	<bean references='Polylog1'> <text Description='Jonquiere polylog function' Reference='Polylog' Symbol='Li1' /> <text Parameters='1' /> </bean>
 	<bean references='LambertW'> <text Description='Lambert W (omega) function' Reference='Omega' Symbol='omega0' /> <text RenderAs='&#x03A9;' /> <text Parameters='0' /> </bean>
