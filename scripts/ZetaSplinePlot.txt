@@ -3,7 +3,7 @@
 //* complex plot for ZETA spline
 
 
-LOADJSON ZETA.json
+LOADSPLINE ZETA
 
 !! Z (z) = ZETA z
 

@@ -1,9 +1,43 @@
 {
    "Name": "ZETA",
    "Parameter": "z",
-   "Description": "MPMATH.zeta ( 0.5 + i * z )",
+   "Description": "Complex ZETA function spline modeled on Anaconda MPMATH ",
    "Interpreter": "net.myorb.math.computational.splines.ChebyshevSpline",
-   "NodeType": "Sectioned",
+   "Expression": 
+   {
+      "OpName": "ANA",
+      "PostFix": false,
+      "NodeType": "UnaryOP",
+      "Parameter": 
+      {
+         "OpName": "+",
+         "Left": 0.5,
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "*",
+            "Left": 
+            {
+               "Operator": null,
+               "Symbol": "",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "i"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "Operator": null,
+               "Symbol": "AssignedVariableStorage",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "z"
+            },
+            "OpType": "Binary"
+         },
+         "OpType": "Binary"
+      }
+   },
    "Sections": 
    [
       {
@@ -545,5 +579,6 @@
             ]
          ]
       }
-   ]
+   ],
+   "NodeType": "Profile"
 }

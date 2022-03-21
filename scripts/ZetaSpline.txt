@@ -7,11 +7,13 @@
 !! ANA(z) = zeta z
 
 // map as a UDF
-!! AZ(z) = ANA (0.5+i*z)
+!! ZETA(z) = ANA (0.5+i*z) ; express ZETA
+DESCRIBE ZETA Complex ZETA function spline modeled on Anaconda MPMATH
+
 
 ubound = 40
 // verify source is good
-plotri AZ  [0 <= x <= ubound <> 0.1 ]   
+plotri ZETA  [0 <= x <= ubound <> 0.1 ]   
 
 
 // spline tools provided in ClMath algorithms library objects
@@ -28,4 +30,8 @@ configure SPLINE show "1"
 instance CPC SPLINE
 
 // CPC applied to a spline function
-apply CPC AZ [ 0 <= x <= ubound ]
+apply CPC ZETA [ 0 <= x <= ubound ]
+
+savejson ZETA
+
+

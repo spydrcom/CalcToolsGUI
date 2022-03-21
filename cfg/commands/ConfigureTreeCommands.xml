@@ -10,12 +10,13 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_tree' saveListAs='cmdList'
-		toBeCalled='Express SaveJson LoadJson Apply'
+		toBeCalled='Express SaveJson LoadJson LoadSpline Apply'
 	 />
 
 	<!-- configure each command with bean set operations -->
 	<bean references='Express'> <text Keyword='Express' /> </bean>
 	<bean references='SaveJson'> <text Keyword='SaveJson' /> </bean>
+	<bean references='LoadSpline'> <text Keyword='LoadSpline' /> </bean>
 	<bean references='LoadJson'> <text Keyword='LoadJson' /> </bean>
 	<bean references='Apply'> <text Keyword='Apply' /> </bean>
 

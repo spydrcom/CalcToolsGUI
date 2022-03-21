@@ -72,6 +72,23 @@ public class ExpressionTree<T> extends Context<T>
 
 
 	/**
+	 * load spline description from JSON source(s)
+	 * @return a keyword command for the LOADSPLINE keyword
+	 */
+	public KeywordCommand constructLoadSplineKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Load spline description from JSON source(s)"; }
+
+			public void execute (CommandSequence tokens)
+			{ new JsonExpressions<T>(environment).loadSpline (tokens); }
+		};
+	}
+
+
+	/**
 	 * attribute a spline fit to an Expression Tree
 	 * @return a keyword command for the APPLY keyword
 	 */
