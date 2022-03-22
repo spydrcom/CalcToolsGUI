@@ -1,0 +1,17 @@
+
+
+//* view zeta zero 
+
+
+!! ANA(z) = zeta z 
+
+!! zsq(z) = Re(z)^2 + Im(z)^2
+
+!! csq(X,x) = zsq ( ANA ( X + i*x ) )
+
+!! Q(x) = csq ( 0.25, x )
+!! H(x) = csq ( 0.50, x )
+!! T(x) = csq ( 0.75, x )
+
+graph [ 0 <= x <= 40 <> 0.1 ] ( Q(x), H(x), T(x) ) 
+
