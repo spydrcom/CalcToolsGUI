@@ -23,6 +23,9 @@ Z = 5 + i*5
 !! G(t) = t^(Z-1) * exp(-t)
 express G
 
+// show waveform being integrated
+plotri G  [  0 <=    x    <= 14  <>  0.01  ]   
+
 // CPC applied to a spline function
 apply CPC G [ 0 <= x <= 70 ]
 
