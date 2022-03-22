@@ -19,7 +19,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_complex' saveListAs='cmdList'
-		toBeCalled='Splot Plotri Angular Radial'
+		toBeCalled='Splot Plotri Angular Radial Stop'
 	 />
 
 	<!-- configure each command with bean set operations -->
@@ -27,6 +27,7 @@
 	<bean references='Angular'> <text Reference='Angular' SymbolUsing='POLAR_ANGULAR_KEYWORD' /> </bean>
 	<bean references='Radial'> <text Reference='Radial' SymbolUsing='POLAR_RADIAL_KEYWORD' /> </bean>
 	<bean references='Plotri'> <text Reference='Plotri' SymbolUsing='PLOTRI_KEYWORD' /> </bean>
+	<bean references='Stop'> <text Reference='Stop' SymbolUsing='STOP_KEYWORD' /> </bean>
 
 	<!-- invoke macro to generate keyword symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 

@@ -8,6 +8,7 @@ import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
+import net.myorb.external.anaconda.ServerAccess;
 import net.myorb.math.expressions.GraphManager;
 
 /**
@@ -22,6 +23,27 @@ public class ComplexPlots<T> extends Context<T>
 	(ExpressionSpaceManager<T> manager)
 	{ super (manager); plotting = new Plotting<T>(environment); }
 	protected Plotting<T> plotting;
+
+
+	/**
+	 * request Anaconda server stop
+	 * @return a keyword command for the STOP keyword
+	 */
+	public KeywordCommand constructStopKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Anaconda server stop";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				ServerAccess.stopServer ();
+			}
+		};
+	}
 
 
 	/**
