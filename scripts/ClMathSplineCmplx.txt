@@ -19,7 +19,7 @@ instance CPC SPLINE
 // define function to be integrated
 
 dt = 1
-Z = 5 + i*5
+Z = 5 + i*6
 !! G(t) = t^(Z-1) * exp(-t)
 express G
 

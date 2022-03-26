@@ -1,0 +1,17 @@
+
+
+//* generate spline for complex Gamma
+
+
+ !!G(z) = Gamma (0.5+i*z)  
+express G 
+
+configure SPLINE description "custom spline generator using CPC" 
+configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory" 
+instance CPC SPLINE 
+
+apply CPC G [ -0.5 <= x <= 8 ] 
+savejson G
+
+plotri G [-0.5<x<8<>0.01]  
+

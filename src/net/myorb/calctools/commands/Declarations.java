@@ -172,6 +172,23 @@ public class Declarations<T> extends Context<T>
 
 
 	/**
+	 * process an INIT command
+	 * @return a keyword command for the INIT keyword
+	 */
+	public KeywordCommand constructInitKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () 
+			{ return "Init a symbol imported from a JAR source"; }
+
+			public void execute (CommandSequence tokens)
+			{ engine.getFunctionManager ().getLibrarian ().initObject (tokens); }
+		};
+	}
+
+
+	/**
 	 * process a family command
 	 * @return a keyword command for the FAMILY keyword
 	 */

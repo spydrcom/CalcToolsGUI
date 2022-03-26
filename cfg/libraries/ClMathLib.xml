@@ -12,7 +12,7 @@
 
 	<!-- configure each operator/function with appropriate bean set operations -->
 	<bean references='Exp'> <text Description='Euler exponential function' Reference='Exp' Symbol='exp' /> </bean>
-	<bean references='Gamma'> <text Description='Lanczos Gamma function approximation' Reference='Gamma' Symbol='GAMMA' /> <text RenderAs='&#x0393;' /> <text Parameters='1000' /> </bean>
+	<bean references='Gamma'> <text Description='Lanczos Gamma function approximation' Reference='Gamma' Symbol='GAMMA' /> <text RenderAs='&#x0393;' /> <text Parameters='net.myorb.library.Gamma' /> </bean>
 	<bean references='Loggamma'> <text Description='Loggamma function' Reference='Loggamma' Symbol='loggamma' /> <text Parameters='1000' /> </bean>
 	<bean references='Incgamma'> <text Description='Incomplete Gamma function' Reference='IncompleteGamma' Symbol='gammainc' /> </bean>
 
