@@ -3,16 +3,17 @@
 //* compare 2 versions of gamma
 
 
-init "net.myorb.library.Gamma" p1 "1" p2 "3"
+init "net.myorb.library.Gamma" named "GM"
 
 !!crit(x) = 0.5 + i*x
 
-!!d(x) = gamma(crit(x)) - Gamma(crit(x))
+// GAMMA=Lanczos Gamma=MPMATH
+!!d(x) = GM(crit(x)) - GAMMA(crit(x))
 
 plotri d [0 <= x <= 5 <> 0.05]
 
 
-!! g(z) = gamma(crit(z))
+!! g(z) = GM(crit(z))
 
-// plotri g [0 <= x <= 5 <> 0.05] 
+// plotri g [1 <= x <= 5 <> 0.05] 
 
