@@ -1,0 +1,13 @@
+
+
+//* compute zeta from GZ and Gamma splines
+
+
+loadspline GammaZ
+
+loadspline gzc
+
+!!Z(x) = gzc(x) / GammaZ(x)
+
+plotri Z [0 <= x <= 40 <> 0.1]
+

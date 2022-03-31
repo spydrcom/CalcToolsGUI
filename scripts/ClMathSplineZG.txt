@@ -1,0 +1,32 @@
+
+
+//* test the ClMathSpline library (ZetaGamma spline)
+
+
+// spline tools provided in ClMath algorithms library objects
+configure SPLINE description "custom spline generator using CPC"
+
+// specify the factory to use in generation of splines
+configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory"
+
+// enable the trace of the spline generation
+// configure SPLINE show "1"
+configure SPLINE trace "1"
+
+// name a new instance of the spline tool object
+instance CPC SPLINE
+
+// define function to be integrated
+
+
+!! GZ(x) = Gamma(x) * zeta(x) ; express GZ
+
+!! gzc (z) = GZ ( 0.5 + i*z ) ; express gzc
+
+plotri gzc  [  0 <=    x    <= 20  <>  0.1  ]
+
+// CPC applied to a spline function
+apply CPC gzc [ 0 <= x <= 70 ]
+
+savejson gzc
+
