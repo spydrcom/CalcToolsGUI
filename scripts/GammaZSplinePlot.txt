@@ -3,7 +3,7 @@
 //* complex plot for GammaZ spline
 
 
-LOADJSON GammaZ.json
+LOADSPLINE GammaZ.json
 
 !! Z (z) = GammaZ z
 

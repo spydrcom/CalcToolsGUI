@@ -3,8 +3,8 @@
 //* complex plot for Zeta * Gamma product
 
 
-LOADJSON GammaZ.json
-LOADJSON ZETA.json
+LOADSPLINE GammaZ.json
+LOADSPLINE ZETA.json
 
 !! ZG (z) = GammaZ (z) * ZETA (z)
 
@@ -35,7 +35,7 @@ plotri d  [ 0 <= x <= 5 <> 0.01 ]
 plotri d  [ 0 <= x <= 20 <> 0.2 ]   
 
 
-!! zg (z) = AG (z) * AZ (z)
+!! zg (z) = AG (z) * AZ (z) ; express zg
 
 
 // spline tools provided in ClMath algorithms library objects
@@ -46,11 +46,13 @@ configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory"
 
 // enable the trace of the spline generation
 // configure SPLINE trace "1"
-configure SPLINE show "1"
+// configure SPLINE show "1"
 
 // name a new instance of the spline tool object
 instance CPC SPLINE
 
 // CPC applied to a spline function
-apply CPC zg [ 0 <= x <= 20 ]
+apply CPC zg [ 0 <= x <= 40 ]
+
+savejson zg
 

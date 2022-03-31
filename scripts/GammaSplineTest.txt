@@ -1,24 +1,24 @@
 
 
-//* test spline saved as G.json
+//* test spline saved as GammaZ.json
 
 
-loadspline G
+loadspline GammaZ
 
 
 // plots of spline
 
-!! f(z) = G z
+!! f(z) = GammaZ z
 plotri f [-0.5<x<8<>0.01]   
 plotri f [4<x<7<>0.01]   
 
 
 // compare with source
 
- !! d(z) = G (z) - Gamma (0.5+i*z) 
+ !! d(z) = GammaZ (z) - Gamma (0.5+i*z) 
 
 calc d 2
-(-1.2490009027033011E-15 + 9.783840404509192E-16*i)
+// (-1.2490009027033011E-15 + 9.783840404509192E-16*i)
 
 plotri d [1<x<5<>0.01]   
 

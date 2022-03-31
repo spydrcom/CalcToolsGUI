@@ -7,11 +7,11 @@
 !! ANA(z) = Gamma z
 
 // map as a UDF
-!! AZ(z) = ANA (0.5+i*z)
+!! GammaZ(z) = ANA (0.5+i*z) ; express GammaZ
 
-ubound = 20
+ubound = 40
 // verify source is good
-plotri AZ  [0 <= x <= ubound <> 0.1 ]   
+plotri GammaZ  [0 <= x <= ubound <> 0.1 ]   
 
 
 // spline tools provided in ClMath algorithms library objects
@@ -28,4 +28,7 @@ configure SPLINE show "1"
 instance CPC SPLINE
 
 // CPC applied to a spline function
-apply CPC AZ [ 0 <= x <= ubound ]
+apply CPC GammaZ [ 0 <= x <= ubound ]
+
+savejson GammaZ
+

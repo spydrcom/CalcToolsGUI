@@ -1,42 +1,41 @@
 {
-   "Name": "gzc",
+   "Name": "zg",
    "Parameter": "z",
    "Description": null,
    "Interpreter": "net.myorb.math.computational.splines.ChebyshevSpline",
    "Expression": 
    {
-      "OpName": "GZ",
-      "PostFix": false,
-      "NodeType": "UnaryOP",
-      "Parameter": 
+      "OpName": "*",
+      "Left": 
       {
-         "OpName": "+",
-         "Left": 0.5,
-         "NodeType": "BinaryOP",
-         "Right": 
+         "OpName": "AG",
+         "PostFix": false,
+         "NodeType": "UnaryOP",
+         "Parameter": 
          {
-            "OpName": "*",
-            "Left": 
-            {
-               "Operator": null,
-               "Symbol": "",
-               "NodeType": "Identifier",
-               "Kind": "Variable",
-               "Name": "i"
-            },
-            "NodeType": "BinaryOP",
-            "Right": 
-            {
-               "Operator": null,
-               "Symbol": "AssignedVariableStorage",
-               "NodeType": "Identifier",
-               "Kind": "Variable",
-               "Name": "z"
-            },
-            "OpType": "Binary"
-         },
-         "OpType": "Binary"
-      }
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "z"
+         }
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "AZ",
+         "PostFix": false,
+         "NodeType": "UnaryOP",
+         "Parameter": 
+         {
+            "Operator": null,
+            "Symbol": "AssignedVariableStorage",
+            "NodeType": "Identifier",
+            "Kind": "Variable",
+            "Name": "z"
+         }
+      },
+      "OpType": "Binary"
    },
    "Sections": 
    [

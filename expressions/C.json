@@ -6,15 +6,10 @@
    {
       "CCQuad": 
       {
-         "hi": "100",
-         "using": "L20",
          "SYMBOL": "CCQuad",
          "method": "CCQ",
-         "show": "lists",
          "description": "custom quadrature using Clenshaw-Curtis",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad",
-         "type": "LAGUERRE",
-         "order": "25"
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
       }
    },
    "Expression": 
@@ -103,15 +98,10 @@
       },
       "Config": 
       {
-         "hi": "100",
-         "using": "L20",
          "SYMBOL": "CCQuad",
          "method": "CCQ",
-         "show": "lists",
          "description": "custom quadrature using Clenshaw-Curtis",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad",
-         "type": "LAGUERRE",
-         "order": "25"
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad"
       },
       "NodeType": "Range",
       "Lbnd": "<="
