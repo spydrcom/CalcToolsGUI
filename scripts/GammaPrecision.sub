@@ -1,0 +1,18 @@
+
+
+//* compute dif for row of GMA matrix
+
+
+// gma#n is gamma spline ( 1+(n-1)*0.25 - i* 1+(col-1)*0.25 )
+gman = gma#n
+
+// Anaconda 
+gammaN = ARRAY [ 1 <= x <= 8 <> 0.25 ] ( Gamma ( (n-1)/4+1 + x*i ) )
+
+// compute difference
+dif = gman - gammaN
+calc dif
+
+prec = SIGMA [ 0 <= j <= LENGTH(dif)-1 ] ( abs (dif#j) / abs (gammaN#j) )
+calc prec
+
