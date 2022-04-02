@@ -1,0 +1,14 @@
+
+
+//* Fresnel spline test
+
+
+init "net.myorb.library.Fresnel" named "FC" initlo "0" ubound "10" trace "1"
+
+!! C(x) = INTEGRAL [0 <= t <= x <> 0.01] ( cos (pi / 2 * t^2 ) * <*> t )
+
+graph [ 0 <= x <= 3 <> 0.01 ] ( FC x, C x ) 
+
+!! dif (x) = FC x - C x
+
+graph [ 0 <= x <= 3 <> 0.01 ] ( dif x ) 
