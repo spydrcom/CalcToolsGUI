@@ -1,6 +1,6 @@
 
 
-//* test the ClMathSpline library
+//* test the ClMathSpline library (Chebyshev-T version)
 
 
 // spline tools provided in ClMath algorithms library objects

@@ -1,0 +1,40 @@
+
+
+//* test the ClMathSpline library (Cubic version)
+
+
+// spline tools provided in ClMath algorithms library objects
+configure SPLINE description "custom spline generator using Cubic algorithm"
+
+// specify the factory to use in generation of splines
+configure SPLINE factory "net.myorb.spline.CubicSplineFactory"
+configure SPLINE every "0.25" delta "0.001"
+
+// enable the trace of the spline generation
+configure SPLINE show "1"
+configure SPLINE trace "0"
+
+// name a new instance of the spline tool object
+instance CUBIC SPLINE
+
+// define a function to be fit in the modeling algorithm
+!! FCcs (x) = cos (pi / 2 * x^2 )  ; express FCcs
+!! FScs (x) = sin (pi / 2 * x^2 )  ; express FScs
+
+// apply the spline tool to the UDF and specify the domain
+apply CUBIC FCcs [ 0 <= x <= 4 ]
+apply CUBIC FScs [ 0 <= x <= 4 ]
+
+graph [ 1 < x < 8 <> 0.05 ] ( FCcs x, FScs x )
+
+savejson FCcs
+savejson FScs
+
+!! J0udf (x) = J0 (x)  ; express J0udf
+
+apply CUBIC J0udf [ 0 <= x <= 8 ]
+
+graph [ 1 < x < 8 <> 0.05 ] ( J0udf x )
+
+// savejson J0udf
+
