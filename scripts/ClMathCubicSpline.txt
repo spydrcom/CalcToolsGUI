@@ -36,5 +36,5 @@ apply CUBIC J0udf [ 0 <= x <= 8 ]
 
 graph [ 1 < x < 8 <> 0.05 ] ( J0udf x )
 
-// savejson J0udf
+savejson J0udf
 
