@@ -27,14 +27,23 @@ apply CUBIC FScs [ 0 <= x <= 4 ]
 
 graph [ 1 < x < 8 <> 0.05 ] ( FCcs x, FScs x )
 
-savejson FCcs
-savejson FScs
+// save spline versions for Fresnel tests
+savejson FCcs ; savejson FScs
 
+
+// build spline for  Bessel J0 function
 !! J0udf (x) = J0 (x)  ; express J0udf
-
 apply CUBIC J0udf [ 0 <= x <= 8 ]
-
-graph [ 1 < x < 8 <> 0.05 ] ( J0udf x )
-
 savejson J0udf
+
+
+// check quality of spline
+loadspline J0udf
+
+// show spline render of function
+graph [ 1 < x < 8 <> 0.05 ] ( J0udf x ) 
+
+!!d(x) = J0 x - J0udf x
+// show difference between source and spline
+graph [ 1 < x < 8 <> 0.05 ] ( d x )  
 
