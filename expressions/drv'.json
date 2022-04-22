@@ -1,9 +1,6 @@
 {
    "Name": "drv'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": null,
    "Imports": 
    {

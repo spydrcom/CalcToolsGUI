@@ -1,11 +1,7 @@
 {
    "Name": "f",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": null,
-   "Imports": null,
    "Expression": 
    {
       "OpName": "*",
