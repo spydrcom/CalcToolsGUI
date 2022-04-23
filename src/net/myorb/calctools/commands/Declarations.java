@@ -1,6 +1,7 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.math.expressions.EvaluationEngine.Terminator;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
 import net.myorb.math.expressions.ExpressionSpaceManager;
@@ -51,7 +52,7 @@ public class Declarations<T> extends Context<T>
 			{
 				if (!manager.providesSupportFor (tokens.get (1).getTokenImage ()))
 				{
-					throw new RuntimeException ("Required data type not supported");
+					throw new Terminator ("Required data type not supported");
 				}
 			}
 		};
