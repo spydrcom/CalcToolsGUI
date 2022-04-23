@@ -1,4 +1,6 @@
 
+requires complex
+
 !! cis(theta) = cos(theta) + i * sin(theta)
 
 !! cos(theta) = ( exp(i*theta) + exp(-i*theta) ) / 2

@@ -1,4 +1,8 @@
 
+requires complex
+
+//* complex matrix demo
+
 
 SCRIPTPRINT CmplxDemoMatrix.txt
 

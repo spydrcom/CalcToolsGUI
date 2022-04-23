@@ -1,4 +1,9 @@
 
+requires complex
+
+//* complex roots demo
+
+
 SCRIPTPRINT CmplxDemoRoots.TXT
 
 

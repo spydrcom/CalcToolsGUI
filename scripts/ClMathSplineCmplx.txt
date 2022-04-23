@@ -1,4 +1,5 @@
 
+requires complex
 
 //* test the ClMathSpline library (complex version)
 

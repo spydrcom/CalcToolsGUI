@@ -1,4 +1,8 @@
 
+requires complex
+
+//* trig function with complex domain
+
 
 totalError = 0
 

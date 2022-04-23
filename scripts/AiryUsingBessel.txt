@@ -1,4 +1,6 @@
 
+requires complex
+
 //* Airy functions built on second order Bessel function optimized with JRE
 
 INFINITY = 10

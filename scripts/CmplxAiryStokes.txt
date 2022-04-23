@@ -1,4 +1,6 @@
 
+requires complex
+
 //* demonstrate complex solutions for Airy Ai and Bi using Bessel functions
 
 // modified Bessel Ialpha and Kalpha

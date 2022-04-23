@@ -1,8 +1,10 @@
 
+requires complex
+
+//* complex Airy / Bessel interaction test
+
 
 INFINITY = 10
-
-
 
 LIBRARY JRE java.lang.Math
 

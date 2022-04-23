@@ -1,5 +1,8 @@
 
 
+//* Colt library demo for Linear Algebra operations
+
+
 LIBRARY ColtLinalg cern.colt.library.Linalg
 
 

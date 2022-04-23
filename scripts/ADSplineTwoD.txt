@@ -1,6 +1,6 @@
 
 
-// contour plot of AntiDerivativeSplineMultiDimensional function
+//* contour plot of AntiDerivativeSplineMultiDimensional function
 
 
 // import spline of integral

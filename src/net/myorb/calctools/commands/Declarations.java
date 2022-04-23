@@ -15,7 +15,8 @@ public class Declarations<T> extends Context<T>
 
 	public Declarations
 	(ExpressionSpaceManager<T> manager)
-	{ super (manager); }
+	{ super (manager); this.manager = manager; }
+	protected ExpressionSpaceManager<T> manager;
 
 
 	/**
@@ -31,6 +32,28 @@ public class Declarations<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{ engine.getFunctionManager ().processFunctionDefinition (tokens); }
+		};
+	}
+
+
+	/**
+	 * process a requires command
+	 * @return a keyword command for the requires keyword
+	 */
+	public KeywordCommand constructRequiresKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () 
+			{ return "Identify required data type support"; }
+
+			public void execute (CommandSequence tokens)
+			{
+				if (!manager.providesSupportFor (tokens.get (1).getTokenImage ()))
+				{
+					throw new RuntimeException ("Required data type not supported");
+				}
+			}
 		};
 	}
 
