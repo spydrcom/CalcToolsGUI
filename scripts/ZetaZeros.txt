@@ -2,6 +2,8 @@
 
 //* view zeta zero 
 
+requires complex
+
 
 !! ANA(z) = zeta z 
 

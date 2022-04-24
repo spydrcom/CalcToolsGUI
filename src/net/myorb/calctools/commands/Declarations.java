@@ -1,10 +1,11 @@
 
 package net.myorb.calctools.commands;
 
-import net.myorb.math.expressions.EvaluationEngine.Terminator;
+import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
-import net.myorb.math.expressions.ExpressionSpaceManager;
+
+import net.myorb.data.abstractions.ErrorHandling.Terminator;
 
 /**
  * commands related to symbol declaration
