@@ -4,7 +4,8 @@
 
 
 configure QUAD method "GAUSS" type "LAGUERRE" description "custom quadrature using Gauss-Laguerre"
-configure QUAD order "25" hi "100" show "lists" using "L20"
+configure QUAD order "25" hi "100" using "L20"
+// configure QUAD show "lists"
 instance GLQ QUAD
 
 
