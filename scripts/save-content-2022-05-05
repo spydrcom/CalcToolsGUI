@@ -1,0 +1,15 @@
+
+
+INFINITY = 30
+VERSION = 2022.0501
+dx = 1.0E-4
+e = 2.718281828459
+pi = 3.141592653589793
+x = -0.3000000000000046
+?x = 0.1
+
+
+!! Ai(x) = 1 / pi * sqrt ( x / 3 ) * K3 ( 2 / 3 * sqrt ( x ^ 3 ) ) 
+!! Bi(x) = sqrt ( x / 3 ) * ( Ip3 ( 2 / 3 * sqrt ( x ^ 3 ) ) + In3 ( 2 / 3 * sqrt ( x ^ 3 ) ) ) 
+!! errA(x) = abs ( Ai2 ( x ) - x * Ai ( x ) ) 
+!! errB(x) = abs ( Bi2 ( x ) - x * Bi ( x ) ) 

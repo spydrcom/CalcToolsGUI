@@ -108,4 +108,6 @@
  <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='400' EdgeSize='0.017441541' X='-0.7295984625816345' Y='-0.2957874834537506' Title='Mandelbrot : (-0.7295984625816345,-0.2957874834537506) - 0.017441541' PlotParent='1105' PlotNumber='1106'/>
  <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='400' EdgeSize='0.005463302' X='-0.7188770174980164' Y='-0.28711801767349243' Title='Mandelbrot : (-0.7188770174980164,-0.28711801767349243) - 0.005463302' PlotParent='1106' PlotNumber='1107'/>
  <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='400' EdgeSize='0.0011167526' X='-0.7170773148536682' Y='-0.2830687463283539' Title='Mandelbrot : (-0.7170773148536682,-0.2830687463283539) - 0.0011167526' PlotParent='1107' PlotNumber='1108'/>
+ <PLOT PointsSize='5' TransformIdentity='Mandelbrot' MaxResult='3000' PointsPerAxis='200' EdgeSize='5.0' X='-2.5' Y='-2.5' Title='Mandelbrot : (-2.5,-2.5) - 5.0' PlotParent='-1' AltEdgeSize='5.0' PlotNumber='1109'/>
+ <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='200' EdgeSize='0.17647058' X='-0.8382352590560913' Y='0.2132353037595749' Title='Mandelbrot : (-0.8382352590560913,0.2132353037595749) - 0.17647058' PlotParent='1109' PlotNumber='1110'/>
 </PLOTS>

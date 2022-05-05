@@ -1,11 +1,7 @@
 {
    "Name": "circle",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First quadrant circle function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "sqrt",
@@ -22,9 +18,9 @@
             "Left": 
             {
                "Operator": null,
-               "Symbol": null,
+               "Symbol": "AssignedVariableStorage",
                "NodeType": "Identifier",
-               "Kind": "Unknown",
+               "Kind": "Variable",
                "Name": "x"
             },
             "NodeType": "BinaryOP",
