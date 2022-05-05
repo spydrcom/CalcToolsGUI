@@ -1,0 +1,36 @@
+<JXR>
+
+	<!-- import runtime declarations -->
+	<read path='cfg/runtime.xml'/>
+
+	<!-- refer to action listener -->
+	<package called='test'>net.myorb.gui.tests</package>
+	<class called='testing' package='test' name='MdiPaletteTest'/>
+	<SaveAs toBeCalled='tester'><new class='testing'></new></SaveAs>
+	<saveas toBeCalled='ACT'><evaluate  object='tester' method='getAction'/></saveas>
+
+	<!-- construct MDI and MenuBar controllers -->
+	<void><new called='ctrlr' class='MdiFrameController' /></void>
+
+	<READ path='cfg/gui/MenuBar.xml' using='' />
+
+
+	<!-- use MDI controller to construct master frame -->
+	<SaveAs toBeCalled='masterTitle'><string>Master Frame Via XML v2.0</string></SaveAs>
+	<SaveAs toBeCalled='masterFrame'><evaluate object='ctrlr' method='constructMasterFrame' using='masterTitle'/></SaveAs>
+
+	<!-- connect menu bar to master frame -->
+	<call object='masterFrame' method='setJMenuBar'>
+		<evaluate object='menus' method='getMenuBar'/>
+	</call>
+
+	<!-- organize frames as vertical tiles -->
+	<call object='ctrlr' method='tileVertically'/>
+
+	<!-- show master frame -->
+	<call object='ctrlr' method='showMasterFrame'/>
+
+	<!-- return only selected items (internal frames and principle panels) -->
+	<Export using='masterFrame' />
+
+</JXR>
