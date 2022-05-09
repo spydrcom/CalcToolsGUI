@@ -2,10 +2,12 @@
 package net.myorb.calctools.config;
 
 import net.myorb.math.expressions.gui.DisplayIO;
-import net.myorb.gui.components.MdiFrameController;
 
+import net.myorb.gui.components.MdiFrameController;
 import net.myorb.gui.components.GuiToolkit;
+
 import net.myorb.jxr.JxrScriptChoice;
+import net.myorb.jxr.JxrPrimitives;
 
 import javax.swing.ImageIcon;
 
@@ -17,6 +19,10 @@ import javax.swing.ImageIcon;
  */
 public class CalcTools
 {
+	public static final void dump (JxrPrimitives.SymbolTable st)
+	{
+		System.out.println (st);
+	}
 	public static final void main (String[] args) throws Exception
 	{
 		GuiToolkit.setApplicationIcon (MASTER_ICON);
