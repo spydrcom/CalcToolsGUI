@@ -392,15 +392,15 @@ _
 
 	<void><string toBeCalled='Polynomial'>Polynomial</string></void>
 	<void><substring toBeCalled='NMEM' using='Polynomial 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPolyAction'/> </SaveAs>
 	<void><string toBeCalled='TIP'>Data point regression using polynomial linear algebra solution</string></void>
-	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getChebyshevAction'/> </SaveAs>
 	<SaveAs toBeCalled='POLY'><evaluate object='menus' method='addMenuItem' using='Polynomial Regression'/></SaveAs>
 	<bean references='POLY'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Harmonic'>Harmonic</string></void>
 	<void><substring toBeCalled='NMEM' using='Harmonic 1 1'/></void>
-	<void><string toBeCalled='TIP'>Data point regression using cyclic linear algebra solution</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getHarmonicAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Data point regression using cyclic linear algebra solution</string></void>
 	<SaveAs toBeCalled='TS'><evaluate object='menus' method='addMenuItem' using='Harmonic Regression'/></SaveAs>
 	<bean references='TS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
 
