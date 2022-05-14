@@ -1,0 +1,57 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Data'><evaluate object='menus' method='addMenu'><string>Data</string></evaluate></SaveAs>
+
+	<!-- menu items for Data -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getDataActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Pi'>Pi</string></void>
+	<void><substring toBeCalled='NMEM' using='Pi 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPiAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Computation of product of vector entries</string></void>
+	<SaveAs toBeCalled='PI'><evaluate object='menus' method='addMenuItem' using='Pi Data'/></SaveAs>
+	<bean references='PI'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Sigma'>Sigma</string></void>
+	<void><substring toBeCalled='NMEM' using='Sigma 1 1'/></void>
+	<void><string toBeCalled='TIP'>Computation of sum of vector entries</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSigmaAction'/> </SaveAs>
+	<SaveAs toBeCalled='SIG'><evaluate object='menus' method='addMenuItem' using='Sigma Data'/></SaveAs>
+	<bean references='SIG'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Hypot'>Hypot</string></void>
+	<void><substring toBeCalled='NMEM' using='Hypot 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getHypotAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Computation of hypotenuse length in multi dimension</string></void>
+	<SaveAs toBeCalled='HYP'><evaluate object='menus' method='addMenuItem' using='Hypot Data'/></SaveAs>
+	<bean references='HYP'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Augment'>Augment</string></void>
+	<void><substring toBeCalled='NMEM' using='Augment 1 1'/></void>
+	<void><string toBeCalled='TIP'>Augmentation of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAugmentAction'/> </SaveAs>
+	<SaveAs toBeCalled='AUG'><evaluate object='menus' method='addMenuItem' using='Augment Data'/></SaveAs>
+	<bean references='AUG'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Dyadic'>Dyadic</string></void>
+	<void><substring toBeCalled='NMEM' using='Dyadic 2 1'/></void>
+	<void><string toBeCalled='TIP'>Computation of dyadic product of vectors</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getDyadicAction'/> </SaveAs>
+	<SaveAs toBeCalled='DYAD'><evaluate object='menus' method='addMenuItem' using='Dyadic Data'/></SaveAs>
+	<bean references='DYAD'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Dot'>Dot</string></void>
+	<void><substring toBeCalled='NMEM' using='Dot 1 1'/></void>
+	<void><string toBeCalled='TIP'>Computation of dot product of vectors</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getDotAction'/> </SaveAs>
+	<SaveAs toBeCalled='DOT'><evaluate object='menus' method='addMenuItem' using='Dot Data'/></SaveAs>
+	<bean references='DOT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

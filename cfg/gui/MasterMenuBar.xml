@@ -1,0 +1,24 @@
+<JXR>
+
+	<!-- import runtime declarations -->
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- construct MDI and MenuBar controllers -->
+	<void><new called='menus' class='SimpleMenuBar' /></void>
+
+	<READ path='cfg/gui/HomeMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/DataMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/PrimeMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/MatrixMenu.xml' using='menus actionManager' />
+
+	<READ path='cfg/gui/SimEqMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/PolyMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/StatsMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/RegressionMenu.xml' using='menus actionManager' />
+
+	<READ path='cfg/gui/ChartsMenu.xml' using='menus actionManager' />
+	<READ path='cfg/gui/FractalsMenu.xml' using='menus actionManager' />
+
+	<Export using='menus' />
+
+</JXR>

@@ -1,0 +1,64 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Home'><evaluate object='menus' method='addMenu'><string>Home</string></evaluate></SaveAs>
+
+	<!-- menu items for Home -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getHomeActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Tabulate'>Tabulate</string></void>
+	<void><substring toBeCalled='TAB_NMEM' using='Tabulate 1 1'/></void>
+	<void><string toBeCalled='TAB_TIP'>Show table of available functionality</string></void>
+	<SaveAs toBeCalled='TAB_ACT'> <evaluate  object='actions' method='getTabAction'/> </SaveAs>
+	<SaveAs toBeCalled='TAB'><evaluate object='menus' method='addMenuItem' using='Tabulate Home'/></SaveAs>
+	<bean references='TAB'><set ItemMnemonic='TAB_NMEM' HotKey='VKT' Modifiers='CTL' Tip='TAB_TIP' ActionForItem='TAB_ACT'/></bean>
+
+	<void><string toBeCalled='Symbols'>Symbols</string></void>
+	<void><substring toBeCalled='SYM_NMEM' using='Symbols 1 1'/></void>
+	<void><string toBeCalled='SYM_TIP'>Display general symbol information</string></void>
+	<SaveAs toBeCalled='SYM_ACT'> <evaluate  object='actions' method='getSymAction'/> </SaveAs>
+	<SaveAs toBeCalled='SYM'><evaluate object='menus' method='addMenuItem' using='Symbols Home'/></SaveAs>
+	<bean references='SYM'><set ItemMnemonic='SYM_NMEM' HotKey='VKS' Modifiers='CTL' Tip='SYM_TIP' ActionForItem='SYM_ACT'/></bean>
+
+	<void><string toBeCalled='Functions'>Functions</string></void>
+	<void><substring toBeCalled='FUN_NMEM' using='Functions 1 1'/></void>
+	<void><string toBeCalled='FUN_TIP'>Display function symbol information</string></void>
+	<SaveAs toBeCalled='FUN_ACT'> <evaluate  object='actions' method='getFuncAction'/> </SaveAs>
+	<SaveAs toBeCalled='FUN'><evaluate object='menus' method='addMenuItem' using='Functions Home'/></SaveAs>
+	<bean references='FUN'><set ItemMnemonic='FUN_NMEM' HotKey='VKF' Modifiers='CTL' Tip='FUN_TIP' ActionForItem='FUN_ACT'/></bean>
+
+	<void><string toBeCalled='RPN_TITLE'>RPN</string></void>
+	<void><substring toBeCalled='RPN_NMEM' using='RPN_TITLE 1 1'/></void>
+	<void><string toBeCalled='RPN_TIP'>Reverse Polish Notation calculator</string></void>
+	<SaveAs toBeCalled='RPN_ACT'> <evaluate  object='actions' method='getRpnAction'/> </SaveAs>
+	<SaveAs toBeCalled='RPN'><evaluate object='menus' method='addMenuItem' using='RPN_TITLE Home'/></SaveAs>
+	<bean references='RPN'><set ItemMnemonic='RPN_NMEM' HotKey='VKR' Modifiers='CTL' Tip='RPN_TIP' ActionForItem='RPN_ACT'/></bean>
+
+	<void><string toBeCalled='Dump'>Dump</string></void>
+	<void><substring toBeCalled='DUMP_NMEM' using='Dump 1 1'/></void>
+	<void><string toBeCalled='DUMP_TIP'>Show trace and structure data for debugging</string></void>
+	<SaveAs toBeCalled='DUMP_ACT'> <evaluate  object='actions' method='getAllAction'/> </SaveAs>
+	<SaveAs toBeCalled='DUMP'><evaluate object='menus' method='addMenuItem' using='Dump Home'/></SaveAs>
+	<bean references='DUMP'><set ItemMnemonic='DUMP_NMEM' Tip='DUMP_TIP' ActionForItem='DUMP_ACT'/></bean>
+
+	<void><string toBeCalled='Save'>Save</string></void>
+	<void><substring toBeCalled='SAVE_NMEM' using='Save 3 1'/></void>
+	<void><string toBeCalled='SAVE_TIP'>Save state of workspace</string></void>
+	<SaveAs toBeCalled='SAVE_ACT'> <evaluate  object='actions' method='getSaveAction'/> </SaveAs>
+	<SaveAs toBeCalled='SAVE'><evaluate object='menus' method='addMenuItem' using='Save Home'/></SaveAs>
+	<bean references='SAVE'><set ItemMnemonic='SAVE_NMEM' HotKey='VKS' Modifiers='ALT' Tip='SAVE_TIP' ActionForItem='SAVE_ACT'/></bean>
+_
+	<void><string toBeCalled='Help'>Help</string></void>
+	<void><substring toBeCalled='HELP_NMEM' using='Help 1 1'/></void>
+	<void><string toBeCalled='HELP_TIP'>Show available help document</string></void>
+	<SaveAs toBeCalled='HELP_ACT'> <evaluate  object='actions' method='getHelpAction'/> </SaveAs>
+	<SaveAs toBeCalled='HELP'><evaluate object='menus' method='addMenuItem' using='Help Home'/></SaveAs>
+	<bean references='HELP'><set ItemMnemonic='HELP_NMEM' HotKey='VKH' Modifiers='CTL' Tip='HELP_TIP' ActionForItem='HELP_ACT'/></bean>
+
+</JXR>

@@ -1,0 +1,43 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Charts'><evaluate object='menus' method='addMenu'><string>Charts</string></evaluate></SaveAs>
+
+	<!-- menu items for Charts -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getChartActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Scatter'>Scatter</string></void>
+	<void><substring toBeCalled='NMEM' using='Scatter 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce scatter plot of data points</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getScatterAction'/> </SaveAs>
+	<SaveAs toBeCalled='SCAT'><evaluate object='menus' method='addMenuItem' using='Scatter Charts'/></SaveAs>
+	<bean references='SCAT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Angular'>Angular</string></void>
+	<void><substring toBeCalled='NMEM' using='Angular 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce plot of from angular algorithms</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAngularAction'/> </SaveAs>
+	<SaveAs toBeCalled='ANG'><evaluate object='menus' method='addMenuItem' using='Angular Charts'/></SaveAs>
+	<bean references='ANG'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Radial'>Radial</string></void>
+	<void><substring toBeCalled='NMEM' using='Radial 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce plot of from radial algorithms</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getRadialAction'/> </SaveAs>
+	<SaveAs toBeCalled='RAD'><evaluate object='menus' method='addMenuItem' using='Radial Charts'/></SaveAs>
+	<bean references='RAD'><set ItemMnemonic='NMEM' HotKey='VKR' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='List'>List</string></void>
+	<void><substring toBeCalled='NMEM' using='List 1 1'/></void>
+	<void><string toBeCalled='TIP'>Show list of charts generated</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getListAction'/> </SaveAs>
+	<SaveAs toBeCalled='LIST'><evaluate object='menus' method='addMenuItem' using='List Charts'/></SaveAs>
+	<bean references='LIST'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

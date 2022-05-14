@@ -1,0 +1,64 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Statistics'><evaluate object='menus' method='addMenu'><string>Statistics</string></evaluate></SaveAs>
+
+	<!-- menu items for Statistics -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getStatisticsActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Min'>Min</string></void>
+	<void><substring toBeCalled='NMEM' using='Min 1 1'/></void>
+	<void><string toBeCalled='TIP'>Minimum value of a vector of elements</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMinAction'/> </SaveAs>
+	<SaveAs toBeCalled='MIN'><evaluate object='menus' method='addMenuItem' using='Min Statistics'/></SaveAs>
+	<bean references='MIN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Max'>Max</string></void>
+	<void><substring toBeCalled='NMEM' using='Max 3 1'/></void>
+	<void><string toBeCalled='TIP'>Maximum value of a vector of elements</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMaxAction'/> </SaveAs>
+	<SaveAs toBeCalled='MAX'><evaluate object='menus' method='addMenuItem' using='Max Statistics'/></SaveAs>
+	<bean references='MAX'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Mean'>Mean</string></void>
+	<void><substring toBeCalled='NMEM' using='Mean 2 1'/></void>
+	<void><string toBeCalled='TIP'>Mean of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMeanAction'/> </SaveAs>
+	<SaveAs toBeCalled='MN'><evaluate object='menus' method='addMenuItem' using='Mean Statistics'/></SaveAs>
+	<bean references='MN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Median'>Median</string></void>
+	<void><substring toBeCalled='NMEM' using='Median 3 1'/></void>
+	<void><string toBeCalled='TIP'>Median of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMedianAction'/> </SaveAs>
+	<SaveAs toBeCalled='MED'><evaluate object='menus' method='addMenuItem' using='Median Statistics'/></SaveAs>
+	<bean references='MED'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Stdev'>Stdev</string></void>
+	<void><substring toBeCalled='NMEM' using='Stdev 1 1'/></void>
+	<void><string toBeCalled='TIP'>Standard deviation of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getStDevAction'/> </SaveAs>
+	<SaveAs toBeCalled='STD'><evaluate object='menus' method='addMenuItem' using='Stdev Statistics'/></SaveAs>
+	<bean references='STD'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Var'>Var</string></void>
+	<void><substring toBeCalled='NMEM' using='Var 1 1'/></void>
+	<void><string toBeCalled='TIP'>Variance of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getVarAction'/> </SaveAs>
+	<SaveAs toBeCalled='VAR'><evaluate object='menus' method='addMenuItem' using='Var Statistics'/></SaveAs>
+	<bean references='VAR'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Cov'>Cov</string></void>
+	<void><substring toBeCalled='NMEM' using='Cov 1 1'/></void>
+	<void><string toBeCalled='TIP'>Co-Variance of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getCovAction'/> </SaveAs>
+	<SaveAs toBeCalled='COV'><evaluate object='menus' method='addMenuItem' using='Cov Statistics'/></SaveAs>
+	<bean references='COV'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

@@ -1,0 +1,64 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Primes'><evaluate object='menus' method='addMenu'><string>Primes</string></evaluate></SaveAs>
+
+	<!-- menu items for Primes -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getPrimesActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Sieve'>Sieve</string></void>
+	<void><substring toBeCalled='NMEM' using='Sieve 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSieveAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Populate table of primes with chosen sieve</string></void>
+	<SaveAs toBeCalled='SIEVE'><evaluate object='menus' method='addMenuItem' using='Sieve Primes'/></SaveAs>
+	<bean references='SIEVE'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Tabulated'>Tabulated</string></void>
+	<void><substring toBeCalled='NMEM' using='Tabulated 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce table of prime factors</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getTableAction'/> </SaveAs>
+	<SaveAs toBeCalled='TAB'><evaluate object='menus' method='addMenuItem' using='Tabulated Primes'/></SaveAs>
+	<bean references='TAB'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Prime'>Primes</string></void>
+	<void><substring toBeCalled='NMEM' using='Prime 1 1'/></void>
+	<void><string toBeCalled='TIP'>Populate table of prime numbers</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPrimesAction'/> </SaveAs>
+	<SaveAs toBeCalled='PRIME'><evaluate object='menus' method='addMenuItem' using='Prime Primes'/></SaveAs>
+	<bean references='PRIME'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Factors'>Factors</string></void>
+	<void><substring toBeCalled='NMEM' using='Factors 1 1'/></void>
+	<void><string toBeCalled='TIP'>Compute factors of a value</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getFactorsAction'/> </SaveAs>
+	<SaveAs toBeCalled='FACT'><evaluate object='menus' method='addMenuItem' using='Factors Primes'/></SaveAs>
+	<bean references='FACT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Gaps'>Gaps</string></void>
+	<void><substring toBeCalled='NMEM' using='Gaps 1 1'/></void>
+	<void><string toBeCalled='TIP'>Populate table of gaps in listed primes</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getGapsAction'/> </SaveAs>
+	<SaveAs toBeCalled='GAPS'><evaluate object='menus' method='addMenuItem' using='Gaps Primes'/></SaveAs>
+	<bean references='GAPS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='GCF'>GCF</string></void>
+	<void><substring toBeCalled='NMEM' using='GCF 2 1'/></void>
+	<void><string toBeCalled='TIP'>Computation of greatest common factor</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getGcfAction'/> </SaveAs>
+	<SaveAs toBeCalled='GCF_BEAN'><evaluate object='menus' method='addMenuItem' using='GCF Primes'/></SaveAs>
+	<bean references='GCF_BEAN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='LCM'>LCM</string></void>
+	<void><substring toBeCalled='LCM_NMEM' using='LCM 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getLcmAction'/> </SaveAs>
+	<void><string toBeCalled='LCM_TIP'>Computation of lowest common multiplier</string></void>
+	<SaveAs toBeCalled='LCM_BEAN'><evaluate object='menus' method='addMenuItem' using='LCM Primes'/></SaveAs>
+	<bean references='LCM_BEAN'><set ItemMnemonic='LCM_NMEM' Tip='LCM_TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

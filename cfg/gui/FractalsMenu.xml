@@ -1,0 +1,43 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Fractals'><evaluate object='menus' method='addMenu'><string>Fractals</string></evaluate></SaveAs>
+
+	<!-- menu items for Fractals -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getFractalActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Julia'>Julia</string></void>
+	<void><substring toBeCalled='NMEM' using='Julia 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce plots of Julia fractals</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getJuliaAction'/> </SaveAs>
+	<SaveAs toBeCalled='JULIA'><evaluate object='menus' method='addMenuItem' using='Julia Fractals'/></SaveAs>
+	<bean references='JULIA'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Mandelbrot'>Mandelbrot</string></void>
+	<void><substring toBeCalled='NMEM' using='Mandelbrot 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce plots of Mandelbrot fractals</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMandelbrotAction'/> </SaveAs>
+	<SaveAs toBeCalled='MAN'><evaluate object='menus' method='addMenuItem' using='Mandelbrot Fractals'/></SaveAs>
+	<bean references='MAN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Newton'>Newton</string></void>
+	<void><substring toBeCalled='NMEM' using='Newton 1 1'/></void>
+	<void><string toBeCalled='TIP'>Produce plots of Newton fractals</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getNewtonAction'/> </SaveAs>
+	<SaveAs toBeCalled='NEW'><evaluate object='menus' method='addMenuItem' using='Newton Fractals'/></SaveAs>
+	<bean references='NEW'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='List'>List</string></void>
+	<void><substring toBeCalled='NMEM' using='List 1 1'/></void>
+	<void><string toBeCalled='TIP'>Show list of plots generated</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getListAction'/> </SaveAs>
+	<SaveAs toBeCalled='LIST'><evaluate object='menus' method='addMenuItem' using='List Fractals'/></SaveAs>
+	<bean references='LIST'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

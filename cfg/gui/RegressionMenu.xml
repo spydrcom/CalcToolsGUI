@@ -1,0 +1,58 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Regression'><evaluate object='menus' method='addMenu'><string>Regression</string></evaluate></SaveAs>
+
+	<!-- menu items for Regression -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getRegressionActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Fft'>FFT</string></void>
+	<void><substring toBeCalled='NMEM' using='Fft 1 1'/></void>
+	<void><string toBeCalled='TIP'>Fast Fourier Transform</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getFftAction'/> </SaveAs>
+	<SaveAs toBeCalled='FFT'><evaluate object='menus' method='addMenuItem' using='Fft Regression'/></SaveAs>
+	<bean references='FFT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Linear'>Linear</string></void>
+	<void><substring toBeCalled='NMEM' using='Linear 1 1'/></void>
+	<void><string toBeCalled='TIP'>Least Squares linear regression</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getLinearAction'/> </SaveAs>
+	<SaveAs toBeCalled='LIN'><evaluate object='menus' method='addMenuItem' using='Linear Regression'/></SaveAs>
+	<bean references='LIN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Nonlinear'>Non-Linear</string></void>
+	<void><substring toBeCalled='NMEM' using='Nonlinear 1 1'/></void>
+	<void><string toBeCalled='TIP'>Least Squares non-linear regression</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getNonlinearAction'/> </SaveAs>
+	<SaveAs toBeCalled='NL'><evaluate object='menus' method='addMenuItem' using='Nonlinear Regression'/></SaveAs>
+	<bean references='NL'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Polynomial'>Polynomial</string></void>
+	<void><substring toBeCalled='NMEM' using='Polynomial 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPolyAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Data point regression using polynomial linear algebra solution</string></void>
+	<SaveAs toBeCalled='POLY'><evaluate object='menus' method='addMenuItem' using='Polynomial Regression'/></SaveAs>
+	<bean references='POLY'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Harmonic'>Harmonic</string></void>
+	<void><substring toBeCalled='NMEM' using='Harmonic 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getHarmonicAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Data point regression using cyclic linear algebra solution</string></void>
+	<SaveAs toBeCalled='TS'><evaluate object='menus' method='addMenuItem' using='Harmonic Regression'/></SaveAs>
+	<bean references='TS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+
+	<void><string toBeCalled='TimeSeries'>Time Series</string></void>
+	<void><substring toBeCalled='NMEM' using='TimeSeries 1 1'/></void>
+	<void><string toBeCalled='TIP'>Time-Series regression of data vector</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSeriesAction'/> </SaveAs>
+	<SaveAs toBeCalled='TS'><evaluate object='menus' method='addMenuItem' using='TimeSeries Regression'/></SaveAs>
+	<bean references='TS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

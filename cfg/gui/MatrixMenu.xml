@@ -1,0 +1,85 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Matrices'><evaluate object='menus' method='addMenu'><string>Matrices</string></evaluate></SaveAs>
+
+	<!-- menu items for Matrices -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getMatrixActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Add'>Add</string></void>
+	<void><substring toBeCalled='NMEM' using='Add 1 1'/></void>
+	<void><string toBeCalled='TIP'>Compute sum of two matrix values</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAddAction'/> </SaveAs>
+	<SaveAs toBeCalled='ADD'><evaluate object='menus' method='addMenuItem' using='Add Matrices'/></SaveAs>
+	<bean references='ADD'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Mul'>Mul</string></void>
+	<void><substring toBeCalled='NMEM' using='Mul 1 1'/></void>
+	<void><string toBeCalled='TIP'>Compute product of two matrix value</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMulAction'/> </SaveAs>
+	<SaveAs toBeCalled='MUL'><evaluate object='menus' method='addMenuItem' using='Mul Matrices'/></SaveAs>
+	<bean references='MUL'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Det'>Det</string></void>
+	<void><substring toBeCalled='NMEM' using='Det 1 1'/></void>
+	<void><string toBeCalled='TIP'>Compute determinant of matrix value</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getDetAction'/> </SaveAs>
+	<SaveAs toBeCalled='DET'><evaluate object='menus' method='addMenuItem' using='Det Matrices'/></SaveAs>
+	<bean references='DET'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Eig'>Eig</string></void>
+	<void><substring toBeCalled='NMEM' using='Eig 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getEigAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Compute eigenvalue and eigenvector for equations</string></void>
+	<SaveAs toBeCalled='EIG'><evaluate object='menus' method='addMenuItem' using='Eig Matrices'/></SaveAs>
+	<bean references='EIG'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Transpose'>Transpose</string></void>
+	<void><substring toBeCalled='NMEM' using='Transpose 5 1'/></void>
+	<void><string toBeCalled='TIP'>Compute transpose of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getTransposeAction'/> </SaveAs>
+	<SaveAs toBeCalled='TRA'><evaluate object='menus' method='addMenuItem' using='Transpose Matrices'/></SaveAs>
+	<bean references='TRA'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Characteristic'>Characteristic</string></void>
+	<void><substring toBeCalled='NMEM' using='Characteristic 1 1'/></void>
+	<void><string toBeCalled='TIP'>Compute characteristic of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getCharacteristicAction'/> </SaveAs>
+	<SaveAs toBeCalled='CHR'><evaluate object='menus' method='addMenuItem' using='Characteristic Matrices'/></SaveAs>
+	<bean references='CHR'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='CoMatrix'>CoMatrix</string></void>
+	<void><substring toBeCalled='NMEM' using='CoMatrix 2 1'/></void>
+	<void><string toBeCalled='TIP'>Compute CoMatrix of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getComatrixAction'/> </SaveAs>
+	<SaveAs toBeCalled='COM'><evaluate object='menus' method='addMenuItem' using='CoMatrix Matrices'/></SaveAs>
+	<bean references='COM'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Adj'>Adj</string></void>
+	<void><substring toBeCalled='NMEM' using='Adj 3 1'/></void>
+	<void><string toBeCalled='TIP'>Compute ADJ of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAdjAction'/> </SaveAs>
+	<SaveAs toBeCalled='ADJ'><evaluate object='menus' method='addMenuItem' using='Adj Matrices'/></SaveAs>
+	<bean references='ADJ'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Inv'>Inv</string></void>
+	<void><substring toBeCalled='NMEM' using='Inv 3 1'/></void>
+	<void><string toBeCalled='TIP'>Compute inverse of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getInvAction'/> </SaveAs>
+	<SaveAs toBeCalled='INV'><evaluate object='menus' method='addMenuItem' using='Inv Matrices'/></SaveAs>
+	<bean references='INV'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Tr'>Tr</string></void>
+	<void><substring toBeCalled='NMEM' using='Tr 1 1'/></void>
+	<void><string toBeCalled='TIP'>Computation of trace of a matrix</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getTraceAction'/> </SaveAs>
+	<SaveAs toBeCalled='TR'><evaluate object='menus' method='addMenuItem' using='Tr Matrices'/></SaveAs>
+	<bean references='TR'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

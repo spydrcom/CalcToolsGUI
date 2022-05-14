@@ -1,0 +1,65 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='SimulEQ'><evaluate object='menus' method='addMenu'><string>SimulEQ</string></evaluate></SaveAs>
+
+	<!-- menu items for SimulEQ -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getSimEqActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Report'>Report</string></void>
+	<void><substring toBeCalled='NMEM' using='Report 1 1'/></void>
+	<void><string toBeCalled='TIP'>Report on matrix characteristics</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getMatRptAction'/> </SaveAs>
+	<SaveAs toBeCalled='REP'><evaluate object='menus' method='addMenuItem' using='Report SimulEQ'/></SaveAs>
+	<bean references='REP'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='SVD'>SVD</string></void>
+	<void><substring toBeCalled='NMEM' using='SVD 1 1'/></void>
+	<void><string toBeCalled='TIP'>Single Value  matrix decomposition</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSvdAction'/> </SaveAs>
+	<SaveAs toBeCalled='SVD_BEAN'><evaluate object='menus' method='addMenuItem' using='SVD SimulEQ'/></SaveAs>
+	<bean references='SVD_BEAN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='QRD'>QRD</string></void>
+	<void><substring toBeCalled='NMEM' using='QRD 1 1'/></void>
+	<void><string toBeCalled='TIP'>QRD matrix decomposition</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getQrAction'/> </SaveAs>
+	<SaveAs toBeCalled='QRD_BEAN'><evaluate object='menus' method='addMenuItem' using='QRD SimulEQ'/></SaveAs>
+	<bean references='QRD_BEAN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Eigen'>Eigen</string></void>
+	<void><substring toBeCalled='NMEM' using='Eigen 1 1'/></void>
+	<void><string toBeCalled='TIP'>Eigenvalues and Eigenvectors</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getEvAction'/> </SaveAs>
+	<SaveAs toBeCalled='EIGEN'><evaluate object='menus' method='addMenuItem' using='Eigen SimulEQ'/></SaveAs>
+	<bean references='EIGEN'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Solve'>Solve</string></void>
+	<void><substring toBeCalled='NMEM' using='Solve 2 1'/></void>
+	<void><string toBeCalled='TIP'>Generate solution for data points</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSolveAction'/> </SaveAs>
+	<SaveAs toBeCalled='SOLVE'><evaluate object='menus' method='addMenuItem' using='Solve SimulEQ'/></SaveAs>
+	<bean references='SOLVE'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Gaussian'>Gaussian</string></void>
+	<void><substring toBeCalled='NMEM' using='Gaussian 1 1'/></void>
+	<void><string toBeCalled='TIP'>Gaussian solution for data points</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getGaussianAction'/> </SaveAs>
+	<SaveAs toBeCalled='GAUSS'><evaluate object='menus' method='addMenuItem' using='Gaussian SimulEQ'/></SaveAs>
+	<bean references='GAUSS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+
+	<void><string toBeCalled='VC31'>VC31</string></void>
+	<void><substring toBeCalled='NMEM' using='VC31 1 1'/></void>
+	<void><string toBeCalled='TIP'>VC31 solution for data points</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getVC31Action'/> </SaveAs>
+	<SaveAs toBeCalled='VC'><evaluate object='menus' method='addMenuItem' using='VC31 SimulEQ'/></SaveAs>
+	<bean references='VC'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>

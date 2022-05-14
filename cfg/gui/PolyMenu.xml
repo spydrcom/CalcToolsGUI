@@ -1,0 +1,64 @@
+<JXR>
+
+	<READ path='cfg/runtime.xml'/>
+
+	<!-- add a menu to the main menu bar -->
+
+	<SaveAs toBeCalled='Polynomials'><evaluate object='menus' method='addMenu'><string>Polynomials</string></evaluate></SaveAs>
+
+	<!-- menu items for Polynomials -->
+
+	<SaveAs toBeCalled='actions'>
+		<evaluate  object='actionManager' method='getPolynomialsActions'/>
+	</SaveAs>
+
+	<void><string toBeCalled='Formats'>Formats</string></void>
+	<void><substring toBeCalled='NMEM' using='Formats 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getFormatAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Display a polynomial from coefficient vector</string></void>
+	<SaveAs toBeCalled='FMTS'><evaluate object='menus' method='addMenuItem' using='Formats Polynomials'/></SaveAs>
+	<bean references='FMTS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Roots'>Roots</string></void>
+	<void><substring toBeCalled='NMEM' using='Roots 1 1'/></void>
+	<void><string toBeCalled='TIP'>Determine roots of a polynomial</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getRootsAction'/> </SaveAs>
+	<SaveAs toBeCalled='ROOTS'><evaluate object='menus' method='addMenuItem' using='Roots Polynomials'/></SaveAs>
+	<bean references='ROOTS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Characterize'>Characterize</string></void>
+	<void><substring toBeCalled='NMEM' using='Characterize 1 1'/></void>
+	<void><string toBeCalled='TIP'>Characterize a polynomial</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPolyAction'/> </SaveAs>
+	<SaveAs toBeCalled='CHR'><evaluate object='menus' method='addMenuItem' using='Characterize Polynomials'/></SaveAs>
+	<bean references='CHR'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Derive'>Derive</string></void>
+	<void><substring toBeCalled='NMEM' using='Derive 1 1'/></void>
+	<void><string toBeCalled='TIP'>Derive a polynomial</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getDeriveAction'/> </SaveAs>
+	<SaveAs toBeCalled='DER'><evaluate object='menus' method='addMenuItem' using='Derive Polynomials'/></SaveAs>
+	<bean references='DER'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Derivatve'>Derivatve</string></void>
+	<void><substring toBeCalled='NMEM' using='Derivatve 2 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getDerivativeAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Compute approximation of the derivative of a polynomial</string></void>
+	<SaveAs toBeCalled='DDX'><evaluate object='menus' method='addMenuItem' using='Derivatve Polynomials'/></SaveAs>
+	<bean references='DDX'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Integral'>Integral</string></void>
+	<void><substring toBeCalled='NMEM' using='Integral 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getIntegralAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Compute approximation of the integral of a polynomial</string></void>
+	<SaveAs toBeCalled='INT'><evaluate object='menus' method='addMenuItem' using='Integral Polynomials'/></SaveAs>
+	<bean references='INT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Conv'>Conv</string></void>
+	<void><substring toBeCalled='CONV_NMEM' using='Conv 1 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getConvAction'/> </SaveAs>
+	<void><string toBeCalled='TIP'>Computation of algebraic inversion of a Polynomial</string></void>
+	<SaveAs toBeCalled='CONV'><evaluate object='menus' method='addMenuItem' using='Conv Polynomials'/></SaveAs>
+	<bean references='CONV'><set ItemMnemonic='CONV_NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
+</JXR>
