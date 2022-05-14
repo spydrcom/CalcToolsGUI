@@ -2,7 +2,7 @@
 
 
 	<SaveAs toBeCalled='CurrentVersion'>
-	<string>2022.0501</string>
+	<string>2022.0515</string>
 	</SaveAs>
 
 
@@ -64,6 +64,15 @@
 	<call object='application' method='connectedTo' varying='T' using='factorCfg renderer charting' />
 	<call object='cfgMgr' method='processGraphicsParameters' using='chartoptions' />
 	<call object='application' method='connect' using='CurrentVersion' />
+
+
+	<!--
+			build menu bar from JXR description and configuration
+	  -->
+
+
+	<class called='DisplayIO' classpath='net.myorb.math.expressions.gui.DisplayIO'/>
+	<call class='DisplayIO' method='setMenuBarScript'> <string>cfg/gui/IntegerMenuBar.xml</string> </call>
 
 
 	<!--
