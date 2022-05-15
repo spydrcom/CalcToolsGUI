@@ -4,7 +4,7 @@
 
 	<saveas toBeCalled='VKA'><field named='VK_A' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKR'><field named='VK_R' class='KeyEvent'/></saveas>
-c	<saveas toBeCalled='VKS'><field named='VK_S' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKC'><field named='VK_C' class='KeyEvent'/></saveas>
 
 	<!-- add a menu to the main menu bar -->
 
@@ -21,7 +21,7 @@ c	<saveas toBeCalled='VKS'><field named='VK_S' class='KeyEvent'/></saveas>
 	<void><string toBeCalled='TIP'>Produce scatter plot of data points</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getScatterAction'/> </SaveAs>
 	<SaveAs toBeCalled='SCAT'><evaluate object='menus' method='addMenuItem' using='Scatter Charts'/></SaveAs>
-	<bean references='SCAT'><set ItemMnemonic='NMEM' HotKey='VKS' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='SCAT'><set ItemMnemonic='NMEM' HotKey='VKC' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Angular'>Angular</string></void>
 	<void><substring toBeCalled='NMEM' using='Angular 1 1'/></void>

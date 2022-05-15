@@ -1,4 +1,7 @@
 <PLOTS>
  <PLOT PointsSize='5' TransformIdentity='Dendrite' MaxResult='1000' PointsPerAxis='200' EdgeSize='0.7205882' X='-0.16176468133926392' Y='-0.5882352590560913' Title='Julia Dendrite : c= + i' PlotParent='-1' AltEdgeSize='0.7205882' PlotNumber='1000'/>
  <PLOT PointsSize='5' TransformIdentity='Dendrite' MaxResult='1000' PointsPerAxis='200' EdgeSize='0.7205882' X='-0.16176468133926392' Y='-0.5882352590560913' Title='Julia Dendrite : c= + i' PlotParent='-1' AltEdgeSize='0.7205882' PlotNumber='1001'/>
+ <PLOT PointsSize='5' TransformIdentity='Mandelbrot' MaxResult='3000' PointsPerAxis='200' EdgeSize='5.0' X='-2.5' Y='-2.5' Title='Mandelbrot : (-2.5,-2.5) - 5.0' PlotParent='-1' AltEdgeSize='5.0' PlotNumber='1002'/>
+ <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='200' EdgeSize='0.35294116' X='-1.970588207244873' Y='-0.14705881476402283' Title='Mandelbrot : (-1.970588207244873,-0.14705881476402283) - 0.35294116' PlotParent='1002' PlotNumber='1003'/>
+ <PLOT PointsSize='5' TransformIdentity='Mandelbrot' PointsPerAxis='200' EdgeSize='0.07629758' X='-1.8013840913772583' Y='-0.03702421486377716' Title='Mandelbrot : (-1.8013840913772583,-0.03702421486377716) - 0.07629758' PlotParent='1003' PlotNumber='1004'/>
 </PLOTS>
