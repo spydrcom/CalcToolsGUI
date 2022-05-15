@@ -2,6 +2,12 @@
 
 	<READ path='cfg/runtime.xml'/>
 
+	<saveas toBeCalled='VKR'><field named='VK_R' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKS'><field named='VK_S' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKT'><field named='VK_T' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKF'><field named='VK_F' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKH'><field named='VK_H' class='KeyEvent'/></saveas>
+
 	<!-- add a menu to the main menu bar -->
 
 	<SaveAs toBeCalled='Home'><evaluate object='menus' method='addMenu'><string>Home</string></evaluate></SaveAs>

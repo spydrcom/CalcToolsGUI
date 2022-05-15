@@ -2,6 +2,12 @@
 
 	<READ path='cfg/runtime.xml'/>
 
+	<saveas toBeCalled='VKV'><field named='VK_V' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKT'><field named='VK_T' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKF'><field named='VK_F' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKP'><field named='VK_P' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKG'><field named='VK_G' class='KeyEvent'/></saveas>
+
 	<!-- add a menu to the main menu bar -->
 
 	<SaveAs toBeCalled='Primes'><evaluate object='menus' method='addMenu'><string>Primes</string></evaluate></SaveAs>
@@ -17,35 +23,35 @@
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSieveAction'/> </SaveAs>
 	<void><string toBeCalled='TIP'>Populate table of primes with chosen sieve</string></void>
 	<SaveAs toBeCalled='SIEVE'><evaluate object='menus' method='addMenuItem' using='Sieve Primes'/></SaveAs>
-	<bean references='SIEVE'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='SIEVE'><set ItemMnemonic='NMEM' HotKey='VKV' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Tabulated'>Tabulated</string></void>
 	<void><substring toBeCalled='NMEM' using='Tabulated 1 1'/></void>
 	<void><string toBeCalled='TIP'>Produce table of prime factors</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getTableAction'/> </SaveAs>
 	<SaveAs toBeCalled='TAB'><evaluate object='menus' method='addMenuItem' using='Tabulated Primes'/></SaveAs>
-	<bean references='TAB'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='TAB'><set ItemMnemonic='NMEM' HotKey='VKT' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Prime'>Primes</string></void>
 	<void><substring toBeCalled='NMEM' using='Prime 1 1'/></void>
 	<void><string toBeCalled='TIP'>Populate table of prime numbers</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPrimesAction'/> </SaveAs>
 	<SaveAs toBeCalled='PRIME'><evaluate object='menus' method='addMenuItem' using='Prime Primes'/></SaveAs>
-	<bean references='PRIME'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='PRIME'><set ItemMnemonic='NMEM' HotKey='VKP' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Factors'>Factors</string></void>
 	<void><substring toBeCalled='NMEM' using='Factors 1 1'/></void>
 	<void><string toBeCalled='TIP'>Compute factors of a value</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getFactorsAction'/> </SaveAs>
 	<SaveAs toBeCalled='FACT'><evaluate object='menus' method='addMenuItem' using='Factors Primes'/></SaveAs>
-	<bean references='FACT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='FACT'><set ItemMnemonic='NMEM' HotKey='VKF' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Gaps'>Gaps</string></void>
 	<void><substring toBeCalled='NMEM' using='Gaps 1 1'/></void>
 	<void><string toBeCalled='TIP'>Populate table of gaps in listed primes</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getGapsAction'/> </SaveAs>
 	<SaveAs toBeCalled='GAPS'><evaluate object='menus' method='addMenuItem' using='Gaps Primes'/></SaveAs>
-	<bean references='GAPS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='GAPS'><set ItemMnemonic='NMEM' HotKey='VKG' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='GCF'>GCF</string></void>
 	<void><substring toBeCalled='NMEM' using='GCF 2 1'/></void>

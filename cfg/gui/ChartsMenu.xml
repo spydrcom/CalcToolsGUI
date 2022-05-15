@@ -2,6 +2,10 @@
 
 	<READ path='cfg/runtime.xml'/>
 
+	<saveas toBeCalled='VKA'><field named='VK_A' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKR'><field named='VK_R' class='KeyEvent'/></saveas>
+c	<saveas toBeCalled='VKS'><field named='VK_S' class='KeyEvent'/></saveas>
+
 	<!-- add a menu to the main menu bar -->
 
 	<SaveAs toBeCalled='Charts'><evaluate object='menus' method='addMenu'><string>Charts</string></evaluate></SaveAs>
@@ -17,14 +21,14 @@
 	<void><string toBeCalled='TIP'>Produce scatter plot of data points</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getScatterAction'/> </SaveAs>
 	<SaveAs toBeCalled='SCAT'><evaluate object='menus' method='addMenuItem' using='Scatter Charts'/></SaveAs>
-	<bean references='SCAT'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='SCAT'><set ItemMnemonic='NMEM' HotKey='VKS' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Angular'>Angular</string></void>
 	<void><substring toBeCalled='NMEM' using='Angular 1 1'/></void>
 	<void><string toBeCalled='TIP'>Produce plot of from angular algorithms</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAngularAction'/> </SaveAs>
 	<SaveAs toBeCalled='ANG'><evaluate object='menus' method='addMenuItem' using='Angular Charts'/></SaveAs>
-	<bean references='ANG'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+	<bean references='ANG'><set ItemMnemonic='NMEM' HotKey='VKA' Modifiers='ALT' Tip='TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Radial'>Radial</string></void>
 	<void><substring toBeCalled='NMEM' using='Radial 1 1'/></void>
