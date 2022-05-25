@@ -12,7 +12,7 @@ configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory"
 
 // enable the trace of the spline generation
 // configure SPLINE show "1"
-configure SPLINE trace "1"
+// configure SPLINE trace "1"
 
 // name a new instance of the spline tool object
 instance CPC SPLINE
@@ -29,14 +29,16 @@ plotri G  [  0 <=    x    <= 14  <>  0.01  ]
 
 // CPC applied to a spline function
 apply CPC G [ 0 <= x <= 70 ]
+savejson G
+
+loadspline G
+loadjson G
 
 // apply to quadrature
 configure SQUAD description "custom quadrature using CPC on splines"
 instance CPQuad SQUAD
 
-!! cpg (x) = CPQuad [0 <= t <= 50 <> dt] ( G (t) * <*> t ) ; express cpg
-// GRAPH  [  0 <=    x    <= 30  <>  0.01  ]   ( cpg(x) )
-
-calc cpg 1
-
+!! cpg (x) = CPQuad [ 0 <= t <= 50 ] ( G (t) ) ; express cpg
+// mpc(real='-0.61415029784858599', imag='-0.68780600579394335')
+calc cpg (1)
 

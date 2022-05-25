@@ -124,7 +124,7 @@
 	</call>
 
 	<call class='LIBRARIAN' method='defineLibrary' >
-		<string>SQUAD</string> <string>net.myorb.math.expressions.algorithms.ClMathSplineQuad</string>
+		<string>SQUAD</string> <string>net.myorb.math.expressions.algorithms.ClMathMultiDimensionalSplineQuad</string>
 		<referto objectCalled='environment'/>
 	</call>
 
