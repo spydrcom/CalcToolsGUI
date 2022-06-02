@@ -6,6 +6,10 @@
 	<saveas toBeCalled='evalCtrl'>  <new class='EvalControl' using='environment' />  </saveas>
 
 
+	<!-- identify display component to be used -->
+	<call object='evalCtrl' method='chooseConsoleDisplay' using='T' />
+
+
 	<!-- initialize engine -->
 	<class called='EvalEngine' classpath='net.myorb.math.expressions.EvaluationEngine' />
 	<saveas toBeCalled='engine'>  <new class='EvalEngine' using='environment' />  </saveas>
