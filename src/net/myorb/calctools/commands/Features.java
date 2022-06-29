@@ -1,6 +1,8 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.calctools.services.ServiceEnvironment;
+
 import net.myorb.math.expressions.gui.UserInteractions;
 
 import net.myorb.math.expressions.commands.CosineTransform;
@@ -12,8 +14,6 @@ import net.myorb.math.expressions.ExpressionSpaceManager;
 
 import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
-
-import net.myorb.utilities.RpcManagement;
 
 /**
  * commands related to core features
@@ -192,8 +192,10 @@ public class Features<T> extends Context<T>
 			{
 				String name = tokens.get (1).getTokenImage ();
 				String port = tokens.get (2).getTokenImage ();
-				Object processor = RpcManagement.startService (name, port);
-				environment.provideAccessTo (processor);;
+
+				ServiceEnvironment.Control<T> processor =
+					ServiceEnvironment.startBackgroundService (name, port);
+				environment.provideAccessTo (processor);
 			}
 		};
   	}
