@@ -13,6 +13,8 @@ import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
 
+import net.myorb.utilities.RpcManagement;
+
 /**
  * commands related to core features
  * @author Michael Druckman
@@ -168,6 +170,30 @@ public class Features<T> extends Context<T>
 			public void execute (CommandSequence tokens)
 			{
 				new CosineTransform<T>(environment).analyze (tokens);
+			}
+		};
+  	}
+
+
+	/**
+	 * request service start on specified port
+	 * @return a keyword command for the SERVE keyword
+	 */
+	public KeywordCommand constructServeKeywordCommand ()
+  	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Request service start on specified port";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				String name = tokens.get (1).getTokenImage ();
+				String port = tokens.get (2).getTokenImage ();
+				Object processor = RpcManagement.startService (name, port);
+				environment.provideAccessTo (processor);;
 			}
 		};
   	}

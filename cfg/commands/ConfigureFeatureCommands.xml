@@ -10,7 +10,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_features' saveListAs='cmdList'
-		toBeCalled='Rpn MaxMin Root Dct Mandelbrot Polynomial Request'
+		toBeCalled='Rpn MaxMin Root Dct Mandelbrot Polynomial Request Serve'
 	 />
 
 	<!-- configure each command with bean set operations -->
@@ -22,12 +22,21 @@
 	<bean references='MaxMin'> <text Reference='MaxMin' SymbolUsing='MAXMINOF_KEYWORD' /> </bean>
 	<bean references='Request'> <text Reference='Request' SymbolUsing='REQUEST_KEYWORD' /> </bean>
 	<bean references='Root'> <text Reference='Root' SymbolUsing='ROOTOF_KEYWORD' /> </bean>
+	<bean references='Serve'> <text Reference='Serve' SymbolUsing='SERVE_KEYWORD' /> </bean>
 
 	<!-- invoke macro to generate keyword symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
 		using='algorithms symbolTable' inclusionList='cmdList'
 	 />
 
+	<!-- configure services table with objects which enable services -->
+
+	<package called='Util'>net.myorb.utilities</package>
+	<class called='Services' package='Util' name='RpcManagement' />
+
+	<call class='Services' method='addService'>
+		<string>EVAL</string> <string>net.myorb.calctools.services.EvalService</string>
+	</call>
 
 	<Export using='commands_features' />
 
