@@ -22,7 +22,7 @@ public class EvalService<T>
 	 */
 	public String process (String request) throws Exception
 	{
-		return "Did you request '" + request + "'?";
+		return environment.getControl ().evaluate (request).toString ();
 	}
 
 	/* (non-Javadoc)

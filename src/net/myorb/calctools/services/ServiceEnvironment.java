@@ -62,17 +62,14 @@ class BackgroundService<T> extends BackgroundTask
 	{
 		super
 		(
-			new Runnable ()
+			() ->
 			{
-				public void run ()
-				{
-					ServerConventions.provideService
-					(
-						Integer.parseInt (port),
-						processor,
-						"\f"
-					);
-				}
+				ServerConventions.provideService
+				(
+					Integer.parseInt (port),
+					processor,
+					"\f"
+				);
 			}
 		);
 		this.processor = processor;
