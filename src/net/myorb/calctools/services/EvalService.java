@@ -1,9 +1,11 @@
 
 package net.myorb.calctools.services;
 
-import net.myorb.data.abstractions.ServerConventions;
+import net.myorb.math.expressions.ExpressionComponentSpaceManager;
 
 import net.myorb.math.expressions.evaluationstates.Environment;
+
+import net.myorb.data.abstractions.ServerConventions;
 
 /**
  * evaluate expression by RPC using socket server
@@ -22,7 +24,15 @@ public class EvalService<T>
 	 */
 	public String process (String request) throws Exception
 	{
-		return environment.getControl ().evaluate (request).toString ();
+		StringBuffer buffer = new StringBuffer ("[ [ ");
+		T result = environment.getControl ().evaluate (request);
+		for (int i = 0; i < manager.getComponentCount (); i++)
+		{
+			if ( i > 0 ) { buffer.append (", "); }
+			buffer.append (manager.component (result, i));
+		}
+		buffer.append (" ] ]");
+		return buffer.toString ();
 	}
 
 	/* (non-Javadoc)
@@ -30,8 +40,10 @@ public class EvalService<T>
 	 */
 	public void setEnvironment (Environment<T> environment)
 	{
+		this.manager = (ExpressionComponentSpaceManager<T>) environment.getSpaceManager();
 		this.environment = environment;
 	}
+	ExpressionComponentSpaceManager<T> manager;
 	Environment<T> environment;
 
 }
