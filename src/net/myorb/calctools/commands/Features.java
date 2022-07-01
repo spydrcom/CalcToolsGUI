@@ -15,6 +15,8 @@ import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
 
+import net.myorb.gui.components.SimpleScreenIO;
+
 /**
  * commands related to core features
  * @author Michael Druckman
@@ -213,7 +215,8 @@ public class Features<T> extends Context<T>
 			{
 				ScriptManager<T> scriptManager = engine.getScriptManager (); scriptManager.readSymbols ("NamedConstants.txt");
 				scriptManager.readSymbols ("BuiltInFunctions.txt"); scriptManager.readSymbols ("TrigIdentities.txt");
-				new Thread (new net.myorb.math.expressions.gui.rpn.Calculator<T> (environment)).start ();
+				Runnable rpn = new net.myorb.math.expressions.gui.rpn.Calculator<T> (environment);
+				SimpleScreenIO.startBackgroundTask (rpn);
 			}
 
 			public String describe () { return "Start the RPN calculator"; }

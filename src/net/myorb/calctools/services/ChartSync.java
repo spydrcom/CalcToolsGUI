@@ -1,17 +1,17 @@
 
 package net.myorb.calctools.services;
 
-import net.myorb.data.abstractions.ServerConventions;
 import net.myorb.data.notations.json.JsonPrettyPrinter;
 import net.myorb.data.notations.json.JsonLowLevel.JsonValue;
-import net.myorb.math.expressions.evaluationstates.Environment;
+
+import net.myorb.data.abstractions.ServerConventions;
 
 /**
  * process chart meta-data to sync for evaluation
  * @author Michael Druckman
  */
-public class ChartSync<T>
-	implements ServerConventions.JsonProcessor, Environment.AccessAcceptance<T>
+public class ChartSync<T> extends ServiceFoundation<T>
+	implements ServerConventions.JsonProcessor
 {
 
 	/*
@@ -25,14 +25,6 @@ public class ChartSync<T>
 	{
 		try { JsonPrettyPrinter.sendTo (value, System.out); } catch (Exception e) {}
 		return "OK, response incomplete";
-	}
-	
-	/* (non-Javadoc)
-	 * @see net.myorb.math.expressions.evaluationstates.Environment.AccessAcceptance#setEnvironment(net.myorb.math.expressions.evaluationstates.Environment)
-	 */
-	public void setEnvironment (Environment<T> environment)
-	{
-		
 	}
 
 }

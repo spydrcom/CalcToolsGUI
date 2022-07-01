@@ -41,8 +41,8 @@ public class ServiceEnvironment extends RpcManagement
 	public static <T> Control<T> startBackgroundService (String name, String port)
 	{
 		BackgroundService<T> svc = new BackgroundService<T>
-			(lookupProcessor (name), port);
-		svc.startTask ();
+			(lookupProcessor (name), Integer.parseInt (port));
+		svc.setName (name); svc.startTask ();
 		return svc;
 	}
 
@@ -56,26 +56,29 @@ class BackgroundService<T> extends BackgroundTask
 	implements ServiceEnvironment.Control<T>
 {
 
-
 	protected BackgroundService
-	(ServerConventions.Processor processor, String port)
+	(ServerConventions.Processor processor, int port)
 	{
 		super
 		(
-			() ->
-			{
-				ServerConventions.provideService
-				(
-					Integer.parseInt (port),
-					processor,
-					"\f"
-				);
-			}
+			new ServerConventions
+			(
+				port,
+				processor,
+				"\f"
+			)
 		);
 		this.processor = processor;
 	}
 	protected ServerConventions.Processor processor;
 
+	/**
+	 * @param name a name to give the service
+	 */
+	public void setName (String name)
+	{
+		((ServerConventions) task).setName (name);
+	}
 
 	/* (non-Javadoc)
 	 * @see net.myorb.math.expressions.evaluationstates.Environment.AccessAcceptance#setEnvironment(net.myorb.math.expressions.evaluationstates.Environment)
@@ -85,6 +88,4 @@ class BackgroundService<T> extends BackgroundTask
 		environment.provideAccessTo (processor);
 	}
 
-
 }
-
