@@ -1,2 +1,2 @@
 
-serve EVAL 8081
+serve CALC 8081

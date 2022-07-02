@@ -3,10 +3,10 @@ package net.myorb.calctools.services;
 
 import net.myorb.math.expressions.evaluationstates.Environment;
 
-import net.myorb.data.abstractions.ServerConventions;
-import net.myorb.data.abstractions.ErrorHandling;
+import net.myorb.netcom.ServerConventions;
+import net.myorb.netcom.protocol.RpcManagement;
 
-import net.myorb.utilities.RpcManagement;
+import net.myorb.data.abstractions.ErrorHandling;
 import net.myorb.gui.BackgroundTask;
 
 /**

@@ -4,7 +4,7 @@ package net.myorb.calctools.services;
 import net.myorb.math.expressions.ExpressionComponentSpaceManager;
 import net.myorb.math.expressions.evaluationstates.Environment;
 
-import net.myorb.data.abstractions.ServerConventions;
+import net.myorb.netcom.ServerConventions;
 
 /**
  * base class for RPC service implementations

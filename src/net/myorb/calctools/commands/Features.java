@@ -17,6 +17,8 @@ import net.myorb.math.expressions.GraphManager;
 
 import net.myorb.gui.components.SimpleScreenIO;
 
+import net.myorb.sitstat.Post;
+
 /**
  * commands related to core features
  * @author Michael Druckman
@@ -192,11 +194,14 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
+				int requestingPort;
 				String name = tokens.get (1).getTokenImage ();
-				String port = tokens.get (2).getTokenImage ();
+				if (tokens.size () < 3) { requestingPort = 8081; }
+				{ requestingPort = Integer.parseInt (tokens.get (2).getTokenImage ()); }
+				int port = Post.serviceCalled (name, requestingPort);
 
 				ServiceEnvironment.Control<T> processor =
-					ServiceEnvironment.startBackgroundService (name, port);
+					ServiceEnvironment.startBackgroundService (name, Integer.toString (port));
 				environment.provideAccessTo (processor);
 			}
 		};

@@ -1,7 +1,7 @@
 
 package net.myorb.calctools.services;
 
-import net.myorb.data.abstractions.ServerConventions;
+import net.myorb.netcom.ServerConventions;
 
 /**
  * evaluate expression by RPC using socket server

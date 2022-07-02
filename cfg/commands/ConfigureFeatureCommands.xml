@@ -31,11 +31,11 @@
 
 	<!-- configure services table with objects which enable services -->
 
-	<package called='Util'>net.myorb.utilities</package>
+	<package called='Util'>net.myorb.netcom.protocol</package>
 	<class called='Services' package='Util' name='RpcManagement' />
 
 	<call class='Services' method='addService'>
-		<string>EVAL</string> <string>net.myorb.calctools.services.EvalService</string>
+		<string>CALC</string> <string>net.myorb.calctools.services.EvalService</string>
 	</call>
 
 	<Export using='commands_features' />
