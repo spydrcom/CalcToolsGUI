@@ -19,6 +19,26 @@ public class Context<T>
 
 
 	/**
+	 * @param tokens a command sequence
+	 * @param number the index of the token to get
+	 * @return the image of the indexed token
+	 */
+	public String imageOf
+	(CommandSequence tokens, int number)
+	{ return tokens.get (number).getTokenImage (); }
+
+	/**
+	 * @param tokens a command sequence
+	 * @param number the index of the token to get
+	 * @param defaultValue value to return if number out of range
+	 * @return the image of the indexed token or the default as described
+	 */
+	public String imageOf
+	(CommandSequence tokens, int number, String defaultValue)
+	{ return number < tokens.size () ? imageOf (tokens, number) : defaultValue; }
+
+
+	/**
 	 * error check for command length
 	 * @param count the expected count of parameters
 	 * @param tokens the token sequence for the command

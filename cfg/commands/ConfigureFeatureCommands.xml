@@ -31,8 +31,12 @@
 
 	<!-- configure services table with objects which enable services -->
 
-	<package called='Util'>net.myorb.netcom.protocol</package>
-	<class called='Services' package='Util' name='RpcManagement' />
+	<package called='Protocol'>net.myorb.rpc.protocol</package>
+	<class called='Services' package='Protocol' name='RpcManagement' />
+
+	<call class='Services' method='identifyRegistrar'>
+		<string>net.myorb.sitstat.Post</string>
+	</call>
 
 	<call class='Services' method='addService'>
 		<string>CALC</string> <string>net.myorb.calctools.services.EvalService</string>

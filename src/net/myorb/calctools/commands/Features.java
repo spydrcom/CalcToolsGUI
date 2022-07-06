@@ -2,7 +2,6 @@
 package net.myorb.calctools.commands;
 
 import net.myorb.calctools.services.ServiceEnvironment;
-
 import net.myorb.math.expressions.gui.UserInteractions;
 
 import net.myorb.math.expressions.commands.CosineTransform;
@@ -16,8 +15,6 @@ import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
 
 import net.myorb.gui.components.SimpleScreenIO;
-
-import net.myorb.sitstat.Post;
 
 /**
  * commands related to core features
@@ -89,7 +86,7 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				String variable = tokens.get (1).getTokenImage ();
+				String variable = imageOf (tokens, 1);
 				String prompt = "Enter value for " + variable;
 
 				environment.postAssignment
@@ -124,7 +121,7 @@ public class Features<T> extends Context<T>
 				environment.findFunctionRoot
 				(
 					functionName.toString (),
-					tokens.get (pos).getTokenImage ()
+					imageOf (tokens, pos)
 				);
 			}
 		};
@@ -151,7 +148,7 @@ public class Features<T> extends Context<T>
 
 				environment.findFunctionMaxMin
 				(
-					functionName.toString (), tokens.get (pos).getTokenImage ()
+					functionName.toString (), imageOf (tokens, pos)
 				);
 			}
 		};
@@ -194,15 +191,10 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				int requestingPort;
-				String name = tokens.get (1).getTokenImage ();
-				if (tokens.size () < 3) { requestingPort = 8081; }
-				{ requestingPort = Integer.parseInt (tokens.get (2).getTokenImage ()); }
-				int port = Post.serviceCalled (name, requestingPort);
-
-				ServiceEnvironment.Control<T> processor =
-					ServiceEnvironment.startBackgroundService (name, Integer.toString (port));
-				environment.provideAccessTo (processor);
+				String name = imageOf (tokens, 1);
+				String requestingPort = imageOf (tokens, 2, "8081");
+				String assignedPort = ServiceEnvironment.post (name, requestingPort);
+				ServiceEnvironment.start (name, assignedPort, environment);
 			}
 		};
   	}

@@ -4,7 +4,7 @@ package net.myorb.calctools.services;
 import net.myorb.data.notations.json.JsonPrettyPrinter;
 import net.myorb.data.notations.json.JsonLowLevel.JsonValue;
 
-import net.myorb.netcom.ServerConventions;
+import net.myorb.rpc.primitive.ServerConventions;
 
 /**
  * process chart meta-data to sync for evaluation

@@ -3,10 +3,11 @@ package net.myorb.calctools.services;
 
 import net.myorb.math.expressions.evaluationstates.Environment;
 
-import net.myorb.netcom.ServerConventions;
-import net.myorb.netcom.protocol.RpcManagement;
+import net.myorb.rpc.primitive.ServerConventions;
+import net.myorb.rpc.protocol.RpcManagement;
 
 import net.myorb.data.abstractions.ErrorHandling;
+
 import net.myorb.gui.BackgroundTask;
 
 /**
@@ -44,6 +45,47 @@ public class ServiceEnvironment extends RpcManagement
 			(lookupProcessor (name), Integer.parseInt (port));
 		svc.setName (name); svc.startTask ();
 		return svc;
+	}
+
+	/**
+	 * start the named service
+	 * @param serviceName the identifier for the service
+	 * @param onPort the port assigned for use of this service
+	 * @param inEnvironment the application environment serving requests
+	 */
+	public static <T> void start
+		(
+			String serviceName, String onPort,
+			Environment<T> inEnvironment
+		)
+	{
+		Control<T> processor =
+				startBackgroundService (serviceName, onPort);
+		inEnvironment.provideAccessTo (processor);
+	}
+
+	/**
+	 * @param serviceNamed the identifier for the service
+	 * @param requestingPort the port commonly assigned for this service
+	 * @return the port assigned by the service management system
+	 */
+	public static String post (String serviceNamed, String requestingPort)
+	{
+		try
+		{ return assign (serviceNamed, requestingPort); }
+		catch (ErrorHandling.Messages m) { throw m; }
+		catch (Exception e) { fail (e); }
+		return null;
+	}
+	public static String assign (String serviceNamed, String requestingPort) throws Exception
+	{
+		String assignedPort = RpcManagement.post (serviceNamed, requestingPort);
+		if (assignedPort == null) throw new ErrorHandling.Notification ("Port assignment failed");
+		return assignedPort;
+	}
+	public static void fail (Exception e) throws ErrorHandling.Messages
+	{
+		throw new ErrorHandling.Terminator ("Configuration fails to support RPC", e);
 	}
 
 }
