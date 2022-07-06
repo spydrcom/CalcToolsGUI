@@ -52,6 +52,7 @@ public class ServiceEnvironment extends RpcManagement
 	 * @param serviceName the identifier for the service
 	 * @param onPort the port assigned for use of this service
 	 * @param inEnvironment the application environment serving requests
+	 * @param <T> data type of environment
 	 */
 	public static <T> void start
 		(
