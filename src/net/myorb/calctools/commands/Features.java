@@ -2,6 +2,7 @@
 package net.myorb.calctools.commands;
 
 import net.myorb.calctools.services.ServiceEnvironment;
+
 import net.myorb.math.expressions.gui.UserInteractions;
 
 import net.myorb.math.expressions.commands.CosineTransform;
@@ -13,6 +14,8 @@ import net.myorb.math.expressions.ExpressionSpaceManager;
 
 import net.myorb.math.expressions.ScriptManager;
 import net.myorb.math.expressions.GraphManager;
+
+import net.myorb.data.abstractions.ErrorHandling;
 
 import net.myorb.gui.components.SimpleScreenIO;
 
@@ -191,10 +194,15 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				String name = imageOf (tokens, 1);
-				String requestingPort = imageOf (tokens, 2, "8081");
-				String assignedPort = ServiceEnvironment.post (name, requestingPort);
-				ServiceEnvironment.start (name, assignedPort, environment);
+				String name, assignedPort =
+					ServiceEnvironment.registerAndStart
+					(
+						name = imageOf (tokens, 1),		// service name
+						imageOf (tokens, 2, "8081"),	// requestingPort
+						environment
+					);
+				String message = name + " has been started on port " + assignedPort;
+				throw new ErrorHandling.Notification (message);
 			}
 		};
   	}

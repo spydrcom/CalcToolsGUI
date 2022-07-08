@@ -3,10 +3,10 @@ package net.myorb.calctools.services;
 
 import net.myorb.math.expressions.evaluationstates.Environment;
 
+import net.myorb.data.abstractions.ErrorHandling;
+
 import net.myorb.rpc.primitive.ServerConventions;
 import net.myorb.rpc.protocol.RpcManagement;
-
-import net.myorb.data.abstractions.ErrorHandling;
 
 import net.myorb.gui.BackgroundTask;
 
@@ -66,6 +66,7 @@ public class ServiceEnvironment extends RpcManagement
 	}
 
 	/**
+	 * ErrorHandling around port assignment
 	 * @param serviceNamed the identifier for the service
 	 * @param requestingPort the port commonly assigned for this service
 	 * @return the port assigned by the service management system
@@ -78,15 +79,45 @@ public class ServiceEnvironment extends RpcManagement
 		catch (Exception e) { fail (e); }
 		return null;
 	}
+
+	/**
+	 * request port assignment for a service
+	 * @param serviceNamed the identifier for the service
+	 * @param requestingPort the port commonly assigned for this service
+	 * @return the port assigned by the service management system
+	 * @throws Exception for port assignment errors
+	 */
 	public static String assign (String serviceNamed, String requestingPort) throws Exception
 	{
 		String assignedPort = RpcManagement.post (serviceNamed, requestingPort);
 		if (assignedPort == null) throw new ErrorHandling.Notification ("Port assignment failed");
 		return assignedPort;
 	}
+
+	/**
+	 * ErrorHandling for unexpected Exception
+	 * @param e the exception received during the attempt
+	 * @throws ErrorHandling.Messages the translated configuration message
+	 */
 	public static void fail (Exception e) throws ErrorHandling.Messages
 	{
 		throw new ErrorHandling.Terminator ("Configuration fails to support RPC", e);
+	}
+
+	/**
+	 * register the service to assign a port then start
+	 * @param serviceNamed the identifier for the service
+	 * @param requestingPort the port commonly assigned for this service
+	 * @param inEnvironment the application environment serving requests
+	 * @return the port assigned to the named service
+	 * @param <T> data type of environment
+	 */
+	public static <T> String registerAndStart
+	(String serviceNamed, String requestingPort, Environment<T> inEnvironment)
+	{
+		String assignedPort = post (serviceNamed, requestingPort);
+		start (serviceNamed, assignedPort, inEnvironment);
+		return assignedPort;
 	}
 
 }

@@ -11,10 +11,6 @@ public class EvalService<T> extends ServiceFoundation<T>
 	implements ServerConventions.RawTextProcessor
 {
 
-	/*
-	 * initial version to verify service install works and service can then be invoked via RPC
-	 */
-
 	/* (non-Javadoc)
 	 * @see net.myorb.data.abstractions.ServerConventions.RawTextProcessor#process(java.lang.String)
 	 */
