@@ -9,6 +9,5 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Anaconda"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SimpleHttpd"/>
 	<classpathentry kind="lib" path="lib/sample.zip"/>
-	<classpathentry kind="lib" path="/SITSTAT/bin"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
