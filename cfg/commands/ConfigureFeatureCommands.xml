@@ -31,6 +31,13 @@
 
 	<!-- configure services table with objects which enable services -->
 
+	<package called='Tasks'>net.myorb.sitstat.tasks</package>
+	<class called='TaskMgr' package='Tasks' name='TaskManager' />
+	
+	<call class='TaskMgr' method='identifyRegistrar'>
+		<string>net.myorb.sitstat.tasks.TaskOperations</string>
+	</call>
+
 	<package called='Protocol'>net.myorb.rpc.protocol</package>
 	<class called='Services' package='Protocol' name='RpcManagement' />
 
@@ -40,6 +47,10 @@
 
 	<call class='Services' method='addService'>
 		<string>CALC</string> <string>net.myorb.calctools.services.EvalService</string>
+	</call>
+
+	<call class='Services' method='addService'>
+		<string>TMON</string> <string>net.myorb.calctools.services.TaskMonitor</string>
 	</call>
 
 	<Export using='commands_features' />

@@ -27,4 +27,11 @@ public class ChartSync<T> extends ServiceFoundation<T>
 		return "OK, response incomplete";
 	}
 
+	/* (non-Javadoc)
+	 * @see net.myorb.rpc.primitive.ServerConventions.DirectedProcessor#handle(java.lang.String)
+	 */
+	public String handle(String directive) throws Exception {
+		return null;
+	}
+
 }
