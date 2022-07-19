@@ -2,6 +2,7 @@
 
 !! Z (x, y) = modSq (zeta ( x + i*y ) )
 
-plotc Z (0, -2)  4  100
+//plotc Z (0, -2)  4  100
+plotc Z (0.25, -0.25)  0.5  100
 
 
