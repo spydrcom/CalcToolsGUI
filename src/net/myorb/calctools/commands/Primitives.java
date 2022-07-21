@@ -100,6 +100,23 @@ public class Primitives<T> extends Context<T>
 
 
 	/**
+	 * use SNIP editor
+	 * @return a keyword command for the edit keyword
+	 */
+	public KeywordCommand constructEditKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Edit snip of selected text"; }
+
+			public void execute (CommandSequence tokens)
+			{ editSnip (); }
+		};
+	}
+
+
+	/**
 	 * show the JavaDocs in the browser
 	 * @return a keyword command for the DOCS keyword
 	 */

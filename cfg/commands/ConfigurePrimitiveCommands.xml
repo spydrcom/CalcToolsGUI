@@ -10,10 +10,11 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_primitive' saveListAs='cmdList'
-		toBeCalled='Calc Calculate Describe SetMode Recognize Assert Background PolyPrint PrettyPrint Show Radix Comment Tip Verify Help Docs'
+		toBeCalled='Calc Calculate Describe SetMode Recognize Assert Background PolyPrint PrettyPrint Show Radix Comment Tip Verify Edit Help Docs'
 	 />
 
 	<!-- configure each command with bean operations -->
+	<bean references='Edit'> <text Keyword='Edit' /> </bean>
 	<bean references='Help'> <text Keyword='Help' /> </bean>
 	<bean references='Assert'> <text Keyword='Assert' /> </bean>
 	<bean references='SetMode'> <text Keyword='SetMode' /> </bean>
