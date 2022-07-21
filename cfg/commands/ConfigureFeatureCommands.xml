@@ -29,6 +29,15 @@
 		using='algorithms symbolTable' inclusionList='cmdList'
 	 />
 
+
+	<!-- configure features of commands -->
+
+	<package called='Fractals'>net.myorb.math.expressions.charting.fractals</package>
+	<class called='Mandelbrot' package='Fractals' name='Mandelbrot' />
+
+	<call class='Mandelbrot' method='useCycleDection' using='T' />
+
+
 	<!-- configure services table with objects which enable services -->
 
 	<package called='Tasks'>net.myorb.sitstat.tasks</package>
