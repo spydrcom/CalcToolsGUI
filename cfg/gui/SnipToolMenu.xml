@@ -8,6 +8,7 @@
 	<saveas toBeCalled='VKC'><field named='VK_C' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKA'><field named='VK_A' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKP'><field named='VK_P' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKN'><field named='VK_N' class='KeyEvent'/></saveas>
 
 	<!-- get access to Snip Tool class -->
 	<package called='GuiEditor'>net.myorb.math.expressions.gui.editor</package>
@@ -23,6 +24,13 @@
 	<SaveAs toBeCalled='File'><evaluate object='menus' method='addMenu'><string>File</string></evaluate></SaveAs>
 	<SaveAs toBeCalled='Edit'><evaluate object='menus' method='addMenu'><string>Edit</string></evaluate></SaveAs>
 	<SaveAs toBeCalled='Exec'><evaluate object='menus' method='addMenu'><string>Execute</string></evaluate></SaveAs>
+
+	<void><string toBeCalled='Name'>Name</string></void>
+	<void><substring toBeCalled='NAME_NMEM' using='Name 1 1'/></void>
+	<void><string toBeCalled='NAME_TIP'>Provide name for file in editor</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getNameAction'/> </SaveAs>
+	<SaveAs toBeCalled='NAME'><evaluate object='menus' method='addMenuItem' using='Name File'/></SaveAs>
+	<bean references='NAME'><set ItemMnemonic='NAME_NMEM' HotKey='VKN' Modifiers='CTL' Tip='OPEN_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Open'>Open</string></void>
 	<void><substring toBeCalled='OPEN_NMEM' using='Open 1 1'/></void>
