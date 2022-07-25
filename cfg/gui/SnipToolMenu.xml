@@ -5,8 +5,7 @@
 
 	<saveas toBeCalled='VKO'><field named='VK_O' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKS'><field named='VK_S' class='KeyEvent'/></saveas>
-	<saveas toBeCalled='VKC'><field named='VK_C' class='KeyEvent'/></saveas>
-	<saveas toBeCalled='VKA'><field named='VK_A' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKF'><field named='VK_F' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKP'><field named='VK_P' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKN'><field named='VK_N' class='KeyEvent'/></saveas>
 
@@ -30,7 +29,7 @@
 	<void><string toBeCalled='NAME_TIP'>Provide name for file in editor</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getNameAction'/> </SaveAs>
 	<SaveAs toBeCalled='NAME'><evaluate object='menus' method='addMenuItem' using='Name File'/></SaveAs>
-	<bean references='NAME'><set ItemMnemonic='NAME_NMEM' HotKey='VKN' Modifiers='CTL' Tip='OPEN_TIP' ActionForItem='ACT'/></bean>
+	<bean references='NAME'><set ItemMnemonic='NAME_NMEM' HotKey='VKN' Modifiers='CTL' Tip='NAME_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Open'>Open</string></void>
 	<void><substring toBeCalled='OPEN_NMEM' using='Open 1 1'/></void>
@@ -39,26 +38,32 @@
 	<SaveAs toBeCalled='OPEN'><evaluate object='menus' method='addMenuItem' using='Open File'/></SaveAs>
 	<bean references='OPEN'><set ItemMnemonic='OPEN_NMEM' HotKey='VKO' Modifiers='CTL' Tip='OPEN_TIP' ActionForItem='ACT'/></bean>
 
-	<void><string toBeCalled='Save'>Save As</string></void>
-	<void><substring toBeCalled='SAVE_NMEM' using='Save 1 1'/></void>
+	<void><string toBeCalled='Save'>Save</string></void>
+	<void><substring toBeCalled='SAVE_NMEM' using='Save 4 1'/></void>
 	<void><string toBeCalled='SAVE_TIP'>Save editor contents to file</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSaveAction'/> </SaveAs>
 	<SaveAs toBeCalled='SAVE'><evaluate object='menus' method='addMenuItem' using='Save File'/></SaveAs>
-	<bean references='SAVE'><set ItemMnemonic='SAVE_NMEM' HotKey='VKS' Modifiers='CTL' Tip='SAVE_TIP' ActionForItem='ACT'/></bean>
+	<bean references='SAVE'><set ItemMnemonic='SAVE_NMEM' Tip='SAVE_TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='SaveAs'>Save As</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSaveAsAction'/> </SaveAs>
+	<SaveAs toBeCalled='SAVEAS'><evaluate object='menus' method='addMenuItem' using='SaveAs File'/></SaveAs>
+	<void><string toBeCalled='SAVEAS_TIP'>Save editor contents to specified file</string></void>
+	<bean references='SAVEAS'><set Tip='SAVEAS_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Copy'>Copy</string></void>
 	<void><substring toBeCalled='COPY_NMEM' using='Copy 1 1'/></void>
-	<void><string toBeCalled='COPY_TIP'>Selected content is placed in copy buffer</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getCopyAction'/> </SaveAs>
+	<void><string toBeCalled='COPY_TIP'>Selected content is placed in copy buffer</string></void>
 	<SaveAs toBeCalled='COPY'><evaluate object='menus' method='addMenuItem' using='Copy Edit'/></SaveAs>
-	<bean references='COPY'><set ItemMnemonic='COPY_NMEM' HotKey='VKC' Modifiers='CTL' Tip='COPY_TIP' ActionForItem='ACT'/></bean>
+	<bean references='COPY'><set ItemMnemonic='COPY_NMEM' Tip='COPY_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='All'>All</string></void>
 	<void><substring toBeCalled='ALL_NMEM' using='All 1 1'/></void>
 	<void><string toBeCalled='ALL_TIP'>Run full text in processor</string></void>
 	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getExecAllAction'/> </SaveAs>
 	<SaveAs toBeCalled='ALL'><evaluate object='menus' method='addMenuItem' using='All Exec'/></SaveAs>
-	<bean references='ALL'><set ItemMnemonic='ALL_NMEM' HotKey='VKA' Modifiers='CTL' Tip='ALL_TIP' ActionForItem='ACT'/></bean>
+	<bean references='ALL'><set ItemMnemonic='ALL_NMEM' HotKey='VKF' Modifiers='CTL' Tip='ALL_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='Selected'>Selected</string></void>
 	<void><substring toBeCalled='SELECTED_NMEM' using='Selected 1 1'/></void>
