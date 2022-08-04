@@ -8,6 +8,7 @@
 	<saveas toBeCalled='VKF'><field named='VK_F' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKP'><field named='VK_P' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKN'><field named='VK_N' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKX'><field named='VK_X' class='KeyEvent'/></saveas>
 
 	<!-- get access to Snip Tool class -->
 	<package called='GuiEditor'>net.myorb.math.expressions.gui.editor</package>
@@ -57,6 +58,13 @@
 	<void><string toBeCalled='COPY_TIP'>Selected content is placed in copy buffer</string></void>
 	<SaveAs toBeCalled='COPY'><evaluate object='menus' method='addMenuItem' using='Copy Edit'/></SaveAs>
 	<bean references='COPY'><set ItemMnemonic='COPY_NMEM' Tip='COPY_TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Expand'>Expand</string></void>
+	<void><substring toBeCalled='EXPAND_NMEM' using='Expand 2 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getExpandAction'/> </SaveAs>
+	<void><string toBeCalled='EXPAND_TIP'>Expand to full screen editing functions</string></void>
+	<SaveAs toBeCalled='EXPAND'><evaluate object='menus' method='addMenuItem' using='Expand Edit'/></SaveAs>
+	<bean references='EXPAND'><set ItemMnemonic='EXPAND_NMEM' HotKey='VKX' Modifiers='ALT' Tip='EXPAND_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='All'>All</string></void>
 	<void><substring toBeCalled='ALL_NMEM' using='All 1 1'/></void>
