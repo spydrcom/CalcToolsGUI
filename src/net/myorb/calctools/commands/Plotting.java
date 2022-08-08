@@ -3,7 +3,9 @@ package net.myorb.calctools.commands;
 
 import net.myorb.math.expressions.charting.colormappings.ContourColorSchemeRequest;
 import net.myorb.math.expressions.charting.RegressionCharts;
+
 import net.myorb.math.expressions.commands.CommandSequence;
+import net.myorb.math.expressions.commands.ExtendedKeywordCommand;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
@@ -30,15 +32,18 @@ public class Plotting<T> extends Context<T>
 	 * process a GRAPH command
 	 * @return a keyword command for the GRAPH keyword
 	 */
-	public KeywordCommand constructGraphKeywordCommand ()
+	public ExtendedKeywordCommand constructGraphKeywordCommand ()
 	{
-		return new KeywordCommand ()
+		return new ExtendedKeywordCommand ()
 		{
 			public String describe ()
 			{ return "Display a graph of an array of data points"; }
 
 			public void execute (CommandSequence tokens)
 			{ plotWithLimit (GraphManager.Types.ARRAY, tokens, getAccess ()); }
+
+			public String[] includingSubordinateKeywords ()
+			{ return new String[]{"lim"}; }
 		};
 	}
 

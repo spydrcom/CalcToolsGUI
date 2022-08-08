@@ -8,6 +8,7 @@ import net.myorb.calctools.libraries.Keyword;
 import net.myorb.math.expressions.OperatorNomenclature;
 
 import net.myorb.math.expressions.commands.CommandSequence;
+import net.myorb.math.expressions.commands.ExtendedKeywordCommand;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
 /**
@@ -92,31 +93,38 @@ public class Command extends Symbol
 /**
  * KeywordCommand implementation for wrapping another KeywordCommand
  */
-class CommandWrapper implements KeywordCommand
+class CommandWrapper implements ExtendedKeywordCommand
 {
 
 	CommandWrapper (KeywordCommand wrapped, String description)
-	{ this.wrapped = wrapped; this.description = description; }
+	{
+		this.wrapped = wrapped;
+		this.description = description;
+
+		if (wrapped instanceof ExtendedKeywordCommand)
+		{
+			keywords = ( (ExtendedKeywordCommand) wrapped ).includingSubordinateKeywords () ;
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see net.myorb.math.expressions.commands.KeywordCommand#execute(net.myorb.math.expressions.commands.CommandSequence)
 	 */
-	@Override
-	public void execute (CommandSequence tokens)
-	{
-		wrapped.execute (tokens);
-	}
-	KeywordCommand wrapped;
+	public void execute (CommandSequence tokens) { wrapped.execute (tokens); }
+	protected KeywordCommand wrapped;
 
 	/* (non-Javadoc)
 	 * @see net.myorb.math.expressions.commands.KeywordCommand#describe()
 	 */
-	@Override
-	public String describe ()
-	{
-		return description;
-	}
-	String description;
-	
+	public String describe () { return description; }
+	protected String description;
+
+	/* (non-Javadoc)
+	 * @see net.myorb.math.expressions.commands.ExtendedKeywordCommand#includingSubordinateKeywords()
+	 */
+	public String[] includingSubordinateKeywords () { return keywords; }
+	public static final String[] NONE = new String[]{};
+	protected String[] keywords = NONE;
+
 }
 

@@ -2,7 +2,9 @@
 package net.myorb.calctools.commands;
 
 import net.myorb.math.expressions.commands.CommandSequence;
+import net.myorb.math.expressions.commands.ExtendedKeywordCommand;
 import net.myorb.math.expressions.commands.KeywordCommand;
+
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
 /**
@@ -22,15 +24,18 @@ public class Rendering<T> extends Context<T>
 	 * display an equation using MathML
 	 * @return a keyword command for the RENDER keyword
 	 */
-	public KeywordCommand constructRenderKeywordCommand ()
+	public ExtendedKeywordCommand constructRenderKeywordCommand ()
 	{
-		return new KeywordCommand ()
+		return new ExtendedKeywordCommand ()
 		{
 			public String describe ()
 			{ return "Format and display (pretty print) an equation using MathML"; }
 
 			public void execute (CommandSequence tokens)
 			{ getCurrentRenderer ().RenderFrom (tokens); }
+
+			public String[] includingSubordinateKeywords ()
+			{ return new String[]{"top"}; }
 		};
 	}
 

@@ -3,6 +3,7 @@ package net.myorb.calctools.commands;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.commands.CommandSequence;
+import net.myorb.math.expressions.commands.ExtendedKeywordCommand;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
 import net.myorb.data.abstractions.ErrorHandling.Terminator;
@@ -42,9 +43,9 @@ public class Declarations<T> extends Context<T>
 	 * process a requires command
 	 * @return a keyword command for the requires keyword
 	 */
-	public KeywordCommand constructRequiresKeywordCommand ()
+	public ExtendedKeywordCommand constructRequiresKeywordCommand ()
 	{
-		return new KeywordCommand ()
+		return new ExtendedKeywordCommand ()
 		{
 			public String describe () 
 			{ return "Identify required data type support"; }
@@ -56,6 +57,9 @@ public class Declarations<T> extends Context<T>
 					throw new Terminator ("Required data type not supported");
 				}
 			}
+
+			public String[] includingSubordinateKeywords ()
+			{ return new String[]{"integer", "real", "complex"}; }
 		};
 	}
 
@@ -166,15 +170,25 @@ public class Declarations<T> extends Context<T>
 	 * process a configure command
 	 * @return a keyword command for the CONFIGURE keyword
 	 */
-	public KeywordCommand constructConfigureKeywordCommand ()
+	public ExtendedKeywordCommand constructConfigureKeywordCommand ()
 	{
-		return new KeywordCommand ()
+		return new ExtendedKeywordCommand ()
 		{
 			public String describe () 
 			{ return "Configure a library of functions"; }
 
 			public void execute (CommandSequence tokens)
 			{ engine.getFunctionManager ().getLibrarian ().configureLibrary (tokens); }
+
+			public String[] includingSubordinateKeywords ()
+			{
+				String[] names = new String[]
+					{
+						"order", "function", "variable", "run", "symbol",
+						"kind", "alpha", "terms", "description"
+					};
+				return names;
+			}
 		};
 	}
 
