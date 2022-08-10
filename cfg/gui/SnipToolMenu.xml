@@ -9,6 +9,7 @@
 	<saveas toBeCalled='VKP'><field named='VK_P' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKN'><field named='VK_N' class='KeyEvent'/></saveas>
 	<saveas toBeCalled='VKX'><field named='VK_X' class='KeyEvent'/></saveas>
+	<saveas toBeCalled='VKZ'><field named='VK_Z' class='KeyEvent'/></saveas>
 
 	<!-- get access to Snip Tool class -->
 	<package called='GuiEditor'>net.myorb.math.expressions.gui.editor</package>
@@ -65,6 +66,13 @@
 	<void><string toBeCalled='EXPAND_TIP'>Expand to full screen editing functions</string></void>
 	<SaveAs toBeCalled='EXPAND'><evaluate object='menus' method='addMenuItem' using='Expand Edit'/></SaveAs>
 	<bean references='EXPAND'><set ItemMnemonic='EXPAND_NMEM' HotKey='VKX' Modifiers='ALT' Tip='EXPAND_TIP' ActionForItem='ACT'/></bean>
+
+	<void><string toBeCalled='Analyze'>Analyze</string></void>
+	<void><substring toBeCalled='ANALYZE_NMEM' using='Analyze 6 1'/></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getAnalyzeAction'/> </SaveAs>
+	<void><string toBeCalled='ANALYZE_TIP'>Analyze source and display color coded feedback</string></void>
+	<SaveAs toBeCalled='ANALYZE'><evaluate object='menus' method='addMenuItem' using='Analyze Edit'/></SaveAs>
+	<bean references='ANALYZE'><set ItemMnemonic='ANALYZE_NMEM' HotKey='VKZ' Modifiers='ALT' Tip='ANALYZE_TIP' ActionForItem='ACT'/></bean>
 
 	<void><string toBeCalled='All'>All</string></void>
 	<void><substring toBeCalled='ALL_NMEM' using='All 1 1'/></void>
