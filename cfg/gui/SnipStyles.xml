@@ -8,6 +8,7 @@
 	<package called='SwingText'>javax.swing.text</package>
 	<class called='StyleConstants' package='SwingText' name='StyleConstants'/>
 
+	<saveas toBeCalled='BLACK'> <field named='BLACK' class='Color'/> </saveas>
 	<saveas toBeCalled='BLUE'> <field named='BLUE' class='Color'/> </saveas>
 
 
@@ -24,6 +25,36 @@
 		in the SnipEditor semantic analysis display
 
 	 -->
+
+
+	<!-- Default category symbols -->
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Non-Specific</string>						<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style BLACK' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Identifier Recognized as defined category symbols -->
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Identifiers</string>						<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style BLUE' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
 
 
 	<!-- Unrecognized Identifier category symbols -->
@@ -99,6 +130,95 @@
 	<call class='StyleConstants' method='setForeground' using='style GD_COLOR' />
 	<call class='StyleConstants' method='setItalic' using='style T' />
 	<call class='StyleConstants' method='setBold' using='style T' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Comment category symbols -->
+
+	<SaveAs toBeCalled='CMT_COLOR'> <evaluate class='Color' method='decode' > <string>0x6400</string> </evaluate> </SaveAs>
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Comments</string>							<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style CMT_COLOR' />
+	<call class='StyleConstants' method='setItalic' using='style T' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Command category symbols -->
+
+	<SaveAs toBeCalled='CMD_COLOR'> <evaluate class='Color' method='decode' > <string>0x80</string> </evaluate> </SaveAs>
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Commands</string>							<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style CMD_COLOR' />
+	<call class='StyleConstants' method='setBold' using='style T' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Keyword category symbols -->
+
+	<SaveAs toBeCalled='KEY_COLOR'> <evaluate class='Color' method='decode' > <string>0x4040</string> </evaluate> </SaveAs>
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Keywords</string>							<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style KEY_COLOR' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Operator category symbols -->
+
+	<SaveAs toBeCalled='OP_COLOR'> <evaluate class='Color' method='decode' > <string>0xA52A2A</string> </evaluate> </SaveAs>
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>Operators</string>							<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style OP_COLOR' />
+	<call class='StyleConstants' method='setBold' using='style T' />
+
+	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
+
+
+	<!-- Quote category symbols -->
+
+	<SaveAs toBeCalled='QOT_COLOR'> <evaluate class='Color' method='decode' > <string>800080</string> </evaluate> </SaveAs>
+
+	<SaveAs toBeCalled='style'>
+		<evaluate object='StyleManager' method='addStyle'>		<!-- add style in StyleManager -->
+			<string>QuotedText</string>							<!--  name of symbol category  -->
+		</evaluate>
+	</SaveAs>
+
+	<call class='StyleConstants' method='setFontSize' using='style size' />
+	<call class='StyleConstants' method='setFontFamily' using='style family' />
+	<call class='StyleConstants' method='setForeground' using='style QOT_COLOR' />
+	<call class='StyleConstants' method='setItalic' using='style T' />
 
 	<SaveAs toBeCalled='styleCode'><evaluate object='StyleManager' method='assignStyleCode' using='style' /></SaveAs>
 
