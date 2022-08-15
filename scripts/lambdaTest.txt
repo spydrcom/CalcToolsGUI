@@ -13,3 +13,36 @@ c = {x} -> {x-1}
 
 d = {x} -> {x*3}
 
+
+
+// lambda array can be shown
+
+calc lambda
+
+
+// index of lambda array
+
+calc lambda#2
+
+
+// indexed element read into variable
+
+xyz = lambda #3
+
+calc xyz
+
+
+// anonymous procedure parameter
+
+{x} -> { a/x + b*x}
+
+
+// verify procedure as parameter
+
+!! f(p) = p
+
+calc f ( lambda#4 )
+
+calc f ( {x} -> { x^2/2} )
+
+
