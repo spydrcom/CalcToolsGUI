@@ -111,6 +111,29 @@ public class Plotting<T> extends Context<T>
 
 
 	/**
+	 * process a PLOTL command
+	 * @return a keyword command for the PLOTL keyword
+	 */
+	public KeywordCommand constructPlotlKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Plot a specified range of lambda declared function(s)";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				processLimit (tokens);
+				getGraphManager ().lambdaFunctionPlots (tokens);
+				resetLimit ();
+			}
+		};
+	}
+
+
+	/**
 	 * process a PLOTT command
 	 * @return a keyword command for the PLOTT keyword
 	 */

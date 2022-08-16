@@ -10,7 +10,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_plotting' saveListAs='cmdList'
-		toBeCalled='Fft Plott Plotf Plotc Plotm Plot3d Chart Graph Derive Scatter Comparison SetContour Entitled'
+		toBeCalled='Fft Plott Plotf Plotl Plotc Plotm Plot3d Chart Graph Derive Scatter Comparison SetContour Entitled'
 	 />
 
 	<!-- configure each command with bean set operations -->
@@ -18,6 +18,7 @@
 	<bean references='Chart'> <text Keyword='Chart' /> </bean>
 	<bean references='Derive'> <text Keyword='Derive' /> </bean>
 	<bean references='Plotf'> <text Keyword='Plotf' /> </bean>
+	<bean references='Plotl'> <text Keyword='Plotl' /> </bean>
 	<bean references='Plott'> <text Keyword='Plott' /> </bean>
 	<bean references='Plotm'> <text Keyword='Plotm' /> </bean>
 	<bean references='Plot3d'> <text Keyword='Plot3d' /> </bean>
