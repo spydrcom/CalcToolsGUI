@@ -46,3 +46,8 @@ calc f ( lambda#4 )
 calc f ( {x} -> { x^2/2} )
 
 
+// attempt indirect call
+
+calc @|xyz(5)
+
+

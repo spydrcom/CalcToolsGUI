@@ -11,7 +11,7 @@
 
 	<!-- create operator object for each symbol -->
 	<populate class='Operator' using='arithmetic' saveListAs='opsList'
-		toBeCalled='addition subtraction multiplication division fraction lambda negate minus'
+		toBeCalled='addition subtraction multiplication division fraction lambda deref negate minus'
 	 />
 
 	<!-- configure each operator with bean set operations -->
@@ -23,6 +23,7 @@
 	<bean references='division'> <text Description='Arithmetic division operator' Reference='Division' Symbol='/' /> <text RenderAs='&#x00F7;' /> <set Precedence='8' /> </bean>
 	<bean references='fraction'> <text Description='Arithmetic division operator (expressed as fraction)' Reference='Fraction' Symbol='#/#' /> <set Precedence='8' /> </bean>
 	<bean references='lambda'> <text Description='Lambda anonymous function declarative expression' Reference='Lambda' Symbol='-&gt;' /> <set Precedence='9' /> </bean>
+	<bean references='deref'> <text Description='Pointer dereference' Reference='Deref' Symbol='@|' /> <set Precedence='9' /> </bean>
 
 	<!-- invoke macro to generate operator symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
