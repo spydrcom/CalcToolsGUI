@@ -1,11 +1,5 @@
 
 
-x = {a,b} -> {func(a,b)}
-y = z ( { c, d, e } -> { x(c,d)+e } )
-
-
-
-a = {x} -> {func(x)}
 
 b = {x} -> {x^2}
 
@@ -27,7 +21,7 @@ calc lambda#2
 
 // indexed element read into variable
 
-xyz = lambda #3
+xyz = lambda #1
 
 calc xyz
 
@@ -41,7 +35,7 @@ calc xyz
 
 !! f(p) = p
 
-calc f ( lambda#4 )
+calc f ( lambda#3 )
 
 calc f ( {x} -> { x^2/2} )
 
@@ -50,4 +44,14 @@ calc f ( {x} -> { x^2/2} )
 
 calc @|xyz(5)
 
+
+// procedure parameter test
+
+!! pp(x) = 4 * @|x(5)
+
+calc pp (b)
+calc pp (c)
+calc pp (d)
+
+calc pp ( {x} -> { x^3 / 3 } )
 
