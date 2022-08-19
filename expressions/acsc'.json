@@ -1,9 +1,6 @@
 {
    "Name": "acsc'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Cosecant function ",
    "Imports": 
    {

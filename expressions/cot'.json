@@ -1,9 +1,6 @@
 {
    "Name": "cot'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Cotangent function ",
    "Imports": 
    {

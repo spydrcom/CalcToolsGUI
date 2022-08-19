@@ -1,11 +1,7 @@
 {
    "Name": "arsinh'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse hyperbolic Sine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

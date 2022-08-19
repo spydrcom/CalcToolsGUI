@@ -1,11 +1,7 @@
 {
    "Name": "arcosh'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse hyperbolic Cosine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

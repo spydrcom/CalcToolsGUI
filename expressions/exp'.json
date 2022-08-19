@@ -1,11 +1,7 @@
 {
    "Name": "exp'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of exponential ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "exp",

@@ -1,9 +1,6 @@
 {
    "Name": "coth'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of hyperbolic Cotangent function ",
    "Imports": 
    {

@@ -1,11 +1,7 @@
 {
    "Name": "arcsch",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic inverse cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",

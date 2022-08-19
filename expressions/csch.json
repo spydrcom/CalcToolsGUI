@@ -1,11 +1,7 @@
 {
    "Name": "csch",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

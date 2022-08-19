@@ -1,11 +1,7 @@
 {
    "Name": "cosh'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of hyperbolic Cosine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "sinh",

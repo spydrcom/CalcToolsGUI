@@ -1,11 +1,7 @@
 {
    "Name": "arcosh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic inverse cosine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",

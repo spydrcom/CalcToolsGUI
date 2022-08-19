@@ -1,11 +1,7 @@
 {
    "Name": "sech",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

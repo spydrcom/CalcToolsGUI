@@ -1,11 +1,7 @@
 {
    "Name": "arcoth'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse hyperbolic Cotangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

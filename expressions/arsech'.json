@@ -1,11 +1,7 @@
 {
    "Name": "arsech'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse hyperbolic Secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "-",

@@ -1,11 +1,7 @@
 {
    "Name": "arcsch'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse hyperbolic Cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "-",

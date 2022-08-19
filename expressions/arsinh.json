@@ -1,11 +1,7 @@
 {
    "Name": "arsinh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic inverse sine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",

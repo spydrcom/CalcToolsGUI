@@ -1,11 +1,7 @@
 {
    "Name": "atan'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Tangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

@@ -1,11 +1,7 @@
 {
    "Name": "cos'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Cosine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "-",

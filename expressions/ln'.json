@@ -1,11 +1,7 @@
 {
    "Name": "ln'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of natural logarithm ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

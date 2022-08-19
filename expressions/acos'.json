@@ -1,9 +1,6 @@
 {
    "Name": "acos'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Cosine function ",
    "Imports": 
    {

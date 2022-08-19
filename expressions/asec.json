@@ -1,9 +1,6 @@
 {
    "Name": "asec",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric inverse secant function ",
    "Imports": 
    {

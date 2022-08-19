@@ -1,11 +1,7 @@
 {
    "Name": "sin'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Sine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "cos",

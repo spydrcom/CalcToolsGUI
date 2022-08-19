@@ -1,11 +1,7 @@
 {
    "Name": "csc",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

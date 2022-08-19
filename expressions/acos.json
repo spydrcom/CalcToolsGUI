@@ -1,9 +1,6 @@
 {
    "Name": "acos",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric inverse cosine function ",
    "Imports": 
    {

@@ -1,11 +1,7 @@
 {
    "Name": "csch'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of hyperbolic Cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "-",

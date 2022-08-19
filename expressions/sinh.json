@@ -1,11 +1,7 @@
 {
    "Name": "sinh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic sine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

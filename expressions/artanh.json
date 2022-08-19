@@ -1,11 +1,7 @@
 {
    "Name": "artanh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic inverse tangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "*",

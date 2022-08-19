@@ -1,11 +1,7 @@
 {
    "Name": "sec",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

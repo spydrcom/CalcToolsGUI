@@ -1,9 +1,6 @@
 {
    "Name": "tan'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Tangent function ",
    "Imports": 
    {

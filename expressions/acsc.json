@@ -1,9 +1,6 @@
 {
    "Name": "acsc",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric inverse cosecant function ",
    "Imports": 
    {

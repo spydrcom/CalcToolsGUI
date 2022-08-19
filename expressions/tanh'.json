@@ -1,9 +1,6 @@
 {
    "Name": "tanh'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of hyperbolic Tangent function ",
    "Imports": 
    {

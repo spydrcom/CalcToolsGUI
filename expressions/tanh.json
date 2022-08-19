@@ -1,11 +1,7 @@
 {
    "Name": "tanh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic tangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

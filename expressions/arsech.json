@@ -1,11 +1,7 @@
 {
    "Name": "arsech",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic inverse secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "ln",

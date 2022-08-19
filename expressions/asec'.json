@@ -1,11 +1,7 @@
 {
    "Name": "asec'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

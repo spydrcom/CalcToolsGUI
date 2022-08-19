@@ -1,11 +1,7 @@
 {
    "Name": "cosh",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic cosine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

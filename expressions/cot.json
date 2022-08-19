@@ -1,11 +1,7 @@
 {
    "Name": "cot",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Trigonometric cotangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

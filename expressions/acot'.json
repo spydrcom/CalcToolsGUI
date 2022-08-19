@@ -1,9 +1,6 @@
 {
    "Name": "acot'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Cotangent function ",
    "Imports": 
    {

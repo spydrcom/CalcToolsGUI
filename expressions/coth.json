@@ -1,11 +1,7 @@
 {
    "Name": "coth",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "Hyperbolic cotangent function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

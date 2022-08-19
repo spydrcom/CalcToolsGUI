@@ -1,11 +1,7 @@
 {
    "Name": "asin'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of inverse Sine function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",

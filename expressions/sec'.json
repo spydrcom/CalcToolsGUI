@@ -1,11 +1,7 @@
 {
    "Name": "sec'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Secant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "*",

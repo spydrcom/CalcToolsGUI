@@ -1,11 +1,7 @@
 {
    "Name": "csc'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of Cosecant function ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "-",

@@ -1,11 +1,7 @@
 {
    "Name": "log'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Parameter": "x",
    "Description": "First derivative of common logarithm ",
-   "Imports": null,
    "Expression": 
    {
       "OpName": "/",
