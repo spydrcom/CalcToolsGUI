@@ -27,8 +27,8 @@
 	 />
 
 	<!-- configure each operator with bean set operations -->
-	<bean references='Real'> <text Description='Real part of complex value' Reference='Re' Symbol='Re' />  <text RenderAs='&#x024C;' /> <set Precedence='10' /> </bean>
-	<bean references='Imag'> <text Description='Imaginary part of complex value' Reference='Im' Symbol='Im' />  <text RenderAs='&#x0249;' /> <set Precedence='10' /> </bean>
+	<bean references='Real'> <text Description='Real part of complex value' Reference='Re' Symbol='Re' />  <text RenderAs='&#x211B;' /> <set Precedence='10' /> </bean>
+	<bean references='Imag'> <text Description='Imaginary part of complex value' Reference='Im' Symbol='Im' />  <text RenderAs='&#x2110;' /> <set Precedence='10' /> </bean>
 	<bean references='Cmplx'> <text Description='Complex value (left + i * right) as a binary operator' Reference='Cmplx' Symbol='+!*' /> <set Precedence='10' /> </bean>
 	<bean references='CmplxConj'> <text Description='Complex value (left - i * right) as a binary operator' Reference='CmplxConj' Symbol='-!*' /> <set Precedence='10' /> </bean>
 	<bean references='Polar'> <text Description='Complex value (left * CIS right) as a binary (polar) operator' Reference='Polar' Symbol='@!#' /> <set Precedence='10' /> </bean>
