@@ -21,14 +21,14 @@ calc lambda#2
 
 // indexed element read into variable
 
-xyz = lambda #1
+xyz = lambda #0
 
 calc xyz
 
 
 // anonymous procedure parameter
 
-{x} -> { a/x + b*x}
+{x} -> { e/x + pi*x}
 
 
 // verify procedure as parameter
@@ -54,4 +54,7 @@ calc pp (c)
 calc pp (d)
 
 calc pp ( {x} -> { x^3 / 3 } )
+
+
+PLOTL  [ 0 < tau < 20 <> 0.1 ]
 
