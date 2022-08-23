@@ -1,0 +1,26 @@
+
+// the approximation of infinity
+INFINITY = 1000
+
+// p is a procedure parameter holding access to function
+!! DDT ( p, t ) = INFINITY * ( @| p ( t + 1/INFINITY ) - @| p (t) )
+
+// simple f and f' clearly known
+!! f (x) = ln x  ;  !! f' (x) = 1 / x
+
+// lambda declaration of access to function
+lfu = { u } -> {  f(u) }
+
+// derivative function computed as DDT
+!! dfdw (w) = DDT (  lfu, w )
+
+
+// difference between DDT and f'(x) approximations
+!! error (a) = dfdw (a) - f' (a)
+
+// plots of function, DDT, and error between approximations
+GRAPH [ 1 <= xi <= 100 <> 0.5 ] (  f (xi), dfdw (xi), error (xi)  ) 
+
+// simple plot of derivative, recognize as 1/x
+GRAPH [ 1 <= x <= 100 <> 0.5 ] ( dfdw (x)  ) 
+
