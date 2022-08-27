@@ -34,6 +34,7 @@
 
 	<SaveAs toBeCalled='chartoptions' > <string>MeshPlotEdgeSize=50;ContourPlotEdgeSize=400</string> </SaveAs>
 
+	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.GralChartLib'/>
 	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.JfreeChartLib'/>
 	<class called='Renderer' classpath='net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib'/>
 
