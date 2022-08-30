@@ -16,6 +16,13 @@
 		<evaluate  object='actionManager' method='getChartActions'/>
 	</SaveAs>
 
+	<void><string toBeCalled='System'>System</string></void>
+	<void><substring toBeCalled='NMEM' using='System 2 1'/></void>
+	<void><string toBeCalled='TIP'>Choose the chart library to use</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getSysSelectAction'/> </SaveAs>
+	<SaveAs toBeCalled='SYS'><evaluate object='menus' method='addMenuItem' using='System Charts'/></SaveAs>
+	<bean references='SYS'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
 	<void><string toBeCalled='Scatter'>Scatter</string></void>
 	<void><substring toBeCalled='NMEM' using='Scatter 1 1'/></void>
 	<void><string toBeCalled='TIP'>Produce scatter plot of data points</string></void>

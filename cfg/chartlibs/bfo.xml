@@ -1,0 +1,12 @@
+<JXR>
+
+	<class
+		called='Charting'
+		classpath='net.myorb.math.expressions.charting.implementations.BfoChartLib'
+	/>
+
+	<!-- identify charting library -->
+	<class called='DisplayGraphAtomic' classpath='net.myorb.math.expressions.charting.DisplayGraphAtomic'/>
+	<call class='DisplayGraphAtomic' method='setActiveChartLibrary'> <new saveAs='charting' class='Charting'/> </call>
+
+</JXR>

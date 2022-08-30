@@ -1,0 +1,48 @@
+<JXR>
+
+	<package called='JXR'>net.myorb.jxr</package>
+	<class called='Choices' package='JXR' name='JxrScriptChoice'/>
+
+	<call class='Choices' method='resetScripts' />
+
+	<call class='Choices' method='setGlobalSymbols'>
+		<string>cfg/EstablishCommonSymbols.xml</string>
+	</call>
+
+	<call class='Choices' method='setFrameTitle'>
+		<string>Choose Chart Library</string>
+	</call>
+
+	<call class='Choices' method='setPopUpDimensions'
+			using='300 100 20'
+	 />
+
+<!--
+	<call class='Choices' method='setNotification'>
+		<string>Configuration Accepted</string>
+	</call>
+  -->
+
+	<call class='Choices' method='addScript'>
+		<string>JFreeChart</string> 
+		<string>cfg/chartlibs/jfreechart.xml</string> 
+	</call>
+
+	<call class='Choices' method='addScript'>
+		<string>XChart</string> 
+		<string>cfg/chartlibs/xchart.xml</string> 
+	</call>
+
+	<call class='Choices' method='addScript'>
+		<string>GRAL</string> 
+		<string>cfg/chartlibs/gral.xml</string> 
+	</call>
+
+	<call class='Choices' method='addScript'>
+		<string>BFO</string> 
+		<string>cfg/chartlibs/bfo.xml</string> 
+	</call>
+
+	<call class='Choices' method='popUp' />
+
+</JXR>
