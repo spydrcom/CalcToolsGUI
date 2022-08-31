@@ -1,5 +1,10 @@
 <JXR>
 
+<!--
+		JXR script for providing a drop-down mechanism
+		for selection of the charting library to be used
+  -->
+
 	<package called='JXR'>net.myorb.jxr</package>
 	<class called='Choices' package='JXR' name='JxrScriptChoice'/>
 
