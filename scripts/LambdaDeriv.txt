@@ -1,4 +1,8 @@
 
+
+//* lambda expression features tests including procedure parameter functionality
+
+
 // the approximation of infinity
 INFINITY = 1000
 

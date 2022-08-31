@@ -16,6 +16,13 @@
 		<evaluate  object='actionManager' method='getChartActions'/>
 	</SaveAs>
 
+	<void><string toBeCalled='Palate'>Palate</string></void>
+	<void><substring toBeCalled='NMEM' using='Palate 1 1'/></void>
+	<void><string toBeCalled='TIP'>Choose the colors for the plot palate</string></void>
+	<SaveAs toBeCalled='ACT'> <evaluate  object='actions' method='getPalateToolAction'/> </SaveAs>
+	<SaveAs toBeCalled='PAL'><evaluate object='menus' method='addMenuItem' using='Palate Charts'/></SaveAs>
+	<bean references='PAL'><set ItemMnemonic='NMEM' Tip='TIP' ActionForItem='ACT'/></bean>
+
 	<void><string toBeCalled='System'>System</string></void>
 	<void><substring toBeCalled='NMEM' using='System 2 1'/></void>
 	<void><string toBeCalled='TIP'>Choose the chart library to use</string></void>
