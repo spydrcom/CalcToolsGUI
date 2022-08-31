@@ -1,15 +1,61 @@
 
 
+//* polygamma study
 
+
+//	/*
+//	 * UNIT TEST:
+//	 *  complex numbers
+//	 *  READ Polygamma.txt
+//	 *  Function Plot from function menu
+//	 *  [ -2 < z < 2 <> 0.01 ] using LIM 25 and SEGMENT 3
+//	 *  with selection of G, PSI, and TRI
+//	 *  comparison with UDF and DFDX
+//	 */
+
+
+// the approximation of infinity
+INFINITY = 1000 ; delta = 1 / INFINITY
+
+// p is a procedure parameter holding access to function
+!! DDT ( p, t ) = INFINITY * ( @| p ( t + delta ) - @| p (t) )
+
+// tool configures to use Lanczos
 !! G(z) = GAMMA z
 
-!! L(z) = ln z
+// lnGamma derivative is the basic equation
+// - but in complex numbers the chart gets twisted using ln
+!! L(z) = ln (G(z))
 
-!! D(z) = L'(z <> 0.001)
+// plotting this will give abs ln gamma
+!! D(z) = L'(z <> delta)
 
 
-!!gp(z) = G'(z <> 0.001)
+// this is GAMMA prime using built-in approximation algorithm
+!! GP(z) = G'(z <> delta)
 
-!! psi(z) = gp(z) / G(z)
+// psi = GAMMA' / GAMMA
+!! psi(z) = GP(z) / G(z)
 
+// psi{1} is psi derivative
+!! tri(x) = psi'(x <> delta)
+
+
+// declare lambda for GAMMA
+GL = {z} -> { G(z) }
+
+// use DDT passing GL as procedure parameter
+!! gpUdf(z) = DDT (GL, z)
+
+// declare a UDF for psi for the plot
+!! psiUdf(w) = gpUdf(w) / G(w)
+
+// declare lambda for PSI
+psil = {u} -> { psiUdf(u) }
+
+// need to declare a separate derivative to avoid parameter bug
+!! DDS ( q, s ) = INFINITY * ( @| q ( s + delta ) - @| q (s) )
+
+// declare a UDF for psi{1} for the plot
+!! triUdf(v) = DDS (psil, v)
 
