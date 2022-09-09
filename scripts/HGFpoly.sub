@@ -5,7 +5,7 @@
 alpha = 5/4 ; dx = 0.001
 
 family Bessel 3 Jp,1.25
-!! ref(x) = JP1_25(x)
+!! ref(x) = Jp1_25(x)
 
 NULL = () ; polyTerms = 25
 jpolyh = POLYHG (NULL, alpha+1, polyTerms)

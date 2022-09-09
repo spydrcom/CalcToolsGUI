@@ -14,6 +14,6 @@ A = (1,2,3);		// A will be Array of coefficients
 // mu is quotient of numerator and denominator array expansion
 !! mu (An,Ad,n) = lambda ( An , n ) / lambda ( Ad , n ) 
 
-// hyper-gometric function expanded as infinite array
+// hyper-geometric function expanded as infinite array
 !! F ( An, Ad, z ) = SUMMATION [ 0 <= n <= INFINITY ] ( mu (An,Ad,n) * (z^n / n!)  ) 
 
