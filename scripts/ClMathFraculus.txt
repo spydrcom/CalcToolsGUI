@@ -1,0 +1,37 @@
+
+
+//* test the ClMathFraculus library (fractional calculus)
+
+
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+configure FRACULUS method "Liouville" description "fractional calculus using Liouville algorithm"
+configure FRACULUS quad "TSQuad"
+
+configure FRACULUS order "1/2"
+instance HALFI FRACULUS
+
+configure FRACULUS order "-1/2"
+instance HALFD FRACULUS
+
+
+// test half integral
+
+dt = 1 ; du = 1
+!! F(x) = 6 * x ; express F
+!! FI(x) = HALFI [0 <= t <= x <> dt] ( F ( t ) * <*> t ) ; express FI
+
+instance HALFI2 FRACULUS
+!! FI2(y) = HALFI2 [0 <= u <= y <> du] ( FI ( u ) * <*> u ) ; express FI2
+
+calc FI (2)
+
+!! F2(x) = 3 * x^2
+!! F3(x) = x^3
+!! F4(x) = x^4 / 4
+
+!! dif(v) = FI2(v) - F4(v)
+
+graph [0 < t < 5 <> 0.05] ( FI(t), F2(t), F3(t), F4(t), FI2(t), dif(t) )
+

@@ -138,6 +138,11 @@
 	</call>
 
 	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>FRACULUS</string> <string>net.myorb.math.expressions.algorithms.ClMathCalculus</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
 		<string>TRIG</string> <string>net.myorb.math.expressions.algorithms.ClMathRealTrig</string>
 		<referto objectCalled='environment'/>
 	</call>
