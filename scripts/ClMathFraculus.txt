@@ -2,36 +2,52 @@
 
 //* test the ClMathFraculus library (fractional calculus)
 
+configure QUAD method "CTA" delta "0.01" description "custom quadrature using TRAP"
+instance CTQuad QUAD
+
+configure QUAD method "CCQ" description "custom quadrature using Clenshaw-Curtis"
+instance CCQuad QUAD
 
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
 configure FRACULUS method "Liouville" description "fractional calculus using Liouville algorithm"
-configure FRACULUS quad "TSQuad"
-
-configure FRACULUS order "1/2"
-instance HALFI FRACULUS
+configure FRACULUS quad "CCQuad"
 
 configure FRACULUS order "-1/2"
 instance HALFD FRACULUS
 
+// declare a function
+!! F(m) = 6 * m ; express F
+
+// declare a derivative
+!! FD(w) = HALFD [0 <= z <= w] ( F ( z ) ) ; express FD
+calc FD (2)
 
 // test half integral
+configure FRACULUS order "1/2"
+instance HALFI FRACULUS
 
-dt = 1 ; du = 1
-!! F(x) = 6 * x ; express F
-!! FI(x) = HALFI [0 <= t <= x <> dt] ( F ( t ) * <*> t ) ; express FI
+// first and second half integrals
+!! FI(x) = HALFI [0 <= t <= x] ( F ( t ) ) ; express FI
+!! FI2(y) = HALFI [0 <= u <= y] ( FI ( u ) ) ; express FI2
+calc FI (2) ; calc FI2 (2) ; // these force integral generation
 
-instance HALFI2 FRACULUS
-!! FI2(y) = HALFI2 [0 <= u <= y <> du] ( FI ( u ) * <*> u ) ; express FI2
-
-calc FI (2)
+dk = 0.01
+!! tst (x,p) = 1/GAMMA(p) * CCQuad [0 <= k <= x <> dk] ( (x - k)^(p-1) * F(k) * <*> k )
+!! tst3 (x) = tst (x,3)
+!! tst2 (x) = tst (x,2)
 
 !! F2(x) = 3 * x^2
 !! F3(x) = x^3
 !! F4(x) = x^4 / 4
 
 !! dif(v) = FI2(v) - F4(v)
+!! dif3(v) = 1 + tst3(v) - F4(v)
+!! dif2(v) = tst2(v) - F3(v)
 
-graph [0 < t < 5 <> 0.05] ( FI(t), F2(t), F3(t), F4(t), FI2(t), dif(t) )
+// graph [0 < t < 5 <> 0.05] ( F4(t), tst3(t), dif3(t) )
+graph [0 < t < 5 <> 0.05] ( F4(t), FI(t), FI2(t), dif(t) )
+// graph [0 < j < 5 <> 0.05] ( F3(j), tst2(j), dif2(j), F4(j), tst3(j), dif3(j) )
+// graph [0 < t < 5 <> 0.05] ( FI(t), F2(t), F3(t), F4(t), FI2(t), dif(t) )
 
