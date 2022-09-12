@@ -11,7 +11,7 @@ instance CCQuad QUAD
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
-configure FRACULUS quad "CCQuad" delta "0.001"
+configure FRACULUS quad "TSQuad" delta "0.001"
 configure FRACULUS method "Liouville" description "fractional calculus using Liouville algorithm"
 configure FRACULUS order "-1/2"
 instance HALFD FRACULUS
@@ -46,7 +46,7 @@ dk = 0.01
 !! dif2(v) = tst2(v) - F3(v)
 
 // graph [0 < t < 5 <> 0.05] ( F4(t), tst3(t), dif3(t) )
-graph [0 < t < 5 <> 0.05] ( F4(t), FI(t), FI2(t), dif(t) )
+//graph [0 < t < 5 <> 0.05] ( F4(t), FI(t), FI2(t), dif(t) )
 // graph [0 < j < 5 <> 0.05] ( F3(j), tst2(j), dif2(j), F4(j), tst3(j), dif3(j) )
 // graph [0 < t < 5 <> 0.05] ( FI(t), F2(t), F3(t), F4(t), FI2(t), dif(t) )
 
