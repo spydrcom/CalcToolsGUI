@@ -2,6 +2,9 @@
 
 //* test the ClMathFraculus library (fractional calculus)
 
+
+// methods of quadrature
+
 configure QUAD method "CTA" delta "0.01" description "custom quadrature using TRAP"
 instance CTQuad QUAD
 
@@ -11,63 +14,77 @@ instance CCQuad QUAD
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
-configure FRACULUS quad "TSQuad" delta "0.001"
+
+// FRACULUS library instances
+
 configure FRACULUS method "Liouville" description "fractional calculus using Liouville algorithm"
-configure FRACULUS order "-1/2"
+configure FRACULUS quad "CCQuad" delta "0.001" order "-1/2"
 instance HALFD2 FRACULUS
+
+configure FRACULUS quad "TSQuad"
 instance HALFD FRACULUS
 
-// declare a derivative
-!! F4(x) = x^4 / 4
-!! FDV(u) = HALFD [0 <= s <= u] ( F4 ( s ) ) ; express FDV
-!! FDV2(v) = HALFD2 [0 <= r <= v] ( FDV ( r ) ) ; express FDV2
-calc FDV (2) ; calc FDV2 (2)
 
 
-// declare a function
-!! F(m) = 6 * m ; express F
+// declare functions (simple polygons for simple tests)
+!! F(m)  = 6 * m       ; express F
+!! F2(x) = 3 * x^2     ; express F2
+!! F3(x) = x^3         ; express F3
+!! F4(x) = x^4 / 4     ; express F4
 
-// test half integral
+
+
+dk = 0.01
+// simple Cauchy test (inline with no library)
+!! tst (x,p) = 1/GAMMA(p) * CCQuad [0 <= k <= x <> dk] ( (x - k)^(p-1) * F(k) * <*> k )
+!! tst3 (x) = tst (x,3)  ;  !! tst2 (x) = tst (x,2)  ;  // 3rd and 2nd order
+
+// test results
+!! dif2(v) = tst2(v) - F3(v)  ;  !! dif3(v) = 1 + tst3(v) - F4(v)
+graph [0 < j < 5 <> 0.05] ( F3(j), tst2(j), dif2(j), F4(j), tst3(j), dif3(j) )
+ENTITLED Demonstration of Cauchy equation - double and triple integrals of 6x
+
+
+
+// simple Cauchy using library
+configure FRACULUS order "3/2"
+instance HALFI3 FRACULUS
+
+!! FI31(x) = HALFI3 [0 <= t <= x] ( F ( t ) ) ; express FI31
+!! FI32(y) = HALFI3 [0 <= u <= y] ( FI31 ( u ) ) ; express FI32
+!! D3(o) = F4(o) - FI32(o)
+
+// two 3/2 integrals (no derivative involved) results in 6x integrated to x^4/4
+graph [0 < t < 5 <> 0.05] (  F4 (t),  FI32 (t),  D3 (t)  )
+ENTITLED Liouville full test - back2back 3/2 integrals
+
+
+// test half integral, still attached to Liouville method
 configure FRACULUS order "1/2"
-instance HALFI FRACULUS
 instance HALFI2 FRACULUS
+instance HALFI FRACULUS
+
 
 // first and second half integrals
 !! FI(x) = HALFI [0 <= t <= x] ( F ( t ) ) ; express FI
 !! FI2(y) = HALFI2 [0 <= u <= y] ( FI ( u ) ) ; express FI2
 calc FI (2) ; calc FI2 (2) ; // these force integral generation
 
-dk = 0.01
-!! tst (x,p) = 1/GAMMA(p) * CCQuad [0 <= k <= x <> dk] ( (x - k)^(p-1) * F(k) * <*> k )
-!! tst3 (x) = tst (x,3)
-!! tst2 (x) = tst (x,2)
+// apply second integral of 3/2 and result should be 6x integrated to 3x^2
+!! FI23(y) = HALFI3 [0 <= u <= y] ( FI ( u ) ) ; express FI23
 
-!! F2(x) = 3 * x^2
-!! F3(x) = x^3
-
-!! dif(v) = FI2(v) - F4(v)
-!! dif3(v) = 1 + tst3(v) - F4(v)
-!! dif2(v) = tst2(v) - F3(v)
+// plot results
+!! dif23(v) = FI23(v) - F3(v)
+graph [0 < t < 5 <> 0.05] ( F3(t), FI23(t), dif23(t) )
+ENTITLED Liouville compounded - 1/2 integral + 3/2 integral
 
 
 // Liouville full test
 !! D2(o) = F2(o) - FI2(o)
+// 1/2 integral is 3/2 then derivative applied
+// two 1/2 integrals results in 6x integrated to 3x^2
 graph [0 < t < 5 <> 0.05] ( F2(t),  FI2(t), D2(t) )
-
-
-// simple Cauchy
-configure FRACULUS order "3/2"
-instance HALFI3 FRACULUS
-!! FI31(x) = HALFI3 [0 <= t <= x] ( F ( t ) ) ; express FI31
-!! FI32(y) = HALFI3 [0 <= u <= y] ( FI31 ( u ) ) ; express FI32
-!! D3(o) = F4(o) - FI32(o)
-graph [0 < t < 5 <> 0.05] ( F4(t),  FI32(t), D3(t) )
-
-
-// graph [0 < t < 5 <> 0.05] ( F4(t), tst3(t), dif3(t) )
-//graph [0 < t < 5 <> 0.05] ( F4(t), FI(t), FI2(t), dif(t) )
-// graph [0 < j < 5 <> 0.05] ( F3(j), tst2(j), dif2(j), F4(j), tst3(j), dif3(j) )
-// graph [0 < t < 5 <> 0.05] ( FI(t), F2(t), F3(t), F4(t), FI2(t), dif(t) )
+ENTITLED Liouville test - back2back 1/2 integrals
 
 
 // Caputo test
@@ -83,12 +100,30 @@ instance HALFC FRACULUS
 // Hadamard test
 configure FRACULUS method "Hadamard" description "fractional calculus using Hadamard algorithm"
 configure FRACULUS order "1/2"
-instance HALFH FRACULUS
 instance HALFH2 FRACULUS
+instance HALFH FRACULUS
 
 !! HS(w) = sin w ; express HS
-!! FH(z) = HALFH [2*pi <= tu <= z] ( HS ( tu ) ) ; express FH
-!! FH2(z) = HALFH2 [2*pi <= tv <= z] ( FH ( tv ) ) ; express FH2
+!! FH(zu) = HALFH [2*pi <= tu <= zu] ( HS ( tu ) ) ; express FH
+!! FH2(zv) = HALFH2 [2*pi <= tv <= zv] ( FH ( tv ) ) ; express FH2
+
 !! difH(v) = FH2(v) - cos(v)
 // graph [2*pi < t < 3*pi <> 0.05] ( sin(t), cos(t), FH(t), FH2(t), difH(t) )
+
+
+// declare a derivative using HALFD
+!! FDV(u) = HALFD [0 <= s <= u] ( F4 ( s ) ) ; express FDV
+!! FDV2(v) = HALFD2 [0 <= r <= v] ( FDV ( r ) ) ; express FDV2
+calc FDV (2) ; calc FDV2 (2) ; // FDV2 gives NaN
+
+
+// mixed mode
+!! F5(x) = x^5 / 20
+graph [0 < t < 5 <> 0.05] ( FDV t ) ; // FDV does plot
+!! FI33(y) = HALFI3 [0 <= u <= y] ( FDV ( u ) ) ; express FI33
+
+// produces NaN ???
+!! D5(o) = F5(o) - FI33(o)
+// graph [0 < t < 5 <> 0.05] ( F5(t),  FI33(t), D5(t) )
+
 
