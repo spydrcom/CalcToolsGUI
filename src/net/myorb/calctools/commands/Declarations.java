@@ -184,6 +184,7 @@ public class Declarations<T> extends Context<T>
 			{
 				String[] names = new String[]
 					{
+						"method", "delta", "quad",
 						"order", "function", "variable", "run", "symbol",
 						"kind", "alpha", "terms", "description"
 					};
