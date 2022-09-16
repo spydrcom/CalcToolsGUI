@@ -90,13 +90,14 @@ ENTITLED Liouville test - back2back 1/2 integrals
 // Caputo test
 configure FRACULUS method "Caputo" description "fractional calculus using Caputo algorithm"
 configure FRACULUS order "1/2" delta "0.001"
+instance HALFC2 FRACULUS
 instance HALFC FRACULUS
 
 !! FC(x)  = HALFC [ -5 <= t <= x ] ( F3 ( t ) ) ; express FC
-!! FC2(x) = HALFC [ -5 <= t <= x ] ( FC ( t ) ) ; express FC2
+!! FC2(x) = HALFC2 [ -5 <= t <= x ] ( FC ( t ) ) ; express FC2
 
-// graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t), FC2(t) )
-graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t) )
+//graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t) )
+graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t), FC2(t) )
 ENTITLED Caputo test - 1/2 derivative of X^3
 
 
@@ -112,7 +113,8 @@ instance HALFH FRACULUS
 !! FH2(zv) = HALFH2 [2*pi <= tv <= zv] ( FH ( tv ) ) ; express FH2
 
 !! difH(v) = FH2(v) - cos(v)
-// graph [2*pi < t < 3*pi <> 0.05] ( sin(t), cos(t), FH(t), FH2(t), difH(t) )
+graph [2*pi < t < 3*pi <> 0.05] ( sin(t), cos(t), FH(t), FH2(t), difH(t) )
+ENTITLED Hadamard test - 1/2 integral of SIN
 
 
 // declare a derivative using HALFD
@@ -130,4 +132,13 @@ graph [0 < t < 5 <> 0.05] ( FDV t ) ; // FDV does plot
 !! D5(o) = F5(o) - FI33(o)
 // graph [0 < t < 5 <> 0.05] ( F5(t),  FI33(t), D5(t) )
 
+
+// Grunwald test
+configure FRACULUS method "Grunwald" description "fractional calculus using Grunwald-Letnikov algorithm"
+configure FRACULUS delta "0.001" order "1/2"
+instance GRUN FRACULUS
+
+!! FG(zu) = GRUN [0 <= tu <= 20] ( HS ( tu ) ) ; express FG
+
+calc FG (pi/2)
 
