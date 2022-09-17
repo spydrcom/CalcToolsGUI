@@ -1,0 +1,16 @@
+
+
+//* eta test in complex domain
+
+
+z = 0.5 +!* 2
+
+calc eta z
+
+graph [ 0 < z < 20 <> 0.1 ] ( eta ( 0.5 +!* z ) )
+
+
+!! criteta (z) = eta ( 0.5 +!* z )
+plotri criteta [ 10 < z < 40 <> 0.1 ]
+
+

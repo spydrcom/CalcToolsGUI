@@ -14,7 +14,7 @@
 	<call object='algorithms' method='configure' using='hostAccess' />
 
 	<!-- create function object for each symbol of that type -->
-	<populate class='Function' using='anaconda' toBeCalled='LambertW Gamma Polygamma Trigamma Polylog Polylog1 Zeta' saveListAs='funcList' />
+	<populate class='Function' using='anaconda' toBeCalled='LambertW Gamma Polygamma Trigamma Polylog Polylog1 Zeta Eta' saveListAs='funcList' />
 	
 	<!-- configure each operator/function with appropriate bean set operations -->
 	<bean references='Gamma'> <text Description='Gamma function' Reference='Gamma' Symbol='Gamma' /> </bean>
@@ -24,6 +24,7 @@
 	<bean references='Polygamma'> <text Description='Digamma (psi0) function' Reference='Polygamma' Symbol='psi0' /> <text RenderAs='&#x03A8;' /> <text Parameters='0' /> </bean>
 	<bean references='Trigamma'> <text Description='Trigamma (psi1) function' Reference='Polygamma' Symbol='psi1' /> <text RenderAs='&#x03A8;' /> <text Parameters='1' /> </bean>
 	<bean references='Zeta'> <text Description='Riemann Zeta function' Reference='Zeta' Symbol='zeta' /> <text RenderAs='&#x03B6;' /> <text Parameters='1' /> </bean>
+	<bean references='Eta'> <text Description='Dirichlet Eta function' Reference='Eta' Symbol='eta' /> <text RenderAs='&#x03B7;' /> <text Parameters='1' /> </bean>
 
 	<!-- invoke macro to generate symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
