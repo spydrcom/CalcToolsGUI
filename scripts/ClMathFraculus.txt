@@ -139,7 +139,9 @@ configure FRACULUS delta "0.001" order "1/2"
 instance GRUN FRACULUS
 
 !! HC(w) = cos w ; express HC
-!! FG(zu) = GRUN [0 <= tu <= 20] ( HC ( tu ) ) ; express FG
+!! FG(zu) = GRUN [ 0 <= tu <= 20 <> zu ] ( HC ( tu ) ) ; express FG
+
+graph [pi < t < 3*pi <> 0.1] ( FG t, HC t )
 
 calc FG (pi/2)
 

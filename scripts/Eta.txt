@@ -1,0 +1,43 @@
+
+
+//* Eta tests
+
+
+// simple definition
+!! eta(s) = SIGMA [ 1 <= n < 100 ] ( (-1)^(n-1) / n^s )
+graph [ 0 < s < 10 <> 0.1 ] ( eta(s) )
+ENTITLED Plot of simple eta 
+
+// known values
+calc eta(1) - ln(2)
+calc eta(2) - pi^2/12
+calc eta(4) - 7*pi^4/720
+calc eta(6) - 31*pi^6/30240
+
+
+// integrand form
+!! Im1(sm1,x) = x^(sm1) / ( exp(x) + 1 )
+!! I(s,x) = Im1 ( s-1, x )
+
+// graph of integrands
+graph [ 0 < x < 20 <> 0.1 ] ( I(2,x), I(3,x), I(4,x) )
+ENTITLED Plots of eta integrands
+
+
+// integrals
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+// integral definition
+!! eta(s) = 1/GAMMA(s) * TSQuad [ 0 < x < 50 ] ( I(s,x) )
+
+graph [ 0 < s < 10 <> 0.05 ] ( eta(s) )
+ENTITLED Plot of eta using integrals
+
+// known values
+calc eta(1) - ln(2)
+calc eta(2) - pi^2/12
+calc eta(4) - 7*pi^4/720
+calc eta(6) - 31*pi^6/30240
+
+

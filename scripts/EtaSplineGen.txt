@@ -1,0 +1,19 @@
+
+
+//* generate spline for complex Eta
+
+
+!!EtaZ(z) = Eta (0.5+i*z)  
+express EtaZ 
+
+configure SPLINE description "custom spline generator using CPC" 
+configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory" 
+instance CPC SPLINE 
+
+DESCRIBE EtaZ Complex eta computed from MPMATH on -0.5 - 70 
+apply CPC EtaZ [ -0.5 <= x <= 70 ] 
+savejson EtaZ
+
+plotri EtaZ [-0.5<x<10<>0.01]  
+
+

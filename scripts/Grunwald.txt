@@ -1,0 +1,21 @@
+
+
+//* Grunwald fractional derivative test
+
+!! BS(theta) = sin theta
+
+BSL = { a } -> { BS(a) }
+
+!! BC (x,y) = GAMMA(x+1) / ( GAMMA(y+1) * GAMMA(x-y+1) )
+
+!! D (f,x,q,h,n) = 1/h^q * SIGMA [ 0 <= m <= n ] ( (-1)^m * BC (q,m) * @|f (x+m*h) )
+
+!! d(omega) = D ( BSL, omega, 0.5, 0.00001, 150 )
+
+!! dif(x) = d(x) - BS(x)
+
+graph [ pi <= tau <= 3*pi <> 0.1 ]  (  d (tau), BS (tau),  dif (tau) )
+
+
+calc dif pi
+
