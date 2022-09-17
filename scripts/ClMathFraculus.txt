@@ -138,7 +138,8 @@ configure FRACULUS method "Grunwald" description "fractional calculus using Grun
 configure FRACULUS delta "0.001" order "1/2"
 instance GRUN FRACULUS
 
-!! FG(zu) = GRUN [0 <= tu <= 20] ( HS ( tu ) ) ; express FG
+!! HC(w) = cos w ; express HC
+!! FG(zu) = GRUN [0 <= tu <= 20] ( HC ( tu ) ) ; express FG
 
 calc FG (pi/2)
 
