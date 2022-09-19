@@ -1,0 +1,10 @@
+
+
+//* test results of eta function
+
+
+// known values
+calc eta(1) - ln(2)
+calc eta(2) - pi^2/12
+calc eta(4) - 7*pi^4/720
+calc eta(6) - 31*pi^6/30240

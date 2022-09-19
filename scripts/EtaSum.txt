@@ -1,0 +1,24 @@
+
+
+//* eta computed with summation implementation of integral
+
+
+// integrand form
+!! I(s,x) = x^(s-1) / ( exp(x) + 1 )
+
+h = 50				; // integral across 0..50
+dx = 0.01			; // 100 points per unit of range
+count = h / dx		; // 5000 points per integral
+
+// integral definition
+!! eta(s) = dx * 1/GAMMA(s) * SIGMA [ 0 <= n <= count ] ( I (s, n*dx) )
+
+
+// plot 100 points
+// graph [ 0 < s < 10 <> 0.1 ] ( eta(s) )
+// ENTITLED Plot of eta using summation
+
+
+READ EtaValues.txt
+
+

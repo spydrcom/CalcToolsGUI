@@ -8,11 +8,8 @@
 graph [ 0 < s < 10 <> 0.1 ] ( eta(s) )
 ENTITLED Plot of simple eta 
 
-// known values
-calc eta(1) - ln(2)
-calc eta(2) - pi^2/12
-calc eta(4) - 7*pi^4/720
-calc eta(6) - 31*pi^6/30240
+
+READ EtaValues.txt
 
 
 // integrand form
@@ -34,10 +31,6 @@ instance TSQuad QUAD
 graph [ 0 < s < 10 <> 0.05 ] ( eta(s) )
 ENTITLED Plot of eta using integrals
 
-// known values
-calc eta(1) - ln(2)
-calc eta(2) - pi^2/12
-calc eta(4) - 7*pi^4/720
-calc eta(6) - 31*pi^6/30240
+READ EtaValues.txt
 
 

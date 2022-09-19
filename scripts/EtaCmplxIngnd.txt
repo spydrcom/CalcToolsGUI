@@ -1,0 +1,81 @@
+
+
+//* eta complex integrands
+
+
+
+//		            	       s-1
+//			    	         t
+//                    -----------------------------
+//				                t
+//				           e        +   1
+
+
+//s = a + b*i
+//                                        (a-1)  +  b*i
+//                                t
+
+//	t ^ (a-1)   * t ^ (b*i)
+
+//	t ^ (a-1)   *  exp ( b * i * ln t )
+	
+//	c = b * ln t
+//	t ^ (a-1)   *  [ cos c + i * sin c ]
+
+//	cos [ b * ln t ] * t ^ (a-1)   +   i * sin [ b * ln t ] * t ^ (a-1) 
+
+
+// for critical section a=1/2 so t^(a-1)=1/sqrt t
+
+//
+//	  					  cos [ b * ln t ]   +   i * sin [ b * ln t ] 
+//                      -----------------------------------------------
+//	                			t
+//	          				[ e        +   1 ]   *   sqrt  t
+//
+
+
+b = 10
+
+// integrand for real part
+!! I(b,t) = cos ( b * ln t )  / ( (exp t + 1) * sqrt t )
+
+
+graph [ 0 < t < 1E-6 <> 1E-9 ]  ( I (b,t) )   
+
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+!! realPart(x) = TSQuad [ 0 < t < 6 ] ( I(b,t) )
+
+graph [ 0 < t < 5 <> 0.1 ]  ( I (b,t) )   
+
+
+
+// separate integrands for real part and imag part
+!! Ir(b,t) = cos ( b * ln t )  / ( (exp t + 1) * sqrt t )
+!! Ii(b,t) = sin ( b * ln t )  / ( (exp t + 1) * sqrt t )
+
+// apply quadrature to each part separately
+!! realPart(b) = TSQuad [ 0 < t < 6 ] ( Ir(b,t) )
+!! imagPart(b) = TSQuad [ 0 < t < 6 ] ( Ii(b,t) )
+
+
+// plot together but not as complex
+graph [ 0 < x< 20 <> 0.1 ]  (realPart (x), imagPart (x) )   
+
+
+// combine to complex
+!! combo(z) = realPart(Re(z))  + i *  imagPart(Re(z))
+
+// plot combo as complex RI
+plotri  combo   [ 0 < x< 30 <> 0.1 ]   
+
+// attempt to treat as eta function
+!! eta(z) = 1/GAMMA(0.5+z*i) * combo (z)
+
+// plot shot section of eta
+plotri  eta   [ 0 < x< 5 <> 0.1 ]    
+// GAMMA not working
+
+

@@ -1,0 +1,33 @@
+
+
+
+//* Eta integral tests
+
+
+// integrand form
+!! Im1(sm1,x) = x^(sm1) / ( exp(x) + 1 )
+!! I(s,x) = Im1 ( s-1, x )
+
+
+// graph of integrands
+graph [ 0 < x < 40 <> 0.1 ] ( I(2,x), I(3,x), I(4,x) )
+ENTITLED Plots of eta integrands
+
+
+
+// integrals
+configure QUAD method "CCQ" description "Curtis Quad" delta "0.01"
+instance CCQ QUAD
+
+
+// integral definition
+!! eta(s) = 1/GAMMA(s) * CCQ [ 0 < x < 50 ] ( I(s,x) )
+
+
+graph [ 0 < s < 10 <> 0.05 ] ( eta(s) )
+ENTITLED Plot of eta using integrals
+
+
+READ EtaValues.txt
+
+

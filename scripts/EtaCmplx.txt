@@ -3,14 +3,19 @@
 //* eta test in complex domain
 
 
-z = 0.5 +!* 2
+!! critEta (z) = eta ( 0.5 +!* z )
 
-calc eta z
-
-graph [ 0 < z < 20 <> 0.1 ] ( eta ( 0.5 +!* z ) )
+// plotri critEta [ 2 < z < 8 <> 0.1 ]
 
 
-!! criteta (z) = eta ( 0.5 +!* z )
-plotri criteta [ 10 < z < 40 <> 0.1 ]
+!! mul(s) = 1 - 2^(1-s)
+!! critMul (z) = mul ( 0.5 +!* z )
 
+// plotri critMul [ 2 < x < 8 <> 0.05 ]
+
+
+!! Z (z) = eta (z) / mul (z) 
+!! critZeta (z) = Z ( 0.5 +!* z )
+
+// plotri critZeta [ 2 < x < 8 <> 0.05 ]
 
