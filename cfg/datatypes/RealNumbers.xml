@@ -113,6 +113,11 @@
 	<class called='LIBRARIAN' classpath='net.myorb.math.expressions.symbols.LibraryManager' />
 
 	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>TRIG</string> <string>net.myorb.math.expressions.algorithms.ClMathRealTrig</string>
+		<referto objectCalled='environment'/>
+	</call>
+
+	<call class='LIBRARIAN' method='defineLibrary' >
 		<string>BESSEL</string> <string>net.myorb.math.expressions.algorithms.ClMathBessel</string>
 		<referto objectCalled='environment'/>
 	</call>
@@ -142,10 +147,13 @@
 		<referto objectCalled='environment'/>
 	</call>
 
-	<call class='LIBRARIAN' method='defineLibrary' >
-		<string>TRIG</string> <string>net.myorb.math.expressions.algorithms.ClMathRealTrig</string>
-		<referto objectCalled='environment'/>
+	<class called='QuadMaster' classpath='net.myorb.math.computational.integration.Quadrature' />
+	<class called='FraculusModules' classpath='net.myorb.fraculus.modules.Selection' />
+
+	<call class='QuadMaster' method='setExternalSupport' >
+		<new class='FraculusModules' />
 	</call>
+
 
 
 	<!--

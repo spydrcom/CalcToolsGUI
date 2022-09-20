@@ -3,6 +3,7 @@
 //* test the ClMathFraculus library (fractional calculus)
 
 
+
 // methods of quadrature
 
 configure QUAD method "CTA" delta "0.01" description "custom quadrature using TRAP"
@@ -13,6 +14,7 @@ instance CCQuad QUAD
 
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
+
 
 
 // FRACULUS library instances
@@ -87,36 +89,6 @@ graph [0 < t < 5 <> 0.05] ( F2(t),  FI2(t), D2(t) )
 ENTITLED Liouville test - back2back 1/2 integrals
 
 
-// Caputo test
-configure FRACULUS method "Caputo" description "fractional calculus using Caputo algorithm"
-configure FRACULUS order "1/2" delta "0.001"
-instance HALFC2 FRACULUS
-instance HALFC FRACULUS
-
-!! FC(x)  = HALFC [ -5 <= t <= x ] ( F3 ( t ) ) ; express FC
-!! FC2(x) = HALFC2 [ -5 <= t <= x ] ( FC ( t ) ) ; express FC2
-
-//graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t) )
-graph [-5 < t < 5 <> 0.05] ( F3(t), F2(t), FC(t), FC2(t) )
-ENTITLED Caputo test - 1/2 derivative of X^3
-
-
-
-// Hadamard test
-configure FRACULUS method "Hadamard" description "fractional calculus using Hadamard algorithm"
-configure FRACULUS order "1/2"
-instance HALFH2 FRACULUS
-instance HALFH FRACULUS
-
-!! HS(w) = sin w ; express HS
-!! FH(zu) = HALFH [2*pi <= tu <= zu] ( HS ( tu ) ) ; express FH
-!! FH2(zv) = HALFH2 [2*pi <= tv <= zv] ( FH ( tv ) ) ; express FH2
-
-!! difH(v) = FH2(v) - cos(v)
-graph [2*pi < t < 3*pi <> 0.05] ( sin(t), cos(t), FH(t), FH2(t), difH(t) )
-ENTITLED Hadamard test - 1/2 integral of SIN
-
-
 // declare a derivative using HALFD
 !! FDV(u) = HALFD [0 <= s <= u] ( F4 ( s ) ) ; express FDV
 !! FDV2(v) = HALFD2 [0 <= r <= v] ( FDV ( r ) ) ; express FDV2
@@ -132,16 +104,4 @@ graph [0 < t < 5 <> 0.05] ( FDV t ) ; // FDV does plot
 !! D5(o) = F5(o) - FI33(o)
 // graph [0 < t < 5 <> 0.05] ( F5(t),  FI33(t), D5(t) )
 
-
-// Grunwald test
-configure FRACULUS method "Grunwald" description "fractional calculus using Grunwald-Letnikov algorithm"
-configure FRACULUS delta "0.001" order "1/2"
-instance GRUN FRACULUS
-
-!! HC(w) = cos w ; express HC
-!! FG(zu) = GRUN [ 0 <= tu <= 20 <> zu ] ( HC ( tu ) ) ; express FG
-
-graph [pi < t < 3*pi <> 0.1] ( FG t, HC t )
-
-calc FG (pi/2)
 
