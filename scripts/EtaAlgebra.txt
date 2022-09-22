@@ -34,15 +34,15 @@ RENDER "the full integral computation of eta for complex z" TOP
 !! Ii(t,tau) = sin ( t * ln tau )  / ( (exp tau + 1) * sqrt tau )
 
 // show sample of integrand function
-graph [ 0 < t < 1E-6 <> 1E-9 ]  ( Ir (10,t) )   
+graph [ 0 < tau < 1E-6 <> 1E-9 ]  ( Ir (10,tau) )   
 
 // use quadrature for computations
 configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
 // apply quadrature to each part separately
-!! realPart(b) = TSQuad [ 0 < t < 6 ] ( Ir(b,t) )
-!! imagPart(b) = TSQuad [ 0 < t < 6 ] ( Ii(b,t) )
+!! realPart(t) = TSQuad [ 0 < tau < 6 ] ( Ir(t,tau) )
+!! imagPart(t) = TSQuad [ 0 < tau < 6 ] ( Ii(t,tau) )
 
 
 // combine to complex
