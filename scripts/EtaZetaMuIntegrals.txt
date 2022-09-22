@@ -1,0 +1,22 @@
+
+
+//* eta and zeta have equations based on exponential integrals
+
+
+// definition of iota and mu functions
+READ EtaZetaMu.txt
+
+
+!! Hintegrand(z,tau) = tau^(z-1) / ( exp(tau) + 1 )
+RENDERF Hintegrand  ;  RENDER "Integrand for computation of eta" TOP
+
+!! Hintegral(z) = 1/GAMMA(z) * INTEGRAL [ 0 < tau < INFINITY ] ( Hintegrand (z,tau) * <*> tau)
+RENDERF Hintegral  ;  RENDER "Integral computation of eta" TOP
+
+
+!! Zintegrand(z,tau) = tau^(z-1) / ( exp(tau) - 1 )
+RENDERF Zintegrand  ;  RENDER "Integrand for computation of zeta" TOP
+
+!! Zintegral(z) = 1/GAMMA(z) * INTEGRAL [ 0 < tau < INFINITY ] ( Zintegrand (z,tau) * <*> tau)
+RENDERF Zintegral  ;  RENDER "Integral computation of zeta" TOP
+

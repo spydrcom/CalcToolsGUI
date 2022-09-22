@@ -1,0 +1,17 @@
+
+
+//*  plot eta and zeta
+
+
+!! crit (x) = 0.5 + i*x
+!! criteta(x) = eta ( crit (x) )
+plotri  criteta   [ 0 < x< 30 <> 0.1 ]   
+
+
+
+!! czeta(x) = zeta (crit (x))
+plotri  czeta   [ 2 < x < 30 <> 0.1 ]   
+
+!! cmul(x) = 1 - 2/2^(crit(x))
+!! ceta (x) = czeta(x) * cmul(x)
+plotri  ceta   [ 2 < x < 30 <> 0.1 ]   

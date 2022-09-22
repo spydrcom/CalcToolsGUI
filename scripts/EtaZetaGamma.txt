@@ -1,0 +1,20 @@
+
+
+//* GAMMA inverted is a common factor in eta and zeta
+
+
+READ EtaZetaMu.txt
+
+// GAMMA explodes at regular intervals
+// - order of magnitude jumps are seen in this plot sequence
+
+PLOTRI  XI   [ 0 < y <  3  <> 0.01 ]   
+PLOTRI  XI   [ 2 < y <  7  <> 0.01 ]   
+PLOTRI  XI   [ 8 < y < 9.8 <> 0.01 ]   
+
+
+!! Gintegrand(z,tau) = tau^(z-1) * exp(-tau)
+RENDERF Gintegrand  ;  RENDER "Integrand for computation of GAMMA" TOP
+
+!! GAMMA(z) = INTEGRAL [ 0 < tau < INFINITY ] ( Gintegrand (z,tau) * <*> tau)
+RENDERF GAMMA  ;  RENDER "Integral computation of GAMMA" TOP

@@ -1,0 +1,61 @@
+
+
+//* analysis of eta integral
+
+
+// definitions for iota, Z, and mu
+READ EtaZetaMu.txt
+
+
+RENDER tau^(z-1) / ( exp(tau) + 1 )
+RENDER "Integral computation of eta" TOP
+
+RENDER z = sigma + i * t
+RENDER "used traditionally in the study of the eta function" TOP
+
+RENDER tau ^ ( (sigma-1) + t*i )
+RENDER "break down the complex sum" TOP
+
+RENDER tau ^ (sigma-1) * exp (t * i * ln tau)
+RENDER "apply logarithm to complex exponential" TOP
+
+RENDER cos ( t * ln tau ) * tau ^ (sigma-1)  +   i * sin ( t * ln tau ) * tau ^ (sigma-1)
+RENDER "and for critical section sigma=1/2 so tau^(sigma-1)=1/sqrt tau" TOP
+
+RENDER I(z,tau) = ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( exp(tau+1) * sqrt tau )
+RENDER "the full integrand function" TOP
+
+RENDER XI(z) * INTEGRAL [ 0 < tau < INFINITY ] ( ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( exp(tau+1) * sqrt tau ) * <*> tau)
+RENDER "the full integral computation of eta for complex z" TOP
+
+
+// separate integrands for real part and imag part
+!! Ir(t,tau) = cos ( t * ln tau )  / ( (exp tau + 1) * sqrt tau )
+!! Ii(t,tau) = sin ( t * ln tau )  / ( (exp tau + 1) * sqrt tau )
+
+// show sample of integrand function
+graph [ 0 < t < 1E-6 <> 1E-9 ]  ( Ir (10,t) )   
+
+// use quadrature for computations
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+// apply quadrature to each part separately
+!! realPart(b) = TSQuad [ 0 < t < 6 ] ( Ir(b,t) )
+!! imagPart(b) = TSQuad [ 0 < t < 6 ] ( Ii(b,t) )
+
+
+// combine to complex
+!! combo(z) = realPart(Re(z))  + i *  imagPart(Re(z))
+
+// plot combo as complex RI
+plotri  combo   [ 0 < x < 30 <> 0.1 ]   
+
+// attempt to treat as eta function
+!! eta(z) = XI(z) * combo (z)
+
+// plot shot section of eta
+plotri  eta   [ 0 < x < 5 <> 0.1 ]    
+// GAMMA not working
+
+

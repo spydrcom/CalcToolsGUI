@@ -1,0 +1,15 @@
+
+
+//* plots of eta as defined in Anaconda and computed with zeta*mu
+
+
+// definitions for iota, Z, and mu
+READ EtaZetaMu.txt
+
+
+!! eta (xi) = Z(xi) * mu(xi)
+PLOTRI  eta   [ 2 < y < 30 <> 0.1 ]   
+
+RENDERF eta
+RENDER "A plot of eta computed from zeta and mu" TOP
+

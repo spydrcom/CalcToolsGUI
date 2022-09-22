@@ -1,0 +1,35 @@
+
+
+//* eta - zeta - mu (or Welcome to Greek Alpabet Soup)
+
+
+!! iota (xi) = i * xi + 0.5
+
+RENDERF iota
+RENDER "A function mapping the critical region" TOP
+
+!! mu (xi) = 1 - 2/2^( iota(xi) )
+PLOTRI  mu   [ 0 < y < 30 <> 0.1 ]   
+
+RENDERF mu
+RENDER "A function that computes the ratio between zeta and eta" TOP
+
+!! H (xi) = eta ( iota(xi) )
+PLOTRI  H   [ 0 < y < 30 <> 0.1 ]   
+
+RENDERF H
+RENDER "Computation of eta on the critical region" TOP
+
+
+!! Z (xi) = zeta ( iota(xi) )
+PLOTRI  Z   [ 0 < y < 30 <> 0.1 ]   
+
+RENDERF Z
+RENDER "Computation of zeta on the critical region" TOP
+
+// Computation of GAMMA on the critical region
+!! XI (xi)  =  1  /  GAMMA ( iota(xi) )
+
+RENDERF XI
+RENDER "GAMMA inverted is a common factor in eta and zeta" TOP
+
