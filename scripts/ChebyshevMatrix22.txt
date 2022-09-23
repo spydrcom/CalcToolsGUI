@@ -1,0 +1,105 @@
+
+
+//*  compute the matrix of Chebyshev nodes
+
+
+// calculate the points for N=22
+READ ChebyshevPoints.txt
+
+
+// get T polynomials for N=22
+FAMILY Chebyshev 22 First
+
+
+// build row vector arrays for given T
+!! eval (T) = ARRAY [ 0 <= i <= N ]   ( @|T (   points # i   )  )
+
+
+// row vectors 0..22
+
+A0 = eval (  { x } -> { T0 (x) } )
+A = A0
+
+A1 = eval (  { x } -> { T1 (x) } )
+A = APPEND (A, A1)
+
+A2 = eval (  { x } -> { T2 (x) } )
+A = APPEND (A, A2)
+
+A3 = eval (  { x } -> { T3 (x) } )
+A = APPEND (A, A3)
+
+A4 = eval (  { x } -> { T4 (x) } )
+A = APPEND (A, A4)
+
+A5 = eval (  { x } -> { T5 (x) } )
+A = APPEND (A, A5)
+
+A6 = eval (  { x } -> { T6 (x) } )
+A = APPEND (A, A6)
+
+A7 = eval (  { x } -> { T7 (x) } )
+A = APPEND (A, A7)
+
+A8 = eval (  { x } -> { T8 (x) } )
+A = APPEND (A, A8)
+
+A9 = eval (  { x } -> { T9 (x) } )
+A = APPEND (A, A9)
+
+A10 = eval (  { x } -> { T10 (x) } )
+A = APPEND (A, A10)
+
+A11 = eval (  { x } -> { T11 (x) } )
+A = APPEND (A, A11)
+
+A12 = eval (  { x } -> { T12 (x) } )
+A = APPEND (A, A12)
+
+A13 = eval (  { x } -> { T13 (x) } )
+A = APPEND (A, A13)
+
+A14 = eval (  { x } -> { T14 (x) } )
+A = APPEND (A, A14)
+
+A15 = eval (  { x } -> { T15 (x) } )
+A = APPEND (A, A15)
+
+A16 = eval (  { x } -> { T16 (x) } )
+A = APPEND (A, A16)
+
+A17 = eval (  { x } -> { T17 (x) } )
+A = APPEND (A, A17)
+
+A18 = eval (  { x } -> { T18 (x) } )
+A = APPEND (A, A18)
+
+A19 = eval (  { x } -> { T19 (x) } )
+A = APPEND (A, A19)
+
+A20 = eval (  { x } -> { T20 (x) } )
+A = APPEND (A, A20)
+
+A21 = eval (  { x } -> { T21 (x) } )
+A = APPEND (A, A21)
+
+A22 = eval (  { x } -> { T22 (x) } )
+A = APPEND (A, A22)
+
+
+// construct matrix
+M = MATRIX (A,22,22)
+
+// get Colt library report
+READ ColtLib.txt
+calc MatRpt (M)
+
+
+// get results of LU decomposition
+ML = GetLudL()
+MU = GetLudU()
+
+// pivot vector is taken from Colt MAT Report
+A = (0, 1, 19, 3, 18, 12, 7, 20, 4, 15, 5, 21, 13, 2, 11, 14, 10, 16, 17, 9, 6, 8)
+MP = MATRIX (A,22,1)
+
