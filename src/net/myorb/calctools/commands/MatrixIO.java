@@ -34,7 +34,7 @@ public class MatrixIO<T> extends Context<T>
 			public void execute (CommandSequence tokens)
 			{
 				String matrixSymbol = getNextOperandImage (tokens);
-				engine.getDataIO ().read (filename (tokens), matrixSymbol);
+				engine.getDataIO ().read (filename (tokens, true), matrixSymbol);
 			}
 		};
 	}
@@ -50,10 +50,13 @@ public class MatrixIO<T> extends Context<T>
 		{
 			public void execute (CommandSequence tokens)
 			{
+				String matrixSymbol =
+					getNextOperandImage (tokens);
 				engine.getDataIO ().write
 				(
-					filename (tokens),
-					getMatrixFrom (getNextOperandImage (tokens))
+					filename (tokens, true),
+					getMatrixFrom (matrixSymbol),
+					matrixSymbol
 				);
 			}
 
