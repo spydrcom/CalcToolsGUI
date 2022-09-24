@@ -1,0 +1,24 @@
+
+
+//* use Colt library to construct LUD
+
+
+// Chebyshev nodes for N=22
+READ ChebyshevMatrix22.txt
+
+// get Colt library report
+READ ColtLib.txt
+CALC MatRpt (M)
+
+// get results of LU decomposition
+ML = GetLudL() ; MU = GetLudU()
+
+// pivot vector is taken from Colt MAT Report
+A = (0, 22, 11, 15, 6, 18, 4, 9, 13, 20, 2, 8, 16, 5, 19, 12, 3, 14, 10, 17, 7, 1, 21)
+MP = MATRIX ( A, ORDER, 1 )
+
+// write TDF files
+EXPORT ML VCN22L.TDF
+EXPORT MU VCN22U.TDF
+EXPORT MP VCN22P.TDF
+

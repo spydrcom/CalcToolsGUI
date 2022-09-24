@@ -1,19 +1,18 @@
 
 
-
 //*  compute the  Chebyshev points for N=22
 
 
-N = 22
-d = pi/N
+N = 22 ; d = pi/N
 !! f(x) = - cos x
+ORDER = N + 1
 
-
+// collect array of the points curve
 points = ARRAY [ 0 <= i <= N ]   (    f (  i * d  )    )
-calc points 
 
-graph  [  0  <=   x  <=   N   ]   (   f   (  x * d  )   )
+// values of the points
+CALC points 
 
-
-
+// plot of the points curve
+GRAPH  [  0  <=   x  <=   N   ]   (   f   (  x * d  )   )
 

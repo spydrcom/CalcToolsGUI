@@ -1,0 +1,36 @@
+
+
+//* test LUD solution
+
+
+// calculate the points for N=22 (0..22 is 23 points)
+READ ChebyshevPoints.txt
+
+// show values
+CALC points  ;  N = LENGTH (points)  ;  CALC N
+
+// simple polynomial test
+!! f(x) = 2*x^3 - 3*x^2
+
+// plot test function
+GRAPH [ -1 <= x <= 1 <> 0.01 ] ( f(x) )
+
+// get the solution vector
+b = ARRAY  [ 0 <= i < N ]  (  f ( points # i )  )
+CALC b
+
+// import LUD for VCN22
+IMPORT   L   VCN22L.TDF
+IMPORT   U   VCN22U.TDF
+IMPORT   P   VCN22P.TDF
+
+// LUXB solution
+cc = LUXB ( L, U, b, P )
+CALC cc
+
+// declare solution polynomial
+!! test(x) = cc @*^ x
+
+// plot solution test
+GRAPH [ -1 <= x <= 1 <> 0.01 ] ( test(x) )
+
