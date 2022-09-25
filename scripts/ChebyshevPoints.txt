@@ -5,6 +5,8 @@
 
 N = 22 ; d = pi/N
 !! f(x) = - cos x
+
+// matrix order is 1 larger than point count
 ORDER = N + 1
 
 // collect array of the points curve

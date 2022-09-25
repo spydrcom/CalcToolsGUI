@@ -26,9 +26,10 @@
 
 
 	<populate class='Function' using='vector' saveListAs='funcList'
-			toBeCalled='Pi Sigma Summation Integral Max Min Len Append Interval DotP Dyadic'
+			toBeCalled='Array Pi Sigma Summation Integral Max Min Len Append Concat Stack Interval DotP Dyadic'
 	 />
 
+	<bean references='Array'> <text Description='Collect values into array' Reference='Array' Symbol='ARRAY' /> </bean>
 	<bean references='DotP'> <text Description='Dot product of two arrays; lengths of arrays must match' Reference='Dot' Symbol='DOT' /> </bean>
 	<bean references='Sigma'> <text Description='Sum of items of an array; traditional capital SIGMA notation' Reference='Summation' Symbol='SIGMA' /> <text RenderAs='&#x2211;' /> </bean>
 	<bean references='Integral'> <text Description='Sum of items of an array constructed based on delta terms; using traditional integral notation' Reference='Integral' Symbol='INTEGRAL' /> <text RenderAs='&#x222B;' /> </bean>
@@ -37,6 +38,8 @@
 	<bean references='Interval'> <text Description='Select sub-list of elements for interval lo-hi' Reference='Interval' Symbol='INTERVAL' /> </bean>
 	<bean references='Len'> <text Description='Length of an array treated as a unary function' Reference='Length' Symbol='LENGTH' /> </bean>
 	<bean references='Append'> <text Description='Append a series of arrays into one long array' Reference='Append' Symbol='APPEND' /> </bean>
+	<bean references='Concat'> <text Description='Append a series of arrays into one long array' Reference='Concat' Symbol='CONCAT' /> </bean>
+	<bean references='Stack'> <text Description='Append a series of arrays as rows into a matrix' Reference='Stack' Symbol='STACK' /> </bean>
 	<bean references='Max'> <text Description='Maximum value found in array' Reference='Max' Symbol='MAX' /> </bean>
 	<bean references='Min'> <text Description='Minimum value found in array' Reference='Min' Symbol='MIN' /> </bean>
 	<bean references='Dyadic'> <text Description='Compute dyadic product of 2 arrays' Reference='Dyadic' Symbol='DYADIC' /> </bean>
