@@ -51,12 +51,15 @@
 
 
 	<!-- create operator object for each operation symbol -->
-	<populate class='Operator' using='algebraic' toBeCalled='PlusOrMinus MinusOrPlus Sgn Abs' saveListAs='opsList' />
+	<populate class='Operator' using='algebraic' toBeCalled='PlusOrMinus MinusOrPlus Sgn Abs Ceil Floor FloorDiv' saveListAs='opsList' />
 	
 	<bean references='PlusOrMinus'> <text Description='Plus or Minus operator' Reference='PlusMinus' Symbol='+|-' /> <set Precedence='7' /> </bean>
 	<bean references='MinusOrPlus'> <text Description='Minus or Plus operator' Reference='MinusPlus' Symbol='-|+' /> <set Precedence='7' /> </bean>
 	<bean references='Sgn'> <text Description='Sign SGN function value of parameter' Reference='Sgn' Symbol='sgn' /> <set Precedence='7' /> </bean>
 	<bean references='Abs'> <text Description='ABS function value of parameter' Reference='Abs' Symbol='abs' /> <set Precedence='11' /> </bean>
+	<bean references='FloorDiv'> <text Description='Floor function for quotient' Reference='FloorDiv' Symbol='floordiv' /> <set Precedence='11' /> </bean>
+	<bean references='Floor'> <text Description='Floor function' Reference='Floor' Symbol='floor' /> <set Precedence='11' /> </bean>
+	<bean references='Ceil'> <text Description='Ceiling function' Reference='Ceil' Symbol='ceil' /> <set Precedence='11' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
 
