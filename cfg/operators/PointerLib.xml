@@ -1,0 +1,26 @@
+<JXR>
+
+	<!-- get access to master object for arithmetic operators -->
+	<void> <new saveAs='pointer' package='CalctoolsLibs' name='Pointer' /> </void>
+	<call object='pointer' method='setName'> <string>pointer</string> </call>
+
+	<SaveAs toBeCalled='algorithms'>
+		<!-- get access to object holding operator algorithms -->
+		<evaluate object='pointer' method='getAlgorithms'> <referto objectCalled='environment' /> </evaluate>
+	</SaveAs>
+
+	<!-- create operator object for each symbol -->
+	<populate class='Operator' using='pointer' saveListAs='pointerList' toBeCalled='lambda deref' />
+
+	<!-- configure each operator with bean set operations -->
+	<bean references='lambda'> <text Description='Lambda anonymous function declarative expression' Reference='Lambda' Symbol='-&gt;' /> <text RenderAs='&#x21F8;' /> <set Precedence='7' /> </bean>
+	<bean references='deref'> <text Description='Pointer dereference' Reference='Deref' Symbol='@|' /> <set Precedence='9' /> </bean>
+
+	<!-- invoke macro to generate operator symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='pointerList'
+	 />
+
+	<Export using='pointer' />		<!-- export library object -->
+
+</JXR>

@@ -21,6 +21,9 @@
 	<!-- configure vector operators -->
 	<READ path='cfg/operators/Vector.xml' using='environment symbolTable' />
 
+	<!-- configure pointer operators -->
+	<READ path='cfg/operators/PointerLib.xml' using='environment symbolTable' />
+
 	<ExportAll />
 
 </JXR>
