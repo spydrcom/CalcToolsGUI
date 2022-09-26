@@ -15,10 +15,17 @@ CALC T
 !! evalTn ( n ) = eval ( T#n ) 
 
 // construct matrix data as concatenated vectors
-!! build(n) = CONCAT [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express build
-A = build N
-CALC A
-
+// !! buildA(n) = CONCAT [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  // express buildA
+// A = buildA N
+// CALC A
+//
 // construct matrix
-M = MATRIX ( A, ORDER, ORDER )
+// M = MATRIX ( A, ORDER, ORDER )
+
+// construct matrix data as stacked vectors
+!! buildM (n) = STACK [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express buildM
+M = buildM (N)
+
+PRETTYPRINT  M
+
 
