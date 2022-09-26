@@ -3,13 +3,43 @@
 //* compute Nth prime
 
 
+// research from:
+// https://www.youtube.com/watch?v=j5s0h42GfvM&skip_registered_account_check=true
+
+// using C.P. Willans @1964
+//  Herbert Wilf UPenn published opinion
+
+// Bertrand postulate @1845
+//  Bertrand–Chebyshev theorem
+// pi(x) - pi(x/2) >= 1 for x >= 2
+
 // (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47)
 
 
-!! mellin (k) = ( (k - 1)! + 1 ) / k
+// Wilson's theorem
+//   integers result from primes
+!! wilsons (k) = ( (k - 1)! + 1 ) / k
 
+// configure cos squared
 CONFIGURE TRIG OP "cos" POW "2" description "cos squared" ; INSTANCE cosSq TRIG
 
-!! count (i) = SIGMA [ 1 <= j <= i ] ( floor ( cosSq ( pi * mellin (j) ) ) )
+// count of integer results
+!! count (i) = SIGMA [ 1 <= j <= i ] ( floor ( cosSq ( pi * wilsons (j) ) ) )
 
+// identify Nth prime
+//  Bertrand's postulate: for n > 3 at least 1 prime P such that n < P < 2n-2
 !! find (n) = 1 + SIGMA [ 1 <= i <= 2^n ] ( floor ( ( n / count (i) )^(1/n) ) )
+
+// show list of practical results
+ps = [ 0 < j < 7 ] ( find j )
+calc ps											; // larger than 7 computation explodes
+
+// reduce to mantissa
+!! fract (x) = x - floor (x)
+
+// demo Wilsons output
+ws = [ 0 < j < 50 ] ( wilsons j )				; // for factored system
+fws = [ 0 < j < 50 ] ( fract (wilsons j) )		; // for float representation
+prettyprint  ws									; // factored needs setmode
+
+
