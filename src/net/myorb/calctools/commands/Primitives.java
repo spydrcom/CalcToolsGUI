@@ -306,6 +306,82 @@ public class Primitives<T> extends Context<T>
 
 
 	/**
+	 * start of a conditional block
+	 * @return a keyword command for the StartConditional prefix
+	 */
+	public KeywordCommand constructStartConditionalCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Start a conditional block"; }
+			public void execute (CommandSequence tokens)
+			{
+				throw new RuntimeException ("Block not implemented");
+			}
+		};
+	}
+	public KeywordCommand constructStartConditionalKeywordCommand ()
+	{ return constructStartConditionalCommand (); }
+
+
+	/**
+	 * end of a conditional block
+	 * @return a keyword command for the EndConditional prefix
+	 */
+	public KeywordCommand constructEndConditionalCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Terminate a conditional block"; }
+			public void execute (CommandSequence tokens)
+			{
+				throw new RuntimeException ("Block not implemented");
+			}
+		};
+	}
+	public KeywordCommand constructEndConditionalKeywordCommand ()
+	{ return constructEndConditionalCommand (); }
+
+
+	/**
+	 * start of a counted loop
+	 * @return a keyword command for the StartLoop prefix
+	 */
+	public KeywordCommand constructStartLoopCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Start a block of a counted loop"; }
+			public void execute (CommandSequence tokens)
+			{
+				throw new RuntimeException ("Block not implemented");
+			}
+		};
+	}
+	public KeywordCommand constructStartLoopKeywordCommand ()
+	{ return constructStartLoopCommand (); }
+
+
+	/**
+	 * end of a counted loop
+	 * @return a keyword command for the EndLoop prefix
+	 */
+	public KeywordCommand constructEndLoopCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Terminate a block of a counted loop"; }
+			public void execute (CommandSequence tokens)
+			{
+				throw new RuntimeException ("Block not implemented");
+			}
+		};
+	}
+	public KeywordCommand constructEndLoopKeywordCommand ()
+	{ return constructEndLoopCommand (); }
+
+
+	/**
 	 * Add a comment to the output stream
 	 * @return a keyword command for the COMMENT prefix
 	 */

@@ -58,6 +58,35 @@
 	 />
 
 
+	<!-- special cases for blocks, conditional and loop -->
+
+	<!-- create Command object for each symbol -->
+	<populate class='Command' using='commands_primitive' saveListAs='blkList'
+		toBeCalled='SCond ECond SLoop ELoop'
+	 />
+
+	<bean references='SCond'>
+		<text Reference='StartConditional' SymbolUsing='START_OF_CONDITIONAL_BLOCK_DELIMITER' />
+	</bean>
+
+	<bean references='ECond'>
+		<text Reference='EndConditional' SymbolUsing='END_OF_CONDITIONAL_BLOCK_DELIMITER' />
+	</bean>
+
+	<bean references='SLoop'>
+		<text Reference='StartLoop' SymbolUsing='START_OF_LOOP_BLOCK_DELIMITER' />
+	</bean>
+
+	<bean references='ELoop'>
+		<text Reference='EndLoop' SymbolUsing='END_OF_LOOP_BLOCK_DELIMITER' />
+	</bean>
+
+	<!-- invoke macro to generate keyword symbol and add to table -->
+	<expand indirectUsing='symbolBean' path='cfg/KeywordSymbol.xml' 
+		using='algorithms symbolTable' inclusionList='blkList'
+	 />
+
+
 	<Export using='commands_primitive' />
 
 </JXR>
