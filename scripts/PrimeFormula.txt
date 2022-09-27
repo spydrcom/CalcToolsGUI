@@ -10,7 +10,7 @@
 //  Herbert Wilf UPenn published opinion
 
 // Bertrand postulate @1845
-//  Bertrand–Chebyshev theorem
+//  Bertrand - Chebyshev theorem
 // pi(x) - pi(x/2) >= 1 for x >= 2
 
 // (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47)
