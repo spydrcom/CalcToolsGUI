@@ -397,5 +397,50 @@ public class Primitives<T> extends Context<T>
 	{ return constructCommentCommand (); }
 
 
+	/**
+	 * Show time and start a stop-watch
+	 * @return a keyword command for Tic
+	 */
+	public KeywordCommand constructTicCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Show time and start a stop-watch"; }
+
+			public void execute (CommandSequence tokens)
+			{
+				lastTic = System.currentTimeMillis ();
+				environment.getOutStream ().println ("Time is: " + lastTic);
+			}
+		};
+	}
+	public static long lastTic = System.currentTimeMillis ();
+	public KeywordCommand constructTicKeywordCommand ()
+	{ return constructTicCommand (); }
+
+
+	/**
+	 * Show elapsed time since last TIC
+	 * @return a keyword command for Toc 
+	 */
+	public KeywordCommand constructTocCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Show elapsed time since last TIC"; }
+
+			public void execute (CommandSequence tokens)
+			{
+				long
+					now = System.currentTimeMillis (),
+					dif = now - lastTic;
+				environment.getOutStream ().println ("Elapsed Time is: " + dif);
+			}
+		};
+	}
+	public KeywordCommand constructTocKeywordCommand ()
+	{ return constructTocCommand (); }
+
+
 }
 

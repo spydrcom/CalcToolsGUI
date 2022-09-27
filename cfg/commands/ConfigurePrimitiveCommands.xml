@@ -62,7 +62,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_primitive' saveListAs='blkList'
-		toBeCalled='SCond ECond SLoop ELoop'
+		toBeCalled='SCond ECond SLoop ELoop Tic Toc'
 	 />
 
 	<bean references='SCond'>
@@ -79,6 +79,14 @@
 
 	<bean references='ELoop'>
 		<text Reference='EndLoop' SymbolUsing='END_OF_LOOP_BLOCK_DELIMITER' />
+	</bean>
+
+	<bean references='Tic'>
+		<text Reference='Tic' SymbolUsing='TIC_KEYWORD' />
+	</bean>
+
+	<bean references='Toc'>
+		<text Reference='Toc' SymbolUsing='TOC_KEYWORD' />
 	</bean>
 
 	<!-- invoke macro to generate keyword symbol and add to table -->
