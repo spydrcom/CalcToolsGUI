@@ -1,0 +1,49 @@
+
+
+//* compute Chebyshev coefficients and construct polynomial
+
+
+// coefficients computed using integral
+RENDER a_k = 2/pi * INTEGRAL [ -1 <= x <= 1 ] ( f(x) * T_k(x) / sqrt (1-x^2) * <*> x )
+
+
+// sample test is simple polynomial with N=22 coefficients
+N = 22 ; ftst = {x} -> { 2*x^3 - 3*x^2 }  
+
+
+// get T polynomials for N=22 (0..22 is 23 polynomials)
+FAMILY Chebyshev #22 First
+CALC T
+
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+// eval Chebyshev T by method
+!! eval ( Tn, b ) =  @|Tn (  b  ) 
+
+// evaluation of integrand using lambda access to function f
+!! u ( v, w ) = @|ftst ( w ) * eval ( T#v, w ) / sqrt ( 1 - w^2 )
+
+// compute coefficient for given Tn, k is count convention
+!! evalKth ( k ) = 2 / pi * TSQuad [ -1 <= x <= 1 ] ( u ( k, x ) ) ; express evalKth
+
+// construct array of coefficients
+!! buildCoef ( n ) = ARRAY [ 0 <= j <= n ]  (  evalKth ( j )  )
+
+// use method to collect coefficients into variable
+cc = buildCoef ( N )
+
+// oddity of the algorithm, first coefficient is 1/pi others are 2/pi
+cc#0 = cc#0 / 2
+CALC cc
+
+// use Clenshaw operator for polynomial
+!! poly (x) = cc @*^ x
+
+// check quality
+!! diff (x) = @| ftst (x) - poly (x)
+
+// plot poly against f and diff
+graph [ -1 <= x <= 1 <> 0.01 ] (  poly (x), diff (x)  )
+
+
