@@ -24,8 +24,7 @@ CALC T
 
 // construct matrix data as stacked vectors
 !! buildM (n) = STACK [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express buildM
-M = buildM (N)
-
+MT = buildM (N) ; M = TRANSPOSE (MT)
 PRETTYPRINT  M
 
 

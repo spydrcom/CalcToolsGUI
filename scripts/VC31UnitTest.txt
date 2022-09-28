@@ -13,6 +13,9 @@ cc = (-1.5479842905575554, 1.6540230270887222, -1.5407337786579887, 0.4531569937
 // prepare equation for test
 !! f(x) = cc @*^ x
 
+// show quality of result
+!! d(x) = f(x) - g(x)
+
 // graph raw equation against spline
-graph [ -1.5 <= x <= 1.5 <> 0.01 ] ( f(x), g(x) )
+graph [ -1.5 <= x <= 1.5 <> 0.01 ] ( f(x), g(x), d(x) )
 

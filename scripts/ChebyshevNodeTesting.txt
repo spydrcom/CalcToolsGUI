@@ -31,6 +31,9 @@ CALC cc
 // declare solution polynomial
 !! test(x) = cc @*^ x
 
+// show quality of result
+!! d(x) = test(x) - f(x)
+
 // plot solution test
-GRAPH [ -1 <= x <= 1 <> 0.01 ] ( test(x) )
+GRAPH [ -1 <= x <= 1 <> 0.01 ] ( test(x), d(x) )
 
