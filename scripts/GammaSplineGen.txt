@@ -14,6 +14,6 @@ DESCRIBE GammaZ Complex GAMMA computed from MPMATH on -0.5 - 70
 apply CPC GammaZ [ -0.5 <= x <= 70 ] 
 savejson GammaZ
 
-plotri GammaZ [-0.5<x<10<>0.01]  
+// plotri GammaZ [-0.5<x<10<>0.01]  
 
 
