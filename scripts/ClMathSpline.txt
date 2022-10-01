@@ -7,7 +7,7 @@
 configure SPLINE description "custom spline generator using CPC"
 
 // specify the factory to use in generation of splines
-configure SPLINE factory "net.myorb.spline.ChebyshevSplineFactory"
+configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
 
 // enable the trace of the spline generation
 // configure SPLINE show "1"

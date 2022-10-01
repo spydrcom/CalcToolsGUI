@@ -7,12 +7,12 @@
 configure SPLINE description "custom spline generator using Cubic algorithm"
 
 // specify the factory to use in generation of splines
-configure SPLINE factory "net.myorb.spline.CubicSplineFactory"
-configure SPLINE every "0.25" delta "0.001"
+configure SPLINE factory CUBIC_SPLINE_FACTORY
+configure SPLINE every 0.25 delta 0.001
 
 // enable the trace of the spline generation
-configure SPLINE show "1"
-configure SPLINE trace "0"
+configure SPLINE trace 0
+configure SPLINE show 1
 
 // name a new instance of the spline tool object
 instance CUBIC SPLINE

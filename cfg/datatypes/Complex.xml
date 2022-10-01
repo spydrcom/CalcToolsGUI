@@ -145,6 +145,29 @@
 
 
 	<!--
+			symbols holding constants used by libraries
+	  -->
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>ASQ_FACTORY</string>
+		<string>net.myorb.spline.ASQFactory</string>
+	</call>
+
+	<call	object='symbolTable' 
+			method='addConstant'>
+		<string>CUBIC_SPLINE_FACTORY</string>
+		<string>net.myorb.spline.CubicSplineFactory</string>
+	</call>
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>CHEBYSHEV_SPLINE_FACTORY</string>
+		<string>net.myorb.spline.ChebyshevSplineFactory</string>
+	</call>
+
+
+	<!--
 			add all desired operator library symbols
 	  -->
 

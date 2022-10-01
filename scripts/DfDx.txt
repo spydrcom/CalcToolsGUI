@@ -6,7 +6,7 @@
 !! f(x) = x*x 
 !! drv(x) = f(x)
 
-configure DFDX syntax "Lagrange" order "1" run "0.001" 
+configure DFDX syntax "Lagrange" order 1 run 0.001
 configure DFDX function "f" variable "x" description "df/dx"
 instance DxF DFDX  
 
