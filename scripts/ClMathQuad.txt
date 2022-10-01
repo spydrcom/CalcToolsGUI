@@ -72,7 +72,7 @@ prettyprint A206160_error
 
 // new ASQ feature 
 configure QUAD method "ASQ" description "custom quadrature using ADP Spline Quad"
-configure QUAD factory "net.myorb.spline.ASQFactory" trace "0"
+configure QUAD factory ASQ_FACTORY trace "0"
 instance ASQuad QUAD
 
 

@@ -105,6 +105,11 @@
 		<evaluate object='version' method='getDescription'/>
 	</call>
 
+	<call object='symbolTable' method='addConstant'>
+		<string>ASQ_FACTORY</string>
+		<string>net.myorb.spline.ASQFactory</string>
+	</call>
+
 
 	<!--
 			add all desired library management objects
