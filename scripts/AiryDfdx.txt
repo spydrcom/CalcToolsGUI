@@ -18,11 +18,15 @@ INFINITY = 30
 // !! K3(x) = Kalpha (1/3,x)
 
 
+// common factors
+//  the BESSEL library will provide Exponential / Polynomial
+//  implementations with specified numbers of terms
+configure BESSEL kind "I" alpha "-1/3" terms 20
+
 // build Bessel functions needed to produce Airy functions
-//  the BESSEL library will provide Exponential / Polynomial implementations with specified numbers of terms
-configure BESSEL kind "I" alpha "-1/3" terms "20" description "Bessel function I (-1/3) in-line" ; instance In3 BESSEL
-configure BESSEL kind "I" alpha  "1/3" terms "20" description "Bessel function I (+1/3) in-line" ; instance Ip3 BESSEL
-configure BESSEL kind "K" alpha  "1/3" terms "20" description "Bessel function K (+1/3) in-line" ; instance  K3 BESSEL
+configure BESSEL description "Bessel function I (-1/3) in-line" ; instance In3 BESSEL
+configure BESSEL alpha  "1/3" description "Bessel function I (+1/3) in-line" ; instance Ip3 BESSEL
+configure BESSEL kind "K" description "Bessel function K (+1/3) in-line" ; instance  K3 BESSEL
 
 
 // equations for Ai and Bi based on Bessel I / K
