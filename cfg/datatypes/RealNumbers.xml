@@ -2,7 +2,7 @@
 
 
 	<SaveAs toBeCalled='CurrentVersion'>
-	<string>2022.1001</string>
+	<string>2022.1015</string>
 	</SaveAs>
 
 
@@ -175,6 +175,12 @@
 			method='addConstant'>
 		<string>CHEBYSHEV_SPLINE_FACTORY</string>
 		<string>net.myorb.spline.ChebyshevSplineFactory</string>
+	</call>
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>CHEBYSHEV_NODES_FACTORY</string>
+		<string>net.myorb.spline.ChebyshevNodesFactory</string>
 	</call>
 
 

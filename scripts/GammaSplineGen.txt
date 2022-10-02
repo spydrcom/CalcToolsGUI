@@ -7,7 +7,8 @@
 express GammaZ 
 
 configure SPLINE description "custom spline generator using CPC" 
-configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+// configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+configure SPLINE factory CHEBYSHEV_NODES_FACTORY
 instance CPC SPLINE 
 
 DESCRIBE GammaZ Complex GAMMA computed from MPMATH on -0.5 - 70 
