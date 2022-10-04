@@ -1,0 +1,43 @@
+
+
+//* eta using cosh
+
+
+// 2^(1-s) GAMMA (s+1) eta (s) = INTEGRAL [ 0 <= t <= INFINITY ] ( t^s / cosh^2 (t) )
+
+
+// s = 0.5 +!* 2
+// !! F(t) = t^s / ( cosh (t) )^2
+// graph [ 0 < x < 10 <> 0.01 ] ( F x )
+
+
+// s = 0.5 +!* 30
+// !! EtaCosh (t) = t^s / ( cosh (t) )^2
+// graph [ 0 < x < 10 <> 0.01 ] ( EtaCosh x )
+// plotri EtaCosh [ 0 < x < 0.05 <> 0.0001 ] 
+// express EtaCosh
+
+//		return Math.cos ( b * Math.log (t) )  / ( coshSq (t) * Math.sqrt (t) );
+
+
+
+// basic cosh formula for given imag part
+!! EtaCosh (t, ImPart) = cos ( ImPart * ln(t) ) / ( ( cosh(t) )^2 * sqrt (t) )
+graph [ 0 < x < 10 <> 0.01 ] ( EtaCosh (x, 5) )
+express EtaCosh
+
+// test with Im = 5
+!! EtaCosh5 (x) = EtaCosh (x,5)
+express EtaCosh5
+
+// configure spline lib
+configure SPLINE description "custom spline generator using CPC" 
+configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+// configure SPLINE factory CHEBYSHEV_NODES_FACTORY
+instance CPC SPLINE 
+
+// apply spline algo
+apply CPC EtaCosh5 [ 0.1 < x <= 10 ] 
+// save the JSON version
+savejson EtaCosh5
+

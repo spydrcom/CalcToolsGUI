@@ -1,0 +1,91 @@
+{
+   "Name": "EtaCosh",
+   "Parameters": 
+   [
+      "t",
+      "ImPart"
+   ],
+   "Description": null,
+   "Expression": 
+   {
+      "OpName": "/",
+      "Left": 
+      {
+         "OpName": "cos",
+         "PostFix": false,
+         "NodeType": "UnaryOP",
+         "Parameter": 
+         {
+            "OpName": "*",
+            "Left": 
+            {
+               "Operator": null,
+               "Symbol": "AssignedVariableStorage",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "ImPart"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "ln",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "Operator": null,
+                  "Symbol": "AssignedVariableStorage",
+                  "NodeType": "Identifier",
+                  "Kind": "Variable",
+                  "Name": "t"
+               }
+            },
+            "OpType": "Binary"
+         }
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "OpName": "^",
+            "Left": 
+            {
+               "OpName": "cosh",
+               "PostFix": false,
+               "NodeType": "UnaryOP",
+               "Parameter": 
+               {
+                  "Operator": null,
+                  "Symbol": "AssignedVariableStorage",
+                  "NodeType": "Identifier",
+                  "Kind": "Variable",
+                  "Name": "t"
+               }
+            },
+            "NodeType": "BinaryOP",
+            "Right": 2.0,
+            "OpType": "Binary"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "sqrt",
+            "PostFix": false,
+            "NodeType": "UnaryOP",
+            "Parameter": 
+            {
+               "Operator": null,
+               "Symbol": "AssignedVariableStorage",
+               "NodeType": "Identifier",
+               "Kind": "Variable",
+               "Name": "t"
+            }
+         },
+         "OpType": "Binary"
+      },
+      "OpType": "Binary"
+   },
+   "NodeType": "Profile"
+}

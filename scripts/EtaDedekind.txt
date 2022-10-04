@@ -1,0 +1,47 @@
+
+
+//* Dedekind eta function
+
+
+requires complex
+
+INFINITY = 10
+
+!! crit (x) = 0.5 +!* x
+
+q = { tau } -> { exp (2*pi*i*tau) }
+
+eta_d = { tau } -> { exp (pi*i*tau/12) * PI [ 1 <= n <= INFINITY ] ( 1 - @| q (tau) ^ n ) }
+
+// test first 20 integers
+err = [ 1 <= j <= 20 ] ( @| eta_d (crit(j)) - eta (crit(j)) )
+calc err
+
+
+// function for eta-D on crit
+!! ed (z) = @| eta_d ( crit (z) )
+
+// function for zeta on crit
+!! Z (z) = zeta ( crit (z) )
+
+// function for Anaconda eta on crit
+!! ea (z) = eta ( crit (z) )
+
+// complex plot of eta-D
+plotri ed [ 2 < x < 20 <> 0.25 ] 
+
+
+// compute zeta ???
+!! mul(s) = 1 - 2^(1-s)
+// !! critmul(s) = 1 - 2^(1-crit(s))
+!! critmul(s) = 1 - 2/2^crit(s)
+plotri critmul [ 2 < x < 20 <> 0.25 ] 
+
+
+!! etaOverMul (x) = ed(x) / critmul(x)
+plotri etaOverMul [ 2 < x < 20 <> 0.01 ] 
+plotri Z [ 2 < x < 20 <> 0.25 ] 
+
+
+
+
