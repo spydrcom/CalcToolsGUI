@@ -22,10 +22,10 @@ RENDER "apply logarithm to complex exponential" TOP
 RENDER cos ( t * ln tau ) * tau ^ (sigma-1)  +   i * sin ( t * ln tau ) * tau ^ (sigma-1)
 RENDER "and for critical section sigma=1/2 so tau^(sigma-1)=1/sqrt tau" TOP
 
-RENDER I(z,tau) = ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( exp(tau+1) * sqrt tau )
+RENDER I(z,tau) = ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( (exp(tau)+1) * sqrt tau )
 RENDER "the full integrand function" TOP
 
-RENDER XI(z) * INTEGRAL [ 0 < tau < INFINITY ] ( ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( exp(tau+1) * sqrt tau ) * <*> tau)
+RENDER XI(z) * INTEGRAL [ 0 < tau < INFINITY ] ( ( cos ( Im(z) * ln tau )  +   i * sin ( Im(z) * ln tau ) ) / ( (exp(tau)+1) * sqrt tau ) * <*> tau)
 RENDER "the full integral computation of eta for complex z" TOP
 
 
