@@ -1,0 +1,30 @@
+
+
+//* compute zeta from cosh integral
+
+
+// parameter to zeta
+// z = 0.5 + 14.134725 * i ; // expects zeta zero
+z = 0.5 + 5*i
+
+// expected result
+expected = zeta z
+calc expected
+
+// calculate t^s / cosh^2 t integral
+INT = 0.0045391374241262866 + 0.011300452351648296*i
+// INT = 4.900261116612447E-10 - 4.664977085178101E-10 * i ; // from zeta zero
+
+// common mu value 
+!! mu(z) = 2^(1-z)
+calc mu z
+
+// compute GAMMA mu
+GammaZplus1 = Gamma (z+1)
+mug = mu(z) * GammaZplus1 * (1-mu(z))
+
+// zeta value is integral over mug value
+Z = INT / mug
+calc Z
+
+calc Z - expected

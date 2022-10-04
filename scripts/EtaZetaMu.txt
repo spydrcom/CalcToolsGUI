@@ -1,6 +1,6 @@
 
 
-//* eta - zeta - mu (or Welcome to Greek Alpabet Soup)
+//* eta - zeta - mu (or Welcome to Greek Alphabet Soup)
 
 
 !! iota (xi) = i * xi + 0.5

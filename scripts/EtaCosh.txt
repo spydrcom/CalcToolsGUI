@@ -17,12 +17,8 @@
 // plotri EtaCosh [ 0 < x < 0.05 <> 0.0001 ] 
 // express EtaCosh
 
-//		return Math.cos ( b * Math.log (t) )  / ( coshSq (t) * Math.sqrt (t) );
-
-
-
 // basic cosh formula for given imag part
-!! EtaCosh (t, ImPart) = cos ( ImPart * ln(t) ) / ( ( cosh(t) )^2 * sqrt (t) )
+!! EtaCosh (t, ImPart) = sqrt (t) * cos ( ImPart * ln(t) ) / ( cosh(t) )^2 
 graph [ 0 < x < 10 <> 0.01 ] ( EtaCosh (x, 5) )
 express EtaCosh
 
@@ -37,7 +33,7 @@ configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
 instance CPC SPLINE 
 
 // apply spline algo
-apply CPC EtaCosh5 [ 0.1 < x <= 10 ] 
+apply CPC EtaCosh5 [ 1 <= x <= 10 ] 
 // save the JSON version
 savejson EtaCosh5
 
