@@ -2,6 +2,7 @@
 
 //* Dedekind eta function
 
+// - a 1/2 weight modular form developed by Richard Dedekind
 
 requires complex
 
