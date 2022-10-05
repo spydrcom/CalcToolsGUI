@@ -12,7 +12,8 @@ expected = zeta z
 calc expected
 
 // calculate t^s / cosh^2 t integral
-INT = 0.0045391374241262866 + 0.011300452351648296*i
+   INT = 0.004539137425320685  + i*0.011300452351648296
+// INT = 0.0045391374241262866 + i*0.011300452351648296    ; // asymptote version
 // INT = 4.900261116612447E-10 - 4.664977085178101E-10 * i ; // from zeta zero
 
 // common mu value 

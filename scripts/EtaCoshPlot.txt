@@ -1,0 +1,29 @@
+
+
+//* plot the cosh eta integrand
+
+
+ s = 0.5 +!* 5
+
+ !! EtaCosh (t) = t^s / ( cosh (t) )^2
+ express EtaCosh
+
+ // graph [ 0 < x < 10 <> 0.01 ] ( EtaCosh x )
+
+ !! EtaCosh5 (t) = EtaCosh (t)
+ plotri EtaCosh5 [ 0 <= x <= 10 <> 0.001 ] 
+express EtaCosh5
+
+
+// configure spline lib
+configure SPLINE description "custom spline generator using CPC" 
+configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+// configure SPLINE factory CHEBYSHEV_NODES_FACTORY
+instance CPC SPLINE 
+
+
+
+// apply spline algo
+apply CPC EtaCosh5 [ 0 <= x <= 10 ] 
+// save the JSON version
+savejson EtaCosh5
