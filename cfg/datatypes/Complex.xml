@@ -143,6 +143,13 @@
 		<referto objectCalled='environment'/>
 	</call>
 
+	<class called='QuadMaster' classpath='net.myorb.math.computational.integration.Quadrature' />
+	<class called='WattenModules' classpath='net.myorb.watten.modules.Selection' />
+
+	<call class='QuadMaster' method='setExternalSupport' >
+		<new class='WattenModules' />
+	</call>
+
 
 	<!--
 			symbols holding constants used by libraries

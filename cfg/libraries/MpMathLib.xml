@@ -7,7 +7,7 @@
 	<class called='MPMathOp' package='CalctoolsSyms' name='CLMathOp'/>
 
 	<!-- create operator object for each symbol of that type using enumeration -->
-	<populate class='MPMathOp' using='mpmath' toBeCalled='Theta Loggamma Digamma Trigamma Mangoldt Lambda' saveListAs='opsList' />
+	<populate class='MPMathOp' using='mpmath' toBeCalled='Theta Loggamma Digamma Trigamma Mangoldt Lambda Zeta' saveListAs='opsList' />
 
 	<!-- create function object for each symbol of that type using enumeration -->
 	<populate class='Function' using='mpmath' toBeCalled='Corless Omega Polylog Polygamma' saveListAs='fullFuncList' />
@@ -17,6 +17,7 @@
 	<bean references='Corless'> <text Description='Corless function' Reference='Corless' Symbol='cp' />  <text Parameters='INIT' /> </bean>
 	<bean references='Polylog'> <text Description='Jonquiere Polylog function' Reference='Polylog' Symbol='polylog' /> </bean>
 	<bean references='Polygamma'> <text Description='Polygamma function' Reference='Polygamma' Symbol='polygamma' /> </bean>
+	<bean references='Zeta'> <text Description='Watten Zeta function' Reference='Zeta' Symbol='watten' /> </bean>
 
 	<bean references='Theta'> <text Description='Siegel THETA' Reference='SiegelTheta' Symbol='THETA' /> <set Precedence='10'/> </bean>
 	<bean references='Loggamma'> <text Description='Loggamma' Reference='Loggamma' Symbol='loggamma' /> <set Precedence='10'/> </bean>
