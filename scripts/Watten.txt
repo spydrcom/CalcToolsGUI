@@ -3,16 +3,27 @@
 //* Watten test
 
 
-
-configure QUAD method "WATTEN" sigma 5 description "custom quadrature using Watten"
-configure QUAD lo 1E-20 hi 1
+configure QUAD method "WATTEN" description "custom quadrature using Watten"
+configure QUAD lo 1E-10 hi 1 multiple 8 sigma 5
 instance WQuad QUAD
 
-k = 5
+!! Ic (k,t) = sqrt t  *  cos (k * ln t) / ( cosh t )^2
+!! Is (k,t) = sqrt t  *  sin (k * ln t) / ( cosh t )^2
 
-!! I (t) = sqrt t  *  cos (k * ln t)
+!! fc(z) = WQuad [ 0 < x < 10 ] (  Ic (Im(z),x) ) ; express fc
+!! fs(z) = WQuad [ 0 < x < 10 ] (  Is (Im(z),x) ) ; express fs
 
-!! f(z) = WQuad [ 0 < x < 10 ] (  I (x) ) ; express f
+!! I(z) = fc(z) + i * fs(z)
 
-calc f(5)
+!! mu(s) = 2 ^ (1 - s)
+!! mus(z) = mu(z) * (1 - mu(z)) * Gamma(z+1)
+!! Z(z) = I(z) / mus(z)
+
+
+!! ZZ (x) = Z (0.5 + i*x)
+plotri  ZZ  [ 2 < x < 6 <> 0.1 ]
+
+
+!! ZT (x) = zeta  (0.5 + i*x)
+plotri  ZT  [ 2 < x < 6 <> 0.1 ]
 
