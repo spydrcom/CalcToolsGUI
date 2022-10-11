@@ -35,3 +35,10 @@ ENTITLED Zeta error of Watten algorithms focus on 2..8 domain
 PLOTRI Zdif [ 0 <= n <= 30 ] 
 ENTITLED Zeta error of Watten algorithms focus on 2..5 domain
 
+!! Zx (x) = A#x
+PLOTRI Zx [ 0 <= n < 130 ] 
+ENTITLED Watten Zeta RI plot 2..15
+
+PLOTRI Z [ 2 <= n < 15 <> 0.05 ] 
+ENTITLED Anaconda MPMATH Zeta plot 2..15
+
