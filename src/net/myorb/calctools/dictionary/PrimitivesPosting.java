@@ -52,14 +52,6 @@ public class PrimitivesPosting<T> extends Primitives<T>
 		id (super.constructCommentCommand(), OperatorNomenclature.COMMENT_PREFIX);
 	}
 
-	public void postConditionalBlockCommand() {
-		id (super.constructConditionalBlockStartCommand (), OperatorNomenclature.START_OF_CONDITIONAL_BLOCK_DELIMITER);
-	}
-
-	public void postCountedBlockCommand() {
-		id (super.constructCountedBlockStartCommand (), OperatorNomenclature.START_OF_LOOP_BLOCK_DELIMITER);
-	}
-
 	public void postCalculateKeywordCommand() {
 		id (super.constructCalculateKeywordCommand(), OperatorNomenclature.CALCULATE_KEYWORD);
 	}
@@ -90,8 +82,6 @@ public class PrimitivesPosting<T> extends Primitives<T>
 	 */
 	public void postAll() {
 		postCommentCommand();
-		postCountedBlockCommand();
-		postConditionalBlockCommand();
 		postAssertKeywordCommand();
 		postBackgroundKeywordCommand();
 		postRecognizeKeywordCommand();

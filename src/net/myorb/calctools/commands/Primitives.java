@@ -398,38 +398,6 @@ public class Primitives<T> extends Context<T>
 
 
 	/**
-	 * Start processing a conditional block
-	 * @return a keyword command for the CONDITIONAL_BLOCK prefix
-	 */
-	public KeywordCommand constructConditionalBlockStartCommand ()
-	{
-		return new KeywordCommand ()
-		{
-			public String describe () { return "Start processing  a conditional block"; }
-			public void execute (CommandSequence tokens) {}
-		};
-	}
-	public KeywordCommand constructConditionalBlockStartKeywordCommand ()
-	{ return constructConditionalBlockStartCommand (); }
-
-
-	/**
-	 * Start processing a counted looping block
-	 * @return a keyword command for the LOOP_BLOCK prefix
-	 */
-	public KeywordCommand constructCountedBlockStartCommand ()
-	{
-		return new KeywordCommand ()
-		{
-			public String describe () { return "Start processing a counted block"; }
-			public void execute (CommandSequence tokens) {}
-		};
-	}
-	public KeywordCommand constructCountedBlockStartKeywordCommand ()
-	{ return constructCountedBlockStartCommand (); }
-
-
-	/**
 	 * Show time and start a stop-watch
 	 * @return a keyword command for Tic
 	 */
