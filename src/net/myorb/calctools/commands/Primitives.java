@@ -6,8 +6,8 @@ import net.myorb.math.expressions.commands.KeywordCommand;
 import net.myorb.math.expressions.gui.DisplayModeForm;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
+import net.myorb.math.expressions.EvaluationBlock;
 import net.myorb.math.expressions.PrettyPrinter;
-import net.myorb.math.expressions.ValueManager;
 import net.myorb.math.expressions.SymbolMap;
 
 /**
@@ -20,7 +20,12 @@ public class Primitives<T> extends Context<T>
 
 	public Primitives
 	(ExpressionSpaceManager<T> manager)
-	{ super (manager); }
+	{
+		super (manager);
+		environment.getControl ().getEngine ().setEvaluationBlock
+		( this.blockControl = new EvaluationBlock <T> (environment, this) );
+	}
+	EvaluationBlock <T> blockControl;
 
 
 	/**
@@ -314,17 +319,10 @@ public class Primitives<T> extends Context<T>
 	{
 		return new KeywordCommand ()
 		{
-			public String describe ()
-			{
-				return "Start a conditional block";
-			}
-
 			public void execute (CommandSequence tokens)
-			{
-				String sym = getBlockID (tokens);
-				int value = getBlockIDValue (tokens, sym) == 0 ? 0 : 1;
-				System.out.println (sym + "=" + value);
-			}
+			{ blockControl.startConditionalBlock (tokens); }
+
+			public String describe () { return "Start a conditional block"; }
 		};
 	}
 	public KeywordCommand constructStartConditionalKeywordCommand ()
@@ -339,35 +337,15 @@ public class Primitives<T> extends Context<T>
 	{
 		return new KeywordCommand ()
 		{
+			public void
+				execute (CommandSequence tokens)
+			{ blockControl.endConditionalBlock (); }
+
 			public String describe () { return "Terminate a conditional block"; }
-			public void execute (CommandSequence tokens)
-			{
-				throw new RuntimeException ("Block not implemented");
-			}
 		};
 	}
 	public KeywordCommand constructEndConditionalKeywordCommand ()
 	{ return constructEndConditionalCommand (); }
-
-
-	int getBlockIDValue (CommandSequence tokens, String sym)
-	{
-		Object found =
-			environment.getSymbolMap ().get (sym);
-		if (found == null) return 0;
-
-		ValueManager.GenericValue v = getValue (tokens);
-		T t = environment.getValueManager ().toDiscrete (v);
-		return environment.getSpaceManager ().toNumber (t).intValue ();
-	}
-
-	String getBlockID (CommandSequence tokens)
-	{
-		String sym = imageOf (tokens, 1, null);
-		if (sym == null) throw new RuntimeException ("Block ID not found");
-		System.out.println ("Block ID seen: " + sym);
-		return sym;
-	}
 
 
 	/**
@@ -378,17 +356,11 @@ public class Primitives<T> extends Context<T>
 	{
 		return new KeywordCommand ()
 		{
-			public String describe ()
-			{
-				return "Start a block of a counted loop";
-			}
+			public void
+				execute (CommandSequence tokens)
+			{ blockControl.startLoopBlock (tokens); }
 
-			public void execute (CommandSequence tokens)
-			{
-				String sym = getBlockID (tokens);
-				int value = getBlockIDValue (tokens, sym);
-				System.out.println (sym + "=" + value);
-			}
+			public String describe () { return "Start a block of a counted loop"; }
 		};
 	}
 	public KeywordCommand constructStartLoopKeywordCommand ()
@@ -403,11 +375,11 @@ public class Primitives<T> extends Context<T>
 	{
 		return new KeywordCommand ()
 		{
+			public void
+				execute (CommandSequence tokens)
+			{ blockControl.endLoopBlock (); }
+
 			public String describe () { return "Terminate a block of a counted loop"; }
-			public void execute (CommandSequence tokens)
-			{
-				throw new RuntimeException ("Block not implemented");
-			}
 		};
 	}
 	public KeywordCommand constructEndLoopKeywordCommand ()
