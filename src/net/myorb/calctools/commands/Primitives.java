@@ -7,6 +7,7 @@ import net.myorb.math.expressions.gui.DisplayModeForm;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.EvaluationBlock;
+import net.myorb.math.expressions.EvaluationEngine;
 import net.myorb.math.expressions.PrettyPrinter;
 import net.myorb.math.expressions.SymbolMap;
 
@@ -19,13 +20,14 @@ public class Primitives<T> extends Context<T>
 
 
 	public Primitives
-	(ExpressionSpaceManager<T> manager)
+	(ExpressionSpaceManager <T> manager)
 	{
 		super (manager);
-		environment.getControl ().getEngine ().setEvaluationBlock
+		(this.engine = environment.getControl ().getEngine ()).setEvaluationBlock
 		( this.blockControl = new EvaluationBlock <T> (environment, this) );
 	}
 	EvaluationBlock <T> blockControl;
+	EvaluationEngine <T> engine;
 
 
 	/**
@@ -319,7 +321,8 @@ public class Primitives<T> extends Context<T>
 	{
 		return new KeywordCommand ()
 		{
-			public void execute (CommandSequence tokens)
+			public void
+				execute (CommandSequence tokens)
 			{ blockControl.startConditionalBlock (tokens); }
 
 			public String describe () { return "Start a conditional block"; }
@@ -377,7 +380,7 @@ public class Primitives<T> extends Context<T>
 		{
 			public void
 				execute (CommandSequence tokens)
-			{ blockControl.endLoopBlock (); }
+			{ blockControl.endLoopBlock (engine); }
 
 			public String describe () { return "Terminate a block of a counted loop"; }
 		};
