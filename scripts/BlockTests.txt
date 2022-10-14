@@ -1,0 +1,33 @@
+
+
+//* test features of conditional and loop blocks
+
+
+MUL_PI = 0
+SIN_PI = 1
+COS_PI = 0
+
+N = 5
+
+*{  N
+
+  ?{ MUL_PI
+
+  calc N * pi
+
+  }?
+
+  ?{ SIN_PI
+
+  calc sin (N * pi/4)
+
+  }?
+
+  ?{ COS_PI
+
+  calc cos (N * pi/4)
+
+  }?
+
+}*
+
