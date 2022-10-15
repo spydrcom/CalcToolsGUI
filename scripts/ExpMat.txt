@@ -1,0 +1,81 @@
+
+
+//* Exp of a matrix
+
+
+// starting matrix value
+X = ( 0, pi,-pi,0 )
+calc X
+
+// put value in structure
+Xm = MATRIX ( X,2,2 )
+ID = IDENTITY( 2,2 )
+calc Xm
+
+// show as matrix
+prettyprint  Xm
+
+// verify matrix arithmetic
+Xm2 = Xm ^ 2 ; prettyprint  Xm2
+
+// start sum with first 2 terms
+sum = ID + Xm  ;  prettyprint sum
+
+// initialize control variables
+N = 2        ; // the count of terms
+F = 1        ; // the accumulated factorial
+P = Xm       ; // the power of the matrix
+
+// loop block for a given count
+COUNT = 20
+
+// start loop
+
+*{ COUNT
+
+// factorial for this term
+F = F * N
+
+// Xm ^ N
+P = P * Xm
+
+// 1 / N!
+Fi = 1 / F
+
+// sum of up to Nth term
+sum = sum + P * Fi
+
+// next value of N
+N = N + 1
+
+// show series result so far
+prettyprint sum
+
+// interesting to see DET drop to 1.0
+calc DET sum
+
+}*
+
+// result should be additive inverse of identity
+proof = sum + ID  ;  prettyprint proof
+// ===============================
+
+
+// alternative means available in CalcLib
+// - polynomial evaluation with a matrix as variable
+// - Taylor series of exp(x) uses inverted factorial coefficients
+Cn = [ 0 <= i <= 20 ] ( 1/i! )
+calc Cn
+
+// CalcLib has polynomial evaluation operator
+!! f(x) = Cn +*^ x
+
+// on real numbers f(1) evaluates as e
+calc f 1
+
+// now pass matrix to function
+s = f Xm  ;  prettyprint s
+
+// again result should be additive inverse of identity
+proof = s + ID  ;  prettyprint proof
+
