@@ -4,12 +4,12 @@
 
 
 // starting matrix value
-X = ( 0, pi,-pi,0 )
+X = ( 0, pi, -pi, 0 )
 calc X
 
 // put value in structure
-Xm = MATRIX ( X,2,2 )
-ID = IDENTITY( 2,2 )
+Xm = MATRIX ( X, 2, 2 )
+ID = IDENTITY ( 2, 2 )
 calc Xm
 
 // show as matrix
@@ -22,9 +22,9 @@ Xm2 = Xm ^ 2 ; prettyprint  Xm2
 sum = ID + Xm  ;  prettyprint sum
 
 // initialize control variables
-N = 2        ; // the count of terms
-F = 1        ; // the accumulated factorial
-P = Xm       ; // the power of the matrix
+N = 2          ; // the count of terms
+F = 1          ; // the accumulated factorial
+P = Xm         ; // the power of the matrix
 
 // loop block for a given count
 COUNT = 20
