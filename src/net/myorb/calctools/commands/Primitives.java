@@ -15,7 +15,7 @@ import net.myorb.math.expressions.SymbolMap;
  * commands related to display and render of symbols
  * @author Michael Druckman
  */
-public class Primitives<T> extends Context<T>
+public class Primitives <T> extends Context <T>
 {
 
 
