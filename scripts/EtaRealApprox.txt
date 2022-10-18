@@ -1,0 +1,34 @@
+
+
+//* real part of eta cosh integrand
+
+
+// real factor in equation
+!! mu (t) = sqrt (t) / ( cosh (t) )^2
+
+// mu times cos factor from e^ikt
+!! f (k,t) = mu (t) * cos ( k * ln t )
+
+// calculated points of cycles in domain
+!! L (n,k) = exp ( - n * pi/k )
+
+// construct array of cycle points
+// - N is number of points - k is sigma
+!! P (N,k) = [ 0 <= n <= N ] ( L (n,k)  )
+
+// 200 points around sigma=14
+A = P ( 200, 14 )  ;  calc A
+
+// sample of test point
+calc A#101
+
+// scale factor for plots
+S = 1E12
+
+// lo and hi points for plot domain
+lo = A#101 * S  ;  hi = A#100 * S
+calc ( lo,hi )
+
+// plot over domain
+graph [ A#102 * S <= x <= A#101 * S <> 0.3  ]  ( f ( k, x/S )  )
+
