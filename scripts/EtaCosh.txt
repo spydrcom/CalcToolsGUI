@@ -28,8 +28,8 @@ express EtaCosh5
 
 // configure spline lib
 configure SPLINE description "custom spline generator using CPC" 
-configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
 // configure SPLINE factory CHEBYSHEV_NODES_FACTORY
+configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
 instance CPC SPLINE 
 
 // apply spline algo
