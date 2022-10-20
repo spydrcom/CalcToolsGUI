@@ -1,0 +1,27 @@
+
+
+LIBRARY SPLINE net.myorb.testing.spline.AmdeberhanTests
+
+!+ I (x)            = SPLINE.evaluateIntegral
+
+calc I ( 0.5 + i*5 )
+
+!! IC (x) = I (0.5 + i*x)
+calc IC 5
+
+plotri IC [ 5 < x < 8 <> 0.1 ] 
+
+
+
+!! mu (s) = 2^(1-s)
+!! eta (s) = (1 - mu(s)) * zeta(s)
+
+// INTEGRAL [ 0 <= t <= INFINITY ] ( t^s / cosh^2 (t) )
+!! Is (s) = (1 - mu(s)) * zeta(s) * mu(s) * Gamma(s+1) 
+
+!! Z(x) = zeta ( 0.5+x*i )
+!! E(x) = eta ( 0.5+x*i )
+!! II(x) = Is ( 0.5+x*i ) 
+
+plotri II [ 5 < x < 8 <> 0.01 ] 
+
