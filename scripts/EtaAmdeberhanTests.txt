@@ -1,27 +1,60 @@
 
 
-LIBRARY SPLINE net.myorb.testing.spline.AmdeberhanTests
+//* testing evaluations of the Amdeberhan integral
 
-!+ I (x)            = SPLINE.evaluateIntegral
+
+// TanhSinh on cycles alla Watten
+LIBRARY WATTEN net.myorb.mpmath.functions.zeta.Watten
+!+ WZ(x) = WATTEN.WattenZeta
+!! WZC(x) = WZ ( 0.5 + i*x )
+
+calc WZ( 0.5 + 14.137*i )
+
+// plot useful range
+plotri WZC [ 2 < x < 16 <> 0.1 ] 
+
+
+
+// Chebyshev spline calculus
+LIBRARY SPLINE net.myorb.testing.spline.AmdeberhanTests
+!+ I (x) = SPLINE.evaluateIntegral
+!! IC (x) = I (0.5 + i*x)
 
 calc I ( 0.5 + i*5 )
-
-!! IC (x) = I (0.5 + i*x)
 calc IC 5
 
 plotri IC [ 5 < x < 8 <> 0.1 ] 
 
 
+// spline class also exports zeta
+!+ Z (x) = SPLINE.zeta
+
+// zeta on critical path
+!! ZC(x) = Z ( 0.5 + i*x )
+
+// test function
+calc ZC 5
+
+// plot useful range
+plotri ZC [ 2 < x < 16 <> 0.1 ] 
+
+
+
+
+// basic polylog factors
 
 !! mu (s) = 2^(1-s)
 !! eta (s) = (1 - mu(s)) * zeta(s)
 
+// Amdeberhan integral and relationship with zeta
 // INTEGRAL [ 0 <= t <= INFINITY ] ( t^s / cosh^2 (t) )
-!! Is (s) = (1 - mu(s)) * zeta(s) * mu(s) * Gamma(s+1) 
+!! Is (s) = mu(s) * (1 - mu(s)) * zeta(s) * Gamma(s+1) 
 
+// evaluations on critical strip
 !! Z(x) = zeta ( 0.5+x*i )
 !! E(x) = eta ( 0.5+x*i )
 !! II(x) = Is ( 0.5+x*i ) 
 
+// plot of Amdeberhan based on use of zeta
 plotri II [ 5 < x < 8 <> 0.01 ] 
 
