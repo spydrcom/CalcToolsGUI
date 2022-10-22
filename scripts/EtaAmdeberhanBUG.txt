@@ -1,0 +1,39 @@
+
+
+//* the great Amdeberhan BUG search
+
+
+// import from MPMATH library
+LIBRARY WATTEN net.myorb.mpmath.functions.zeta.Watten
+!+ WA(x) = WATTEN.WattenAmdeberhan
+!+ WZ(x) = WATTEN.WattenZeta
+
+// imported zeta
+!! WZC(x) = WZ ( 0.5 + i*x )
+plotri WZC [ 14< x < 16 <> 0.01 ] 
+
+// imported integral
+!! WAC(x) = WA ( 0.5 + i*x )
+plotri WAC [ 14< x < 16 <> 0.01 ] 
+
+// zeta/AMD
+!! mu (s) = 2^(1-s)
+// zeta ratio to Amdeberhan
+!! zr (s) = (1 - mu(s)) * mu(s) * Gamma(s+1) 
+!! Is (s) =  zeta(s) * zr(s)
+
+// AMD from zeta
+!! ISC (s) = Is ( 0.5 + i*s )
+plotri ISC [ 14< x < 16 <> 0.01 ] 
+
+// ISC VS WAC
+!! dif (z) = ISC(z) - WAC(z)
+plotri dif  [ 14< x < 16 <> 0.01 ] 
+// FLAT LINE ZERO
+
+// result: Lanzos algorithm breaks down starting between 15.3 and 15.6
+
+!! Z (s) = WA(s) / zr(s)			; // zr uses Anaconda for Gamma
+!! ZC (x) = Z ( 0.5 + i*x )
+plotri ZC [ 14< x < 16 <> 0.01 ] 
+

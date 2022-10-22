@@ -1,0 +1,55 @@
+
+
+//* Amdeberhan working space
+
+
+SCALE_UP = 1E10
+
+L = 24  ;  H = 26  ;  D = 0.02
+
+
+// import from MPMATH library
+LIBRARY WATTEN net.myorb.mpmath.functions.zeta.Watten
+!+ WA(x, c, s, inf, prc, mul, dbg) = WATTEN.WatAmd
+
+!! WAC(x) = WA ( 0.5 + i*x, 1000, 2, 50, 1E-10, 1E4, 0 ) * SCALE_UP
+
+plotri WAC [ L< x < H <> D ] 
+
+
+
+// zeta/AMD
+
+!! mu (s) = 2^(1-s)
+
+// zeta ratio to Amdeberhan
+!! zr (s) = (1 - mu(s)) * mu(s) * Gamma(s+1) 
+!! Is (s) =  zeta(s) * zr(s)
+
+
+
+// AMD from zeta
+!! ISC (s) = Is ( 0.5 + i*s ) * SCALE_UP
+plotri ISC [ L< x < H <> 0.1 ] 
+
+
+
+
+// ISC VS WAC
+!! dif (z) = ISC(z) - WAC(z)
+plotri dif  [ L < x < H <> D ] 
+
+
+
+// view as zeta
+
+!! ZC (x) = WAC (x) / zr ( 0.5 + i*x )
+plotri ZC  [ L < x < H <> D ] 
+
+!! AZC(x) = zeta ( 0.5 + i*x )
+plotri AZC  [ L< x < H <> D ] 
+
+!! zdif (z) = AZC(z) - ZC(z)
+plotri zdif  [ L< x < H <> D ] 
+
+
