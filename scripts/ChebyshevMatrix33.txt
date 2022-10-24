@@ -1,0 +1,47 @@
+
+
+//*  compute the matrix of Chebyshev nodes for order 33
+
+
+N = 32 ; d = pi/N
+!! f(x) = - cos x
+
+// matrix order is 1 larger than point count
+ORDER = N + 1
+
+// collect array of the points curve
+points = ARRAY [ 0 <= i <= N ]   (    f (  i * d  )    )
+
+// values of the points
+CALC points 
+
+// plot of the points curve
+GRAPH  [  0  <=   x  <=   N   ]   (   f   (  x * d  )   )
+
+
+
+// calculate the points for N=22 (0..22 is 23 points)
+// READ ChebyshevPoints.txt ; // done inline
+
+// get T polynomials for N=22 (0..22 is 23 polynomials)
+FAMILY Chebyshev #32 First
+CALC T
+
+// build row vector arrays for given Tn
+!! eval ( Tn ) = ARRAY [ 0 <= i <= N ]   ( @|Tn (   points # i   )  )
+!! evalTn ( n ) = eval ( T#n ) 
+
+// construct matrix data as concatenated vectors
+// !! buildA(n) = CONCAT [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  // express buildA
+// A = buildA N
+// CALC A
+//
+// construct matrix
+// M = MATRIX ( A, ORDER, ORDER )
+
+// construct matrix data as stacked vectors
+!! buildM (n) = STACK [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express buildM
+MT = buildM (N) ; M = TRANSPOSE (MT)
+PRETTYPRINT  M
+
+
