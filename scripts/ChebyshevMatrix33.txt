@@ -10,20 +10,23 @@ N = 32 ; d = pi/N
 ORDER = N + 1
 
 // collect array of the points curve
-points = ARRAY [ 0 <= i <= N ]   (    f (  i * d  )    )
+// points = ARRAY [ 0 <= i <= N ]   (    f (  i * d  )    )
+
+// pre-calculated points forced to be symmetric
+points = ( -1.0, -0.9951847266721969, -0.9807852804032304, -0.9569403357322088, -0.9238795325112867, -0.881921264348355, -0.8314696123025452, -0.773010453362737, -0.7071067811865476, -0.6343932841636455, -0.5555702330196023, -0.4713967368259978, -0.38268343236508984, -0.29028467725446233, -0.19509032201612833, -0.09801714032956077, 0.0, 0.09801714032956077, 0.19509032201612833, 0.29028467725446233, 0.38268343236508984, 0.4713967368259978, 0.5555702330196023, 0.6343932841636455, 0.7071067811865476, 0.773010453362737, 0.8314696123025452, 0.881921264348355, 0.9238795325112867, 0.9569403357322088, 0.9807852804032304, 0.9951847266721969, 1.0 )
 
 // values of the points
 CALC points 
 
 // plot of the points curve
-GRAPH  [  0  <=   x  <=   N   ]   (   f   (  x * d  )   )
+// GRAPH  [  0  <=   x  <=   N   ]   (   f   (  x * d  )   )
 
 
 
-// calculate the points for N=22 (0..22 is 23 points)
+// calculate the points for N=32 (0..32 is 33 points)
 // READ ChebyshevPoints.txt ; // done inline
 
-// get T polynomials for N=22 (0..22 is 23 polynomials)
+// get T polynomials for N=32 (0..32 is 33 polynomials)
 FAMILY Chebyshev #32 First
 CALC T
 
@@ -44,4 +47,24 @@ CALC T
 MT = buildM (N) ; M = TRANSPOSE (MT)
 PRETTYPRINT  M
 
+
+
+// get Colt library report
+READ ColtLib.txt
+CALC MatRpt (M)
+
+
+// get results of LU decomposition
+ML = GetLudL() ; MU = GetLudU()
+
+
+// pivot vector is taken from Colt MAT Report
+A = (0, 32, 16, 10, 23, 6, 27, 19, 13, 4, 25, 21, 8, 29, 14, 2, 18, 30, 11, 5, 24, 17, 9, 28, 3, 22, 15, 26, 7, 12, 20, 31, 1)
+MP = MATRIX ( A, ORDER, 1 )
+
+
+// write TDF files
+EXPORT ML VCN32L.TDF
+EXPORT MU VCN32U.TDF
+EXPORT MP VCN32P.TDF
 

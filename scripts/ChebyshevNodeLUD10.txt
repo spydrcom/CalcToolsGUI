@@ -1,0 +1,45 @@
+
+
+//* compute the  Chebyshev points LUD for N=10 forced symmetric
+
+
+// pre-calculated points forced to be symmetric
+symmetricPoints = ( -1.0, -0.9510565162951535, -0.8090169943749475, -0.5877852522924731, -0.30901699437494745, 0.0, 0.30901699437494745, 0.5877852522924731, 0.8090169943749475, 0.9510565162951535, 1.0 )
+N = 10 ; ORDER = N + 1
+
+
+// get T polynomials for N=10 (0..10 is 11 polynomials)
+FAMILY Chebyshev #10 First
+CALC T
+
+
+// build row vector arrays for given Tn
+!! eval ( Tn ) = ARRAY [ 0 <= i <= N ]   ( @|Tn (   symmetricPoints # i   )  )
+!! evalTn ( n ) = eval ( T#n ) 
+
+
+// construct matrix data as stacked vectors
+!! buildM (n) = STACK [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express buildM
+MT = buildM (N) ; M = TRANSPOSE (MT)
+PRETTYPRINT  M
+
+
+// get Colt library report
+READ ColtLib.txt
+CALC MatRpt (M)
+
+
+// get results of LU decomposition
+ML = GetLudL() ; MU = GetLudU()
+
+
+// pivot vector is taken from Colt MAT Report
+A = (0, 10, 5, 3, 7, 2, 8, 6, 4, 1, 9)
+MP = MATRIX ( A, ORDER, 1 )
+
+
+// write TDF files
+EXPORT ML VCN10L.TDF
+EXPORT MU VCN10U.TDF
+EXPORT MP VCN10P.TDF
+

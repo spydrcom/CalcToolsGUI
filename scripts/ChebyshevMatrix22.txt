@@ -3,8 +3,13 @@
 //*  compute the matrix of Chebyshev nodes
 
 
+N = 22  ;  ORDER = N + 1
+
 // calculate the points for N=22 (0..22 is 23 points)
-READ ChebyshevPoints.txt
+// READ ChebyshevPoints.txt
+
+// pre-calculated points forced to be symmetric
+points = ( -1.0, -0.9898214418809327, -0.9594929736144974, -0.9096319953545184, -0.8412535328311812, -0.7557495743542583, -0.6548607339452851, -0.5406408174555977, -0.41541501300188644, -0.2817325568414298, -0.14231483827328512, 0.0, 0.14231483827328512, 0.2817325568414298, 0.41541501300188644, 0.5406408174555977, 0.6548607339452851, 0.7557495743542583, 0.8412535328311812, 0.9096319953545184, 0.9594929736144974, 0.9898214418809327, 1.0 )
 
 // get T polynomials for N=22 (0..22 is 23 polynomials)
 FAMILY Chebyshev #22 First
@@ -27,4 +32,21 @@ CALC T
 MT = buildM (N) ; M = TRANSPOSE (MT)
 PRETTYPRINT  M
 
+
+
+// get Colt library report
+READ ColtLib.txt
+CALC MatRpt (M)
+
+// get results of LU decomposition
+ML = GetLudL() ; MU = GetLudU()
+
+// pivot vector is taken from Colt MAT Report
+A = (0, 22, 11, 15, 6, 18, 4, 9, 13, 20, 2, 8, 16, 5, 19, 12, 3, 14, 10, 17, 7, 1, 21)
+MP = MATRIX ( A, ORDER, 1 )
+
+// write TDF files
+EXPORT ML VCN22L.TDF
+EXPORT MU VCN22U.TDF
+EXPORT MP VCN22P.TDF
 
