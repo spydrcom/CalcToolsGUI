@@ -1,0 +1,28 @@
+
+
+//* compare PI integral computations against Anaconda GAMMA*Z
+
+
+// imported from SpecialFunctions package
+init "net.myorb.math.specialfunctions.Pi" named "PZ"
+
+// Anaconda GAMMA*Z
+!! API (z) = Gamma(z) * z
+
+// criticl region used
+!! crit (x) = 0.5 + i*x
+
+// scale for better plot sensitivity
+s = 1000000
+
+// difference computed
+!! d (x) = s * PZ (crit(x))  -  s * API (crit(x))
+
+// RI plot of difference
+plotri d [3 <= x <= 15 <> 0.5]
+
+// straight plot of PI function
+!! P (z) = PZ (crit(z))
+
+plotri P [3 <= x <= 10 <> 0.2] 
+
