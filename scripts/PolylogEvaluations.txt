@@ -1,0 +1,31 @@
+
+
+//* compare polylog computations against Anaconda 
+
+
+// imported from SpecialFunctions package
+init "net.myorb.math.specialfunctions.polylog.Zeta" named "Z"
+init "net.myorb.math.specialfunctions.polylog.Eta" named "E"
+
+// Anaconda zeta
+!! AZ (z) = zeta z
+
+// criticl region used
+!! crit (x) = 0.5 + i*x
+
+// scale for better plot sensitivity
+s = 1000000
+
+// difference computed
+!! d (x) = s * Z (crit(x))  -  s * AZ (crit(x))
+
+// RI plot of difference
+plotri d [3 <= x <= 15 <> 0.5]
+
+// straight plot of  functions
+!! P (z) = Z (crit(z))
+!! Q (z) = E (crit(z))
+
+plotri P [3 <= x <= 15 <> 0.2] 
+plotri Q [3 <= x <= 15 <> 0.2] 
+

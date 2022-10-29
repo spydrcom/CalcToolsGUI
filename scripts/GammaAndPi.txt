@@ -4,7 +4,7 @@
 
 
 // imported from SpecialFunctions package
-init "net.myorb.math.specialfunctions.Pi" named "PZ"
+init "net.myorb.math.specialfunctions.polylog.Pi" named "PZ"
 
 // Anaconda GAMMA*Z
 !! API (z) = Gamma(z) * z
