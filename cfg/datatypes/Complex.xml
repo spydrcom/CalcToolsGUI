@@ -143,11 +143,25 @@
 		<referto objectCalled='environment'/>
 	</call>
 
+
+	<!--
+			special case quadrature configurations
+	  -->
+
 	<class called='QuadMaster' classpath='net.myorb.math.computational.integration.Quadrature' />
 	<class called='WattenModules' classpath='net.myorb.watten.modules.Selection' />
 
 	<call class='QuadMaster' method='setExternalSupport' >
 		<new class='WattenModules' />
+	</call>
+
+	<!-- polylog quadrature -->
+
+	<class called='PolylogMaster' classpath='net.myorb.math.computational.PolylogQuadrature' />
+	<class called='VCNAlgorithms' classpath='net.myorb.spline.algorithms.SplineQuadratureFunctionality' />
+
+	<call class='PolylogMaster' method='addQuadratureMethod' >
+		<new class='VCNAlgorithms' />
 	</call>
 
 
