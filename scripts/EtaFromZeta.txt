@@ -1,0 +1,27 @@
+
+
+//* compare computed eta against Anaconda zeta standard
+
+
+!! mu(z) = 2^(1-z)
+
+!! G(z) = Gamma (z+1)
+
+!! mugsi(z) = mu(z) * (1-mu(z)) * G(z)
+
+!! E(z) =  zeta(z)  * mugsi(z)
+
+calc E ( 0.5 + i  )
+
+
+
+init "net.myorb.math.specialfunctions.polylog.Eta" named "SFeta" 
+!! etaCrit (x) = SFeta ( 0.5 + x*i )
+plotri etaCrit [1 <= x <= 5 <> 0.2]
+
+
+!! etaFromZeta(z) = zeta(z) * (1-mu(z))
+!! ECrit (x) = etaFromZeta ( 0.5 + x*i )
+plotri ECrit [1 <= x <= 5 <> 0.2]
+
+
