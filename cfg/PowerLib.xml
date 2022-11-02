@@ -2,7 +2,7 @@
 
 	<void> <new saveAs='Hypot' class='Function' using='power' /> </void>
 	
-	<populate class='Operator' using='power' toBeCalled='Log Exp Root Radical Factorial DFactorial RFactorial FFactorial Pochhammer Binomial Harmonic Bernoulli Rem Rsh Lsh ToThe PowN Sqrt' />
+	<populate class='Operator' using='power' toBeCalled='Log Exp Root Radical Factorial DFactorial RFactorial FFactorial Pochhammer Binomial Stirling Euler Harmonic Bernoulli Rem Rsh Lsh ToThe PowN Sqrt' />
 
 	<bean references='Exp'> <text Description='Exponentiation (anti-log) operator' Reference='Exp' Symbol='exp' /> <set Precedence='10' /> </bean>
 	<bean references='Log'> <text Description='Natural log function of complex value' Reference='Log' Symbol='ln' /> <set Precedence='10' /> </bean>
@@ -18,6 +18,8 @@
 	<bean references='RFactorial'> <text Description='Binary Factorial rising  operator' Reference='Fris' Symbol='/#' /> <set Precedence='9' /> </bean>
 	<bean references='FFactorial'> <text Description='Binary Factorial falling operator' Reference='Ffal' Symbol='#/' /> <set Precedence='9' /> </bean>
 	<bean references='Binomial'> <text Description='Binomial coefficient operator (n ## k)' Reference='BC' Symbol='##' /> <set Precedence='10' /> </bean>
+	<bean references='Stirling'> <text Description='Stirling numbers operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
+	<bean references='Euler'> <text Description='Euler numbers operator (n #%# m)' Reference='EN' Symbol='#%#' /> <set Precedence='10' /> </bean>
 	<bean references='Pochhammer'> <text Description='Pochhammer rising operator' Reference='Poch' Symbol='/#+' /> <set Precedence='9' /> </bean>
 	<bean references='Harmonic'> <text Description='Harmonic function' Reference='Harmonic' Symbol='HARMONIC' /> <set Precedence='10' /> </bean>
 	<bean references='Sqrt'> <text Description='Unary square root operator' Reference='Sqrt' Symbol='sqrt' /> <set Precedence='9' /> </bean>
@@ -25,7 +27,7 @@
 	<bean references='Lsh'> <text Description='Left shift operator' Reference='Lsh' Symbol='&lt;&lt;' /> <set Precedence='8' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable'
-			including='Log Exp Root Factorial DFactorial RFactorial FFactorial Pochhammer Rem Rsh Lsh ToThe PowN Radical Sqrt Binomial Harmonic Bernoulli' />
+			including='Log Exp Root Factorial DFactorial RFactorial FFactorial Pochhammer Rem Rsh Lsh ToThe PowN Radical Sqrt Binomial Stirling Euler Harmonic Bernoulli' />
  	<macro symbolBean='Hypot' path='cfg/FunctionSymbol.xml' using='algorithms Hypot symbolTable' />
 
 </JXR>

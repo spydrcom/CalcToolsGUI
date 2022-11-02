@@ -14,7 +14,7 @@
 
 	<!-- create operator object for each symbol -->
 	<populate class='Operator' using='polynomial_evaluation' saveListAs='opsList'
-		toBeCalled='ArrayEval ExpEval PolyEval PolyPrime PolyDprime ClenshawPrime ClenshawDprime ClenshawEval HarEval'
+		toBeCalled='ArrayEval ExpEval PolyEval PolyPrime PolyDprime ClenshawPrime ClenshawDprime ClenshawEval EulerEval HarEval'
 	 />
 
 	<bean references='ArrayEval'> <text Description='Evaluate function defined by array at X' Reference='ArrayEval' Symbol='@#' /> <set Precedence='10' /> </bean>
@@ -26,6 +26,7 @@
 	<bean references='ClenshawDprime'> <text Description='Evaluate a Chebyshev polynomial second derivative using Clenshaw&apos;s special case defined by an array of coefficients' Reference='ClenshawDprime' Symbol='@*^&apos;&apos;' /> <set Precedence='10' /> </bean>
 	<bean references='ClenshawEval'> <text Description='Evaluate a Chebyshev polynomial using Clenshaw&apos;s special case defined by an array of coefficients ( c0 + c1*T[1](x) + c2*T[2](x) + ... )' Reference='ClenshawEval' Symbol='@*^' /> <set Precedence='10' /> </bean>
 	<bean references='HarEval'> <text Description='Evaluate a harmonic series defined by an array of coefficients ( c0 + c1*cos(x) + c2*cos(2x) + ... )' Reference='HarEval' Symbol='+#*' /> <set Precedence='10' /> </bean>
+	<bean references='EulerEval'> <text Description='Evaluate an Euler polynomial defined by a specified order' Reference='EulerEval' Symbol='#*^' /> <set Precedence='10' /> </bean>
 
 	<!-- invoke macro to generate operator and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' 
