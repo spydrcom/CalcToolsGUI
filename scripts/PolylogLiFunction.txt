@@ -11,6 +11,21 @@ RENDERF Li
 order = 2
 parameter = 0.5 + 5*i
 !! It (t) = I ( order, parameter, t )
-
 plotri It [ 0 <= x <= 50 ]
+
+
+// imported from SpecialFunctions package
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li0" s "0"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li1" s "1"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li_1" s "-1"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li_2" s "-2"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li_3" s "-3"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li_4" s "-4"
+
+calc Li1 0.5 - ln 2
+
+graph LIM 5  [ -8 <= x < 1 <> 0.05 ] ( Li0 x, Li1 x, Li_1 x, Li_2 x, Li_3 x, Li_4 x )
+
+!! LiCrit (x) = Li_4 ( 0.5 + i*x )
+plotri  LiCrit [ 0 <= x <= 2 <> 0.01]
 
