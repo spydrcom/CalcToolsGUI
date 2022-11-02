@@ -1,0 +1,16 @@
+
+
+//* polylog function Li study
+
+
+!! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( t^(s-1) / ( exp(t)/z - 1 ) * <*> t )
+RENDERF Li
+
+!! I (s, z, t) = t^(s-1) / ( exp(t)/z - 1 )
+
+order = 2
+parameter = 0.5 + 5*i
+!! It (t) = I ( order, parameter, t )
+
+plotri It [ 0 <= x <= 50 ]
+
