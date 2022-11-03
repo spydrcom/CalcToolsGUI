@@ -1,5 +1,5 @@
 
-// testing of Exponential Integral realized using AD Spline
+//* testing of Exponential Integral realized using AD Spline
 
 LIBRARY ExpInt net.myorb.math.specialfunctions.ExponentialIntegral
 LIBRARY SpecFunc net.myorb.math.specialfunctions.Library
@@ -58,6 +58,21 @@ PRETTYPRINT RhoMax
 // integral of rho
 !! Ri(x) = rho(x) $| (1, x, 1E-3)
 PLOTF Ri  [  1 <=    x    <= 10  <>  0.1  ]  
+
+
+// non-trivial zero of li
+liComputedZero = 1.4
+ROOTOF li liComputedZero
+A070769 = 1.45136923488338105028
+A070769Error = A070769 - liComputedZero
+PRETTYPRINT liComputedZero
+PRETTYPRINT A070769Error
+
+
+// computed value of li 2
+A069284 = 1.045163780117492784
+A069284Error = A069284 - li 2
+PRETTYPRINT A069284Error
 
 
 EiCrossesLiNear = 0.5
