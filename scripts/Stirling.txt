@@ -1,0 +1,31 @@
+
+
+//* Stirling approximation
+
+
+// Gamma treatment of factorial
+!! G (x) =  GAMMA ( x + 1 )
+
+// Stirling approximation formula
+!! SA (x) =  sqrt ( 2 * pi * x ) * ( x / e ) ^ x 
+// render of formula
+RENDERF SA
+
+// plot GAMMA against approximation
+graph [ 0 < x < 3 <> 0.01 ] ( G x, SA x )
+
+// compute running difference
+!! dif (x) = G (x) - SA (x)
+
+// plot of difference
+graph [ 0 < x < 5 <> 0.01 ] ( dif x )
+
+// adjusted with Laplace's method
+!! SAA (x) =  SA (x) * ( 1 + 1 / ( 12 * x ) ) 
+graph [ 0 < x < 3 <> 0.01 ] ( G x, SAA x )
+
+!! dif (x) = G (x) - SAA (x)
+// plot of the adjusted version
+graph [ 0 < x < 5 <> 0.01 ] ( dif x )
+RENDERF SAA
+
