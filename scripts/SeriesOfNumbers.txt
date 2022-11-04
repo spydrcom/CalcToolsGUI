@@ -8,6 +8,7 @@ f = {j,k} -> { j #%# k }	; // Euler
 f = {j,k} -> { j $$ k }		; // Stirling
 f = {j,k} -> { j $$$ k }	; // Stirling (second)
 f = {j,k} -> { j ## k }		; // Pascal
+f = {j,k} -> { j #$# k }	; // Bell
 
 
 // building array
