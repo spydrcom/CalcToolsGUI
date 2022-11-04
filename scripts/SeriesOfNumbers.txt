@@ -1,0 +1,34 @@
+
+
+//* Euler, Stirling, Pascal, etc.
+
+
+// generator selected
+f = {j,k} -> { j #%# k }	; // Euler
+f = {j,k} -> { j $$ k }		; // Stirling
+f = {j,k} -> { j $$$ k }	; // Stirling (second)
+f = {j,k} -> { j ## k }		; // Pascal
+
+
+// building array
+AA = ()
+N = 10
+
+// loop
+*{ N
+
+
+m = 11 - N
+// build a row
+A = [ 0 <= n < 10 ] (  @| f (m,n) )
+AA = APPEND (AA, A)
+CALC A
+
+
+}*
+
+
+// print the triangle
+M = MATRIX (AA,10,10)
+PRETTYPRINT M
+
