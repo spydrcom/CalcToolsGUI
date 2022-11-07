@@ -72,18 +72,34 @@
 
 
 	<SaveAs toBeCalled='algorithms'>
-		<new package='Algorithms' name='FactorizationPrimitives' using='environment' />
+		<new package='Algorithms' name='PrimePrimitives' using='environment' />
 	</SaveAs>
 
 
+	<!-- create operator object for each operation symbol from prime algorithms -->
+	<populate class='Operator' using='algebraic' toBeCalled='Primorial ' saveListAs='opsList' />
+	
+	<bean references='Primorial'> <text Description='Primorial function on integer prime index' Reference='Primorial' Symbol='#!' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
+
+
 	<!-- create function object for each operation symbol -->
-	<populate class='Function' using='algebraic' toBeCalled='Fudge Factors Primes Gcf Lcm' saveListAs='funcList' />
+	<populate class='Function' using='algebraic' toBeCalled='Fudge Factors Primes Gcf Lcm Mod Rem ModPow DivRem' saveListAs='funcList' />
 
 	<bean references='Fudge'> <text Description='Adjust blob factor to reduce representation size' Reference='Fudge' Symbol='FUDGE' /> </bean>
+	
 	<bean references='Factors'> <text Description='Get an array of all prime factors of the parameter' Reference='Factors' Symbol='FACTORS' /> </bean>
 	<bean references='Primes'> <text Description='Get an array of all primes less than parameter' Reference='Primes' Symbol='PRIMES' /> </bean>
+	
 	<bean references='Gcf'> <text Description='Greatest common factor of two integers' Reference='Gcf' Symbol='gcf' /> </bean>
 	<bean references='Lcm'> <text Description='Least common multiple of two integers' Reference='Lcm' Symbol='lcm' /> </bean>
+	
+	<bean references='Mod'> <text Description='Modulus of two integers' Reference='Mod' Symbol='MOD' /> </bean>
+	<bean references='Rem'> <text Description='Remainder from division of two integers' Reference='Rem' Symbol='REM' /> </bean>
+
+	<bean references='ModPow'> <text Description='Modulus of exponentiation of two integers' Reference='ModPow' Symbol='MODPOW' /> </bean>
+	<bean references='DivRem'> <text Description='Divisor and remainder from integer division' Reference='DivRem' Symbol='DIVREM' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
 
