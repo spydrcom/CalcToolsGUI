@@ -11,19 +11,43 @@ f = {j,k} -> { j ## k }		; // Pascal
 f = {j,k} -> { j #$# k }	; // Bell
 
 
+// Renders of formulas
+
+RENDER n ## k = n! / ( k! * (n-k)! )
+RENDER "Pascal Triangle (Binomial Coefficients)" TOP
+
+RENDER C_n = 1/(n+1) * ( (2*n) ## n )
+RENDER "Catalan Numbers" TOP
+
+!! L(m,n) = (2*n) ## (m+n)  -  (2*n) ## (m+n+1)
+RENDERF L ; RENDER "Lobb Numbers" TOP
+
+RENDER n $$ k = (n-1) * ( (n-1) $$ k ) + ( (n-1) $$ (k-1) )
+RENDER "Stirling Numbers of first kind" TOP
+
+RENDER n $$$ k = 1/k! * SIGMA [ 0 <= i <= k ] ( (-1)^i * (k ## i) * (k - i)^n )
+RENDER "Stirling Numbers of second kind" TOP
+
+RENDER B_n = SIGMA [ 0 <= k <= n ] ( n $$$ k )
+RENDER "Bell Numbers" TOP
+
+!! N (m,n) = 1/n * n ## k  *  n ## (k-1)
+RENDERF N ; RENDER "Narayana Numbers" TOP
+
+
+
 // building array
 AA = ()
-N = 10
+remaining = 10
 
 // loop
-*{ N
+*{ remaining
 
 
-m = 11 - N
+m = 11 - remaining
 // build a row
 A = [ 0 <= n < 10 ] (  @| f (m,n) )
 AA = APPEND (AA, A)
-CALC A
 
 
 }*
