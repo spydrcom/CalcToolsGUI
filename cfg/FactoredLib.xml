@@ -1,0 +1,84 @@
+<JXR>
+
+
+	<SaveAs toBeCalled='algorithms'>
+		<new package='Algorithms' name='PrimePrimitives' using='environment' />
+	</SaveAs>
+
+
+	<!-- create operator object for each operation symbol from factored algorithms -->
+
+	<populate class='Operator' using='factored' toBeCalled='Primorial DivRemBin RemUop PowN Rsh Lsh' saveListAs='opsList' />
+	
+	<bean references='RemUop'> <text Description='Binary conventional remainder operator n%m; integer only' Reference='RemOp' Symbol='%' /> <set Precedence='8' /> </bean>
+
+	<bean references='Primorial'> <text Description='Primorial function on integer prime index' Reference='Primorial' Symbol='#!' /> <set Precedence='9' /> </bean>
+	<bean references='DivRemBin'> <text Description='Divisor and remainder from operator' Reference='DivRemOp' Symbol='/%' /> <set Precedence='9' /> </bean>
+
+	<bean references='PowN'> <text Description='Binary conventional exponentiation operator x^n; intended for small integer exponents' Reference='Pow' Symbol='^' /> <set Precedence='9' /> </bean>
+
+	<bean references='Rsh'> <text Description='Right shift operator' Reference='Rsh' Symbol='&gt;&gt;' /> <set Precedence='8' /> </bean>
+	<bean references='Lsh'> <text Description='Left shift operator' Reference='Lsh' Symbol='&lt;&lt;' /> <set Precedence='8' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
+
+
+	<!-- create function object for each operation symbol -->
+
+	<populate class='Function' using='factored' saveListAs='funcList'
+		toBeCalled='Fudge Factors Primes Gcd Lcm Gcf Mod Rem ModPow DivRem Floor Ceil Round'
+	 />
+
+	<bean references='Fudge'> <text Description='Adjust blob factor to reduce representation size' Reference='Fudge' Symbol='FUDGE' /> </bean>
+	
+	<bean references='Factors'> <text Description='Get an array of all prime factors of the parameter' Reference='Factors' Symbol='FACTORS' /> </bean>
+	<bean references='Primes'> <text Description='Get an array of all primes less than parameter' Reference='Primes' Symbol='PRIMES' /> </bean>
+	
+	<bean references='Mod'> <text Description='Modulus of two integers' Reference='Mod' Symbol='MOD' /> </bean>
+	<bean references='Rem'> <text Description='Remainder from division of two integers' Reference='Rem' Symbol='REM' /> </bean>
+
+	<bean references='Lcm'> <text Description='Least Common Multiple of two integers' Reference='Lcm' Symbol='LCM' /> </bean>
+	<bean references='Gcf'> <text Description='Greatest Common Factor of two integers' Reference='Gcf' Symbol='GCF' /> </bean>
+	<bean references='Gcd'> <text Description='Common divisor of two integers' Reference='Gcd' Symbol='GCD' /> </bean>
+
+	<bean references='Floor'> <text Description='Floor function for a factored value' Reference='Floor' Symbol='FLOOR' /> </bean>
+	<bean references='Round'> <text Description='Round function for a factored value' Reference='Round' Symbol='ROUND' /> </bean>
+	<bean references='Ceil'> <text Description='Ceiling function for a factored value' Reference='Ceil' Symbol='CEIL' /> </bean>
+
+	<bean references='ModPow'> <text Description='Modulus of exponentiation of two integers' Reference='ModPow' Symbol='MODPOW' /> </bean>
+	<bean references='DivRem'> <text Description='Divisor and remainder from integer division' Reference='DivRem' Symbol='DIVREM' /> </bean>
+
+	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
+
+
+	<!-- create operator object for each operation symbol from prime algorithms -->	
+
+<!--
+
+	<populate class='Operator' using='factored'
+				toBeCalled='Factorial DFactorial RFactorial FFactorial Pochhammer Binomial StirlingF StirlingS Euler Bell'
+				saveListAs='opsList' />
+
+	<bean references='Factorial'> <text Description='Unary conventional factorial operator' Reference='Factorial' Symbol='!' /> <set Precedence='10' /> </bean>
+	<bean references='DFactorial'> <text Description='Unary parity factorial operator' Reference='DFactorial' Symbol='!!' /> <set Precedence='10' /> </bean>
+	<bean references='RFactorial'> <text Description='Binary Factorial rising  operator' Reference='Fris' Symbol='/#' /> <set Precedence='9' /> </bean>
+	<bean references='FFactorial'> <text Description='Binary Factorial falling operator' Reference='Ffal' Symbol='#/' /> <set Precedence='9' /> </bean>
+	<bean references='Pochhammer'> <text Description='Pochhammer rising operator' Reference='Poch' Symbol='/#+' /> <set Precedence='9' /> </bean>
+
+	<bean references='Binomial'> <text Description='Binomial coefficient operator (n ## k)' Reference='BC' Symbol='##' /> <set Precedence='10' /> </bean>
+	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
+	<bean references='StirlingS'> <text Description='Stirling numbers (second) operator (n $$$ k)' Reference='SNS' Symbol='$$$' /> <set Precedence='10' /> </bean>
+	<bean references='Euler'> <text Description='Euler numbers operator (n #%# m)' Reference='EN' Symbol='#%#' /> <set Precedence='10' /> </bean>
+	<bean references='Bell'> <text Description='Bells Triangle operator (n #$# m)' Reference='BT' Symbol='#$#' /> <set Precedence='10' /> </bean>
+
+ 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
+
+
+	<SaveAs toBeCalled='algorithms'>
+		<new package='Algorithms' name='PrimeFormulas' using='environment' />
+	</SaveAs>
+
+-->
+
+
+</JXR>

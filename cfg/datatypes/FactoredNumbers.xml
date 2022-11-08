@@ -125,6 +125,14 @@
 	<READ path='cfg/PowerLib.xml' using='algorithms power symbolTable' />
 
 
+	<!-- Factorization specific operations (many as overrides of real operators) -->
+
+	<!-- read script to generate symbols for factored operators -->
+	<SaveAs toBeCalled='factored' > <new package='CalctoolsLibs' name='FactoredOps' /> </SaveAs>
+	<call object='factored' method='setName'>  <string>factored</string>  </call>
+	<READ path='cfg/FactoredLib.xml' using='environment factored symbolTable' />
+
+
 	<ExportAll />		<!-- export for display-->
 
 	<tabulate />

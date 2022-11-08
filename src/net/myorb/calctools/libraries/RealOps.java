@@ -6,6 +6,10 @@ import net.myorb.math.expressions.algorithms.AlgorithmCore;
 import net.myorb.math.expressions.algorithms.PowerPrimitives;
 import net.myorb.math.expressions.evaluationstates.Environment;
 
+/**
+ * a library object to hold symbols defined as operators on real numbers
+ * @author Michael Druckman
+ */
 public class RealOps extends Library
 {
 
