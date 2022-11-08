@@ -77,9 +77,10 @@
 
 
 	<!-- create operator object for each operation symbol from prime algorithms -->
-	<populate class='Operator' using='algebraic' toBeCalled='Primorial ' saveListAs='opsList' />
+	<populate class='Operator' using='algebraic' toBeCalled='Primorial DivRemBin' saveListAs='opsList' />
 	
 	<bean references='Primorial'> <text Description='Primorial function on integer prime index' Reference='Primorial' Symbol='#!' /> </bean>
+	<bean references='DivRemBin'> <text Description='Divisor and remainder from operator' Reference='DivRemOp' Symbol='/%' /> <set Precedence='9' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
 
