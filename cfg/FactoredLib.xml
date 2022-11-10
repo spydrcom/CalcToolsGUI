@@ -8,12 +8,17 @@
 
 	<!-- create operator object for each operation symbol from factored algorithms -->
 
-	<populate class='Operator' using='factored' toBeCalled='Primorial DivRemBin RemUop PowN Rsh Lsh' saveListAs='opsList' />
+	<populate class='Operator' using='factored' toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemUop PowN Rsh Lsh' saveListAs='opsList' />
 	
 	<bean references='RemUop'> <text Description='Binary conventional remainder operator n%m; integer only' Reference='RemOp' Symbol='%' /> <set Precedence='8' /> </bean>
 
 	<bean references='Primorial'> <text Description='Primorial function on integer prime index' Reference='Primorial' Symbol='#!' /> <set Precedence='9' /> </bean>
+	<bean references='Subfactorial'> <text Description='Subfactorial function on integer parameter' Reference='Derangements' Symbol='$!' /> <set Precedence='9' /> </bean>
 	<bean references='DivRemBin'> <text Description='Divisor and remainder from operator' Reference='DivRemOp' Symbol='/%' /> <set Precedence='9' /> </bean>
+	<bean references='Pochhammer'> <text Description='Pochhammer rising operator' Reference='Poch' Symbol='/#+' /> <set Precedence='9' /> </bean>
+
+	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
+	<bean references='StirlingS'> <text Description='Stirling numbers (second) operator (n $$$ k)' Reference='SNS' Symbol='$$$' /> <set Precedence='10' /> </bean>
 
 	<bean references='PowN'> <text Description='Binary conventional exponentiation operator x^n; intended for small integer exponents' Reference='Pow' Symbol='^' /> <set Precedence='9' /> </bean>
 
