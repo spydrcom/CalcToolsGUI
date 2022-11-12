@@ -9,7 +9,7 @@
 	<!-- create operator object for each operation symbol from factored algorithms -->
 
 	<populate class='Operator' using='factored' saveListAs='opsList'
-		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemUop PowN Rsh Lsh'
+		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemUop PowN PIF PN Rsh Lsh'
 	 />
 
 	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
@@ -26,13 +26,16 @@
 	<bean references='Rsh'> <text Description='Right shift operator' Reference='Rsh' Symbol='&gt;&gt;' /> <set Precedence='8' /> </bean>
 	<bean references='Lsh'> <text Description='Left shift operator' Reference='Lsh' Symbol='&lt;&lt;' /> <set Precedence='8' /> </bean>
 
+	<bean references='PIF'> <text Description='PI counting function' Reference='PIFunction' Symbol='PIF' /> <set Precedence='9' /> </bean>
+	<bean references='PN'> <text Description='Nth prime number' Reference='PrimeN' Symbol='Pn' /> <set Precedence='9' /> </bean>
+
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
 
 
 	<!-- create function object for each operation symbol -->
 
 	<populate class='Function' using='factored' saveListAs='funcList'
-		toBeCalled='Fudge Factors Primes Gcd Lcm Gcf Mod Rem ModPow DivRem Floor Ceil Round PN'
+		toBeCalled='Fudge Factors Primes Gcd Lcm Gcf Mod Rem ModPow DivRem Floor Ceil Round'
 	 />
 
 	<bean references='Fudge'> <text Description='Adjust blob factor to reduce representation size' Reference='Fudge' Symbol='FUDGE' /> </bean>
@@ -53,8 +56,6 @@
 
 	<bean references='Rem'> <text Description='Remainder from division of two integers' Reference='Rem' Symbol='REM' /> </bean>
 	<bean references='Mod'> <text Description='Modulus of two integers' Reference='Mod' Symbol='MOD' /> </bean>
-
-	<bean references='PN'> <text Description='Nth prime number' Reference='PN' Symbol='Pn' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' using='algorithms symbolTable' inclusionList='funcList' />
 
