@@ -9,7 +9,7 @@
 	<!-- create operator object for each operation symbol from factored algorithms -->
 
 	<populate class='Operator' using='factored' saveListAs='opsList'
-		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemUop PowN PIF PN Rsh Lsh'
+		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemOp Pow PIF PN Rsh Lsh'
 	 />
 
 	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
@@ -20,8 +20,8 @@
 	<bean references='Pochhammer'> <text Description='Pochhammer rising operator' Reference='Poch' Symbol='/#+' /> <set Precedence='9' /> </bean>
 
 	<bean references='DivRemBin'> <text Description='Divisor and remainder from operator' Reference='DivRemOp' Symbol='/%' /> <set Precedence='9' /> </bean>
-	<bean references='PowN'> <text Description='Binary conventional exponentiation operator x^n; intended for small integer exponents' Reference='Pow' Symbol='^' /> <set Precedence='9' /> </bean>
-	<bean references='RemUop'> <text Description='Binary conventional remainder operator n%m; integer only' Reference='RemOp' Symbol='%' /> <set Precedence='8' /> </bean>
+	<bean references='Pow'> <text Description='Binary conventional exponentiation operator x^n; intended for small integer exponents' Reference='Pow' Symbol='^' /> <set Precedence='9' /> </bean>
+	<bean references='RemOp'> <text Description='Binary conventional remainder operator n%m; integer only' Reference='RemOp' Symbol='%' /> <set Precedence='8' /> </bean>
 
 	<bean references='Rsh'> <text Description='Right shift operator' Reference='Rsh' Symbol='&gt;&gt;' /> <set Precedence='8' /> </bean>
 	<bean references='Lsh'> <text Description='Left shift operator' Reference='Lsh' Symbol='&lt;&lt;' /> <set Precedence='8' /> </bean>
