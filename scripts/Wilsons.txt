@@ -3,7 +3,7 @@
 //* Wilson's Theorem
 
 
-!! W (n) = MOD ( (n-1)! , n )
+!! W (n) =  (n-1)!  %  n 
 
 N=30
 *{ N
