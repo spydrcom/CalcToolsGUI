@@ -42,6 +42,9 @@
 	<class called='Charting' classpath='net.myorb.math.expressions.charting.implementations.JfreeChartLib'/>
 	<class called='Renderer' classpath='net.myorb.math.expressions.gui.rendering.implementations.JmtexRenderLib'/>
 
+	<!-- establish charting legend -->
+	<class called='LegendBuilder' classpath='net.myorb.charting.PlotLegend'/>
+	<call class='LegendBuilder' method='setLegendPalate'> <string>properties/standard.csv</string>  </call>
 
 	<!-- identify charting library -->
 	<class called='DisplayGraphAtomic' classpath='net.myorb.math.expressions.charting.DisplayGraphAtomic'/>
