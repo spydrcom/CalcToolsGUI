@@ -25,6 +25,7 @@ LIBRARY ColtLinalg cern.colt.library.Linalg
 
 !+ GetLudL() = ColtLinalg.getLudL
 !+ GetLudU() = ColtLinalg.getLudU
+!+ GetLudP() = ColtLinalg.getLudP
 !+ GetLudSolution(m) = ColtLinalg.getLudSolution
 !+ SolveWithLUD(A,b) = ColtLinalg.solveWithLUD
 
