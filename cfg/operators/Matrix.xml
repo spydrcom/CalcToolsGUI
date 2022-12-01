@@ -45,7 +45,7 @@
 			toBeCalled='Add Mul Matrix Identity Characteristic'
 	 />
 	<populate class='Function' using='matrix_linalg' saveListAs='funcList_linalg'
-			toBeCalled='Eig Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
+			toBeCalled='Eig QRD QRS Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
 	 />
 
 	<bean references='ROWF'> <text Description='Read row vector from matrix' Reference='Row' Symbol='ROW' /> </bean>
@@ -58,13 +58,15 @@
 	<bean references='Inv'> <text Description='Compute inverse of matrix' Reference='Inv' Symbol='INV' /> </bean>
 	<bean references='Minor'> <text Description='Compute minor of matrix' Reference='Minor' Symbol='MINOR' /> </bean>
 	<bean references='Adj'> <text Description='Compute adjugate of matrix' Reference='Adj' Symbol='ADJ' /> </bean>
+	<bean references='Identity'> <text Description='Compute identity matrix with specified size' Reference='Identity' Symbol='IDENTITY' /> </bean>
 	<bean references='Cofactor'> <text Description='Compute cofactor matrix from source' Reference='Cofactor' Symbol='COFACTOR' /> </bean>
 	<bean references='Comatrix'> <text Description='Compute comatrix matrix from source' Reference='Comatrix' Symbol='COMATRIX' /> </bean>
 	<bean references='Triu'> <text Description='Compute upper triangular matrix from source' Reference='Triu' Symbol='TRIU' /> </bean>
 	<bean references='Tril'> <text Description='Compute lower triangular matrix from source' Reference='Tril' Symbol='TRIL' /> </bean>
 	<bean references='Transpose'> <text Description='Compute transpose of matrix' Reference='Transpose' Symbol='TRANSPOSE' /> </bean>
 	<bean references='Eig'> <text Description='Compute Von Mises dominant eigen-pair' Reference='Eig' Symbol='EIG' /> </bean>
-	<bean references='Identity'> <text Description='Compute identity matrix with specified size' Reference='Identity' Symbol='IDENTITY' /> </bean>
+	<bean references='QRD'> <text Description='Decompose specified matrix using QR algorithm' Reference='QRD' Symbol='QRD' /> </bean>
+	<bean references='QRS'> <text Description='Compute solution to system given requested vector and QR decomposed matrix' Reference='QRSolve' Symbol='QRS' /> </bean>
 	<bean references='Vc31'> <text Description='Solve LUx=b using VC31LU to produce Chebyshev spline for function values' Reference='Vc31' Symbol='VC31' /> </bean>
 	<bean references='Characteristic'> <text Description='Compute characteristic polynomial for matrix' Reference='Characteristic' Symbol='CHARACTERISTIC' /> </bean>
 	<bean references='Luxb'> <text Description='matrix,Solve LUx=b general case from assignment array=LUXB(L;U;b)' Reference='Luxb' Symbol='LUXB' /> </bean>

@@ -1,0 +1,44 @@
+
+
+//* test the in-line QRD functions
+
+
+// pre-calculated points forced to be symmetric
+symmetricPoints = ( -1.0, -0.9510565162951535, -0.8090169943749475, -0.5877852522924731, -0.30901699437494745, 0.0, 0.30901699437494745, 0.5877852522924731, 0.8090169943749475, 0.9510565162951535, 1.0 )
+N = 10 ; ORDER = N + 1
+
+
+// get T polynomials for N=10 (0..10 is 11 polynomials)
+FAMILY Chebyshev #10 First
+CALC T
+
+
+// build row vector arrays for given Tn
+!! eval ( Tn ) = ARRAY [ 0 <= i <= N ]   ( @|Tn (   symmetricPoints # i   )  )
+!! evalTn ( n ) = eval ( T#n ) 
+
+
+// construct matrix data as stacked vectors
+!! buildM (n) = STACK [ 0 <= j <= n ]  (  evalTn ( j )  )  ;  express buildM
+MT = buildM (N) ; M = TRANSPOSE (MT)
+PRETTYPRINT  M
+
+
+// decompose M
+DM = QRD M
+
+// QR decomposition represented in matrix
+PRETTYPRINT DM
+
+
+// run solution test
+!! f(x) = 2*x^3 - 3*x^2
+
+// simple polynomial to solve for
+b = ARRAY [ 0 <= i <= N ] ( f ( symmetricPoints # i ) )
+CALC b
+
+// solution is equivalent Chebyshev T-polynomial coefficients
+S = QRS ( DM, b )
+PRETTYPRINT S
+
