@@ -1,0 +1,50 @@
+
+
+//* test for EVD operator
+
+
+// EVD uses Colt library for decomposition
+// - but this is just here to allow the resport dump to output stream
+LIBRARY ColtLinalg cern.colt.library.Linalg
+!+ MatRpt(m) = ColtLinalg.report
+
+
+// simple dumb data
+A1 =  (  1, 2, 3, 4  )
+m1 = MATRIX (A1, 2, 2)
+prettyprint m1
+vecs1 = m1
+
+calc MatRpt (m1)
+
+vals1 = EVD vecs1
+prettyprint vecs1
+prettyprint vals1
+
+
+
+// this time a 3x3 matrix
+A2 = ( 11, 23, 14, 21, 17, 11, 34, 25, 16 )
+m2 = MATRIX ( A2 , 3 , 3 )
+prettyprint m2
+vecs2 = m2
+
+calc MatRpt (m2)
+
+vals2 = EVD vecs2
+prettyprint vecs2
+prettyprint vals2
+
+
+// this time a complex eigenvalue
+A3 = ( -0.824565, -0.422229, 0.565767, -0.923052 )
+m3 = MATRIX ( A3 , 2 , 2 )
+prettyprint m3
+vecs3 = m3
+
+calc MatRpt (m3)
+
+vals3 = EVD vecs3
+prettyprint vecs3
+prettyprint vals3
+

@@ -23,7 +23,7 @@
 
 	<!-- create symbol operator objects  -->
 	<populate  class='Operator'  using='complex' 
-		toBeCalled='Real Imag Cmplx CmplxConj Conjugate CIS Arg Polar ModSq Abs'
+		toBeCalled='Real Imag Cmplx CmplxConj Conjugate CIS EVD Arg Polar ModSq Abs'
 	 />
 
 	<!-- configure each operator with bean set operations -->
@@ -35,12 +35,13 @@
 	<bean references='ModSq'> <text Description='Modulus (distance from origin) squared of parameter' Reference='ModSquared' Symbol='modSq' /> <set Precedence='10' /> </bean>
 	<bean references='Abs'> <text Description='Absolute value (distance from origin) of parameter' Reference='Abs' Symbol='abs' /> <set Precedence='10' /> </bean>
 	<bean references='CIS'> <text Description='Complex CIS (cos x + i * sin x) function operator' Reference='Cis' Symbol='cis' /> <set Precedence='10' /> </bean>
+	<bean references='EVD'> <text Description='Eigensystem decomposition returning vectors and values' Reference='EVD' Symbol='EVD' /> <set Precedence='10' /> </bean>
 	<bean references='Conjugate'> <text Description='Complex conjugate operator' Reference='Conj' Symbol='conj' /> <set Precedence='10' /> </bean>
 	<bean references='Arg'> <text Description='Phase angle of a complex value' Reference='Arg' Symbol='arg' /> <set Precedence='10' /> </bean>
 
 	<!-- invoke macro to generate operator symbol and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' 
-			including='Real Imag Cmplx CmplxConj Conjugate CIS Arg Polar ModSq Abs' 
+			including='Real Imag Cmplx CmplxConj Conjugate CIS EVD Arg Polar ModSq Abs' 
 	 />
 
 
