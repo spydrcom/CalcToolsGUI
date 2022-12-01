@@ -28,14 +28,14 @@
 
 	<!-- configure each operator with bean set operations -->
 	<bean references='Real'> <text Description='Real part of complex value' Reference='Re' Symbol='Re' />  <text RenderAs='&#x211B;' /> <set Precedence='10' /> </bean>
-	<bean references='Imag'> <text Description='Imaginary part of complex value' Reference='Im' Symbol='Im' />  <text RenderAs='&#x2110;' /> <set Precedence='10' /> </bean>
 	<bean references='Cmplx'> <text Description='Complex value (left + i * right) as a binary operator' Reference='Cmplx' Symbol='+!*' /> <set Precedence='10' /> </bean>
+	<bean references='Imag'> <text Description='Imaginary part of complex value' Reference='Im' Symbol='Im' />  <text RenderAs='&#x2110;' /> <set Precedence='10' /> </bean>
 	<bean references='CmplxConj'> <text Description='Complex value (left - i * right) as a binary operator' Reference='CmplxConj' Symbol='-!*' /> <set Precedence='10' /> </bean>
 	<bean references='Polar'> <text Description='Complex value (left * CIS right) as a binary (polar) operator' Reference='Polar' Symbol='@!#' /> <set Precedence='10' /> </bean>
 	<bean references='ModSq'> <text Description='Modulus (distance from origin) squared of parameter' Reference='ModSquared' Symbol='modSq' /> <set Precedence='10' /> </bean>
+	<bean references='EVD'> <text Description='Eigensystem decomposition returning vectors and values' Reference='EVD' Symbol='EVD' /> <set Precedence='10' /> </bean>
 	<bean references='Abs'> <text Description='Absolute value (distance from origin) of parameter' Reference='Abs' Symbol='abs' /> <set Precedence='10' /> </bean>
 	<bean references='CIS'> <text Description='Complex CIS (cos x + i * sin x) function operator' Reference='Cis' Symbol='cis' /> <set Precedence='10' /> </bean>
-	<bean references='EVD'> <text Description='Eigensystem decomposition returning vectors and values' Reference='EVD' Symbol='EVD' /> <set Precedence='10' /> </bean>
 	<bean references='Conjugate'> <text Description='Complex conjugate operator' Reference='Conj' Symbol='conj' /> <set Precedence='10' /> </bean>
 	<bean references='Arg'> <text Description='Phase angle of a complex value' Reference='Arg' Symbol='arg' /> <set Precedence='10' /> </bean>
 
