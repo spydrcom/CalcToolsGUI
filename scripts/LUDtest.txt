@@ -3,9 +3,9 @@
 //* test the in-line LUD function
 
 
-// pre-calculated points forced to be symmetric
-symmetricPoints = ( -1.0, -0.9510565162951535, -0.8090169943749475, -0.5877852522924731, -0.30901699437494745, 0.0, 0.30901699437494745, 0.5877852522924731, 0.8090169943749475, 0.9510565162951535, 1.0 )
 N = 10 ; ORDER = N + 1
+// Chebyshev points (forced symmetric) as prescribed in Approximation Theory
+symmetricPoints = CHEBPTS N
 
 
 // get T polynomials for N=10 (0..10 is 11 polynomials)
@@ -24,8 +24,8 @@ MT = buildM (N) ; M = TRANSPOSE (MT)
 PRETTYPRINT  M
 
 // LUD function sets output parameters
-L = IDENTITY (ORDER)
-U = IDENTITY (ORDER)
+L = MATRIX (ORDER, ORDER)
+U = MATRIX (ORDER, ORDER)
 
 // decompose M
 Pivot = LUD ( M, L, U )
@@ -46,4 +46,11 @@ CALC b
 
 // LUXB solution
 CALC LUXB ( L, U, b, Pivot )
+
+// determinant
+CALC LUDDET M
+
+// inverse
+minv = LUDINV M
+PRETTYPRINT minv
 

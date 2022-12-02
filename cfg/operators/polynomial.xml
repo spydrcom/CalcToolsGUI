@@ -36,8 +36,13 @@
 
 	<!-- create function object for each symbol -->
 	<populate class='Function' using='polynomial_computation' saveListAs='funcList'
-		toBeCalled='Interpolate ChebInterp GaussQuad ClenQuad ArrayDer ArrayInt PolyHg ChebDer PolyDer PolyInt Deconv Conv Roots'
+		toBeCalled='Interpolate ChebPts ChebDom ChebInterp GaussQuad ClenQuad ArrayDer ArrayInt PolyHg ChebDer PolyDer PolyInt Deconv Conv Roots'
 	 />
+
+	<bean references='GaussQuad'> 
+		<text Description='Apply Gauss Quadrature to build an integral of an interpolated Lagrange polynomial' 
+		Reference='GaussQuad' Symbol='GAUSSQUAD' /> 
+	</bean>
 
 	<bean references='Interpolate'> <text Description='Generate Lagrange interpolation polynomial for function described by array' Reference='Interpolate' Symbol='INTERPOLATE' /> </bean>
 	<bean references='ChebInterp'> <text Description='Generate Chebyshev interpolation polynomial for function described by array' Reference='ChebInterp' Symbol='CHEBINTERP' /> </bean>
@@ -45,13 +50,14 @@
 	<bean references='ArrayDer'> <text Description='Compute derivative of function described by array' Reference='ArrayDer' Symbol='ARRAYDER' /> </bean>
 	<bean references='ArrayInt'> <text Description='Compute integral of function described by array' Reference='ArrayInt' Symbol='ARRAYINT' /> </bean>
 	<bean references='PolyHg'> <text Description='Compute coefficients of hyper geometric polynomial' Reference='PolyHg' Symbol='POLYHG' /> </bean>
+	<bean references='ChebPts'> <text Description='Compute given number of Chebyshev points' Reference='ChebPoints' Symbol='CHEBPTS' /> </bean>
+	<bean references='ChebDom'> <text Description='Compute domain across given number of Chebyshev points' Reference='ChebDomain' Symbol='CHEBDOM' /> </bean>
 	<bean references='ChebDer'> <text Description='Compute derivative of Chebyshev T polynomial' Reference='ChebDer' Symbol='CHEBDER' /> </bean>
 	<bean references='PolyDer'> <text Description='Compute derivative of polynomial' Reference='PolyDer' Symbol='POLYDER' /> </bean>
 	<bean references='PolyInt'> <text Description='Compute integral of polynomial' Reference='PolyInt' Symbol='POLYINT' /> </bean>
 	<bean references='Deconv'> <text Description='Compute quotient of polynomials' Reference='Deconv' Symbol='DECONV' /> </bean>
 	<bean references='Conv'> <text Description='Compute product of polynomials' Reference='Conv' Symbol='CONV' /> </bean>
 	<bean references='Roots'> <text Description='Compute roots of polynomial' Reference='Roots' Symbol='ROOTS' /> </bean>
-	<bean references='GaussQuad'> <text Description='Apply Gauss Quadrature to build an integral of an interpolated Lagrange polynomial' Reference='GaussQuad' Symbol='GAUSSQUAD' /> </bean>
 
 	<!-- invoke macro to generate operator function and add to table -->
 	<expand indirectUsing='symbolBean' path='cfg/FunctionSymbol.xml' 

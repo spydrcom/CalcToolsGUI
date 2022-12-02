@@ -45,7 +45,7 @@
 			toBeCalled='Add Mul Matrix Identity Characteristic'
 	 />
 	<populate class='Function' using='matrix_linalg' saveListAs='funcList_linalg'
-			toBeCalled='Eig LUD QRD QRS Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
+			toBeCalled='Eig LUD LUDDET LUDINV QRD QRS Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
 	 />
 
 	<bean references='ROWF'> <text Description='Read row vector from matrix' Reference='Row' Symbol='ROW' /> </bean>
@@ -73,6 +73,8 @@
 	<bean references='Solve'> <text Description='Solve linear equations with column substitution' Reference='Solve' Symbol='SOLVE' /> </bean>
 	<bean references='Pivot'> <text Description='Reorder a vector to a specified pattern' Reference='Pivot' Symbol='PIVOT' /> </bean>
 	<bean references='LUD'> <text Description='Decompose specified matrix using LU algorithm' Reference='LUD' Symbol='LUD' /> </bean>
+	<bean references='LUDDET'> <text Description='Compute matrix determinant using LUD' Reference='DET' Symbol='LUDDET' /> </bean>
+	<bean references='LUDINV'> <text Description='Compute matrix inverse using LUD' Reference='INV' Symbol='LUDINV' /> </bean>
 	<bean references='Luxb'> <text Description='matrix,Solve LUx=b general case from assignment array=LUXB(L;U;b)' Reference='Luxb' Symbol='LUXB' /> </bean>
 	<bean references='Genknot'> <text Description='Construct a zero knot for odd or even functions' Reference='Genknot' Symbol='GENKNOT' /> </bean>
 	<bean references='Evalspline'> <text Description='Evaluate a VC31 spline function at specified parameter' Reference='Evalspline' Symbol='EVALSPLINE' /> </bean>
