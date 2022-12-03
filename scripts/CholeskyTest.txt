@@ -1,0 +1,15 @@
+
+
+//* test Cholesky decomposition
+
+
+// positive definite symmetric matrix
+A = ( 4,  12, -16,  12,  37, -43, -16, -43,  98 )
+
+m = MATRIX (A,3,3)
+prettyprint m
+
+
+READ coltlib.txt
+
+calc MatRpt m
