@@ -45,7 +45,7 @@
 			toBeCalled='Add Mul Matrix Identity Characteristic'
 	 />
 	<populate class='Function' using='matrix_linalg' saveListAs='funcList_linalg'
-			toBeCalled='Eig LUD LUDDET LUDINV QRD QRS Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
+			toBeCalled='Eig Decompose SOE LUD LUDDET LUDINV QRD QRS Vc31 Luxb Gaussian Solve Pivot Genknot Evalspline Vanche'
 	 />
 
 	<bean references='ROWF'> <text Description='Read row vector from matrix' Reference='Row' Symbol='ROW' /> </bean>
@@ -70,6 +70,8 @@
 	<bean references='Vc31'> <text Description='Solve LUx=b using VC31LU to produce Chebyshev spline for function values' Reference='Vc31' Symbol='VC31' /> </bean>
 	<bean references='Characteristic'> <text Description='Compute characteristic polynomial for matrix' Reference='Characteristic' Symbol='CHARACTERISTIC' /> </bean>
 	<bean references='Gaussian'> <text Description='Solve linear equations with Gaussian elimination' Reference='Gaussian' Symbol='GAUSSIAN' /> </bean>
+	<bean references='Decompose'> <text Description='Decompose a matrix using a linear algebra library instance' Reference='Decompose' Symbol='DECOMPOSE' /> </bean>
+	<bean references='SOE'> <text Description='Solve a system of equations using a linear algebra library instance' Reference='SOE' Symbol='SOE' /> </bean>
 	<bean references='Solve'> <text Description='Solve linear equations with column substitution' Reference='Solve' Symbol='SOLVE' /> </bean>
 	<bean references='Pivot'> <text Description='Reorder a vector to a specified pattern' Reference='Pivot' Symbol='PIVOT' /> </bean>
 	<bean references='LUD'> <text Description='Decompose specified matrix using LU algorithm' Reference='LUD' Symbol='LUD' /> </bean>

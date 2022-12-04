@@ -1,0 +1,36 @@
+
+
+//* test the ClMathSysEQ library (Linear Algebra Systems of Equations)
+
+
+// SysEQ tools provided in ClMath algorithms library objects
+configure LINALG description "Selected solution for systems of equations"
+
+// specify the solution algorithm
+configure LINALG solution CHOLESKY
+
+// enable the trace of the solution algorithm
+// configure LINALG show "1"
+configure LINALG trace "0"
+
+
+// name a new instance of the solution object
+instance CHD LINALG
+
+
+A = ( 4,  12, -16,  12,  37, -43, -16, -43,  98 )
+m = MATRIX ( A, 3, 3 )
+
+
+CALC DECOMPOSE (m, CHD)
+
+
+D = DECOMPOSE (m, CHD)
+MM = IDENTITY (3)
+MS = SOE ( D, MM )
+PRETTYPRINT MS
+
+A = ( 0, 1, 0 )
+MS2 = SOE ( D, A )
+PRETTYPRINT MS2
+

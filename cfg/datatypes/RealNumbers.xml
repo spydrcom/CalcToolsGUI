@@ -147,6 +147,11 @@
 		<referto objectCalled='environment'/>
 	</call>
 
+	<call class='LIBRARIAN' method='defineLibrary' >
+		<string>LINALG</string> <string>net.myorb.math.expressions.algorithms.ClMathSysEQ</string>
+		<referto objectCalled='environment'/>
+	</call>
+
 	<class called='QuadMaster' classpath='net.myorb.math.computational.integration.Quadrature' />
 	<class called='FraculusModules' classpath='net.myorb.fraculus.modules.Selection' />
 
@@ -157,6 +162,8 @@
 
 	<!--
 			symbols holding constants used by libraries
+
+						Spline Factories
 	  -->
 
 	<call	object='symbolTable'
@@ -181,6 +188,35 @@
 			method='addConstant'>
 		<string>CHEBYSHEV_NODES_FACTORY</string>
 		<string>net.myorb.spline.ChebyshevNodesFactory</string>
+	</call>
+
+
+	<!--
+			Linear Algebra Solutions to Systems of Equations
+	  -->
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>CHOLESKY</string>
+		<string>net.myorb.math.linalg.CholeskySolution</string>
+	</call>
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>CROUTS</string>
+		<string>net.myorb.math.linalg.CroutsSolution</string>
+	</call>
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>LUD</string>
+		<string>net.myorb.math.linalg.LUDSolution</string>
+	</call>
+
+	<call	object='symbolTable'
+			method='addConstant'>
+		<string>QRD</string>
+		<string>net.myorb.math.linalg.QRDSolution</string>
 	</call>
 
 
