@@ -8,13 +8,14 @@
 	<void> <new  saveAs='EulerProduct'  class='Operator'  using='clmath' /> </void>
 
 	<!-- create function object for each symbol of that type using enumeration -->
-	<populate class='Function' using='clmath' toBeCalled='Exp Gamma Loggamma Incgamma' saveListAs='funcList' />
+	<populate class='Function' using='clmath' toBeCalled='Exp Gamma Loggamma Incgamma Get' saveListAs='funcList' />
 
 	<!-- configure each operator/function with appropriate bean set operations -->
 	<bean references='Exp'> <text Description='Euler exponential function' Reference='Exp' Symbol='exp' /> </bean>
 	<bean references='Gamma'> <text Description='Lanczos Gamma function approximation' Reference='Gamma' Symbol='GAMMA' /> <text RenderAs='&#x0393;' /> <text Parameters='net.myorb.library.Gamma' /> </bean>
 	<bean references='Loggamma'> <text Description='Loggamma function' Reference='Loggamma' Symbol='loggamma' /> <text Parameters='1000' /> </bean>
 	<bean references='Incgamma'> <text Description='Incomplete Gamma function' Reference='IncompleteGamma' Symbol='gammainc' /> </bean>
+	<bean references='Get'> <text Description='Get a component of a structure' Reference='Field' Symbol='GET' /> </bean>
 
 	<bean references='EulerProduct'> <text Description='Euler Product function' Reference='EulerProduct' Symbol='ep' /> <set Precedence='10'/> <text Parameters='10000' /> </bean>
 

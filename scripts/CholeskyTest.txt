@@ -3,13 +3,48 @@
 //* test Cholesky decomposition
 
 
-// positive definite symmetric matrix
+// SysEQ tools provided in ClMath algorithms library objects
+configure LINALG description "Selected solution for systems of equations"
+
+// specify the solution algorithm
+configure LINALG solution CHOLESKY
+
+// enable the trace of the solution algorithm
+// configure LINALG trace "0"
+// configure LINALG show "1"
+
+
+// name a new instance of the solution object
+instance CHD LINALG
+
+
+// A definite positive symmetric matrix
 A = ( 4,  12, -16,  12,  37, -43, -16, -43,  98 )
+m = MATRIX ( A, 3, 3 )
+PRETTYPRINT m
 
-m = MATRIX (A,3,3)
-prettyprint m
+// decompose using Cholesky
+Dm = DECOMPOSE (m, CHD)
+CALC Dm
 
+// compute inverse
+IDENTITY3 = IDENTITY (3)
+MATSOLUTION = SOE ( Dm, IDENTITY3 )
+PRETTYPRINT MATSOLUTION
 
-READ coltlib.txt
+// simple vector solution
+VECTOR3 = ( 0, 1, 0 )
+VECTORSOLUTION = SOE ( Dm, VECTOR3 )
+PRETTYPRINT VECTORSOLUTION
 
-calc MatRpt m
+// interrogate decomposition structure
+C = GET ( "C", Dm ) ; CCT = C * TRANSPOSE (C)
+// C * Ct should recover the original matrix
+PRETTYPRINT CCT
+
+// fields L and D also available
+L = GET ( "L", Dm ) ; Lt = TRANSPOSE (L)
+// L * D * Lt should also recover the original matrix
+D = GET ( "D", Dm ) ; LDLt = L * D * Lt
+PRETTYPRINT LDLt
+
