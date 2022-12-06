@@ -7,30 +7,74 @@
 configure LINALG description "Selected solution for systems of equations"
 
 // specify the solution algorithm
-configure LINALG solution CHOLESKY
-
-// enable the trace of the solution algorithm
-// configure LINALG show "1"
-configure LINALG trace "0"
-
+configure LINALG  solution  "net.myorb.math.linalg.ColtLUDSolution"
 
 // name a new instance of the solution object
-instance CHD LINALG
+instance LUD LINALG
 
 
+// sample matrix, same one as used for Cholesky
 A = ( 4,  12, -16,  12,  37, -43, -16, -43,  98 )
 m = MATRIX ( A, 3, 3 )
 
+// DECOMPOSE using Colt LUD
+Dm = DECOMPOSE (m, LUD)
+CALC Dm
 
-CALC DECOMPOSE (m, CHD)
+// examine components
+L = GET ( "L", Dm ) ; U = GET ( "U", Dm )
+PRETTYPRINT L ; PRETTYPRINT U
+
+// pivot vector comes back as array
+CALC GET ( "P", Dm )
 
 
-D = DECOMPOSE (m, CHD)
-MM = IDENTITY (3)
-MS = SOE ( D, MM )
-PRETTYPRINT MS
+// try using generic QRD
+configure LINALG  solution  "net.myorb.math.linalg.QRDSolution"
+instance QRD LINALG
 
-A = ( 0, 1, 0 )
-MS2 = SOE ( D, A )
-PRETTYPRINT MS2
+// DECOMPOSE using generic QRD
+Dm = DECOMPOSE (m, QRD)
+CALC Dm
+
+// examine components
+A = GET ( "A", Dm ) ; C = GET ( "C", Dm ) ; D = GET ( "D", Dm )
+PRETTYPRINT A ; PRETTYPRINT C ; PRETTYPRINT D
+
+
+// try using generic Crouts
+configure LINALG  solution  "net.myorb.math.linalg.CroutsSolution"
+instance CRD LINALG
+
+// DECOMPOSE using generic CRD
+Dm = DECOMPOSE (m, CRD)
+CALC Dm
+
+// examine components
+A = GET ( "A", Dm )
+PRETTYPRINT A
+
+// DET of matrix
+CALC GET ( "DET", Dm )
+
+// pivot vector
+CALC GET ( "P", Dm )
+
+
+// try using generic SVD
+configure LINALG  solution  "net.myorb.math.linalg.ColtSVDSolution"
+instance SVD LINALG
+
+// DECOMPOSE using generic SVD
+Dm = DECOMPOSE (m, SVD)
+CALC Dm
+
+// examine structured components
+S = GET ( "S", Dm ) ; V = GET ( "V", Dm ) ; U = GET ( "U", Dm )
+PRETTYPRINT S ; PRETTYPRINT V ; PRETTYPRINT U
+
+// examine discrete components
+CALC GET ( "RANK", Dm )
+CALC GET ( "COND", Dm )
+CALC GET ( "NORM", Dm )
 
