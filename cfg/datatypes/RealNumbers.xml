@@ -209,13 +209,13 @@
 
 	<call	object='symbolTable'
 			method='addConstant'>
-		<string>LUD</string>
+		<string>LUDS</string>
 		<string>net.myorb.math.linalg.LUDSolution</string>
 	</call>
 
 	<call	object='symbolTable'
 			method='addConstant'>
-		<string>QRD</string>
+		<string>QRDS</string>
 		<string>net.myorb.math.linalg.QRDSolution</string>
 	</call>
 
