@@ -221,7 +221,7 @@
 	<READ path='cfg/libraries/ClCmpxOps.xml' using='environment algorithms symbolTable clmathselected' />
 
 	<!-- configure operators and functions from CalcLib Math Library-->
-	<SaveAs toBeCalled='clmathselected' > <string>Exp Gamma Loggamma Incgamma</string> </SaveAs>
+	<SaveAs toBeCalled='clmathselected' > <string>Exp Gamma Loggamma Incgamma Get Store Load</string> </SaveAs>
 	<READ path='cfg/libraries/ClMathLib.xml' using='environment algorithms symbolTable clmathselected' />
 
 

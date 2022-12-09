@@ -128,6 +128,12 @@
 	<READ path='cfg/PowerLib.xml' using='algorithms power symbolTable' />
 
 
+	<!-- configure operators and functions from CalcLib Math Library-->
+	<SaveAs toBeCalled='clmathselected' > <string>Get Store Load</string> </SaveAs>
+	<SaveAs toBeCalled='algorithms' > <new package='Algorithms' name='CLmathFactoredImplementations' using='environment' /> </SaveAs>
+	<READ path='cfg/libraries/ClMathLib.xml' using='environment algorithms symbolTable clmathselected' />
+
+
 	<!-- Factorization specific operations (many as overrides of real operators) -->
 
 	<!-- read script to generate symbols for factored operators -->
