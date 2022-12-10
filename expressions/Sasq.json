@@ -6,16 +6,12 @@
    {
       "ASQuad": 
       {
-         "hi": "100",
          "factory": "net.myorb.spline.ASQFactory",
-         "using": "L20",
          "trace": "0",
          "SYMBOL": "ASQuad",
          "method": "ASQ",
          "description": "custom quadrature using ADP Spline Quad",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad",
-         "type": "LAGUERRE",
-         "order": "25"
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathComplexQuad"
       }
    },
    "Expression": 
@@ -104,16 +100,12 @@
       },
       "Config": 
       {
-         "hi": "100",
          "factory": "net.myorb.spline.ASQFactory",
-         "using": "L20",
          "trace": "0",
          "SYMBOL": "ASQuad",
          "method": "ASQ",
          "description": "custom quadrature using ADP Spline Quad",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathQuad",
-         "type": "LAGUERRE",
-         "order": "25"
+         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathComplexQuad"
       },
       "NodeType": "Range",
       "Lbnd": "<="
