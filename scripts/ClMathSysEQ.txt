@@ -78,3 +78,7 @@ CALC GET ( "RANK", Dm )
 CALC GET ( "COND", Dm )
 CALC GET ( "NORM", Dm )
 
+Vt = TRANSPOSE(V)
+product = U * S * Vt
+PRETTYPRINT product
+
