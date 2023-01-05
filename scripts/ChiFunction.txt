@@ -1,0 +1,40 @@
+
+
+//* Legendre Chi Function
+
+
+// computed using getChi2DerivativeComputer ()
+C = ( 0, 1, 0, 0.1111111111111111111111112, 0, 0.0400000000000000000000000, 0, 0.0204081632653061224489796, 0, 0.0123456790123456790123457, 0, 0.0082644628099173553719009, 0, 0.0059171597633136094674557, 0, 0.0044444444444444444444445, 0, 0.0034602076124567474048443, 0, 0.0027700831024930747922438, 0, 0.0022675736961451247165533, 0, 0.0018903591682419659735350, 0, 0.0016000000000000000000000, 0, 0.0013717421124828532235940, 0, 0.0011890606420927467300833, 0, 0.0010405827263267429760666, 0, 0.0009182736455463728191001, 0, 0.0008163265306122448979592, 0, 0.0007304601899196493791089, 0, 0.0006574621959237343852729 )
+CALC C
+
+// use in polynomial expansion 
+!! chi2 (x) = C +*^ x
+
+// general form of function
+!! chif (x, v) = SIGMA [ 0 <= k <= 300 ] ( x ^ (2*k+1) /  (2*k+1)^v )
+
+// compute known value
+chi2Of1 = chif ( 1, 2 )
+chi2Of1Err = chi2Of1 - 1.2337005501361698273543113749845
+PRETTYPRINT chi2Of1Err
+
+// compute phi
+phi = ( sqrt (5) + 1 ) / 2
+CALC phi
+
+// test known value
+chiPhi = chi2 ( phi-1 )
+CALC chiPhi
+
+chiPhiErr = chiPhi - 0.64879341799121742386351077989936
+PRETTYPRINT chiPhiErr
+
+// plot chi2 from polynomial
+GRAPH [ -1 <= x <= 1 <> 0.01 ] ( chi2 x )
+
+// build chi1 function
+!! chi1 (x) = chif (x, 1)
+
+// plot chi1 over -1..1 domain
+GRAPH [ -1 <= x <= 1 <> 0.01 ] ( chi1 x )
+
