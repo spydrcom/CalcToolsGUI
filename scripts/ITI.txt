@@ -29,3 +29,26 @@ A006752 = 0.9159655941772190150546
 A006752_Error = A006752 - Ti2 1
 PRETTYPRINT A006752_Error
 
+
+
+// quadrature version
+!! atanc (x) = atan x / x
+graph [ -1 <= x <= 1 <> 0.01 ] ( atanc x )
+
+// compute A006752 with TSQ
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+dt = 1
+// test using TSQ
+!! Ti(x) = TSQuad [0 <= t <= x <> dt] ( atanc ( t ) * <*> t ) ; express Ti
+
+// plot of 0..10
+graph [ 0.1 <= x <= 10 <> 0.05 ] ( Ti x )
+
+// compute precision
+A006752 = 0.91596559417721901505 ; // Catalan's Number
+A006752_Error = A006752 - Ti 1
+PRETTYPRINT A006752_Error
+
+
