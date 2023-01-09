@@ -3,6 +3,9 @@
 //* Inverse Tangent Integrals
 
 
+// Catalan's constant
+A006752 = 0.9159655941772190150546
+
 // computed using getTi2DerivativeComputer ()
 C = ( 0, 1, 0, -0.1111111111111111111111112, 0, 0.0400000000000000000000000, 0, -0.0204081632653061224489796, 0, 0.0123456790123456790123457, 0, -0.0082644628099173553719009, 0, 0.0059171597633136094674557, 0, -0.0044444444444444444444445, 0, 0.0034602076124567474048443, 0, -0.0027700831024930747922438, 0, 0.0022675736961451247165533, 0, -0.0018903591682419659735350, 0, 0.0016000000000000000000000, 0, -0.0013717421124828532235940, 0, 0.0011890606420927467300833, 0, -0.0010405827263267429760666, 0, 0.0009182736455463728191001, 0, -0.0008163265306122448979592, 0, 0.0007304601899196493791089, 0, -0.0006574621959237343852729 )
 CALC C
@@ -10,11 +13,15 @@ CALC C
 // use in polynomial expansion 
 !! Ti2 (x) = C +*^ x
 
-// compute known value
+// test polynomial with imported coefficients (40 terms)
+A006752_Error = A006752 - Ti2 1
+PRETTYPRINT A006752_Error
+
+// compute known value against 40 term imported polynomial
 knownResult = 0.2658649582793069826918750863971206876427
 twoMsqrt3 = 2 - sqrt 3  ;  approx = Ti2 twoMsqrt3
 
-// test known value
+// test known value Ti2(2 - sqrt 3)
 ti2Err = approx - knownResult
 PRETTYPRINT ti2Err
 
@@ -24,8 +31,7 @@ graph [ -1 <= x <= 1 <> 0.01 ] ( Ti2 x )
 // general form of function
 !! Ti2 (x) = SIGMA [ 1 <= k <= 1000 ] ( (-1)^(k-1) * x^(2*k-1) / (2*k-1)^2 )
 
-// Catalan's constant
-A006752 = 0.9159655941772190150546
+// test 1000 terms of in-line SIGMA calculation (should improve on first test)
 A006752_Error = A006752 - Ti2 1
 PRETTYPRINT A006752_Error
 
@@ -40,14 +46,13 @@ configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
 instance TSQuad QUAD
 
 dt = 1
-// test using TSQ
+// test using TSQ, incredible amount of precision for quadrature
 !! Ti(x) = TSQuad [0 <= t <= x <> dt] ( atanc ( t ) * <*> t ) ; express Ti
 
 // plot of 0..10
 graph [ 0.1 <= x <= 10 <> 0.05 ] ( Ti x )
 
-// compute precision
-A006752 = 0.91596559417721901505 ; // Catalan's Number
+// compute precision (of quadrature solution) as error
 A006752_Error = A006752 - Ti 1
 PRETTYPRINT A006752_Error
 
