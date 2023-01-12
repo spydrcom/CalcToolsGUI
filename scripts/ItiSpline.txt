@@ -1,0 +1,68 @@
+
+
+//* ITI spline build
+
+
+// original source for atan x / x
+LIBRARY IMPL net.myorb.math.specialfunctions.InverseTangentIntegral
+!+ atanc(x) = IMPL.atanc
+calc atanc 0
+
+
+
+// spline tools provided in ClMath algorithms library objects
+configure SPLINE description "custom spline generator using CPC"
+
+// specify the factory to use in generation of splines
+configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+// enable the trace of the spline generation
+configure SPLINE trace "0"
+
+// name a new instance of the spline tool object
+instance CPC SPLINE
+
+!! IT (x) = atanc x  ;  express IT
+
+// apply the spline tool to the UDF and specify the domain
+apply CPC IT [ 0 <= x <= 10 ]
+savejson IT.json
+
+// these should be computed by the spline
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( IT(x) )
+
+
+
+
+// compute A006752 with TSQ
+configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+instance TSQuad QUAD
+
+dt = 1
+// test using TSQ, incredible amount of precision for quadrature
+!! ITI(x) = TSQuad [0 <= t <= x <> dt] ( IT ( t ) * <*> t ) ; express ITI
+
+// plot of 0..10
+graph [ 0 <= x <= 20 <> 0.1 ] ( ITI x )
+calc ITI 1
+
+
+
+
+!! ITIs(x) = ITI x
+
+// apply the spline tool to the UDF and specify the domain
+apply CPC ITIs [ 0 <= x <= 10 ]
+savejson ITIs.json
+
+// these should be computed by the spline
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( ITI(x) )
+calc ITIs 1
+
+
+
+
+loadspline ITIs.json
+calc ITIs 1  ;  //  0.9159655935752247
+GRAPH  [  0 <=    x    <= 10  <>  0.01  ]   ( ITIs(x) )
+
+
