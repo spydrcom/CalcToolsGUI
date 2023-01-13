@@ -1,7 +1,7 @@
 {
    "Name": "ITIs",
    "Parameter": "x",
-   "Description": "Spline for Inverse Tangent Integeral function",
+   "Description": null,
    "Interpreter": "net.myorb.math.computational.splines.ChebyshevSpline",
    "Expression": 
    {
