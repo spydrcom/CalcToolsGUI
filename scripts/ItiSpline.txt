@@ -48,7 +48,7 @@ calc ITI 1
 
 
 
-!! ITIs(x) = ITI x
+!! ITIs(x) = ITI x  ;  express ITIs
 
 // apply the spline tool to the UDF and specify the domain
 apply CPC ITIs [ 0 <= x <= 10 ]
@@ -64,5 +64,18 @@ calc ITIs 1
 loadspline ITIs.json
 calc ITIs 1  ;  //  0.9159655935752247
 GRAPH  [  0 <=    x    <= 10  <>  0.01  ]   ( ITIs(x) )
+
+
+
+dt = 1
+// load Ti2 spline
+loadspline IT_ATANC.json
+// test using TSQ, incredible amount of precision for quadrature
+!! Ti2(x) = TSQuad [0 <= t <= x <> dt] ( IT ( t ) * <*> t ) ; express Ti2
+
+//	 Ti[n] (x) = INTEGRAL[0..x]	Ti[n-1] (t) / t * dt
+!! Ti3(x) = TSQuad [0.01 <= t <= x <> dt] ( Ti2 ( t ) / t * <*> t ) ; express Ti3
+// plot of Ti3 over low portion of domain
+graph [ 0 < x <= 5 <> 0.1 ] ( Ti3 x )
 
 
