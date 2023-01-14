@@ -6,76 +6,97 @@
 // original source for atan x / x
 LIBRARY IMPL net.myorb.math.specialfunctions.InverseTangentIntegral
 !+ atanc(x) = IMPL.atanc
-calc atanc 0
-
+CALC atanc 0
 
 
 // spline tools provided in ClMath algorithms library objects
-configure SPLINE description "custom spline generator using CPC"
+CONFIGURE SPLINE description "custom spline generator using CPC"
 
 // specify the factory to use in generation of splines
-configure SPLINE factory CHEBYSHEV_SPLINE_FACTORY
+CONFIGURE SPLINE factory CHEBYSHEV_SPLINE_FACTORY
 // enable the trace of the spline generation
-configure SPLINE trace "0"
+CONFIGURE SPLINE trace "0"
 
 // name a new instance of the spline tool object
-instance CPC SPLINE
+INSTANCE CPC SPLINE
 
-!! IT (x) = atanc x  ;  express IT
 
 // apply the spline tool to the UDF and specify the domain
-apply CPC IT [ 0 <= x <= 10 ]
-savejson IT.json
+!! IT (x) = atanc x  ;  express IT  ;  // IT for Inverse Tangent
+APPLY CPC IT [ 0 <= x <= 10 ]
+SAVEJSON IT.json
 
 // these should be computed by the spline
 GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( IT(x) )
 
 
-
-
 // compute A006752 with TSQ
-configure QUAD method "TSQ" description "custom quadrature using TANH-SINH"
-instance TSQuad QUAD
+CONFIGURE QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+INSTANCE TSQuad QUAD
 
 dt = 1
 // test using TSQ, incredible amount of precision for quadrature
 !! ITI(x) = TSQuad [0 <= t <= x <> dt] ( IT ( t ) * <*> t ) ; express ITI
+// so ITI is the Integral of the Inverse Tangent so this should approximate Ti2
 
 // plot of 0..10
-graph [ 0 <= x <= 20 <> 0.1 ] ( ITI x )
-calc ITI 1
+GRAPH [ 0 <= x <= 20 <> 0.1 ] ( ITI x )
 
 
-
+// Catalan's constant
+A006752 = 0.9159655941772190150546
+iti1 = ITI 1  ;  QUAD_ERROR = A006752 - iti1
+PRETTYPRINT iti1  ;  prettyprint QUAD_ERROR  
 
 !! ITIs(x) = ITI x  ;  express ITIs
-
 // apply the spline tool to the UDF and specify the domain
-apply CPC ITIs [ 0 <= x <= 10 ]
-savejson ITIs.json
+APPLY CPC ITIs [ 0 <= x <= 10 ]
+SAVEJSON ITIs.json
 
 // these should be computed by the spline
-GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( ITI(x) )
-calc ITIs 1
+GRAPH  [  0 <=    x    <= 3  <>  0.01  ]   ( ITIs(x) )
 
-
-
-
-loadspline ITIs.json
-calc ITIs 1  ;  //  0.9159655935752247
+LOADSPLINE ITIs.json
+// test reloaded spline version
 GRAPH  [  0 <=    x    <= 10  <>  0.01  ]   ( ITIs(x) )
+iti1 = ITIs 1  ;  SPLINE_ERROR = A006752 - iti1
+PRETTYPRINT iti1  ;  prettyprint SPLINE_ERROR  
 
 
-
-dt = 1
-// load Ti2 spline
-loadspline IT_ATANC.json
-// test using TSQ, incredible amount of precision for quadrature
-!! Ti2(x) = TSQuad [0 <= t <= x <> dt] ( IT ( t ) * <*> t ) ; express Ti2
-
+LOADSPLINE IT_ATANC.json
+// generate Ti3 from Ti2 using recurrence formula
 //	 Ti[n] (x) = INTEGRAL[0..x]	Ti[n-1] (t) / t * dt
+!! Ti2(x) = TSQuad [0 <= t <= x <> dt] ( IT ( t ) * <*> t ) ; express Ti2
 !! Ti3(x) = TSQuad [0.01 <= t <= x <> dt] ( Ti2 ( t ) / t * <*> t ) ; express Ti3
-// plot of Ti3 over low portion of domain
-graph [ 0 < x <= 5 <> 0.1 ] ( Ti3 x )
+// plot of Ti3 VS Ti2 over low portion of domain
+GRAPH [ 0 < x <= 5 <> 0.1 ] ( Ti2 x, Ti3 x )
 
+
+// hyperbolic version
+!+ artanhc(x) = IMPL.artanhc
+CALC artanhc 0
+
+// plot up to approaching the pole
+GRAPH [ 0 < x <= 0.9 <> 0.01 ] ( artanhc x )
+
+// test using TSQ, incredible amount of precision for quadrature
+!! chi2(x) = TSQuad [0 <= t <= x <> dt] ( artanhc ( t ) * <*> t ) ; express chi2
+
+// String chi1ref = "1.2337005501361698273543113749845"; // chi2(1) = pi^2/8
+chi2of1 = pi^2 / 8
+CALC chi2 1
+
+// evaluate precision
+error =  chi2of1 - chi2 1
+PRETTYPRINT error
+
+// plot of 0..1
+GRAPH [ 0 <= x <= 1 <> 0.01 ] ( chi2 x )
+
+
+// x'v(z) = SIGMA [ 0 <= k <= INFINITY ] ( z^(2*k+1) / (2*k+1)^v )
+!! chi1(z) = SIGMA [ 0 <= k <= 50 ] ( z^(2*k+1) / (2*k+1) )
+!! chi0(z) = SIGMA [ 0 <= k <= 50 ] ( z^(2*k+1) )
+
+GRAPH [ 0 <= x <= 0.7 <> 0.01 ] ( chi0 x, chi1 x, chi2 x )
 
