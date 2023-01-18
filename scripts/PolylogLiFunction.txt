@@ -29,3 +29,71 @@ graph LIM 5  [ -8 <= x < 1 <> 0.05 ] ( Li0 x, Li1 x, Li_1 x, Li_2 x, Li_3 x, Li_
 !! LiCrit (x) = Li_4 ( 0.5 + i*x )
 plotri  LiCrit [ 0 <= x <= 2 <> 0.01]
 
+
+// positive orders
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li2" s "2" terms "50"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li3" s "3" terms "50"
+
+
+graph LIM 5  [ -8 <= x < 2 <> 0.01 ] ( Li2 x, Li3 x )
+// graph LIM 5  [ -1 <= x < 1 <> 0.01 ] ( Li2 x )
+
+
+// verify calculation of known values
+
+calc Li2 (-1)
+calc -pi^2/12
+// -0.822467033424113 1
+// -0.822467033424113 2
+
+calc Li2 0.5
+calc pi^2/12 - (ln 2)^2 / 2
+// 0.5822405264650125 0590265632015968
+// 0.5822405264650125
+
+calc Li2 1
+calc pi^2/6
+// 1.644934066848226 2
+// 1.644934066848226 4
+
+calc Li2 2
+calc pi^2 / 4 - i*pi*ln 2
+// (2.4674011002723395 - 2.177586090303602*i)
+// (2.4674011002723395 - 2.177586090303602*i)
+
+
+// phi as parameter
+phi = ( sqrt 5 + 1 ) / 2
+calc phi
+
+
+calc Li2 phi
+calc 11/15 * pi^2 +  (ln (-1/phi))^2 / 2
+// (2.4186901038761 137 - 1.511771534427787*i)
+// (2.4186901038761 35  - 1.511771534427787*i)
+
+calc Li2 (phi^2)
+calc -11/15*pi^2 - (ln (-phi))^2
+// (2.400329686379968 - 3.023543068855574*i)
+// (2.400329686379968 - 3.023543068855574*i)
+
+calc Li2 (1/phi)
+calc pi^2/10 - (ln phi)^2
+//  0.7553956195317 415
+//  0.7553956195317 209
+
+calc Li2 (-1/phi)
+calc -pi^2/15 + (ln phi)^2 / 2
+// -0.5421912164506 933
+// -0.5421912164506 884
+
+calc Li2 (1/phi^2)
+calc pi^2/15 - (ln phi)^2
+//  0.426408806162096 03
+//  0.426408806162096 14
+
+calc Li2 (-phi)
+// *** produces BUG output
+calc - pi^2 / 10 - (ln phi)^2
+// -1.21852526068613
+
