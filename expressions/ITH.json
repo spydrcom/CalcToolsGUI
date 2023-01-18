@@ -458,51 +458,6 @@
                1.2728716990427467E-15
             ]
          ]
-      },
-      {
-         "lo": 0.99951171875,
-         "hi": 1.0,
-         "delta": 8.138020833333333E-6,
-         "error": 0.0,
-         "slope": 1.6276041666666666E-4,
-         "unit": 6144.0,
-         "coefficients": 
-         [
-            [
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN,
-               NaN
-            ]
-         ]
-      }
-   ],
+      }   ],
    "NodeType": "Profile"
 }
