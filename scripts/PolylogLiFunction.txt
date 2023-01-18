@@ -31,12 +31,18 @@ plotri  LiCrit [ 0 <= x <= 2 <> 0.01]
 
 
 // positive orders
-init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li2" s "2" terms "50"
+init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li2" s "2" terms "500"
 init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li3" s "3" terms "50"
 
 
-graph LIM 5  [ -8 <= x < 2 <> 0.01 ] ( Li2 x, Li3 x )
-// graph LIM 5  [ -1 <= x < 1 <> 0.01 ] ( Li2 x )
+graph LIM 5  [ -1 <= x <= 1 <> 0.01 ] ( Li2 x, Li3 x )
+// plot of the negative analytic continuation present in Li2
+graph LIM 5  [ -3 <= x < 1 <> 0.01 ] ( Li2 x )
+
+// Re/Im plot
+!! Li2z (z) = Li2 (z)
+// plot of the complex positive continuation
+plotri Li2z [ 1 < x < 5 <> 0.01 ]
 
 
 // verify calculation of known values
@@ -51,10 +57,19 @@ calc pi^2/12 - (ln 2)^2 / 2
 // 0.5822405264650125 0590265632015968
 // 0.5822405264650125
 
+calc Li2 0.99
+//      1.58862 35252038527		;	 500 iterations
+//      1.5886254480763 697		;	5000 iterations
+// mpf('1.5886254480763 753')	;	calculated with Anaconda
+
 calc Li2 1
 calc pi^2/6
 // 1.644934066848226 2
 // 1.644934066848226 4
+
+calc Li2 1.1
+//          (1.961999101305568 2         -0.299425760685589 46*i)			;	500 iterations
+// mpc(real='1.961999101305568 9', imag='-0.299425760685589 51')		;	calculated with Anaconda
 
 calc Li2 2
 calc pi^2 / 4 - i*pi*ln 2
@@ -92,8 +107,16 @@ calc pi^2/15 - (ln phi)^2
 //  0.426408806162096 03
 //  0.426408806162096 14
 
+calc Li2 (-1/phi)
+// mpf('-0.54219121645069335')	; verified with Anaconda
+// -0.5421912164506 884
+
 calc Li2 (-phi)
-// *** produces BUG output
 calc - pi^2 / 10 - (ln phi)^2
+// mpf('-1.21852526068613')		; verified with Anaconda
 // -1.21852526068613
+
+calc Li2 (-phi^2)
+// mpf('-1.7574528644562959')	; verified with Anaconda
+// -1.75745286445629 68
 
