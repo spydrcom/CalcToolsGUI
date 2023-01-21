@@ -3,7 +3,8 @@
 //* polylog function Li study
 
 
-!! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( t^(s-1) / ( exp(t)/z - 1 ) * <*> t )
+// !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( t^(s-1) / ( exp(t)/z - 1 ) * <*> t )
+!! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( z * t^(s-1) / ( exp(t) - z ) * <*> t )
 RENDERF Li
 
 
