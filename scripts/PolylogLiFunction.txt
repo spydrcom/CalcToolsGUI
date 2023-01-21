@@ -101,7 +101,7 @@ calc Li2HP 1.1
 requires complex
 
 
-!! I (s, z, t) = t^(s-1) / ( exp(t)/z - 1 )
+!! I (s, z, t) = z * t^(s-1) / ( exp(t) - z )
 
 order = 2
 parameter = 0.5 + 5*i
