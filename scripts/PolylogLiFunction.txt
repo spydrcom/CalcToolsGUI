@@ -27,6 +27,7 @@ graph LIM 5  [ -8 <= x < 1 <> 0.05 ] ( Li0 x, Li1 x, Li_1 x, Li_2 x, Li_3 x, Li_
 init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li2" s "2" terms "50"
 init "net.myorb.math.specialfunctions.polylog.Jonquiere" named "Li3" s "3" terms "50"
 
+!! chi2(z) = ( Li2(z) - Li2(-z) ) / 2
 
 graph LIM 5  [ -1 <= x <= 1 <> 0.01 ] ( Li2 x, Li3 x )
 // plot of the negative analytic continuation present in Li2
@@ -112,6 +113,28 @@ plotri It [ 0 <= x <= 50 ]
 // RI plot of crit section
 !! LiCrit (x) = Li_4 ( 0.5 + i*x )
 plotri  LiCrit [ 0 <= x <= 2 <> 0.01]
+
+
+calc chi2(phi-1)
+// 0.64879341799 12176
+// 0.64879341799 4566
+
+calc -i * chi2 (i)
+// 0.9159635942012183
+
+
+calc Li2(i)
+calc polylog(2,0+!*1)
+// (-0.20561 47663559003 + 0.91596 35942012183*i)
+// (-0.20561 67583560283 + 0.91596 5594177219*i)
+
+calc Li2(-i)
+// (-0.20561476635590037 - 0.9159635942012183*i)
+calc (Li2(i) - Li2(-i)) / (2*i)
+// 0.9159635942012183
+
+calc ( polylog(2,0+!*1) - polylog(2,0-!*1) ) / 0+!*2
+// 0.915965594177219
 
 
 calc Li2 2
