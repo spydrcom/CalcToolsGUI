@@ -3,6 +3,25 @@
 //* polylog function Li study
 
 
+Catalan = 0.9159635942012183
+
+// simple polylog computations
+!! beta(s) = i/2 * (polylog(s,-i) - polylog(s,i))
+// full study found in CatalanBeta.txt
+
+beta_1 = beta(1)
+beta_2 = beta(2)
+beta_3 = beta(3)
+
+beta_1_error = beta_1 - pi/4
+beta_2_error = beta_2 - Catalan
+beta_3_error = beta_3 - pi^3/32
+
+prettyprint beta_1_error
+prettyprint beta_2_error
+prettyprint beta_3_error
+
+
 // !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( t^(s-1) / ( exp(t)/z - 1 ) * <*> t )
 !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( z * t^(s-1) / ( exp(t) - z ) * <*> t )
 RENDERF Li
@@ -115,12 +134,25 @@ plotri It [ 0 <= x <= 50 ]
 plotri  LiCrit [ 0 <= x <= 2 <> 0.01]
 
 
+// !! chi[v](z) = ( Li[v](z) - Li[v](-z) ) / 2
+//              =   Li[v](z) - 2^(-v) * Li[v](z^2)
+
+!! Ti2(z) = ( Li2(i*z) - Li2(-i*z) ) / (2*i)
+
+// !! Ti2(z) = -i * chi2(i*z)
+// !! Li2(i*z) = Li2(-z^2)/4 + i*Ti2(z)
+// !! Li2(i*z) = Li2(-z^2)/4 + chi2(i*z)
+
+
 calc chi2(phi-1)
-// 0.64879341799 12176
+calc pi^2/12 - 3*(ln(phi)^2)/4
+// 0.64879341799 1217
 // 0.64879341799 4566
 
 calc -i * chi2 (i)
 // 0.9159635942012183
+// Catalan's constant
+// chi2(i) = i*K
 
 
 calc Li2(i)
@@ -132,6 +164,7 @@ calc Li2(-i)
 // (-0.20561476635590037 - 0.9159635942012183*i)
 calc (Li2(i) - Li2(-i)) / (2*i)
 // 0.9159635942012183
+calc Ti2(1)
 
 calc ( polylog(2,0+!*1) - polylog(2,0-!*1) ) / 0+!*2
 // 0.915965594177219
