@@ -3,6 +3,8 @@
 //* Polylog running in Anaconda MPMATH library
 
 
+Catalan = 0.9159635942012183
+
 // calculation of phi constant
 phi = (1+sqrt(5))/2  ;  calc phi
 // 1.618033988749895
@@ -25,3 +27,39 @@ prettyprint error
 !! Li2z(z) = polylog ( 2, z ) 
 plotri Li2z [ -5 < z < 5 <> 0.01 ]
 
+
+// !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( z * t^(s-1) / ( exp(t) - z ) * <*> t )
+!! I (s, z) = z * t^(s-1) / ( exp(t) - z )
+
+CONFIGURE QUAD method "TSQ" description "custom quadrature using TANH-SINH"
+INSTANCE TSQuad QUAD
+
+dt = 1 ; INFINITY = 10
+// test using TSQ, incredible amount of precision for quadrature
+!! LI(s,z) = 1/GAMMA(s) * TSQuad [0 <= t <= INFINITY <> dt] ( I ( s, t ) * <*> t ) ; express LI
+
+
+dt = 1 ; INFINITY = 500
+// test using TSQ, incredible amount of precision for quadrature
+!! LI(s,z) = 1/GAMMA(s) * TSQuad [0 <= t <= INFINITY <> dt] ( I ( s, z, t ) * <*> t ) ; express LI
+calc LI (2,1/2)
+
+
+!! beta(s) = i/2 * (LI(s,-i) - LI(s,i))
+
+graph LIM 2 [ -5 <= x <= 5 <> 0.1 ] ( beta (x) )
+
+
+!! I (s, x) = x^(s-1) * exp(-x) / ( exp(-2*x) + 1 )
+!! beta (s) = 1/GAMMA(s) * TSQuad [0 <= t <= INFINITY <> dt] ( I ( s, t ) * <*> t ) ; express beta
+calc beta (2)
+
+
+INFINITY = 100
+!! beta (s) = SIGMA [ 0 <= n <= INFINITY ] ( (-1)^n / (2*n+1)^s )
+// beta (1-s) = (pi/2)^(-s) * sin(s*pi/2) * GAMMA(s) * beta(s)
+!! beta1 (s) = (pi/2)^(-s) * sin(s*pi/2) * GAMMA(s) * beta(s)
+
+calc beta (3) - pi^3/32
+calc beta (2) - Catalan
+calc beta (0) - 1/2
