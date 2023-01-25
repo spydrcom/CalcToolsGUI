@@ -1,0 +1,24 @@
+
+
+//* JINC function and associates
+
+
+// JINC is based on Bessel J1
+LIBRARY Bessel cern.jet.math.Bessel
+!+ J1(x)    = Bessel.j1
+
+// plot of JINC
+!! jinc(x) = J1 x / x
+graph [0 < x < 5 <> 0.01 ] ( J1 x, jinc x )
+
+
+// Dirichlet Lambda function
+!! lam(x) = SIGMA [ 0 <= n <= 100 ] ( 1 / (2*n+1)^x )
+graph [0 < x < 5 <> 0.01 ] ( lam x )
+
+
+// SINC function
+!! sinc(x) = sin x / x
+graph [0 < x < 5 <> 0.01 ] ( sin x, sinc x )
+
+
