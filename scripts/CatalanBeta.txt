@@ -65,3 +65,19 @@ calc A175571 - beta 5
 calc A175570 - beta 6
 calc 0.99955450789 - beta 7
 
+
+requires complex
+
+
+LIBRARY JPL  net.myorb.math.computational.integration.polylog.JonquierePolylog
+
+!+ plog (s,z,n) = JPL.complexPolylog (s,z,n)
+
+calc plog (2.5,-1,1000)
+// -0.8671998732205587
+
+!! PL (s,z) = plog (s,z,500)
+
+!! betaz(s) = i/2 * ( PL (s,-i)  - PL (s,i)  )
+graph [ -0.5 <= x <= 2 <> 0.01 ] ( betaz x )
+
