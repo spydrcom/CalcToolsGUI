@@ -5,23 +5,6 @@
 
 Catalan = 0.9159635942012183
 
-// simple polylog computations
-!! beta(s) = i/2 * (polylog(s,-i) - polylog(s,i))
-// full study found in CatalanBeta.txt
-
-beta_1 = beta(1)
-beta_2 = beta(2)
-beta_3 = beta(3)
-
-beta_1_error = beta_1 - pi/4
-beta_2_error = beta_2 - Catalan
-beta_3_error = beta_3 - pi^3/32
-
-prettyprint beta_1_error
-prettyprint beta_2_error
-prettyprint beta_3_error
-
-
 // !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( t^(s-1) / ( exp(t)/z - 1 ) * <*> t )
 !! Li (s, z) = 1/GAMMA(s) * INTEGRAL [ 0 <= t <= INFINITY ] ( z * t^(s-1) / ( exp(t) - z ) * <*> t )
 RENDERF Li
@@ -155,21 +138,6 @@ calc -i * chi2 (i)
 // chi2(i) = i*K
 
 
-calc Li2(i)
-calc polylog(2,0+!*1)
-// (-0.20561 47663559003 + 0.91596 35942012183*i)
-// (-0.20561 67583560283 + 0.91596 5594177219*i)
-
-calc Li2(-i)
-// (-0.20561476635590037 - 0.9159635942012183*i)
-calc (Li2(i) - Li2(-i)) / (2*i)
-// 0.9159635942012183
-calc Ti2(1)
-
-calc ( polylog(2,0+!*1) - polylog(2,0-!*1) ) / 0+!*2
-// 0.915965594177219
-
-
 calc Li2 2
 calc pi^2 / 4 - i*pi*ln 2
 // (2.4674011002723395 - 2.177586090303602*i)
@@ -192,4 +160,38 @@ calc -11/15*pi^2 - (ln (-phi))^2
 plotri Li2z [ 1 < x < 5 <> 0.01 ]
 
 
+
+// beta based on Anaconda polylog
+
+
+calc Li2(i)
+calc polylog(2,0+!*1)
+// (-0.20561 47663559003 + 0.91596 35942012183*i)
+// (-0.20561 67583560283 + 0.91596 5594177219*i)
+
+calc Li2(-i)
+// (-0.20561476635590037 - 0.9159635942012183*i)
+calc (Li2(i) - Li2(-i)) / (2*i)
+// 0.9159635942012183
+calc Ti2(1)
+
+calc ( polylog(2,0+!*1) - polylog(2,0-!*1) ) / 0+!*2
+// 0.915965594177219
+
+
+// simple polylog computations
+!! beta(s) = i/2 * (polylog(s,-i) - polylog(s,i))
+// full study found in CatalanBeta.txt
+
+beta_1 = beta(1)
+beta_2 = beta(2)
+beta_3 = beta(3)
+
+beta_1_error = beta_1 - pi/4
+beta_2_error = beta_2 - Catalan
+beta_3_error = beta_3 - pi^3/32
+
+prettyprint beta_1_error
+prettyprint beta_2_error
+prettyprint beta_3_error
 
