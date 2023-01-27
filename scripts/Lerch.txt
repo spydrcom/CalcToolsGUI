@@ -1,0 +1,21 @@
+
+
+//* Lerch transcendent tests
+
+
+LIBRARY L  net.myorb.math.specialfunctions.Lerch
+
+!+ PHI (z,s,a,t) = L.integrand (z,s,a,t)
+
+
+!! phi(z,s,a,t) = PHI (z,s,a,t)
+
+calc phi ( 0.5, 2, 1, 2 )
+
+graph [ 0 < x < 10 <> 0.01 ] ( phi ( -0.1, 2, 1, x ))
+
+
+!! phic (t) = phi ( -0.1-!*2, 2, 1, t )
+
+plotri  phic  [ 0 < x < 10 <> 0.01 ] 
+
