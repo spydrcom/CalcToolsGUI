@@ -28,15 +28,17 @@ RENDER "The Polygamma function" TOP
 !! chi(s,z) = 2^(-s) * PHI (z^2,s,1/2) * z ; RENDERF chi
 RENDER "The Legendre chi function" TOP 
 
+!! eta(s) = PHI (-1,s,1) ; RENDERF eta
+RENDER "The Dirichlet eta function" TOP 
+
 !! beta(s) = 2^(-s) * PHI (-1,s,1/2) ; RENDERF beta
 RENDER "The Dirichlet beta function" TOP 
 
 !! Li(s,z) = z * PHI (z,s,1) ; RENDERF Li
 RENDER "The polylogarithm Li function" TOP 
 
-!! eta(s) = PHI (-1,s,1) ; RENDERF eta
-RENDER "The Dirichlet eta function" TOP 
-
+!! Ti(s,z) = z / 4 * PHI (-z^2,s,1/2)  ; RENDERF Ti
+RENDER "The inverse tangent integral function" TOP 
 
 // simple RI plot
 !! Ltest (s) = Li (2, 0.5+i*s)
@@ -59,4 +61,17 @@ graph [ 0 < x < 10 <> 0.01 ] ( phitest ( -0.1, 2, 1, x ))
 // plot showing integrand shape - complex version
 !! phicomplex (t) = phitest ( -0.1-!*2, 2, 1, t )
 plotri  phicomplex  [ 0 < x < 10 <> 0.01 ] 
+
+// plot showing integrand shape - complex version of PSI
+!! PSIid (n, alpha, t) = (-1)^(n+1) * phitest (1, n+1, alpha, t) * n!
+!! PSItest (t) = PSIid (0, 0.5, t)
+
+plotri  PSItest  [ 0.2 < x < 10 <> 0.01 ] 
+
+
+// plot showing integrand shape - complex version of beta
+!! betaid (s, t) = 2^(-s) * phitest (-1, s, 1/2, t) * n!
+!! betatest (t) = betaid (0.5, t)
+
+plotri  betatest  [ 0.1 < x < 10 <> 0.01 ] 
 
