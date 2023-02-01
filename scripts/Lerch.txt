@@ -46,6 +46,22 @@ plotri  Ltest  [ -0.9 < x < 0.9 <> 0.01 ]
 
 
 
+// transcendent function test
+init "net.myorb.math.specialfunctions.Lerch" named "Li2" target "Li" order "2" enforced "TRUE" series "TRUE" terms "500"
+init "net.myorb.math.specialfunctions.Lerch" named "Ti2" target "Ti" order "2" enforced "TRUE" series "TRUE" terms "500"
+
+calc Ti2 1
+Catalan = 0.9159635942012183
+calc Catalan - Ti2 1
+
+calc Li2 0.5
+expected = pi^2/12 - (ln 2)^2 / 2
+calc expected - Li2 0.5
+// 0.5822405264650125
+calc expected
+
+
+
 // examine the shape of integrand functions
 LIBRARY LT  net.myorb.math.specialfunctions.Lerch
 
