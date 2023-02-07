@@ -106,5 +106,15 @@ public class ComplexPlots<T> extends Context<T>
 	}
 
 
+	/**
+	 * process a MAPZ command
+	 * @return a keyword command for the MAPZ keyword
+	 */
+	public KeywordCommand constructMapzKeywordCommand ()
+	{
+		return plotting.constructMapzKeywordCommand ();
+	}
+
+
 }
 
