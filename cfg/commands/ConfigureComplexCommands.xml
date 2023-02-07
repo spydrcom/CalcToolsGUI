@@ -19,10 +19,11 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_complex' saveListAs='cmdList'
-		toBeCalled='Splot Plotri Angular Radial Stop'
+		toBeCalled='MapZ Splot Plotri Angular Radial Stop'
 	 />
 
 	<!-- configure each command with bean set operations -->
+	<bean references='MapZ'> <text Reference='Mapz' SymbolUsing='MAPZ_KEYWORD' /> </bean>
 	<bean references='Splot'> <text Reference='Splot' SymbolUsing='SPLOT_KEYWORD' /> </bean>
 	<bean references='Angular'> <text Reference='Angular' SymbolUsing='POLAR_ANGULAR_KEYWORD' /> </bean>
 	<bean references='Radial'> <text Reference='Radial' SymbolUsing='POLAR_RADIAL_KEYWORD' /> </bean>
