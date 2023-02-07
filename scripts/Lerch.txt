@@ -61,6 +61,11 @@ calc expected - Li2 0.5
 calc expected
 
 
+// use MAPZ to show Li1 transforms
+init "net.myorb.math.specialfunctions.Lerch" named "Li1" target "Li" order "1" enforced "TRUE" series "TRUE" terms "100"
+init "net.myorb.math.expressions.charting.multidimensional.Zplot" named "HIDEF" filter "TRUE" slices "24" segments "70" portions "50" 
+MAPZ Li1 HIDEF
+
 
 // examine the shape of integrand functions
 LIBRARY LT  net.myorb.math.specialfunctions.Lerch
