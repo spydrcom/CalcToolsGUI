@@ -1,0 +1,293 @@
+
+
+//* list of Laplace transforms
+
+
+SELECT "List of Laplace transforms"
+RENDER "List of Laplace transforms" CENTER red
+
+
+RENDER   F(s) = INTEGRAL [ 0 <= t <= INFINITY ] ( f(t) * exp (-s*t) * <*> t )
+
+
+RENDER "---" TOP
+RENDER "Function Definitions" TOP red
+
+
+RENDER f(t) = L^(-1) * { F(s) }
+RENDER "Time Domain function definition" TOP
+
+RENDER F(s) = L * { f(t) }
+RENDER "Laplace S-Domain function definition" TOP
+
+
+RENDER "---" TOP
+RENDER "Exponential Equations" TOP red
+
+RENDER f(t) = exp ( lambda * t )
+RENDER "Exponential Time Domain" TOP
+
+RENDER F(s) = 1 / ( s - lambda )
+RENDER "Exponential Laplace S-Domain" TOP
+// s > lambda
+
+
+RENDER "---" TOP
+RENDER "Constant Equation" TOP red
+// consequence of Exponential (lambda = 0)
+
+RENDER f(t) = 1
+RENDER "Constant Time Domain" TOP
+
+RENDER F(s) = 1 / s
+RENDER "Constant Laplace S-Domain" TOP
+// s > 0
+
+
+RENDER "---" TOP
+RENDER "Delayed Impulse Equations" TOP red
+// time shift of unit impulse
+
+RENDER f(t) = delta ( t - tau )
+RENDER "Delayed Impulse Time Domain" TOP
+// Dirac delta
+
+RENDER F(s) = exp ( - tau * s )
+RENDER "Delayed Impulse Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Unit Step Equations" TOP red
+// integrate unit impulse - Re(s) > 0
+
+RENDER f(t) = u(t)
+RENDER "Unit Step Time Domain" TOP
+// u(t) represents Heaviside step function
+
+RENDER F(s) = 1 / s
+RENDER "Unit Step Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Delayed Unit Step Equations" TOP red
+// Time Shift of Unit Step - Re(s) > 0
+
+RENDER f(t) = u ( t - tau )
+RENDER "Delayed Unit Step Time Domain" TOP
+
+RENDER F(s) = exp ( - tau * s ) / s
+RENDER "Delayed Unit Step Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Rectangular Impulse Equations" TOP red
+
+RENDER f(t) = u (t) - u ( t - tau )
+RENDER "Rectangular Impulse Time Domain" TOP
+
+RENDER F(s) = ( 1 - exp ( - tau * s ) ) / s
+RENDER "Rectangular Impulse Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Ramp Equations" TOP red
+// unary real function whose graph is shaped like a ramp.
+// integrate unit impulse twice - Re(s) > 0
+
+RENDER f(t) = t * u(t)
+RENDER "Ramp Time Domain" TOP
+
+RENDER F(s) = 1 / s^2
+RENDER "Ramp Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Nth power (for integer n) Equations" TOP red
+// integrate unit step n times - Re(s) > 0 & n > -1
+
+RENDER f(t) = t^n * u(t)
+RENDER "Nth power Time Domain" TOP
+
+RENDER F(s) = n! / s^( n + 1 )
+RENDER "Nth power Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "qth power (for complex q) Equations" TOP red
+// http://mathworld.wolfram.com/LaplaceTransform.html
+// Re(s) > 0 & Re(q) > -1
+
+RENDER f(t) = t^q * u(t)
+RENDER "qth power Time Domain" TOP
+
+RENDER F(s) = GAMMA( q + 1 ) / s^( q + 1 )
+RENDER "qth power Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Nth Root Equations" TOP red
+// Set q = 1/n above - Re(s) > 0
+
+RENDER f(t) = n \ t * u(t)
+RENDER "Nth Root Time Domain" TOP
+
+RENDER F(s) = GAMMA( 1/n + 1 ) / s^( 1/n + 1 )
+RENDER "Nth Root Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Nth Power (with frequency shift) Equations" TOP red
+// Integrate unit step, apply frequency shift - Re(s) > -alpha
+
+RENDER f(t) = t^n * exp( - alpha * t ) * u(t)
+RENDER "Nth Power FS Time Domain" TOP
+
+RENDER F(s) = n! / ( s + alpha ) ^ (n+1)
+RENDER "Nth Power FS Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Delayed Nth Power FS Equations" TOP red
+// integrate unit step, apply frequency shift, apply time shift
+
+RENDER f(t) = (t-tau)^n * exp( - alpha * (t-tau) ) * u(t-tau)
+RENDER "Delayed Nth Power Time Domain" TOP
+
+RENDER F(s) = n! * exp( - tau * s ) / ( s + alpha ) ^ (n+1)
+RENDER "Delayed Nth Power Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Exponential Decay Equations" TOP red
+// decreases at a rate proportional to its current value
+// Frequency shift of unit step
+// Re(s) > alpha
+
+RENDER f(t) = exp( -alpha * t ) * u(t)
+RENDER "Exponential Decay Time Domain" TOP
+
+RENDER F(s) = 1 / ( s + alpha )
+RENDER "Exponential Decay Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Two-Sided Decay Equations" TOP red
+// Frequency shift of unit step
+// -alpha < Re(s) < alpha
+
+RENDER f(t) = exp( -alpha * abs(t) )
+RENDER "Two-Sided Decay Time Domain" TOP
+
+RENDER F(s) = 2 * alpha / ( alpha^2 - s^2 )
+RENDER "Two-Sided Decay Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Exponential Approach Equations" TOP red
+// unit step minus exponential decay - Re(s) > 0
+
+RENDER f(t) = ( 1 - exp( -alpha * t ) ) * u(t)
+RENDER "Exponential Approach Time Domain" TOP
+
+RENDER F(s) = alpha / ( s^2 + s*alpha )
+RENDER "Exponential Approach Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Sine Equations" TOP red
+// Re(s) > 0
+
+RENDER f(t) = sin(theta * t) * u(t)
+RENDER "Sine Time Domain" TOP
+
+RENDER F(s) = theta / ( s^2 + theta^2 )
+RENDER "Sine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Cosine Equations" TOP red
+// Re(s) > 0
+
+RENDER f(t) = cos(theta * t) * u(t)
+RENDER "Cosine Time Domain" TOP
+
+RENDER F(s) = s / ( s^2 + theta^2 )
+RENDER "Cosine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Hyperbolic Sine Equations" TOP red
+// Re(s) > abs(alpha)
+
+RENDER f(t) = sinh(alpha * t) * u(t)
+RENDER "Hyperbolic Sine Time Domain" TOP
+
+RENDER F(s) = alpha / ( s^2 - alpha^2 )
+RENDER "Hyperbolic Sine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Hyperbolic Cosine Equations" TOP red
+// Re(s) > abs(alpha)
+
+RENDER f(t) = cosh(alpha * t) * u(t)
+RENDER "Hyperbolic Cosine Time Domain" TOP
+
+RENDER F(s) = s / ( s^2 - alpha^2 )
+RENDER "Hyperbolic Cosine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Decaying Sine Equations" TOP red
+// Re(s) > -alpha
+
+RENDER f(t) = exp(-alpha*t) * sin(theta * t) * u(t)
+RENDER "Decaying Sine Time Domain" TOP
+
+RENDER F(s) = theta / ( (s+alpha)^2 + theta^2 )
+RENDER "Decaying Sine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Decaying Cosine Equations" TOP red
+// Re(s) > -alpha
+
+RENDER f(t) = exp(-alpha*t) * cos(theta * t) * u(t)
+RENDER "Decaying Cosine Time Domain" TOP
+
+RENDER F(s) = (s+alpha) / ( (s+alpha)^2 + theta^2 )
+RENDER "Decaying Cosine Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Logarithm Equations" TOP red
+// Re(s) > 0
+
+RENDER f(t) = ln(t) * u(t)
+RENDER "Logarithm Time Domain" TOP
+
+RENDER F(s) = - (ln(s) + gamma) / s
+RENDER "Logarithm Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Bessel Function Equations" TOP red
+// Re(s) > 0 & n > -1
+
+RENDER f(t) = J_n(OMEGA*t) * u(t)
+RENDER "Bessel Function Time Domain" TOP
+
+RENDER F(s) = ( sqrt( s^2 + OMEGA^2 ) - s )^n / ( OMEGA^n * sqrt( s^2 + OMEGA^2 ) )
+RENDER "Bessel Function Laplace S-Domain" TOP
+
+
+RENDER "---" TOP
+RENDER "Error Function Equations" TOP red
+// Re(s) > 0
+
+RENDER f(t) = erf(t) * u(t)
+RENDER "Error Function Time Domain" TOP
+
+RENDER F(s) = exp( s^2/4 ) * ( 1 - erf(s/2) ) / s
+RENDER "Error Function Laplace S-Domain" TOP
+
