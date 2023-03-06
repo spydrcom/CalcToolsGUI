@@ -9,7 +9,7 @@
 	<!-- create operator object for each operation symbol from factored algorithms -->
 
 	<populate class='Operator' using='factored' saveListAs='opsList'
-		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemOp Pow PIF PN Rsh Lsh'
+		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin RemOp Pow PIF PN Lambda Mobius OMEGA omega Rsh Lsh'
 	 />
 
 	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
@@ -25,6 +25,11 @@
 
 	<bean references='Rsh'> <text Description='Right shift operator' Reference='Rsh' Symbol='&gt;&gt;' /> <set Precedence='8' /> </bean>
 	<bean references='Lsh'> <text Description='Left shift operator' Reference='Lsh' Symbol='&lt;&lt;' /> <set Precedence='8' /> </bean>
+
+	<bean references='Mobius'> <text Description='Mobius counting function' Reference='MobiusFunction' Symbol='mu' /> <set Precedence='9' /> </bean>
+	<bean references='Lambda'> <text Description='Lambda counting function' Reference='LambdaFunction' Symbol='lambda' /> <set Precedence='9' /> </bean>
+	<bean references='OMEGA'> <text Description='Omega counting function with multiplicity' Reference='OmegaMultiplicityFunction' Symbol='OMEGA' /> <set Precedence='9' /> </bean>
+	<bean references='omega'> <text Description='Omega counting function' Reference='OmegaFunction' Symbol='omega' /> <set Precedence='9' /> </bean>
 
 	<bean references='PIF'> <text Description='PI counting function' Reference='PIFunction' Symbol='PIF' /> <set Precedence='9' /> </bean>
 	<bean references='PN'> <text Description='Nth prime number' Reference='PrimeN' Symbol='Pn' /> <set Precedence='9' /> </bean>
