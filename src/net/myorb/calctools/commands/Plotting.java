@@ -7,6 +7,7 @@ import net.myorb.math.expressions.charting.RegressionCharts;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.ExtendedKeywordCommand;
 import net.myorb.math.expressions.commands.KeywordCommand;
+import net.myorb.math.expressions.commands.Tabulation;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
 import net.myorb.math.expressions.GraphManager;
@@ -26,6 +27,31 @@ public class Plotting<T> extends Context<T>
 	public Plotting
 	(ExpressionSpaceManager<T> manager)
 	{ super (manager); }
+
+
+	/**
+	 * process a Tabulate command
+	 * @return a keyword command for the Tabulate keyword
+	 */
+	public KeywordCommand constructTabulateKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Display a table of arrays of data points";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				new Tabulation <T> (environment)
+					.tabulateValues
+					(
+						getAccess ().getValue (tokens)
+					);
+			}
+		};
+	}
 
 
 	/**
