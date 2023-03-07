@@ -10,6 +10,7 @@ import net.myorb.math.expressions.commands.MandelbrotGraphics;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
+import net.myorb.math.polynomial.algebra.SeriesExpansion;
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
 import net.myorb.math.expressions.ScriptManager;
@@ -153,6 +154,30 @@ public class Features<T> extends Context<T>
 				(
 					functionName.toString (), imageOf (tokens, pos)
 				);
+			}
+		};
+	}
+
+
+	/**
+	 * polynomial series expansion
+	 * @return a keyword command for the EXPAND keyword
+	 */
+	public KeywordCommand constructExpandKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Polynomial algebriac series expansion";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				StringBuffer functionName = new StringBuffer ();
+				int pos = getFunctionName (0, tokens, functionName);
+				new SeriesExpansion<T> (environment).performExpansion
+				(functionName.toString (), tokens, pos);
 			}
 		};
 	}

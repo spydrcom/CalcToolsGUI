@@ -10,7 +10,7 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_features' saveListAs='cmdList'
-		toBeCalled='Rpn MaxMin Root Dct Mandelbrot Polynomial Request Serve'
+		toBeCalled='Expand Rpn MaxMin Root Dct Mandelbrot Polynomial Request Serve'
 	 />
 
 	<!-- configure each command with bean set operations -->
@@ -19,6 +19,7 @@
 	<bean references='Rpn'> <text Keyword='Rpn' /> </bean>
 	<bean references='Dct'> <text Keyword='Dct' /> </bean>
 
+	<bean references='Expand'> <text Reference='Expand' SymbolUsing='EXPAND_KEYWORD' /> </bean>
 	<bean references='MaxMin'> <text Reference='MaxMin' SymbolUsing='MAXMINOF_KEYWORD' /> </bean>
 	<bean references='Request'> <text Reference='Request' SymbolUsing='REQUEST_KEYWORD' /> </bean>
 	<bean references='Root'> <text Reference='Root' SymbolUsing='ROOTOF_KEYWORD' /> </bean>
