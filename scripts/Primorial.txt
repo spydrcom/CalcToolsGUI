@@ -44,3 +44,5 @@ n = 30 - remaining
 CALC calcPN(n)
 }*
 
+// table of prime functions
+tabulate [900 <= x <= 1000 <> 1] (  x, PIF x, mu x, OMEGA x, omega x, lambda x )
