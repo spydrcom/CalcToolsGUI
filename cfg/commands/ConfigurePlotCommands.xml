@@ -10,10 +10,11 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_plotting' saveListAs='cmdList'
-		toBeCalled='Fft Plott Plotf Plotl Plotc Plotm Plot3d Chart Graph Derive Scatter Comparison SetContour Entitled'
+		toBeCalled='Fft Plott Plotf Plotl Plotc Plotm Plot3d Tabulate Chart Graph Derive Scatter Comparison SetContour Entitled'
 	 />
 
 	<!-- configure each command with bean set operations -->
+	<bean references='Tabulate'> <text Keyword='Tabulate' /> </bean>
 	<bean references='Graph'> <text Keyword='Graph' /> </bean>
 	<bean references='Chart'> <text Keyword='Chart' /> </bean>
 	<bean references='Derive'> <text Keyword='Derive' /> </bean>
