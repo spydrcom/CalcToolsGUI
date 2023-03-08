@@ -9,7 +9,7 @@
 	<!-- create operator object for each operation symbol from factored algorithms -->
 
 	<populate class='Operator' using='factored' saveListAs='opsList'
-		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin Lambda Mobius OMEGA omega PIF PN Pow RemOp Rsh Lsh'
+		toBeCalled='Primorial Subfactorial Pochhammer StirlingF StirlingS DivRemBin Lambda Mobius OMEGA omega PIF XLX LI TF PN Pow RemOp Rsh Lsh'
 	 />
 
 	<bean references='StirlingF'> <text Description='Stirling numbers (first) operator (n $$ k)' Reference='SN' Symbol='$$' /> <set Precedence='10' /> </bean>
@@ -32,6 +32,9 @@
 	<bean references='omega'> <text Description='Omega counting function (distinct factors)' Reference='OmegaFunction' Symbol='omega' /> <set Precedence='9' /> </bean>
 
 	<bean references='PIF'> <text Description='PI counting function' Reference='PIFunction' Symbol='PIF' /> <set Precedence='9' /> </bean>
+	<bean references='LI'> <text Description='Logarithmic Integral as counting function' Reference='Li' Symbol='li' /> <set Precedence='9' /> </bean>
+	<bean references='TF'> <text Description='Riemann T counting function' Reference='Tfunction' Symbol='T' /> <set Precedence='9' /> </bean>
+	<bean references='XLX'> <text Description='X ln X counting function' Reference='Xlx' Symbol='xLx' /> <set Precedence='9' /> </bean>
 	<bean references='PN'> <text Description='Nth prime number' Reference='PrimeN' Symbol='Pn' /> <set Precedence='9' /> </bean>
 
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' inclusionList='opsList' />
