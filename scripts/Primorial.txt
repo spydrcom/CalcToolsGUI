@@ -34,15 +34,24 @@ CALC ERRORS
 
 
 // look for primes at +1 and -1 from Primorials
-!! row (n, pn, pnp) = ( n, pn, pnp-1, pnp+1 )
-!! calcPNP (n, pn) = row ( n, pn,  pn #! )
-!! calcPN (n) = calcPNP ( n, Pn(n) )
+// !! row (n, pn, pnp) = ( n, pn, pnp-1, pnp+1 )
+// !! calcPNP (n, pn) = row ( n, pn,  pn #! )
+// !! calcPN (n) = calcPNP ( n, Pn(n) )
 
-remaining = 28
-*{ remaining
-n = 30 - remaining
-CALC calcPN(n)
-}*
+// remaining = 28
+// *{ remaining
+// n = 30 - remaining
+// CALC calcPN(n)
+// }*
+
+
+// alternative rendering of table
+
+!! P(n) = n #!  ;  !! PNP (n) = P ( Pn n )
+!! PNPm1 (n) = PNP(n) - 1  ;  !! PNPp1 (n) = PNP(n) + 1
+
+// display as formatted table
+tabulate [2 <= n <= 30] ( n, Pn n, PNPm1(n) , PNPp1(n)  )
 
 
 // tables of prime counting functions
