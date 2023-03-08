@@ -44,5 +44,17 @@ n = 30 - remaining
 CALC calcPN(n)
 }*
 
-// table of prime functions
-tabulate [900 <= x <= 1000 <> 1] (  x, PIF x, mu x, OMEGA x, omega x, lambda x )
+
+// tables of prime counting functions
+
+!! pi(x) = PIF x
+// percent error of approximations - xLx and li specifically respectively
+!! pct (x,apx) = 100* (pi x - apx) / (pi x)  ;   !! pxlx(x) = pct ( x, xLx x)  ;  !! pli(x) = pct ( x, li x)
+
+// a table of pi, x/log x, and li giving values and percent error for each
+tabulate [100 <= x <= 10000 <> 100] (  x, pi x, xLx x, pxlx x, li x, pli x  )
+
+
+// table of prime counting parity functions
+tabulate [900 <= x <= 1000 <> 1] (  x, pi x, mu x, OMEGA x, omega x, lambda x )
+
