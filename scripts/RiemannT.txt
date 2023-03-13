@@ -1,0 +1,15 @@
+
+
+//*  Riemann T harmonic function
+
+
+a = 0.5 ; b = 204.189671803
+
+offsetAngle = atan (b / a)
+
+absx = sqrt (a*a + b*b)
+
+!! ht (x) = sqrt (x) * cos ( b* ln(x)  - offsetAngle ) / (absx * ln(x) )
+
+graph [ 2 < x < 10 <> 0.01 ] ( ht(x) )
+
