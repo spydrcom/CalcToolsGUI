@@ -20,6 +20,8 @@ import net.myorb.data.abstractions.ErrorHandling;
 
 import net.myorb.gui.components.SimpleScreenIO;
 
+import java.util.ArrayList;
+
 /**
  * commands related to core features
  * @author Michael Druckman
@@ -176,8 +178,19 @@ public class Features<T> extends Context<T>
 			{
 				StringBuffer functionName = new StringBuffer ();
 				int pos = getFunctionName (0, tokens, functionName);
-				new SeriesExpansion<T> (environment).performExpansion
+				CommandSequence expanded = new SeriesExpansion<T> (environment).expandSequence
 				(functionName.toString (), tokens, pos);
+
+				try
+				{
+					ArrayList <String> parameterNames = new ArrayList <> (); parameterNames.add ("x");
+
+					getCurrentRenderer ().render
+					(
+						expanded, parameterNames, "Expanded series from " + functionName
+					);
+				}
+				catch (Exception e) { throw new RuntimeException ("Render failed", e); }
 			}
 		};
 	}
