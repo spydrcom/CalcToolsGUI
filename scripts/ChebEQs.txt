@@ -19,7 +19,7 @@ T5d2 = (0, 120,   0,  80)
 GRAPH [-1 <= x <= 1 <> 0.01] (t5x(x), t5xd1(x), t5xd2(x))
 
 
-// define differiential equation using T5 function and derivative functions
+// define differential equation using T5 function and derivative functions
 !! chebeq(x) = (1-x*x) * t5xd2(x) - x * t5xd1(x) + n*n * t5x(x)
 
 
