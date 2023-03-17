@@ -174,11 +174,11 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				StringBuffer functionName = new StringBuffer ();
-				int pos = getFunctionName ( 0, tokens, functionName );
+				StringBuffer functionName;
+				getFunctionName ( 0, tokens, functionName = new StringBuffer () );
 
 				SeriesExpansion <T> processor = new SeriesExpansion <T> (environment);
-				CommandSequence expanded = processor.expandSequence ( functionName.toString (), tokens, pos );
+				CommandSequence expanded = processor.expandSequence ( functionName.toString () );
 
 				try
 				{
