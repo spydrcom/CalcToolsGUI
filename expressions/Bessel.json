@@ -29,7 +29,7 @@
             "NodeType": "BinaryOP",
             "Right": 
             {
-               "OpName": "f",
+               "OpName": "f''",
                "PostFix": false,
                "NodeType": "UnaryOP",
                "Parameter": 
@@ -38,7 +38,7 @@
                   "Symbol": null,
                   "NodeType": "Identifier",
                   "Kind": "Unknown",
-                  "Name": "''"
+                  "Name": "x"
                }
             },
             "OpType": "Binary"
@@ -58,7 +58,7 @@
             "NodeType": "BinaryOP",
             "Right": 
             {
-               "OpName": "f",
+               "OpName": "f'",
                "PostFix": false,
                "NodeType": "UnaryOP",
                "Parameter": 
@@ -67,7 +67,7 @@
                   "Symbol": null,
                   "NodeType": "Identifier",
                   "Kind": "Unknown",
-                  "Name": "'"
+                  "Name": "x"
                }
             },
             "OpType": "Binary"
