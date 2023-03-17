@@ -1,36 +1,259 @@
 {
-   "Name": "F'",
-   "Parameters": 
-   [
-      "x"
-   ],
+   "Name": "f'",
+   "Parameter": "x",
    "Description": null,
-   "Imports": 
-   {
-      "DxF": 
-      {
-         "function": "f",
-         "variable": "x",
-         "syntax": "Lagrange",
-         "description": "df/dx",
-         "run": "0.001",
-         "FACTORY": "net.myorb.math.expressions.algorithms.ClMathDerivative",
-         "order": "1"
-      }
-   },
    "Expression": 
    {
-      "OpName": "DxF",
-      "PostFix": false,
-      "NodeType": "UnaryOP",
-      "Parameter": 
+      "OpName": "+",
+      "Left": 
       {
-         "Operator": null,
-         "Symbol": "AssignedVariableStorage",
-         "NodeType": "Identifier",
-         "Kind": "Variable",
-         "Name": "x"
-      }
+         "OpName": "+",
+         "Left": 
+         {
+            "OpName": "+",
+            "Left": 
+            {
+               "OpName": "+",
+               "Left": 
+               {
+                  "OpName": "+",
+                  "Left": 
+                  {
+                     "OpName": "+",
+                     "Left": 
+                     {
+                        "Operator": null,
+                        "Symbol": null,
+                        "NodeType": "Identifier",
+                        "Kind": "Unknown",
+                        "Name": "f_1"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 
+                     {
+                        "OpName": "*",
+                        "Left": 
+                        {
+                           "OpName": "*",
+                           "Left": 2.0,
+                           "NodeType": "BinaryOP",
+                           "Right": 
+                           {
+                              "Operator": null,
+                              "Symbol": null,
+                              "NodeType": "Identifier",
+                              "Kind": "Unknown",
+                              "Name": "c_2"
+                           },
+                           "OpType": "Binary"
+                        },
+                        "NodeType": "BinaryOP",
+                        "Right": 
+                        {
+                           "Operator": null,
+                           "Symbol": null,
+                           "NodeType": "Identifier",
+                           "Kind": "Unknown",
+                           "Name": "x"
+                        },
+                        "OpType": "Binary"
+                     },
+                     "OpType": "Binary"
+                  },
+                  "NodeType": "BinaryOP",
+                  "Right": 
+                  {
+                     "OpName": "*",
+                     "Left": 
+                     {
+                        "OpName": "*",
+                        "Left": 3.0,
+                        "NodeType": "BinaryOP",
+                        "Right": 
+                        {
+                           "Operator": null,
+                           "Symbol": null,
+                           "NodeType": "Identifier",
+                           "Kind": "Unknown",
+                           "Name": "c_3"
+                        },
+                        "OpType": "Binary"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 
+                     {
+                        "OpName": "^",
+                        "Left": 
+                        {
+                           "Operator": null,
+                           "Symbol": null,
+                           "NodeType": "Identifier",
+                           "Kind": "Unknown",
+                           "Name": "x"
+                        },
+                        "NodeType": "BinaryOP",
+                        "Right": 2.0,
+                        "OpType": "Binary"
+                     },
+                     "OpType": "Binary"
+                  },
+                  "OpType": "Binary"
+               },
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "*",
+                  "Left": 
+                  {
+                     "OpName": "*",
+                     "Left": 4.0,
+                     "NodeType": "BinaryOP",
+                     "Right": 
+                     {
+                        "Operator": null,
+                        "Symbol": null,
+                        "NodeType": "Identifier",
+                        "Kind": "Unknown",
+                        "Name": "c_4"
+                     },
+                     "OpType": "Binary"
+                  },
+                  "NodeType": "BinaryOP",
+                  "Right": 
+                  {
+                     "OpName": "^",
+                     "Left": 
+                     {
+                        "Operator": null,
+                        "Symbol": null,
+                        "NodeType": "Identifier",
+                        "Kind": "Unknown",
+                        "Name": "x"
+                     },
+                     "NodeType": "BinaryOP",
+                     "Right": 3.0,
+                     "OpType": "Binary"
+                  },
+                  "OpType": "Binary"
+               },
+               "OpType": "Binary"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "*",
+               "Left": 
+               {
+                  "OpName": "*",
+                  "Left": 5.0,
+                  "NodeType": "BinaryOP",
+                  "Right": 
+                  {
+                     "Operator": null,
+                     "Symbol": null,
+                     "NodeType": "Identifier",
+                     "Kind": "Unknown",
+                     "Name": "c_5"
+                  },
+                  "OpType": "Binary"
+               },
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "OpName": "^",
+                  "Left": 
+                  {
+                     "Operator": null,
+                     "Symbol": null,
+                     "NodeType": "Identifier",
+                     "Kind": "Unknown",
+                     "Name": "x"
+                  },
+                  "NodeType": "BinaryOP",
+                  "Right": 4.0,
+                  "OpType": "Binary"
+               },
+               "OpType": "Binary"
+            },
+            "OpType": "Binary"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "*",
+            "Left": 
+            {
+               "OpName": "*",
+               "Left": 6.0,
+               "NodeType": "BinaryOP",
+               "Right": 
+               {
+                  "Operator": null,
+                  "Symbol": null,
+                  "NodeType": "Identifier",
+                  "Kind": "Unknown",
+                  "Name": "c_6"
+               },
+               "OpType": "Binary"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "OpName": "^",
+               "Left": 
+               {
+                  "Operator": null,
+                  "Symbol": null,
+                  "NodeType": "Identifier",
+                  "Kind": "Unknown",
+                  "Name": "x"
+               },
+               "NodeType": "BinaryOP",
+               "Right": 5.0,
+               "OpType": "Binary"
+            },
+            "OpType": "Binary"
+         },
+         "OpType": "Binary"
+      },
+      "NodeType": "BinaryOP",
+      "Right": 
+      {
+         "OpName": "*",
+         "Left": 
+         {
+            "OpName": "*",
+            "Left": 7.0,
+            "NodeType": "BinaryOP",
+            "Right": 
+            {
+               "Operator": null,
+               "Symbol": null,
+               "NodeType": "Identifier",
+               "Kind": "Unknown",
+               "Name": "c_7"
+            },
+            "OpType": "Binary"
+         },
+         "NodeType": "BinaryOP",
+         "Right": 
+         {
+            "OpName": "^",
+            "Left": 
+            {
+               "Operator": null,
+               "Symbol": null,
+               "NodeType": "Identifier",
+               "Kind": "Unknown",
+               "Name": "x"
+            },
+            "NodeType": "BinaryOP",
+            "Right": 6.0,
+            "OpType": "Binary"
+         },
+         "OpType": "Binary"
+      },
+      "OpType": "Binary"
    },
    "NodeType": "Profile"
 }
