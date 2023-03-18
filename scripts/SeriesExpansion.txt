@@ -25,7 +25,7 @@ SAVEJSON Chebyshev
 SAVEJSON Bessel
 
 
-// simple polynomials with more significant actual parameters
+// simple polynomials with parameter substitutions
 
 !! S(u) = u + 3  ;  !! T(v) = v + 5
 !! R(w) = S(w) * T(w)
