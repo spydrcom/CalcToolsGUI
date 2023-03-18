@@ -16,11 +16,18 @@ RENDERF Bessel
 EXPAND Bessel
 
 // Chebyshev equation
-!! Chebyshev(x) = (1-x^2) * f''(x) - x * f'(x) + n^2 * f(x)
+!! Chebyshev(z) = (1-z^2) * f''(z) - z * f'(z) + n^2 * f(z)
 RENDERF Chebyshev
 EXPAND Chebyshev
 
 // save copy of computed tree equations
 SAVEJSON Chebyshev
 SAVEJSON Bessel
+
+
+// simple polynomials with more significant actual parameters
+
+!! S(u) = u + 3  ;  !! T(v) = v + 5
+!! R(w) = S(w) * T(w)
+EXPAND R
 

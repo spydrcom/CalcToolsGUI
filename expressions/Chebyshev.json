@@ -1,6 +1,6 @@
 {
    "Name": "Chebyshev",
-   "Parameter": "x",
+   "Parameter": "z",
    "Description": null,
    "Expression": 
    {
@@ -25,7 +25,7 @@
                      "Symbol": null,
                      "NodeType": "Identifier",
                      "Kind": "Unknown",
-                     "Name": "x"
+                     "Name": "z"
                   },
                   "NodeType": "BinaryOP",
                   "Right": 2.0,
@@ -45,7 +45,7 @@
                   "Symbol": null,
                   "NodeType": "Identifier",
                   "Kind": "Unknown",
-                  "Name": "x"
+                  "Name": "z"
                }
             },
             "OpType": "Binary"
@@ -60,7 +60,7 @@
                "Symbol": null,
                "NodeType": "Identifier",
                "Kind": "Unknown",
-               "Name": "x"
+               "Name": "z"
             },
             "NodeType": "BinaryOP",
             "Right": 
@@ -74,7 +74,7 @@
                   "Symbol": null,
                   "NodeType": "Identifier",
                   "Kind": "Unknown",
-                  "Name": "x"
+                  "Name": "z"
                }
             },
             "OpType": "Binary"
@@ -112,7 +112,7 @@
                "Symbol": null,
                "NodeType": "Identifier",
                "Kind": "Unknown",
-               "Name": "x"
+               "Name": "z"
             }
          },
          "OpType": "Binary"
