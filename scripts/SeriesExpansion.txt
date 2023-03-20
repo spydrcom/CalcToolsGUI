@@ -26,8 +26,12 @@ SAVEJSON Bessel
 
 
 // simple polynomials with parameter substitutions
-
 !! S(u) = u + 3  ;  !! T(v) = v + 5
 !! R(w) = S(w) * T(w)
 EXPAND R
+
+// special case where constant term is 1
+!! G(u) = u + 1  ; !! H(v) = v - 1
+!! K(s) = G(s) * H(s)
+EXPAND K
 
