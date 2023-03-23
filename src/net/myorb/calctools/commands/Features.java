@@ -2,13 +2,14 @@
 package net.myorb.calctools.commands;
 
 import net.myorb.calctools.services.ServiceEnvironment;
+import net.myorb.math.polynomial.algebra.SeriesExpansion;
 
 import net.myorb.math.expressions.gui.UserInteractions;
-
 import net.myorb.math.expressions.commands.CosineTransform;
 import net.myorb.math.expressions.commands.MandelbrotGraphics;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
+import net.myorb.math.expressions.symbols.DefinedFunction;
 
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
@@ -173,14 +174,33 @@ public class Features<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				StringBuffer functionName;
-				getFunctionName ( 0, tokens, functionName = new StringBuffer () );
-
-				//TODO: add parameter for function declaration
-				getPrettyFormatter ().renderExpandedSeries (functionName.toString (), getCurrentRenderer ());
-
+				StringBuffer sourceFunctionName = new StringBuffer ();
+				int pos = getFunctionName ( 0, tokens, sourceFunctionName );
+				if (pos >= tokens.size ()) { renderExpandedFunction ( sourceFunctionName.toString () ); }
+				else { declareExpandedFunction ( sourceFunctionName.toString (), getDeclarationIdentifier (tokens, pos-1) ); }
 			}
 		};
+	}
+	public String getDeclarationIdentifier (CommandSequence tokens, int starting)
+	{
+		StringBuffer declarationIdentifier = new StringBuffer ();
+		getFunctionName ( starting, tokens, declarationIdentifier );
+		return declarationIdentifier.toString ();
+	}
+	public void renderExpandedFunction (String functionName)
+	{
+		getPrettyFormatter ().renderExpandedSeries ( functionName, getCurrentRenderer () );
+	}
+	public void declareExpandedFunction (String sourceFunctionName, String newFunctionName)
+	{
+		SeriesExpansion <T> processor = new SeriesExpansion <T> (environment);
+		CommandSequence seq = processor.expandSequence ( sourceFunctionName );
+
+		DefinedFunction.defineUserFunction
+		(
+			newFunctionName, processor.parameterList (), seq, 
+			environment.getSpaceManager (), environment.getSymbolMap ()
+		);
 	}
 
 
