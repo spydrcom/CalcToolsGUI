@@ -10,7 +10,6 @@ import net.myorb.math.expressions.commands.MandelbrotGraphics;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
 
-import net.myorb.math.polynomial.algebra.SeriesExpansion;
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
 import net.myorb.math.expressions.ScriptManager;
@@ -177,17 +176,9 @@ public class Features<T> extends Context<T>
 				StringBuffer functionName;
 				getFunctionName ( 0, tokens, functionName = new StringBuffer () );
 
-				SeriesExpansion <T> processor = new SeriesExpansion <T> (environment);
-				CommandSequence expanded = processor.expandSequence ( functionName.toString () );
+				//TODO: add parameter for function declaration
+				getPrettyFormatter ().renderExpandedSeries (functionName.toString (), getCurrentRenderer ());
 
-				try
-				{
-					getCurrentRenderer ().render
-					(
-						expanded, processor.parameterList (), "Expanded series from " + functionName
-					);
-				}
-				catch (Exception e) { throw new RuntimeException ( "Render failed", e ); }
 			}
 		};
 	}
