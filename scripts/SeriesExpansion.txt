@@ -20,13 +20,13 @@ EXPAND Bessel
 RENDERF Chebyshev
 EXPAND Chebyshev
 
-// capture expanded functions
-EXPAND Chebyshev T_n
-EXPAND Bessel J_n
-
 // save copy of computed tree equations
 SAVEJSON Chebyshev
 SAVEJSON Bessel
+
+// capture expanded functions
+EXPAND Chebyshev T_n
+EXPAND Bessel J_n
 
 
 // simple polynomials with parameter substitutions
