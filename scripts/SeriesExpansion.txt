@@ -29,6 +29,31 @@ EXPAND Chebyshev T_n
 EXPAND Bessel J_n
 
 
+// define T5
+
+n = 5
+f_0 = 0
+f_1 = 5
+
+c_2 = - f_0*n^2 / 2
+c_3 =  (1-n^2) * f_1 / 6	
+c_4 =  (4-n^2) * c_2 / 12
+c_5 =  (9-n^2) * c_3 / 20
+c_6 = (16-n^2) * c_4 / 30
+c_7 = (25-n^2) * c_5 / 42
+
+// show dif between T5 and computed solution
+
+!! cT5 (x) = f_0 + (f_1*x) + (c_2*x^2) + (c_3*x^3) + (c_4*x^4) + (c_5*x^5) + (c_6*x^6) + (c_7*x^7)
+GRAPH [-1 <= x < 1.02 <> 0.01]  ( cT5(x) )  
+
+FAMILY Chebyshev 7 First
+GRAPH [-1 <= x < 1.02 <> 0.01]  ( T5(x) )  
+
+!!d(x) = T5(x) - cT5(x)
+GRAPH [-1 <= x < 1.02 <> 0.01]  ( d(x) )  
+
+
 // simple polynomials with parameter substitutions
 !! S(u) = u + 3  ;  !! T(v) = v + 5
 !! R(w) = S(w) * T(w)
