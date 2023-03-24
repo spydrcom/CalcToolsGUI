@@ -198,8 +198,8 @@ public class Features<T> extends Context<T>
 
 		DefinedFunction.defineUserFunction
 		(
-			newFunctionName, processor.parameterList (), seq, 
-			environment.getSpaceManager (), environment.getSymbolMap ()
+			newFunctionName, processor.parameterList (),
+			seq, environment
 		);
 	}
 
