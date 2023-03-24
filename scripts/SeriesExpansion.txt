@@ -28,6 +28,27 @@ SAVEJSON Bessel
 EXPAND Chebyshev T_n
 EXPAND Bessel J_n
 
+// Chebyshev initial conditions
+
+//	T	n	  f_0=f(0)	  f_1=f'(0)
+//	===============================
+//	T0	0		 0			 0
+//	T1	1		 0			 1
+//	T2	2		-1			 0
+//	T3	3		 0			-3
+//	T4	4		 1			 0
+//	T5	5		 0			 5
+//	T6	6		-1			 0
+//	T7	7		 0			-7
+
+//	equations for coefficients
+
+//		 n^2 * f_0	+  2 * c_2 = 0
+//	 (n^2-1) * f_1	+  6 * c_3 = 0
+//	 (n^2-4) * c_2	+ 12 * c_4 = 0
+//	 (n^2-9) * c_3	+ 20 * c_5 = 0
+//	(n^2-16) * c_4	+ 30 * c_6 = 0
+//	(n^2-25) * c_5	+ 42 * c_7 = 0
 
 // define T5
 
