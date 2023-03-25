@@ -1,8 +1,11 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.math.polynomial.algebra.SeriesExpansion;
+
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
+
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
 /**
@@ -65,6 +68,27 @@ public class DiffEQ<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{ environment.getDifferentialEquationsManager ().runTest (tokens, engine.getFunctionManager ()); }
+		};
+	}
+
+
+	/**
+	 * Find Differential Equation Solution
+	 * @return a keyword command for the SOLVE keyword
+	 */
+	public KeywordCommand constructSolveKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Solve differential equation from expanded polynomial"; }
+
+			public void execute (CommandSequence tokens)
+			{
+				StringBuffer sourceFunctionName;
+				getFunctionName ( 0, tokens, sourceFunctionName = new StringBuffer () );
+				new SeriesExpansion <T> (environment).solve (sourceFunctionName.toString ());
+			}
 		};
 	}
 

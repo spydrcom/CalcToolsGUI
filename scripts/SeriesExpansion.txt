@@ -28,6 +28,10 @@ SAVEJSON Bessel
 EXPAND Chebyshev T_n
 EXPAND Bessel J_n
 
+// find solutions
+SOLVE Chebyshev
+SOLVE Bessel
+
 // Chebyshev initial conditions
 
 //	T	n	  f_0=f(0)	  f_1=f'(0)
