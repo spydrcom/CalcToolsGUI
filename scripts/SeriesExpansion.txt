@@ -29,8 +29,8 @@ EXPAND Chebyshev T_n
 EXPAND Bessel J_n
 
 // find solutions
-SOLVE Chebyshev
-SOLVE Bessel
+SOLVE Chebyshev T_5 n 5 f_0 0 f_1 5
+SOLVE Bessel J_1 n 1
 
 // Chebyshev initial conditions
 
