@@ -28,8 +28,7 @@ SOLVE Chebyshev f T_6 n 6 c_0 "-1" c_1   0
 POLYGEN P x p 9
 // Legndre equation
 !! Legndre(x) = ( 1 - x ^ 2 ) * P'' ( x ) - 2 * x * P' ( x ) + n * ( n + 1 ) * P ( x ) 
-RENDERF Legndre
-EXPAND Legndre
+RENDERF Legndre  ;  EXPAND Legndre
 
 // p4 = (0.375, 0, -3.75, 0, 4.375)
 // p6 = (-0.3125, 0, 6.5625, 0, -19.6875, 0, 14.4375)
@@ -39,3 +38,16 @@ SOLVE Legndre P P_4 n 4 p_1 0 p_0 "0.375"
 SOLVE Legndre P P_6 n 6 p_1 0 p_0 "-0.3125"
 SOLVE Legndre P P_8 n 8 p_1 0 p_0 "0.2734375"
 
+
+POLYGEN L x l 7
+// Laguerre equation
+!! Laguerre(x) = x * L'' ( x ) + (alpha + 1 - x) * L' ( x ) + n * L ( x ) 
+RENDERF Laguerre  ;  EXPAND Laguerre
+SOLVE Laguerre L L_4 n 4 l_0 1 alpha 0
+SOLVE Laguerre L L_5 n 5 l_0 1 alpha 0
+SOLVE Laguerre L L_6 n 6 l_0 1 alpha 0
+
+CALC L_4 * 4!
+CALC L_5 * 5!
+CALC L_6 * 6!
+ 
