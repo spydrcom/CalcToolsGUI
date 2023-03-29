@@ -85,13 +85,15 @@ public class DiffEQ<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{
-				StringBuffer sourceFunctionName, newFunctionName;
-				int pos = getFunctionName ( 0, tokens, sourceFunctionName = new StringBuffer () );
+				StringBuffer expandedFunctionName, sourceFunctionName, newFunctionName;
+				int pos = getFunctionName ( 0, tokens, expandedFunctionName = new StringBuffer () );
+				pos = getFunctionName ( pos-1, tokens, sourceFunctionName = new StringBuffer () );
 				pos = getFunctionName ( pos-1, tokens, newFunctionName = new StringBuffer () );
 
 				new SeriesExpansion <T> (environment)
 				.solve
 				(
+					expandedFunctionName.toString (),
 					sourceFunctionName.toString (),
 					newFunctionName.toString (),
 					tokens, pos
