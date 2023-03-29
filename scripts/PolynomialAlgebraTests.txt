@@ -1,0 +1,51 @@
+
+
+//* unit tests for simple forms of polynomial algebra
+
+
+// simple polynomials with parameter substitutions
+!! S(u) = u + 3  ;  !! T(v) = v + 5
+!! R(w) = S(w) * T(w)
+EXPAND R
+
+// special case where constant term is 1
+!! G(u) = u + 1  ; !! H(v) = v - 1
+!! K(s) = G(s) * H(s)
+EXPAND K
+
+// sample with sum and product
+!! G(u) = u + 3  ; !! H(v) = 1 - 2*v 
+!! K(s) = G(s) * H(s)
+EXPAND K
+
+// sample with parameters holding sub-expressions
+!! G(u) = u - 3  ; !! H(v) = 6 - v 
+!! K(s) = G(3*s) * H(2*s)
+EXPAND K
+
+
+// regression test cases from fixed bugs
+!! G(u) = u + 1  ; !! H(v) = v - 1
+!! K(s) = G(2-3*s) * H(2*s-2)
+EXPAND K
+
+// 3   - 3s
+// 2s - 3
+// 15s -6s2 -9
+
+
+!! K(s) = G(2-3*s) * H(2*s+2)
+EXPAND K
+
+// 3-3s
+// 2s+1
+// -6s2 3s 3 
+
+
+!! K(s) = G(2+3*s) * H(2*s+2)
+EXPAND K
+
+// 3s+3
+// 2s+1
+// 6s2 9s 3
+
