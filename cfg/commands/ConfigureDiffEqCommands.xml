@@ -10,13 +10,14 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_diffeq' saveListAs='cmdList'
-		toBeCalled='Prepare PrepPoly Difeq Solve Tdes'
+		toBeCalled='PolyGen Prepare PrepPoly Difeq Solve Tdes'
 	 />
 
 	<!-- configure each command with bean set operations -->
 	<bean references='Difeq'> <text Keyword='Difeq' /> </bean>
 	<bean references='Prepare'> <text Keyword='Prepare' /> </bean>
 	<bean references='PrepPoly'> <text Keyword='PrepPoly' /> </bean>
+	<bean references='PolyGen'> <text Keyword='PolyGen' /> </bean>
 	<bean references='Solve'> <text Keyword='Solve' /> </bean>
 	<bean references='Tdes'> <text Keyword='Tdes' /> </bean>
 
