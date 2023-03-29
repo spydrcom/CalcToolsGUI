@@ -4,13 +4,12 @@ package net.myorb.calctools.commands;
 import net.myorb.calctools.services.ServiceEnvironment;
 import net.myorb.math.polynomial.algebra.SeriesExpansion;
 
-import net.myorb.math.expressions.gui.UserInteractions;
 import net.myorb.math.expressions.commands.CosineTransform;
 import net.myorb.math.expressions.commands.MandelbrotGraphics;
 import net.myorb.math.expressions.commands.CommandSequence;
 import net.myorb.math.expressions.commands.KeywordCommand;
-import net.myorb.math.expressions.symbols.DefinedFunction;
 
+import net.myorb.math.expressions.gui.UserInteractions;
 import net.myorb.math.expressions.ExpressionSpaceManager;
 
 import net.myorb.math.expressions.ScriptManager;
@@ -176,31 +175,20 @@ public class Features<T> extends Context<T>
 			{
 				StringBuffer sourceFunctionName = new StringBuffer ();
 				int pos = getFunctionName ( 0, tokens, sourceFunctionName );
-				if (pos >= tokens.size ()) { renderExpandedFunction ( sourceFunctionName.toString () ); }
-				else { declareExpandedFunction ( sourceFunctionName.toString (), getDeclarationIdentifier (tokens, pos-1) ); }
+				String name = sourceFunctionName.toString ();
+
+				if (pos < tokens.size ())
+				{
+					new SeriesExpansion <T> (environment).declareExpandedSource
+						( name, getLastIdentifier (tokens, pos-1) );
+				}
+				else
+				{
+					getPrettyFormatter ().renderExpandedSeries
+						( name, getCurrentRenderer () );
+				}
 			}
 		};
-	}
-	public String getDeclarationIdentifier (CommandSequence tokens, int starting)
-	{
-		StringBuffer declarationIdentifier = new StringBuffer ();
-		getFunctionName ( starting, tokens, declarationIdentifier );
-		return declarationIdentifier.toString ();
-	}
-	public void renderExpandedFunction (String functionName)
-	{
-		getPrettyFormatter ().renderExpandedSeries ( functionName, getCurrentRenderer () );
-	}
-	public void declareExpandedFunction (String sourceFunctionName, String newFunctionName)
-	{
-		SeriesExpansion <T> processor = new SeriesExpansion <T> (environment);
-		CommandSequence seq = processor.expandSequence ( sourceFunctionName );
-
-		DefinedFunction.defineUserFunction
-		(
-			newFunctionName, processor.parameterList (),
-			seq, environment
-		);
 	}
 
 

@@ -69,5 +69,4 @@ public class Context<T>
 		this (manager.getEvaluationControl ().getEngine ());
 	}
 
-
 }
