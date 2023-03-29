@@ -1,6 +1,7 @@
 
 package net.myorb.calctools.commands;
 
+import net.myorb.math.polynomial.PolynomialGenerator;
 import net.myorb.math.polynomial.algebra.SeriesExpansion;
 
 import net.myorb.math.expressions.commands.CommandSequence;
@@ -68,6 +69,36 @@ public class DiffEQ<T> extends Context<T>
 
 			public void execute (CommandSequence tokens)
 			{ environment.getDifferentialEquationsManager ().runTest (tokens, engine.getFunctionManager ()); }
+		};
+	}
+
+
+	/**
+	 * generate a polynomial function
+	 * @return a keyword command for the POLYGEN keyword
+	 */
+	public KeywordCommand constructPolyGenKeywordCommand ()
+	{
+		
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Generate a polynomial function from NAME PARAMETER COEFFICIENT DEGREE"; }
+
+			public void execute (CommandSequence tokens)
+			{
+				StringBuffer functionName, parameterName, coefficientName;
+				int pos = getFunctionName ( 0, tokens, functionName = new StringBuffer () );
+				pos = getFunctionName ( pos-1, tokens, parameterName = new StringBuffer () );
+				pos = getFunctionName ( pos-1, tokens, coefficientName = new StringBuffer () );
+
+				new PolynomialGenerator <T> (environment)
+				.declare
+				(
+					functionName.toString (), parameterName.toString (),
+					coefficientName.toString (), tokens, pos
+				);
+			}
 		};
 	}
 
