@@ -42,11 +42,13 @@ SOLVE Legndre P P_8 n 8 p_1 0 p_0 "0.2734375"
 POLYGEN L x l 7
 // Laguerre equation
 !! Laguerre(x) = x * L'' ( x ) + (alpha + 1 - x) * L' ( x ) + n * L ( x ) 
+// l_0 = L_n(alpha)(0) = (n+alpha) ## n
 RENDERF Laguerre  ;  EXPAND Laguerre
+
 SOLVE Laguerre L L_4 n 4 l_0 1 alpha 0
 SOLVE Laguerre L L_5 n 5 l_0 1 alpha 0
 SOLVE Laguerre L L_6 n 6 l_0 1 alpha 0
-
+// NOTE: l_1 is not set !!!
 CALC L_4 * 4!
 CALC L_5 * 5!
 CALC L_6 * 6!
