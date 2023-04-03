@@ -24,6 +24,8 @@ SOLVE Chebyshev f T_4 n 4 c_0   1  c_1   0
 SOLVE Chebyshev f T_5 n 5 c_0   0  c_1   5
 SOLVE Chebyshev f T_6 n 6 c_0 "-1" c_1   0
 
+SHOSOL Chebyshev
+
 POLYPRINT T_3
 POLYPRINT T_4
 POLYPRINT T_5
@@ -43,6 +45,8 @@ SOLVE Legendre P P_4 n 4 p_1 0 p_0 "0.375"
 SOLVE Legendre P P_6 n 6 p_1 0 p_0 "-0.3125"
 SOLVE Legendre P P_8 n 8 p_1 0 p_0 "0.2734375"
 
+SHOSOL Legendre
+
 POLYPRINT P_4
 POLYPRINT P_6
 POLYPRINT P_8
@@ -61,6 +65,8 @@ SOLVE Laguerre L L_6 n 6 l_0 1 alpha 0
 CALC L_4 * 4!
 CALC L_5 * 5!
 CALC L_6 * 6!
+
+SHOSOL Laguerre
 
 POLYPRINT L_4
 POLYPRINT L_5
