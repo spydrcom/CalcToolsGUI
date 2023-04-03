@@ -135,6 +135,20 @@ public class DiffEQ<T> extends Context<T>
 
 
 	/**
+	 * show solutions connected to a differential equation
+	 * @return a keyword command for the SHOSOL keyword
+	 */
+	public KeywordCommand constructSHOSOLKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe () { return "Show solutions connected to a differential equation"; }
+			public void execute (CommandSequence tokens) { SeriesExpansion.showSolutions (tokens); }
+		};
+	}
+
+
+	/**
 	 * identify differential equation and describe
 	 * @return a keyword command for the DIFEQ keyword
 	 */
