@@ -26,11 +26,6 @@ SOLVE Chebyshev f T_6 n 6 c_0 "-1" c_1   0
 
 SHOSOL Chebyshev
 
-POLYPRINT T_3
-POLYPRINT T_4
-POLYPRINT T_5
-POLYPRINT T_6
-
 
 POLYGEN P x p 9
 // Legendre equation
@@ -46,10 +41,6 @@ SOLVE Legendre P P_6 n 6 p_1 0 p_0 "-0.3125"
 SOLVE Legendre P P_8 n 8 p_1 0 p_0 "0.2734375"
 
 SHOSOL Legendre
-
-POLYPRINT P_4
-POLYPRINT P_6
-POLYPRINT P_8
 
 
 POLYGEN L x l 7
@@ -67,8 +58,4 @@ CALC L_5 * 5!
 CALC L_6 * 6!
 
 SHOSOL Laguerre
-
-POLYPRINT L_4
-POLYPRINT L_5
-POLYPRINT L_6
 
