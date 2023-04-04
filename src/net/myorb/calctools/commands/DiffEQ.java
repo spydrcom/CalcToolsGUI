@@ -79,7 +79,6 @@ public class DiffEQ<T> extends Context<T>
 	 */
 	public KeywordCommand constructPolyGenKeywordCommand ()
 	{
-		
 		return new KeywordCommand ()
 		{
 			public String describe ()
@@ -88,16 +87,24 @@ public class DiffEQ<T> extends Context<T>
 			public void execute (CommandSequence tokens)
 			{
 				StringBuffer functionName, parameterName, coefficientName;
+				PolynomialGenerator <T> gen = new PolynomialGenerator <T> (environment);
 				int pos = getFunctionName ( 0, tokens, functionName = new StringBuffer () );
 				pos = getFunctionName ( pos-1, tokens, parameterName = new StringBuffer () );
-				pos = getFunctionName ( pos-1, tokens, coefficientName = new StringBuffer () );
 
-				new PolynomialGenerator <T> (environment)
-				.declare
-				(
-					functionName.toString (), parameterName.toString (),
-					coefficientName.toString (), tokens, pos
-				);
+				if (functionName.charAt (0) == '#')
+				{
+					gen.declare (parameterName.toString (), tokens, pos);
+				}
+				else
+				{
+					pos = getFunctionName ( pos-1, tokens, coefficientName = new StringBuffer () );
+
+					gen.declare
+					(
+						functionName.toString (), parameterName.toString (),
+						coefficientName.toString (), tokens, pos
+					);
+				}
 			}
 		};
 	}
