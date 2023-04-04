@@ -53,6 +53,10 @@ SOLVE Laguerre L L_4 n 4 l_0 1 alpha 0
 SOLVE Laguerre L L_5 n 5 l_0 1 alpha 0
 SOLVE Laguerre L L_6 n 6 l_0 1 alpha 0
 // NOTE: l_1 is not set !!!
+
+// Laguerre is required to NOT SET l_1 to avoid solution degeneration
+SOLVE Laguerre L L_52 n 5 alpha 2 # "Laguerre"
+
 CALC L_4 * 4!
 CALC L_5 * 5!
 CALC L_6 * 6!
