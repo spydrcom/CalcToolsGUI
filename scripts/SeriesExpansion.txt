@@ -43,23 +43,33 @@ SOLVE Legendre P P_8 n 8 p_1 0 p_0 "0.2734375"
 SHOSOL Legendre
 
 
-POLYGEN L x l 7
-// Laguerre equation
+// Laguerre unit test demonstrating use of NamingConventions
+//  and Initial Conditions algorithm implementations configured in code base
+// the # Laguerre redirection causes processor lookup and use
+
+
+POLYGEN # Laguerre 7
+// Laguerre differential equation
 !! Laguerre(x) = x * L'' ( x ) + (alpha + 1 - x) * L' ( x ) + n * L ( x ) 
 // l_0 = L_n(alpha)(0) = (n+alpha) ## n
 RENDERF Laguerre  ;  EXPAND Laguerre
 
-SOLVE Laguerre L L_4 n 4 l_0 1 alpha 0
-SOLVE Laguerre L L_5 n 5 l_0 1 alpha 0
-SOLVE Laguerre L L_6 n 6 l_0 1 alpha 0
-// NOTE: l_1 is not set !!!
+SOLVE Laguerre L L_4 n 4 alpha 0 # "Laguerre"
+SOLVE Laguerre L L_5 n 5 alpha 0 # "Laguerre"
+SOLVE Laguerre L L_6 n 6 alpha 0 # "Laguerre"
 
+// NOTE: l_1 is not set !!!
 // Laguerre is required to NOT SET l_1 to avoid solution degeneration
 SOLVE Laguerre L L_52 n 5 alpha 2 # "Laguerre"
 
+// polynomial terms have n! in denominator
+
 CALC L_4 * 4!
 CALC L_5 * 5!
+CALC L_52 * 5!
 CALC L_6 * 6!
+
+// all solutions will be displayed
 
 SHOSOL Laguerre
 
