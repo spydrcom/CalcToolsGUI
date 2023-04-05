@@ -1,0 +1,63 @@
+
+
+//* expanded series of full Legendre differential equation
+
+
+POLYGEN P x p 9
+
+// series for 1 / (1 - x^2)  converges for |x| < 1
+!! M(x) = 1 + 1*x^2 + 1*x^4 + 1*x^6 + 1*x^8 + 1*x^10  ;  EXPAND M
+
+// mu product and eigen value expression
+!! lambdaMu(x) = n * ( n + 1 ) -  mu^2 * M ( x )   ;  EXPAND lambdaMu
+RENDERF lambdaMu
+
+// Legendre equation
+!! Legendre(x) = ( 1 - x ^ 2 ) * P'' ( x ) - 2 * x * P' ( x ) +  lambdaMu ( x )  * P ( x ) 
+RENDERF Legendre  ;  EXPAND Legendre
+
+
+// for mu = 0
+// p4 = (0.375, 0, -3.75, 0, 4.375)
+// p6 = (-0.3125, 0, 6.5625, 0, -19.6875, 0, 14.4375)
+// p8 = (0.2734375, 0, -9.84375, 0, 54.140625, 0, -93.84375, 0, 50.2734375)
+
+SOLVE Legendre P P_6 n 6 mu 0 p_1 0 p_0 "-0.3125"
+SOLVE Legendre P P_8 n 8 mu 0 p_1 0 p_0 "0.2734375"
+
+// for mu = 4
+SOLVE Legendre P P_54 n 5 mu 4 p_1 1 p_0 0 
+SOLVE Legendre P P_74 n 7 mu 4 p_1 1 p_0 0 
+
+SHOSOL Legendre
+
+// plot solutions, mu 0 VS mu 4
+!! P54(x) = P_54 +*^ x  ;  !! P6(x) = P_6 +*^ x
+graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P6 x)
+
+!! P74(x) = P_74 +*^ x
+// plot solutions, mu 4 of multiple degrees
+graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P74 x)
+
+
+// Legendre differential equation expanded with variable n and mu
+
+//	( 2*p_2 + p_0*n^2 + p_0*n + 
+//		( p_1*n + 6*p_3 + p_1*n^2 - p_1*mu^2 - 2*p_1 )*x + 
+//		( p_2*n^2 + p_2*n + 12*p_4 - 6*p_2 - p_2*mu^2 - p_0*mu^2 )*x^2 + 
+//		( p_3*n^2 + 20*p_5 + p_3*n - p_1*mu^2 - 12*p_3 - p_3*mu^2 )*x^3 + 
+//		( 30*p_6 + p_4*n^2 + p_4*n - p_4*mu^2 - 20*p_4 - p_2*mu^2 - p_0*mu^2 )*x^4 + 
+//		( 42*p_7 + p_5*n^2 + p_5*n - p_1*mu^2 - 30*p_5 - p_5*mu^2 - p_3*mu^2 )*x^5 + 
+//		( 56*p_8 + p_6*n^2 + p_6*n - p_6*mu^2 - p_4*mu^2 - 42*p_6 - p_2*mu^2 - p_0*mu^2 )*x^6 + 
+//		( p_7*n^2 + p_7*n + 72*p_9 - p_1*mu^2 - p_5*mu^2 - 56*p_7 - mu^2*p_7 - p_3*mu^2 )*x^7 + 
+//		( p_8*n^2 + p_8*n + 90*p10 - p_6*mu^2 - p_4*mu^2 - 72*p_8 - p_2*mu^2 - p_0*mu^2 - mu^2*p_8 )*x^8 + 
+//		( 110*p11 + p_9*n + p_9*n^2 - p_1*mu^2 - p_5*mu^2 - mu^2*p_9 - 90*p_9 - mu^2*p_7 - p_3*mu^2 )*x^9 + 
+//		( -1*p_6*mu^2 - p_4*mu^2 - p_2*mu^2 - p_0*mu^2 - mu^2*p_8 - 110*p10 )*x^10 + 
+//		( -1*p_1*mu^2 - 110*p11 - p_5*mu^2 - mu^2*p_9 - mu^2*p_7 - p_3*mu^2 )*x^11 + 
+//		( -1*p_6*mu^2 - p_4*mu^2 - p_2*mu^2 - mu^2*p_8 )*x^12 + 
+//		( -1*p_5*mu^2 - mu^2*p_9 - mu^2*p_7 - p_3*mu^2 )*x^13 + 
+//		( -1*p_6*mu^2 - p_4*mu^2 - mu^2*p_8 )*x^14 + 
+//		( -1*p_5*mu^2 - mu^2*p_9 - mu^2*p_7 )*x^15 + 
+//		( -1*p_6*mu^2 - mu^2*p_8 )*x^16 + 
+//		( -1*mu^2*p_9 - mu^2*p_7 )*x^17 - 
+//	p_0*mu^2 - mu^2*p_8*x^18 - mu^2*p_9*x^19 )
