@@ -3,17 +3,20 @@
 //* expanded series of full Legendre differential equation
 
 
-POLYGEN P x p 9
+// degree 9
+// Legendre conventions
+POLYGEN # Legendre 9
 
 // series for 1 / (1 - x^2)  converges for |x| < 1
-!! M(x) = 1 + 1*x^2 + 1*x^4 + 1*x^6 + 1*x^8 + 1*x^10  ;  EXPAND M
+!! M(x) = 1 + x^2 + x^4 + x^6 + x^8 + x^10  ;  EXPAND M
+RENDERF M
 
 // mu product and eigen value expression
 !! lambdaMu(x) = n * ( n + 1 ) -  mu^2 * M ( x )   ;  EXPAND lambdaMu
 RENDERF lambdaMu
 
 // Legendre equation
-!! Legendre(x) = ( 1 - x ^ 2 ) * P'' ( x ) - 2 * x * P' ( x ) +  lambdaMu ( x )  * P ( x ) 
+!! Legendre(x) = ( 1 - x ^ 2 ) * P'' ( x )  -  2 * x * P' ( x )  +  lambdaMu ( x ) * P ( x ) 
 RENDERF Legendre  ;  EXPAND Legendre
 
 
@@ -22,14 +25,20 @@ RENDERF Legendre  ;  EXPAND Legendre
 // p6 = (-0.3125, 0, 6.5625, 0, -19.6875, 0, 14.4375)
 // p8 = (0.2734375, 0, -9.84375, 0, 54.140625, 0, -93.84375, 0, 50.2734375)
 
-SOLVE Legendre P P_6 n 6 mu 0 p_1 0 p_0 "-0.3125"
-SOLVE Legendre P P_8 n 8 mu 0 p_1 0 p_0 "0.2734375"
+// mu 0 using computed IC
+SOLVE Legendre P P_6 n 6 mu 0 # "Legendre"
+SOLVE Legendre P P_8 n 8 mu 0 # "Legendre"
 
 // for mu = 4
 SOLVE Legendre P P_54 n 5 mu 4 p_1 1 p_0 0 
 SOLVE Legendre P P_74 n 7 mu 4 p_1 1 p_0 0 
 
+// for use in comparison plot
+SOLVE Legendre P P_50 n 5 mu 0 # "Legendre"
+
 SHOSOL Legendre
+SHOSOL Legendre P_54
+SHOSOL Legendre P_74
 
 // plot solutions, mu 0 VS mu 4
 !! P54(x) = P_54 +*^ x  ;  !! P6(x) = P_6 +*^ x
@@ -38,6 +47,11 @@ graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P6 x)
 !! P74(x) = P_74 +*^ x
 // plot solutions, mu 4 of multiple degrees
 graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P74 x)
+
+
+!! P50(x) = P_50 +*^ x
+// plot solutions, mu 4 VS mu 0 of degree 5
+graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P50 x)
 
 
 // Legendre differential equation expanded with variable n and mu
