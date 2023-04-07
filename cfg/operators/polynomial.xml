@@ -36,7 +36,7 @@
 
 	<!-- create function object for each symbol -->
 	<populate class='Function' using='polynomial_computation' saveListAs='funcList'
-		toBeCalled='Interpolate ChebPts ChebDom ChebInterp GaussQuad ClenQuad ArrayDer ArrayInt PolyHg ChebDer PolyDer PolyInt Deconv Conv Roots'
+		toBeCalled='Interpolate ChebPts ChebDom ChebInterp GaussQuad ClenQuad ArrayDer ArrayInt PolyAdd PolyMul PolyHg ChebDer PolyDer PolyInt Deconv Conv Roots'
 	 />
 
 	<bean references='GaussQuad'> 
@@ -55,6 +55,8 @@
 	<bean references='ChebDer'> <text Description='Compute derivative of Chebyshev T polynomial' Reference='ChebDer' Symbol='CHEBDER' /> </bean>
 	<bean references='PolyDer'> <text Description='Compute derivative of polynomial' Reference='PolyDer' Symbol='POLYDER' /> </bean>
 	<bean references='PolyInt'> <text Description='Compute integral of polynomial' Reference='PolyInt' Symbol='POLYINT' /> </bean>
+	<bean references='PolyAdd'> <text Description='Compute sum of two polynomials' Reference='PolyAdd' Symbol='POLYADD' /> </bean>
+	<bean references='PolyMul'> <text Description='Compute product of two polynomials' Reference='PolyMul' Symbol='POLYMUL' /> </bean>
 	<bean references='Deconv'> <text Description='Compute quotient of polynomials' Reference='Deconv' Symbol='DECONV' /> </bean>
 	<bean references='Conv'> <text Description='Compute product of polynomials' Reference='Conv' Symbol='CONV' /> </bean>
 	<bean references='Roots'> <text Description='Compute roots of polynomial' Reference='Roots' Symbol='ROOTS' /> </bean>
