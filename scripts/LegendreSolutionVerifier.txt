@@ -1,0 +1,27 @@
+
+
+//* Legendre solution equation verifier
+
+
+// Legendre(x) = ( 1 - x^2 ) * P'' ( x ) + 2 * x * P' ( x ) + ( N * (N+1) - mu^2 / (1-x^2) ) * P ( x ) 
+// F is expected as a coefficient polynomial vector describing a potential Legendre solution equation
+// N must give the degree of the polynomial, mu is also expected to be set and of course may be 0
+
+D1 = POLYDER (F)
+D2 = POLYDER (D1)
+
+CALC F
+CALC N
+CALC D1
+CALC D2
+
+// post functions for F and the first and second derivative
+!! f(x) = F +*^  x  ;  !! fd1(x) = D1 +*^ x  ;  !! fd2(x) = D2 +*^ x
+
+// describe the equation for actual computation
+!! lambdaMu(x) = N * ( N + 1 )  -  mu^2 / ( 1 - x^2 )
+!! Legendre(x) = ( 1 - x ^ 2 ) * fd2 ( x )  -  2 * x * fd1 ( x )  +  lambdaMu ( x ) * f ( x ) 
+
+// plot should show dead flat 0 on -1..1 domain
+graph [ -1 < x < 1 <> 0.01 ] ( Legendre x)
+
