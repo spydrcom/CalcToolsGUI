@@ -53,6 +53,9 @@ graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P74 x)
 // plot solutions, mu 4 VS mu 0 of degree 5
 graph [ -1 < x < 1 <> 0.01 ] ( P54 x, P50 x)
 
+// run verifier on solutions with mu=4 and N=7
+mu = 4  ;  N = 7 ;  F = P_74   ;  READ LegendreSolutionVerifier.txt
+
 
 // Legendre differential equation expanded with variable n and mu
 
