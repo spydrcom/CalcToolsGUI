@@ -1,0 +1,21 @@
+
+
+//* Chebyshev solution equation verifier
+
+
+// F is expected as a coefficient polynomial vector describing a potential Chebyshev solution equation
+D1 = POLYDER (F)  ;  D2 = POLYDER (D1)
+N = LENGTH (F) - 1
+
+// display function and derivative vectors
+PRETTYPRINT F ; PRETTYPRINT D1 ; PRETTYPRINT D2
+
+// multipliers for the derivatives in the equation
+OMXS = ( 1, 0, -1 )  ;  // 1 - x^2
+MX = ( 0, -1 )       ;  // - x
+
+// Chebyshev equation computed using coefficient polynomial vectors
+DE =  POLYADD (  POLYADD ( POLYMUL ( OMXS , D2 ) , POLYMUL ( MX , D1 )  ), N^2 * F  )
+// DE should result with 0 vector
+PRETTYPRINT DE
+
