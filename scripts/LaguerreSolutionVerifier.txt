@@ -1,0 +1,23 @@
+
+
+//* Laguerre solution equation verifier
+
+// Laguerre(x) = x * L'' ( x ) + (alpha + 1 - x) * L' ( x ) + n * L ( x ) 
+
+// F is expected as a coefficient polynomial vector describing a potential Laguerre solution equation
+// alpha is also expected to be set and of course may be 0
+D1 = POLYDER (F)  ;  D2 = POLYDER (D1)
+N = LENGTH (F) - 1
+
+// display function and derivative vectors
+PRETTYPRINT F ; PRETTYPRINT D1 ; PRETTYPRINT D2
+
+// multipliers for the derivatives in the equation
+MX = ( alpha + 1, -1 )  ;  // alpha + 1 - x
+X  = ( 0, 1 )           ;  // x
+
+// Chebyshev equation computed using coefficient polynomial vectors
+DE =  POLYADD (  POLYADD ( POLYMUL ( X , D2 ) , POLYMUL ( MX , D1 )  ), N * F  )
+// DE should result with 0 vector
+PRETTYPRINT DE
+
