@@ -27,6 +27,10 @@ SOLVE Chebyshev f T_6 n 6 c_0 "-1" c_1   0
 SHOSOL Chebyshev
 SHOSOL Chebyshev T_5
 
+F = T_5
+// verify solution is legit
+READ ChebyshevSolutionVerifier.txt
+
 
 // Legendre and Laguerre unit tests demonstrating use of NamingConventions
 //  and Initial Conditions algorithm implementations configured in code base
@@ -64,6 +68,10 @@ SOLVE Laguerre L L_6 n 6 alpha 0 # "Laguerre"
 // NOTE: l_1 is not set !!!
 // Laguerre is required to NOT SET l_1 to avoid solution degeneration
 SOLVE Laguerre L L_52 n 5 alpha 2 # "Laguerre"
+
+// run verifier on solutions with alpha=0 and then alpha=2
+alpha = 0  ;  F = L_5   ;  READ LaguerreSolutionVerifier.txt
+alpha = 2  ;  F = L_52  ;  READ LaguerreSolutionVerifier.txt
 
 // polynomial terms have n! in denominator
 
