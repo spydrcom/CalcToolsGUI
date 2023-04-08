@@ -1,0 +1,28 @@
+
+
+//* demonstration of physicist's Hermite specific polynomial algebraic series expansion
+
+
+// POLYGEN will declare  f   f'  and  f''
+// POLYGEN FUNCTION_NAME PARAMETER_NAME COEFFICIENT_NAME POLYNOMIAL_DEGREE
+POLYGEN u x c 7
+
+// Hermite differential equation
+!! Hermite(x) = u''(x) - 2 * x * u'(x) + 2 * lambda * u(x)
+
+RENDERF Hermite
+EXPAND Hermite
+
+// capture expanded function
+EXPAND Hermite H_n
+
+// find solutions
+// SOLVE DIFFEQ POLYNOMIAL_MODEL SOLUTION_NAME NAME "VALUE" NAME "VALUE" NAME "VALUE" 
+// ORDER is typically given as lambda and c_0 and c_1 must be specified as initial conditions
+SOLVE Hermite u H_3 lambda 3 c_0     0  c_1  "-12"
+SOLVE Hermite u H_4 lambda 4 c_0    12  c_1     0
+SOLVE Hermite u H_5 lambda 5 c_0     0  c_1   120
+SOLVE Hermite u H_6 lambda 6 c_0 "-120" c_1     0
+
+SHOSOL Hermite
+SHOSOL Hermite H_5
