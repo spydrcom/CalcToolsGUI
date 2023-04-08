@@ -10,10 +10,8 @@
 D1 = POLYDER (F)
 D2 = POLYDER (D1)
 
-CALC F
-CALC N
-CALC D1
-CALC D2
+CALC N   ;  CALC mu  ;  CALC F  ;  // degree, mu, and function
+CALC D1  ;  CALC D2  ;             // first and second function derivatives
 
 // post functions for F and the first and second derivative
 !! f(x) = F +*^  x  ;  !! fd1(x) = D1 +*^ x  ;  !! fd2(x) = D2 +*^ x
