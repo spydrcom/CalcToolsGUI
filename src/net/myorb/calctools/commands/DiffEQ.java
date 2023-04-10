@@ -150,7 +150,7 @@ public class DiffEQ<T> extends Context<T>
 		return new KeywordCommand ()
 		{
 			public String describe () { return "Show solutions connected to a differential equation"; }
-			public void execute (CommandSequence tokens) { SeriesExpansion.showSolutions (tokens, environment); }
+			public void execute (CommandSequence tokens) { new SeriesExpansion <T> (environment).showSolutions (tokens); }
 		};
 	}
 
