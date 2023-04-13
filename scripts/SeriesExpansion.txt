@@ -85,3 +85,19 @@ CALC L_6 * 6!
 SHOSOL Laguerre
 SHOSOL Laguerre L_52
 
+
+requires complex
+
+IMAGALPHA = 2 + 3*i
+// attempt Laguerre solution with complex alpha
+SOLVE Laguerre L L_523i n 5 alpha "IMAGALPHA" # "Laguerre"
+
+// verify solution is valid for Laguerre DE
+alpha = IMAGALPHA  ;  F = L_523i   ;  READ LaguerreSolutionVerifier.txt
+SHOSOL Laguerre L_523i
+SHOSOL Laguerre
+
+// plot of solution
+!! L523i(z) = L_523i +*^ z
+plotri  L523i [ -1 < z < 1 <> 0.01 ]
+
