@@ -1,0 +1,40 @@
+
+
+
+//* demonstration of  Bessel specific polynomial algebraic series expansion
+
+
+
+// POLYGEN will declare  f   f'  and  f''
+
+// POLYGEN FUNCTION_NAME PARAMETER_NAME COEFFICIENT_NAME POLYNOMIAL_DEGREE
+
+POLYGEN f x c 7
+
+
+// Bessel differential equation
+
+!! Bessel (x) = x^2 * f''(x) + x * f'(x) + (x^2 - alpha^2) * f(x)
+
+
+
+RENDERF Bessel
+
+EXPAND Bessel
+
+
+
+// capture expanded function
+
+EXPAND Bessel B_n
+
+
+SOLVE Bessel f B_2 alpha 2 c_0  1  c_1     0
+
+SOLVE Bessel f B_5 alpha "5-3*i" c_0  0  c_1     0
+
+
+SHOSOL Bessel
+
+SHOSOL Bessel B_n
+
