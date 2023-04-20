@@ -10,18 +10,25 @@ requires complex
 // Legendre conventions
 POLYGEN # Legendre 9
 
+SELECT "Legendre Differential Equation Expansion"
 // series for 1 / (1 - x^2)  converges for |x| < 1
-!! M(x) = 1 + x^2 + x^4 + x^6 + x^8 + x^10  ;  EXPAND M
+RENDER "Exapnsion for Legendre Differential Equation with non-zero mu value"
+!! M(x) = 1 + x^2 + x^4 + x^6 + x^8 + x^10  ;  EXPAND M MM
 RENDERF M
 
 // mu product and eigen value expression
-!! lambdaMu(x) = n * ( n + 1 ) -  mu^2 * M ( x )   ;  EXPAND lambdaMu
-RENDERF lambdaMu
+!! lambdaMu(x) = n * ( n + 1 ) -  mu^2 * M ( x )   ;  EXPAND lambdaMu LMU
+RENDERF lambdaMu  ;  RENDERS lambdaMu
 
 // Legendre equation
 !! Legendre(x) = ( 1 - x ^ 2 ) * P'' ( x )  -  2 * x * P' ( x )  +  lambdaMu ( x ) * P ( x ) 
-RENDERF Legendre  ;  EXPAND Legendre
+SELECT "Differential Equation Definition Renders"
+RENDERF Legendre  ;  EXPAND Legendre P_n
 
+// show expanded series
+SELECT "Legendre Differential Equation Expansion"
+RENDER "Expanded Legendre Equation with lambda-mu factors shown"
+RENDERS Legendre
 
 complexmu = 4+3*i
 SOLVE Legendre P P_743i n 7 mu "complexmu" p_1 1 p_0 0 
@@ -32,28 +39,6 @@ PLOTRI P743i [ -1 < z < 1 <> 0.01 ]
 SHOSOL Legendre P_743i
 SHOSOL Legendre 
 
+SELECT "Differential Equation Definition Renders"
+
 mu = complexmu  ;  N = 7 ;  F = P_743i   ;  READ LegendreSolutionVerifier.txt
-
-
-
-// Legendre differential equation expanded with variable n and mu
-
-//	( 2*p_2 + p_0*n^2 + p_0*n + 
-//		( p_1*n + 6*p_3 + p_1*n^2 - p_1*mu^2 - 2*p_1 )*x + 
-//		( p_2*n^2 + p_2*n + 12*p_4 - 6*p_2 - p_2*mu^2 - p_0*mu^2 )*x^2 + 
-//		( p_3*n^2 + 20*p_5 + p_3*n - p_1*mu^2 - 12*p_3 - p_3*mu^2 )*x^3 + 
-//		( 30*p_6 + p_4*n^2 + p_4*n - p_4*mu^2 - 20*p_4 - p_2*mu^2 - p_0*mu^2 )*x^4 + 
-//		( 42*p_7 + p_5*n^2 + p_5*n - p_1*mu^2 - 30*p_5 - p_5*mu^2 - p_3*mu^2 )*x^5 + 
-//		( 56*p_8 + p_6*n^2 + p_6*n - p_6*mu^2 - p_4*mu^2 - 42*p_6 - p_2*mu^2 - p_0*mu^2 )*x^6 + 
-//		( p_7*n^2 + p_7*n + 72*p_9 - p_1*mu^2 - p_5*mu^2 - 56*p_7 - mu^2*p_7 - p_3*mu^2 )*x^7 + 
-//		( p_8*n^2 + p_8*n + 90*p10 - p_6*mu^2 - p_4*mu^2 - 72*p_8 - p_2*mu^2 - p_0*mu^2 - mu^2*p_8 )*x^8 + 
-//		( 110*p11 + p_9*n + p_9*n^2 - p_1*mu^2 - p_5*mu^2 - mu^2*p_9 - 90*p_9 - mu^2*p_7 - p_3*mu^2 )*x^9 + 
-//		( -1*p_6*mu^2 - p_4*mu^2 - p_2*mu^2 - p_0*mu^2 - mu^2*p_8 - 110*p10 )*x^10 + 
-//		( -1*p_1*mu^2 - 110*p11 - p_5*mu^2 - mu^2*p_9 - mu^2*p_7 - p_3*mu^2 )*x^11 + 
-//		( -1*p_6*mu^2 - p_4*mu^2 - p_2*mu^2 - mu^2*p_8 )*x^12 + 
-//		( -1*p_5*mu^2 - mu^2*p_9 - mu^2*p_7 - p_3*mu^2 )*x^13 + 
-//		( -1*p_6*mu^2 - p_4*mu^2 - mu^2*p_8 )*x^14 + 
-//		( -1*p_5*mu^2 - mu^2*p_9 - mu^2*p_7 )*x^15 + 
-//		( -1*p_6*mu^2 - mu^2*p_8 )*x^16 + 
-//		( -1*mu^2*p_9 - mu^2*p_7 )*x^17 - 
-//	p_0*mu^2 - mu^2*p_8*x^18 - mu^2*p_9*x^19 )

@@ -10,11 +10,17 @@ POLYGEN u x c 7
 // Hermite differential equation
 !! Hermite(x) = u''(x) - 2 * x * u'(x) + 2 * lambda * u(x)
 
+SELECT "Differential Equation Definition Renders"
+// render of differential equation
 RENDERF Hermite
-EXPAND Hermite
 
 // capture expanded function
 EXPAND Hermite H_n
+
+// render the expanded series
+SELECT "Hermite Differential Equation Expansion"
+RENDERS Hermite
+SELECT
 
 // find solutions
 // SOLVE DIFFEQ POLYNOMIAL_MODEL SOLUTION_NAME NAME "VALUE" NAME "VALUE" NAME "VALUE" 

@@ -9,10 +9,9 @@ POLYGEN f x c 7
 
 // Chebyshev differential equation
 !! Chebyshev(z) = (1-z^2) * f''(z) - z * f'(z) + n^2 * f(z)
-
-SELECT Chebyshev
+SELECT "Differential Equation Definition Renders"
 RENDERF Chebyshev
-EXPAND Chebyshev
+SELECT
 
 // capture expanded function
 EXPAND Chebyshev T_n
@@ -41,7 +40,9 @@ READ ChebyshevSolutionVerifier.txt
 POLYGEN # Legendre 9
 // Legendre differential equation
 !! Legendre(x) = ( 1 - x ^ 2 ) * P'' ( x ) - 2 * x * P' ( x ) + n * ( n + 1 ) * P ( x ) 
-EXPAND Legendre  ;  RENDERF Legendre
+SELECT "Differential Equation Definition Renders"
+EXPAND Legendre P_n  ;  RENDERF Legendre
+SELECT
 
 // p4 = (0.375, 0, -3.75, 0, 4.375)
 // p6 = (-0.3125, 0, 6.5625, 0, -19.6875, 0, 14.4375)
@@ -59,8 +60,15 @@ SHOSOL Legendre P_50
 POLYGEN # Laguerre 7
 // Laguerre differential equation
 !! Laguerre(x) = x * L'' ( x ) + (alpha + 1 - x) * L' ( x ) + n * L ( x ) 
-// l_0 = L_n(alpha)(0) = (n+alpha) ## n
-EXPAND Laguerre  ;  RENDERF Laguerre
+// l_0 = L_n (alpha) (0) = (n + alpha) ## n
+
+SELECT "Differential Equation Definition Renders"
+EXPAND Laguerre L_n  ;  RENDERF Laguerre
+
+// include series render
+SELECT "Laguerre Differential Equation Expansion"
+RENDERS Laguerre
+SELECT
 
 SOLVE Laguerre L L_4 n 4 alpha 0 # "Laguerre"
 SOLVE Laguerre L L_5 n 5 alpha 0 # "Laguerre"
@@ -100,5 +108,5 @@ SHOSOL Laguerre
 
 // plot of solution
 !! L523i(z) = L_523i +*^ z
-plotri  L523i [ -1 < z < 1 <> 0.01 ]
+PLOTRI  L523i [ -1 < z < 1 <> 0.01 ]
 
