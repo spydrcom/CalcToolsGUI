@@ -10,12 +10,13 @@
 
 	<!-- create Command object for each symbol -->
 	<populate class='Command' using='commands_render' saveListAs='cmdList'
-		toBeCalled='Render Select RenderFunction RenderDiffEq'
+		toBeCalled='Render Select RenderFunction RenderSeries RenderDiffEq'
 	 />
 
 	<!-- configure each command with bean set operations -->
 	<bean references='Render'> <text Keyword='Render' /> </bean>
 	<bean references='RenderFunction'> <text Reference='RenderFunction' SymbolUsing='RENDER_FUNCTION_KEYWORD' /> </bean>
+	<bean references='RenderSeries'> <text Reference='RenderSeries' SymbolUsing='RENDER_SERIES_KEYWORD' /> </bean>
 	<bean references='RenderDiffEq'> <text Reference='RenderDiffEq' SymbolUsing='RENDER_DIFFEQ_KEYWORD' /> </bean>
 	<bean references='Select'> <text Keyword='Select' /> </bean>
 
