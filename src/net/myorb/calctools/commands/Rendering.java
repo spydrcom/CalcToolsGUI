@@ -74,6 +74,23 @@ public class Rendering<T> extends Context<T>
 
 
 	/**
+	 * display a series using MathML
+	 * @return a keyword command for the RENDERS keyword
+	 */
+	public KeywordCommand constructRenderSeriesKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{ return "Format and display (pretty print) an expanded series using MathML"; }
+
+			public void execute (CommandSequence tokens)
+			{ getCurrentRenderer ().RenderSeries (tokens); }
+		};
+	}
+
+
+	/**
 	 * display a Differential Equation using MathML
 	 * @return a keyword command for the RENDERF keyword
 	 */
