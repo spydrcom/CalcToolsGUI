@@ -15,7 +15,7 @@
 			process operators that provide numerical approximations of Calculus functionality
 	  -->
 
-	<populate class='Operator' using='calculus' toBeCalled='TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta' />
+	<populate class='Operator' using='calculus' toBeCalled='GRAD DIV CURL TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta' />
 
 	<!-- Tanh-Sinh integral approximation  -->
 	<bean references='TSQuad'> <text Description='Mark function call for Tanh-Sinh integral approximation' Reference='TSQuad' Symbol='$|' /> <set Precedence='11' /> </bean>
@@ -42,13 +42,18 @@
 	<!-- approximation is computed using { ( f(x+delta) - f(x) ) / delta }, simple rise over run calculation -->
 	<bean references='Delta'> <text Description='Derivative approximation evaluated at left parameter using delta value in right parameter' Reference='Delta' Symbol='&lt;&gt;' /> <set Precedence='8' /> </bean>
 
+	<!-- the operators that indicate multiple variable partial derivative dot or cross products  -->
+	<bean references='GRAD'> <text Description='Gradient operator' Reference='Grad' Symbol='grad' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
+	<bean references='DIV'> <text Description='Divergence  operator' Reference='Div' Symbol='div' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
+	<bean references='CURL'> <text Description='Curl operator' Reference='Curl' Symbol='curl' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
+
 	<!-- the delta place holder for approximation calculation and render  -->
 	<!-- the delta symbol identifying the point in calculation of integral where the delta of the x-axis should be multiplied into the summation  -->
 	<bean references='IntegrationDelta'> <text Description='Integral delta marker for presentation' Reference='IntegrationDelta' Symbol='&lt;*&gt;' /> <set Precedence='10' /> </bean>
 
 	<!-- invoke macro to generate operator symbols and add them to symbol table -->
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' 
-			including='TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta'
+			including='GRAD DIV CURL TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta'
 	 />
 
 
