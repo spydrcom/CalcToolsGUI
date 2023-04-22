@@ -1,0 +1,14 @@
+
+
+//* demonstration of renders of gradient operators
+
+
+!! G(p) = grad F(p)
+RENDERF G
+
+!! D(p) = div F(p)
+RENDERF D
+
+!! C(p) = curl F(p)
+RENDERF C
+
