@@ -13,8 +13,52 @@ RENDERF D
 RENDERF C
 
 
+// individual parameters
 
 !! F(x,y,z) = ( x^2 + y - z, x-y, z-x^2 )
 !! G(x,y,z) = grad F(x,y,z)
 calc G (2,2,3)
+
+// (2, 2, 3)
+// DATA net.myorb.math.expressions.DimensionedValueStorage
+//   RawValueList<T> getValues ();
+// VEC OP grad
+// TARGET F
+// TYPE net.myorb.math.expressions.symbols.DefinedFunction
+// BODY ( x ^ 2 + y - z , x - y , z - x ^ 2 ) 
+
+
+// vector as parameter
+
+VV = (2,2,3)
+!! H(V) = (  V#0 ^ 2 + V#1 - V#2, V#0-V#1, V#2 - V#0^2  )
+!! J(U) = grad H(U)
+calc J (VV)
+
+
+// [(2, 2, 3)]
+// DATA net.myorb.math.expressions.ValueListStorage
+//  ValueManager.GenericValueList getValues ()
+// VEC OP grad
+// TARGET H
+// TYPE net.myorb.math.expressions.symbols.DefinedFunction
+// BODY ( ( V # 0 ) ^ 2 + V # 1 - V # 2 , V # 0 - V # 1 , V # 2 - ( V # 0 ) ^ 2 ) 
+
+
+// complex value
+
+requires complex
+
+CX = 3+4*i
+!! K(c) = 1 - c^2
+!! L(c) = grad K(c)
+calc L (CX)
+
+// ((3 + 4*i))
+// DATA net.myorb.math.expressions.DimensionedValueStorage
+//  RawValueList<T> getValues ();
+// VEC OP grad
+// TARGET K
+// TYPE net.myorb.math.expressions.symbols.DefinedFunction
+// BODY 1 - c ^ 2 
 
