@@ -1,0 +1,77 @@
+
+
+//* International System of Units
+
+
+//	Symbol	Name		Quantity
+//	======	====		========
+//	s		second		time
+//	m		metre		length
+//	kg		kilogram	mass
+//	A		ampere		electric current
+//	K		kelvin		thermodynamic temperature
+//	mol		mole		amount of substance
+//	cd		candela		luminous intensity
+
+
+//	Symbol	Defining constant		Exact value
+//	======	=================		===========
+
+//	Vcs		hyperfine transition
+//			  frequency of Cs		9192631770 Hz
+
+//	Kcd		luminous efficacy of
+//			  540 THz radiation		683 lm/W
+
+//	c		speed of light			299792458 m/s
+
+//	h		Planck constant			6.62607015E-34 J s
+
+//	e		elementary charge		1.602176634E-19 C
+
+//	k		Boltzmann constant		1.380649E-23 J/K
+
+//	NA		Avogadro constant		6.02214076E-23 /mol
+
+
+//	joule-second (J s), a unit of action;
+//	coulomb (C), a unit of electric charge;
+//	joule per kelvin (J/K), a unit of both entropy and heat capacity;
+//	inverse mole (mol-1), a unit of a conversion constant between the
+//		amount of substance and the number of elementary entities (atoms, molecules, etc.);
+//	lumen per watt (lm/W), a unit of luminous efficacy (conversion constant
+//		between the physical power carried by electromagnetic radiation
+//		and the intrinsic ability of that same radiation to produce visual
+//		perception of brightness in humans).
+//	hertz (Hz), a unit of the physical quantity of frequency;
+//	metre per second (m/s), a unit of speed;
+
+
+deltaV = 9192631770.0
+// hyperfine transition frequency in Hertz
+// delta Vcs = V(cs)hfs = 9192631770 CPS
+
+c = 299792458
+// speed of light in meter/second
+// c = 299792458 m/s
+
+h = 6.62607015E-34
+// Planck constant in joule-second
+// h = 6.62607015E-34 kg m2/s
+
+e = 1.602176634E-19
+// elementary charge in coulomb
+// e = 1.602176634E-19 A sec
+
+k = 1.380649E-23
+// Boltzmann constant in joule per kelvin
+// k = 1.380649E-23 kg m / K sec
+
+NA = 6.02214076E23
+// Avogadro constant in inverse mole
+// NA = 6.02214076E23 mol
+
+Kcd = 683
+// luminous efficacy in lumen per watt
+// Kcd = 683 lumen per watt
+
