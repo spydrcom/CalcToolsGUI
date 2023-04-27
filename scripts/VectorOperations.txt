@@ -16,8 +16,7 @@ RENDERF C
 // individual parameters
 
 !! F(x,y,z) = ( x^2 + y - z, x-y, z-x^2 )
-!! G(x,y,z) = grad F(x,y,z)
-GDM = G (2,2,3)
+!! G(x,y,z) = grad F(x,y,z)  ;  GDM = G (3,2,5)
 PRETTYPRINT GDM
 
 
@@ -25,9 +24,13 @@ PRETTYPRINT GDM
 
 VV = (2,2,3)
 !! H(V) = (  V#0 ^ 2 + V#1 - V#2, V#0-V#1, V#2 - V#0^2  )
-!! J(U) = grad H(U)
-JDM = J (VV)
+!! J(U) = grad H(U)  ;  JDM = J (VV)
 PRETTYPRINT JDM
+
+// div and curl computations
+
+CALC div H(VV)
+CALC curl H(VV)
 
 
 // complex value
@@ -36,7 +39,7 @@ requires complex
 
 CX = 3+4*i
 !! K(c) = 1 - c^2
-!! L(c) = grad K(c)
-LDM = L (CX)
+!! L(c) = grad K(c)  ;  LDM = L (CX)
 PRETTYPRINT LDM
+CALC curl K(CX)
 
