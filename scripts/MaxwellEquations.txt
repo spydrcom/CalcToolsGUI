@@ -1,0 +1,44 @@
+
+
+//* Maxwells Equations
+
+
+READ ISunits.txt
+
+// vacuum magnetic permeability
+mu = ( 4*pi * 1E-7 )  ;  // Newton per square Ampere
+
+// absolute dielectric permittivity of classical vacuum
+epsilon = ( 1 / ( mu#0 * c^2 ) )  ;  // Farads per meter
+
+
+// fields with time and location dependence
+
+// P = ( X, Y, Z, t )
+
+// The equations introduce 
+
+!! E(P) = ElectricField	( a vector field )
+!! B(P) = MagneticField	( a pseudo-vector field )
+
+//  the total electric charge density
+//		rho (total charge per unit volume)
+!! rho (V) = total charge per unit volume
+
+//  the total electric current density
+//		J (total current per unit area)
+!! J (A) = total current per unit area
+
+
+RENDER div E(p) = rho(V) / epsilon#0
+RENDER "Gauss's law" TOP
+
+RENDER div B(p) = 0
+RENDER "Gauss's law for magnetism" TOP
+
+RENDER curl E(p) = - (dB / dt)
+RENDER "Faraday's law of induction" TOP
+
+RENDER curl B(p) = mu#0 * ( J(A) + epsilon#0 * (dE/dt) )
+RENDER "Ampère's circuital law with Maxwell's addition" TOP
+
