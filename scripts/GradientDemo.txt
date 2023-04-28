@@ -52,7 +52,7 @@ requires complex
 
 // complex funcion test (using Airy Ai)
 
-READ AiryDfdx.txt
+READ AiryBesselIdentities.txt
 
 // verify Ai function available
 CALC Ai (-2)
@@ -78,4 +78,5 @@ calc AiD ( -3, -1 )
 // PLOT3D AiD (  0, -4 ) 2.5 3
 
 // very time expensive contour plot
-// PLOTC AiD ( -3, -1 ) 2 100
+// PLOTC AiD (  0, -4 ) 3 100
+
