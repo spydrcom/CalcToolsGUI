@@ -21,6 +21,10 @@ epsilon = ( 1 / ( mu#0 * c^2 ) )  ;  // Farads per meter
 !! E(P) = ElectricField	( a vector field )
 !! B(P) = MagneticField	( a pseudo-vector field )
 
+dt = 1E-6
+configure DFDX symbol "d" order "1" function "B" variable "t" run "dt" description "df/dx" ; instance dB DFDX
+configure DFDX symbol "d" order "1" function "E" variable "t" run "dt" description "df/dx" ; instance dE DFDX
+
 //  the total electric charge density
 //		rho (total charge per unit volume)
 !! rho (V) = total charge per unit volume
@@ -36,9 +40,9 @@ RENDER "Gauss's law" TOP
 RENDER div B(p) = 0
 RENDER "Gauss's law for magnetism" TOP
 
-RENDER curl E(p) = - (dB / dt)
+RENDER curl E(p) = - (dB)
 RENDER "Faraday's law of induction" TOP
 
-RENDER curl B(p) = mu#0 * ( J(A) + epsilon#0 * (dE/dt) )
+RENDER curl B(p) = mu#0 * ( J(A) + epsilon#0 * (dE) )
 RENDER "Ampère's circuital law with Maxwell's addition" TOP
 
