@@ -3,15 +3,47 @@
 //*  Gradient test function
 
 
-!! T ( x, y ) = (  x * exp ( -(x^2 + y^2) ) , 0  )
-PLOT3D T (-2, -2)  4 4
+// 2 parameters returning scalar
+!! f ( x, y ) = - ( cos(x)^2 + cos(y)^2 )^2
+// PLOT3D f (-2, -2)  4 4
 
 // samples from gradient
-!! TM ( x, y ) = grad T ( x, y )  
-TDM = TM ( 1, 1 )
-PRETTYPRINT TDM
+!! FM ( x, y ) = grad f ( x, y )  
+
+// scalar result so  gradient is vector
+FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 
 // divergence plot
-!! TD ( x, y ) = div T ( x, y )  
-PLOTC TD ( -2, -2 ) 4 100
+!! FD ( x, y ) = div f ( x, y )  
+// PLOTC FD ( 0, 0 ) 4 100
+
+
+
+// 2 parameters returning scalar
+!! Q ( x, y ) = x * exp ( - (x^2 + y^2) ) 
+// PLOT3D Q (-2, -2)  4 4
+
+// samples from gradient
+!! QM ( x, y ) = grad Q ( x, y ) 
+
+// scalar result so  gradient is vector
+QGV = QM ( 1, 1 )  ;  PRETTYPRINT QGV
+
+!! QD ( x, y ) = div Q ( x, y )  
+// PLOTC QD ( -2, -2 ) 4 100
+
+
+// 3 parameters returning vector
+!! T ( x, y, z ) = ( y, -x, 0 )
+// PLOT3D T (-4, -4)  8 8
+
+// samples from gradient
+!! TM ( x, y, z ) = grad T ( x, y, z )  
+
+// vector result so  gradient is matrix
+TGV = TM ( 1, 1, 1 )  ;  PRETTYPRINT TGV
+
+// gradient is constant everywhere so curl is constant vector
+C = curl T  ( 3, 3, 3 )  
+PRETTYPRINT C
 
