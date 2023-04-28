@@ -47,3 +47,35 @@ TGV = TM ( 1, 1, 1 )  ;  PRETTYPRINT TGV
 C = curl T  ( 3, 3, 3 )  
 PRETTYPRINT C
 
+
+requires complex
+
+// complex funcion test (using Airy Ai)
+
+READ AiryDfdx.txt
+
+// verify Ai function available
+CALC Ai (-2)
+
+// simple gradient test
+M = grad Ai (-2)
+PRETTYPRINT  M
+
+// simple curl test
+C = curl Ai (-2)
+PRETTYPRINT  C
+
+// simple divergence test
+D = div Ai (-2)
+CALC  D
+
+// divergence of complex plane segment
+!! AiD ( x, y ) = div Ai ( x +!* y )  
+calc AiD ( -3, -1 )
+
+// plot divergence over plane segment
+// PLOT3D AiD ( -4, -4 )  8  3
+// PLOT3D AiD (  0, -4 ) 2.5 3
+
+// very time expensive contour plot
+// PLOTC AiD ( -3, -1 ) 2 100

@@ -89,4 +89,5 @@
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='4.0' Yaxis='0.0' EquationBody='div f ( x , y ) ' PlotNumber='1087' PointsSize='3' PointsPerAxis='400' Multiplier='100.0' PlotParent='-4' Xaxis='0.0'/>
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QD' EquationProfile='QD(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='div Q ( x , y ) ' PlotNumber='1088' PointsSize='3' PointsPerAxis='400' Multiplier='100.0' PlotParent='-4' Xaxis='-2.0'/>
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='4.0' Yaxis='0.0' EquationBody='div f ( x , y ) ' PlotNumber='1089' PointsSize='3' PointsPerAxis='400' Multiplier='100.0' PlotParent='-4' Xaxis='0.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='2.0' Title='AiD' EquationProfile='AiD(x, y)' AltEdgeSize='2.0' Yaxis='-1.0' EquationBody='div Ai ( x +!* y ) ' PlotNumber='1090' PointsSize='3' PointsPerAxis='400' Multiplier='100.0' PlotParent='-4' Xaxis='-3.0'/>
 </PLOTS>
