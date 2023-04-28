@@ -1,0 +1,17 @@
+
+
+//*  Gradient test function
+
+
+!! T ( x, y ) = (  x * exp ( -(x^2 + y^2) ) , 0  )
+PLOT3D T (-2, -2)  4 4
+
+// samples from gradient
+!! TM ( x, y ) = grad T ( x, y )  
+TDM = TM ( 1, 1 )
+PRETTYPRINT TDM
+
+// divergence plot
+!! TD ( x, y ) = div T ( x, y )  
+PLOTC TD ( -2, -2 ) 4 100
+
