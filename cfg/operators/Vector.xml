@@ -16,8 +16,8 @@
 	 />
 
 	<bean references='Dot'> <text Description='Dot product of two arrays; lengths of arrays must match' Reference='Dot' Symbol='.' /> <text RenderAs='&#183;' />  <set Precedence='10' /> </bean>
-	<bean references='DP'> <text Description='Dot product of two arrays; lengths of arrays must match' Reference='Dot' Symbol='.' /> <text RenderAs='*@*' />  <set Precedence='10' /> </bean>
-	<bean references='CP'> <text Description='Cross product of two arrays; lengths of arrays must match' Reference='Dot' Symbol='.' /> <text RenderAs='*%*' />  <set Precedence='10' /> </bean>
+	<bean references='DP'> <text Description='Dot product of two arrays; lengths of arrays must match' Reference='Dot' Symbol='*@*' /> <text RenderAs='&#x00B7;' />  <set Precedence='10' /> </bean>
+	<bean references='CP'> <text Description='Cross product of two arrays; lengths of arrays must match' Reference='Cross' Symbol='*%*' /> <text RenderAs='&#x00D7;' />  <set Precedence='10' /> </bean>
 	<bean references='Index'> <text Description='Array indexing operation implemented as a binary operator' Reference='Indexing' Symbol='#' />  <set Precedence='12' /> </bean>
 	<bean references='Range'> <text Description='Array range operation implemented as a binary operator' Reference='Range' Symbol='..' />  <set Precedence='12' /> </bean>
 
