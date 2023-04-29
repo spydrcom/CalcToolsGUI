@@ -22,8 +22,8 @@ epsilon = ( 1 / ( mu#0 * c^2 ) )  ;  // Farads per meter
 !! B(P) = MagneticField	( a pseudo-vector field )
 
 dt = 1E-6
-configure DFDX symbol "d" order "1" function "B" variable "t" run "dt" description "df/dx" ; instance dB DFDX
-configure DFDX symbol "d" order "1" function "E" variable "t" run "dt" description "df/dx" ; instance dE DFDX
+configure DFDX symbol "P" order "1" function "B" variable "t" run "dt" description "df/dx" ; instance dB DFDX
+configure DFDX symbol "P" order "1" function "E" variable "t" run "dt" description "df/dx" ; instance dE DFDX
 
 //  the total electric charge density
 //		rho (total charge per unit volume)
