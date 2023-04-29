@@ -320,6 +320,30 @@ public class Plotting<T> extends Context<T>
 
 
 	/**
+	 * process a PLOTV command
+	 * @return a keyword command for the plotv keyword
+	 */
+	public KeywordCommand constructPlotvKeywordCommand ()
+	{
+		return new KeywordCommand ()
+		{
+			public String describe ()
+			{
+				return "Plot a specified 2D domain showing a projected vector field";
+			}
+
+			public void execute (CommandSequence tokens)
+			{
+				CommandSequence 
+					rem = withCommandRemoved (tokens);
+				String function = getCurrentOperandImage (rem);
+				getGraphManager ().vectorFieldContourPlot (function, rem);
+			}
+		};
+	}
+
+
+	/**
 	 * Set color scheme manager for contour plots
 	 * @return a keyword command for the SETCONTOUR prefix
 	 */
