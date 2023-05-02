@@ -11,7 +11,7 @@
 !! FM ( x, y ) = grad f ( x, y )  
 
 // vector field plot of gradient
-// PLOTV FM ( 1, 1 )  4  10  100
+// PLOTV FM ( 1, 1 )  4  20  100
 
 // scalar result so  gradient is vector
 FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
@@ -30,7 +30,7 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 !! QM ( x, y ) = grad Q ( x, y ) 
 
 // vector field plot of gradient
-// PLOTV QM ( -2, -2 ) 4 10  100
+// PLOTV QM ( -2, -2 ) 4 20  100
 
 // scalar result so  gradient is vector
 QGV = QM ( 1, 1 )  ;  PRETTYPRINT QGV
