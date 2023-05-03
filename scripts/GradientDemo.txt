@@ -20,6 +20,13 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 !! FD ( x, y ) = div f ( x, y )  
 // PLOTC FD ( 0, 0 ) 4 100
 
+// alternative centered
+// PLOT3D f (1.6, 1.6)  3 3 
+// PLOTC FD ( 1.6 , 1.6 )  3 100			// full cycle (congested) display
+// PLOTC FD ( 2.4 , 2.4 )  1.5 100			// or half cycle version
+// PLOTV FM ( 1.6 , 1.6 )  3  20  100
+// PLOTC f  ( 1.6 , 1.6 )  3 100
+
 
 
 // 2 parameters returning scalar
