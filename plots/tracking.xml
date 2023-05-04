@@ -47,4 +47,5 @@
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FM' EquationProfile='FM(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='grad f ( x , y ) ' PlotNumber='1045' PointsSize='5' PointsPerAxis='200' Multiplier='100.0' PlotParent='-4' Xaxis='1.6'/>
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QM' EquationProfile='QM(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='grad Q ( x , y ) ' PlotNumber='1046' PointsSize='5' PointsPerAxis='200' Multiplier='100.0' PlotParent='-4' Xaxis='-2.0'/>
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='FM' EquationProfile='FM(x, y)' AltEdgeSize='4.0' Yaxis='1.0' EquationBody='grad f ( x , y ) ' PlotNumber='1047' PointsSize='5' PointsPerAxis='200' Multiplier='100.0' PlotParent='-4' Xaxis='1.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='FM' EquationProfile='FM(x, y)' AltEdgeSize='4.0' Yaxis='1.0' EquationBody='grad f ( x , y ) ' PlotNumber='1048' PointsSize='5' PointsPerAxis='200' Multiplier='100.0' PlotParent='-4' Xaxis='1.0'/>
 </PLOTS>
