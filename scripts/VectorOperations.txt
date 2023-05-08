@@ -12,6 +12,9 @@ RENDERF D
 !! C(p) = curl F(p)
 RENDERF C
 
+!! L(p) = laplace F(p)
+RENDERF L
+
 
 // individual parameters
 
