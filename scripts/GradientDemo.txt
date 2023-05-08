@@ -20,6 +20,10 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 !! FD ( x, y ) = div f ( x, y )  
 // PLOTC FD ( 0, 0 ) 4 100
 
+// Laplacian plot
+!! FL ( x, y ) = laplace f ( x, y )  
+// PLOTC FL ( 1.6 , 1.6 )  3  20  100
+
 // alternative centered
 // PLOT3D f (1.6, 1.6)  3 3 
 // PLOTC FD ( 1.6 , 1.6 )  3 100			// full cycle (congested) display
@@ -45,6 +49,10 @@ QGV = QM ( 1, 1 )  ;  PRETTYPRINT QGV
 
 !! QD ( x, y ) = div Q ( x, y )  
 // PLOTC QD ( -2, -2 ) 4 100
+
+// Laplacian plot
+!! QL ( x, y ) = laplace Q ( x, y )  
+// PLOTC QL ( -2, -2 ) 4 100
 
 
 
