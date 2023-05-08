@@ -15,7 +15,7 @@
 			process operators that provide numerical approximations of Calculus functionality
 	  -->
 
-	<populate class='Operator' using='calculus' toBeCalled='GRAD DIV CURL TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta' />
+	<populate class='Operator' using='calculus' toBeCalled='GRAD DIV CURL LAPLACE TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta' />
 
 	<!-- Tanh-Sinh integral approximation  -->
 	<bean references='TSQuad'> <text Description='Mark function call for Tanh-Sinh integral approximation' Reference='TSQuad' Symbol='$|' /> <set Precedence='11' /> </bean>
@@ -44,6 +44,7 @@
 
 	<!-- the operators that indicate multiple variable partial derivative dot or cross products  -->
 	<bean references='GRAD'> <text Description='Gradient operator' Reference='Grad' Symbol='grad' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
+	<bean references='LAPLACE'> <text Description='Laplacian operator' Reference='Laplace' Symbol='laplace' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
 	<bean references='DIV'> <text Description='Divergence  operator' Reference='Div' Symbol='div' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
 	<bean references='CURL'> <text Description='Curl operator' Reference='Curl' Symbol='curl' /> <text RenderAs='&#x2207;' /> <set Precedence='9' /> </bean>
 
@@ -53,7 +54,7 @@
 
 	<!-- invoke macro to generate operator symbols and add them to symbol table -->
 	<expand indirectUsing='symbolBean' path='cfg/OperatorSymbol.xml' using='algorithms symbolTable' 
-			including='GRAD DIV CURL TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta'
+			including='GRAD DIV CURL LAPLACE TSQuad DCTQuad TrapQuad TrapAdjust Interval Prime DPrime Delta IntegrationDelta'
 	 />
 
 
