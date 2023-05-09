@@ -18,18 +18,18 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 
 // divergence plot
 !! FD ( x, y ) = div f ( x, y )  
-// PLOTC FD ( 0, 0 ) 4 100
+// PLOTC FD ( 1.6 , 1.6 )  3  2
 
 // Laplacian plot
 !! FL ( x, y ) = laplace f ( x, y )  
-// PLOTC FL ( 1.6 , 1.6 )  3  20  100
+// PLOTC FL ( 1.6 , 1.6 )  3  2
 
 // alternative centered
-// PLOT3D f (1.6, 1.6)  3 3 
-// PLOTC FD ( 1.6 , 1.6 )  3 100			// full cycle (congested) display
-// PLOTC FD ( 2.4 , 2.4 )  1.5 100			// or half cycle version
-// PLOTV FM ( 1.6 , 1.6 )  3  20  100
-// PLOTC f  ( 1.6 , 1.6 )  3 100
+// PLOT3D f ( 1.6 , 1.6 )   3  3 
+// PLOTC FD ( 1.6 , 1.6 )   3  2			// full cycle (congested) display
+// PLOTC FD ( 2.4 , 2.4 )  1.5 2			// or half cycle version
+// PLOTV FM ( 1.6 , 1.6 )   3  20  100
+// PLOTC f  ( 1.6 , 1.6 )   3  2
 
 
 
