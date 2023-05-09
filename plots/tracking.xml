@@ -111,4 +111,6 @@
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='div f ( x , y ) ' PlotNumber='1109' PointsSize='3' PointsPerAxis='400' Multiplier='2.0' PlotParent='-4' Xaxis='1.6'/>
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='div f ( x , y ) ' PlotNumber='1110' PointsSize='3' PointsPerAxis='400' Multiplier='2.0' PlotParent='-4' Xaxis='1.6'/>
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FL' EquationProfile='FL(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='laplace f ( x , y ) ' PlotNumber='1111' PointsSize='3' PointsPerAxis='400' Multiplier='2.0' PlotParent='-4' Xaxis='1.6'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FL' EquationProfile='FL(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='laplace f ( x , y ) ' PlotNumber='1112' PointsSize='3' PointsPerAxis='400' Multiplier='2.0' PlotParent='-4' Xaxis='1.6'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='div f ( x , y ) ' PlotNumber='1113' PointsSize='3' PointsPerAxis='400' Multiplier='2.0' PlotParent='-4' Xaxis='1.6'/>
 </PLOTS>
