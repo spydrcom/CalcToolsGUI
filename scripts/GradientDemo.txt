@@ -41,18 +41,18 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 !! QM ( x, y ) = grad Q ( x, y ) 
 
 // vector field plot of gradient
-   PLOTV QM (  -2  ,  -2  ) 4 20  100
-// PLOTV QM ( -1.5 , -1.5 ) 3 20  100
+   PLOTV QM (  -2  ,  -2  ) 4 20  10
+// PLOTV QM ( -1.5 , -1.5 ) 3 20  10
 
 // scalar result so  gradient is vector
 QGV = QM ( 1, 1 )  ;  PRETTYPRINT QGV
 
 !! QD ( x, y ) = div Q ( x, y )  
-PLOTC QD ( -2, -2 ) 4 100
+PLOTC QD ( -2, -2 ) 4 10
 
 // Laplacian plot
 !! QL ( x, y ) = laplace Q ( x, y )  
-PLOTC QL ( -2, -2 ) 4 100
+PLOTC QL ( -2, -2 ) 4 5
 
 
 
