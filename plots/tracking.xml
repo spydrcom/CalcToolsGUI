@@ -201,4 +201,7 @@
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='AiD' EquationProfile='AiD(x, y)' AltEdgeSize='3.0' Yaxis='-4.0' EquationBody='div Ai ( x +!* y ) ' PlotNumber='1199' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='0.0'/>
  <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='AiM' EquationProfile='AiM(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='grad Ai ( x +!* y ) ' PlotNumber='1200' PointsSize='5' PointsPerAxis='200' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='AiM' EquationProfile='AiM(x, y)' AltEdgeSize='3.0' Yaxis='-4.0' EquationBody='grad Ai ( x +!* y ) ' PlotNumber='1201' PointsSize='5' PointsPerAxis='200' Multiplier='1000.0' PlotParent='-4' Xaxis='-4.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QM' EquationProfile='QM(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='grad Q ( x , y ) ' PlotNumber='1202' PointsSize='5' PointsPerAxis='200' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QD' EquationProfile='QD(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='div Q ( x , y ) ' PlotNumber='1203' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QL' EquationProfile='QL(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='laplace Q ( x , y ) ' PlotNumber='1204' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
 </PLOTS>
