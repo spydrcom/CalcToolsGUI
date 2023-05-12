@@ -11,25 +11,25 @@
 !! FM ( x, y ) = grad f ( x, y )  
 
 // vector field plot of gradient
-// PLOTV FM ( 1, 1 )  4  20  100
+// PLOTV FM ( 1, 1 )  4  20
 
 // scalar result so  gradient is vector
 FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 
 // divergence plot
 !! FD ( x, y ) = div f ( x, y )  
-// PLOTC FD ( 1.6 , 1.6 )  3  2
+// PLOTC FD ( 1.6 , 1.6 )  3
 
 // Laplacian plot
 !! FL ( x, y ) = laplace f ( x, y )  
-// PLOTC FL ( 1.6 , 1.6 )  3  2
+// PLOTC FL ( 1.6 , 1.6 )  3
 
 // alternative centered
 // PLOT3D f ( 1.6 , 1.6 )   3  3 
-// PLOTC FD ( 1.6 , 1.6 )   3  2			// full cycle (congested) display
-// PLOTC FD ( 2.4 , 2.4 )  1.5 2			// or half cycle version
-// PLOTV FM ( 1.6 , 1.6 )   3  20  100
-// PLOTC f  ( 1.6 , 1.6 )   3  2
+// PLOTV FM ( 1.6 , 1.6 )   3  20		// 20 direction indicators per axis
+// PLOTC FD ( 1.6 , 1.6 )   3			// full cycle (congested) display
+// PLOTC FD ( 2.4 , 2.4 )  1.5			// or half cycle version
+// PLOTC f  ( 1.6 , 1.6 )   3
 
 
 
@@ -41,18 +41,18 @@ FGV = FM ( 1, 1 )  ;  PRETTYPRINT FGV
 !! QM ( x, y ) = grad Q ( x, y ) 
 
 // vector field plot of gradient
-   PLOTV QM (  -2  ,  -2  ) 4 20  10
-// PLOTV QM ( -1.5 , -1.5 ) 3 20  10
+   PLOTV QM (  -2  ,  -2  ) 4 20
+// PLOTV QM ( -1.5 , -1.5 ) 3 20		// alternate zoom factor
 
 // scalar result so  gradient is vector
 QGV = QM ( 1, 1 )  ;  PRETTYPRINT QGV
 
 !! QD ( x, y ) = div Q ( x, y )  
-PLOTC QD ( -2, -2 ) 4 10
+PLOTC QD ( -2, -2 ) 4
 
 // Laplacian plot
 !! QL ( x, y ) = laplace Q ( x, y )  
-PLOTC QL ( -2, -2 ) 4 5
+PLOTC QL ( -2, -2 ) 4
 
 
 
@@ -71,9 +71,9 @@ C = curl T  ( 3, 3, 3 )
 PRETTYPRINT C
 
 
-requires complex
+REQUIRES complex
 
-// complex funcion test (using Airy Ai)
+// complex function test (using Airy Ai)
 
 READ AiryBesselIdentities.txt
 
@@ -92,14 +92,20 @@ PRETTYPRINT  C
 D = div Ai (-2)
 CALC  D
 
+// gradient of complex plane segment for Ai
+!! AiM ( x, y ) = grad Ai ( x +!* y )  
+
+// test computation of gradient
+//   at imaginary point
+AiGV = AiM ( 1, 1 )
+PRETTYPRINT AiGV
+
 // divergence of complex plane segment
 !! AiD ( x, y ) = div Ai ( x +!* y )  
-calc AiD ( -3, -1 )
+CALC AiD ( -3, -1 )
 
-// plot divergence over plane segment
-// PLOT3D AiD ( -4, -4 )  8  3
-// PLOT3D AiD (  0, -4 ) 2.5 3
-
-// very time expensive contour plot
-// PLOTC AiD (  0, -4 ) 3 100
+// plot gradient and divergence of Ai
+//   complex segment at -4 < x < -1
+// PLOTV  AiM ( -4, -4 ) 3 20
+// PLOT3D AiD ( -4, -4 ) 3 3
 
