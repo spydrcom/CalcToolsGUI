@@ -92,8 +92,9 @@ PRETTYPRINT  C
 D = div Ai (-2)
 CALC  D
 
-// gradient of complex plane segment for Ai
+// gradient of complex plane segment for Ai & Bi
 !! AiM ( x, y ) = grad Ai ( x +!* y )  
+!! BiM ( x, y ) = grad Bi ( x +!* y )  
 
 // test computation of gradient
 //   at imaginary point
@@ -107,5 +108,6 @@ CALC AiD ( -3, -1 )
 // plot gradient and divergence of Ai
 //   complex segment at -4 < x < -1
 // PLOTV  AiM ( -4, -4 ) 3 20
+// PLOTV  BiM ( -6, -6 ) 5.5 20
 // PLOT3D AiD ( -4, -4 ) 3 3
 
