@@ -250,4 +250,7 @@
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FD' EquationProfile='FD(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='div f ( x , y ) ' PlotNumber='1248' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='1.6'/>
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='FL' EquationProfile='FL(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='laplace f ( x , y ) ' PlotNumber='1249' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='1.6'/>
  <PLOT TransformIdentity='EQN' EdgeSize='3.0' Title='f' EquationProfile='f(x, y)' AltEdgeSize='3.0' Yaxis='1.6' EquationBody='- ( cos ( x ) ^ 2 + cos ( y ) ^ 2 ) ^ 2 ' PlotNumber='1250' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='1.6'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QM' EquationProfile='QM(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='grad Q ( x , y ) ' PlotNumber='1251' PointsSize='5' PointsPerAxis='200' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QD' EquationProfile='QD(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='div Q ( x , y ) ' PlotNumber='1252' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
+ <PLOT TransformIdentity='EQN' EdgeSize='4.0' Title='QL' EquationProfile='QL(x, y)' AltEdgeSize='4.0' Yaxis='-2.0' EquationBody='laplace Q ( x , y ) ' PlotNumber='1253' PointsSize='3' PointsPerAxis='400' Multiplier='1000.0' PlotParent='-4' Xaxis='-2.0'/>
 </PLOTS>
