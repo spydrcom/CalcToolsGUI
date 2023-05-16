@@ -273,4 +273,5 @@
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='3.0' Multiplier='1000.0' Title='FD' PlotParent='-4' Xaxis='1.6' AltEdgeSize='3.0' Yaxis='1.6' PlotNumber='1271'/>
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='3.0' Multiplier='1000.0' Title='FL' PlotParent='-4' Xaxis='1.6' AltEdgeSize='3.0' Yaxis='1.6' PlotNumber='1272'/>
  <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='FM' PlotParent='-4' Xaxis='1.6' AltEdgeSize='3.0' Yaxis='1.6' PlotNumber='1273'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1274'/>
 </PLOTS>
