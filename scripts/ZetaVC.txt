@@ -1,0 +1,23 @@
+
+
+//* Zeta vector calculus contour
+
+
+!! Z2D ( x , y ) = zeta ( x + i * y )
+
+
+PLOT3D Z2D ( 0 , 14 )  1 20
+PLOTV  Z2D ( 0 , 14 ) 1 20
+
+
+!! Z2DG ( x , y ) = grad Z2D ( x ,  y )
+PLOTV  Z2DG ( 0 , 14 ) 1 20
+
+
+!! Z2DD ( x , y ) = div Z2D ( x ,  y )
+!! Z2DL ( x , y ) = laplace Z2D ( x ,  y )
+
+
+PLOTC Z2DD  ( 0 , 14 ) 1
+PLOTC Z2DL  ( 0 , 14 ) 1
+
