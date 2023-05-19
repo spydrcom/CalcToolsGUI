@@ -8,4 +8,5 @@
  <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='2.0' Multiplier='1000.0' Title='G' PlotParent='-4' Xaxis='0.0' AltEdgeSize='2.0' Yaxis='2.0' PlotNumber='1006'/>
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='2.0' Multiplier='1000.0' Title='GD' PlotParent='-4' Xaxis='0.0' AltEdgeSize='2.0' Yaxis='2.0' PlotNumber='1007'/>
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='0.0' Multiplier='1000.0' Title='EQN : (1.0323529243469238,3.6205883026123047) - 0.0' PlotParent='1000' Xaxis='1.0323529243469238' Yaxis='3.6205883026123047' PlotNumber='1008'/>
+ <PLOT PointsSize='5' TransformIdentity='Dendrite' MaxResult='1000' PointsPerAxis='200' EdgeSize='0.7205882' Title='Julia Dendrite : c= + i' PlotParent='-1' Xaxis='-0.16176468133926392' Yaxis='-0.5882352590560913' AltEdgeSize='0.7205882' PlotNumber='1009'/>
 </PLOTS>
