@@ -1,0 +1,28 @@
+
+
+REQUIRES complex
+
+//* vector calculus plots for Gamma function
+
+
+// GAMMA computed over imaginary plane
+!! G ( x, y ) = GAMMA ( x + i*y )
+
+// gradient, Laplace, and div
+!! GG ( x, y ) = grad G ( x , y )
+!! GL ( x, y ) = laplace G ( x , y )
+!! GD ( x, y ) = div G ( x , y )
+
+// 3D plot of just GAMMA
+PLOT3D G  ( 0 , 2 ) 2 2
+
+// polar plot of GAMMA
+PLOTV G  ( 0 , 2 ) 2 20
+
+// gradient plot of GAMMA
+PLOTV GG ( 0 , 2 ) 2 20
+
+// div and Laplace plots of GAMMA
+PLOTC GD ( 0 , 2 ) 2
+PLOTC GL ( 0 , 2 ) 2
+
