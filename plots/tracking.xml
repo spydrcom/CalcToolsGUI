@@ -15,4 +15,29 @@
  <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1013'/>
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1014'/>
  <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1015'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1016'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1017'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1018'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1019'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1020'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='3.0' Multiplier='1000.0' Title='AiD' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1021'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1022'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1023'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1024'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1025'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1026'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1027'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1028'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1029'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1030'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1031'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1032'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1033'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1034'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1035'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1036'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='4.0' Multiplier='1000.0' Title='QM' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1037'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QD' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1038'/>
+ <PLOT PointsSize='3' TransformIdentity='EQN' PointsPerAxis='400' EdgeSize='4.0' Multiplier='1000.0' Title='QL' PlotParent='-4' Xaxis='-2.0' AltEdgeSize='4.0' Yaxis='-2.0' PlotNumber='1039'/>
+ <PLOT PointsSize='5' TransformIdentity='EQN' PointsPerAxis='200' EdgeSize='3.0' Multiplier='1000.0' Title='BiX' PlotParent='-4' Xaxis='-4.0' AltEdgeSize='3.0' Yaxis='-1.5' PlotNumber='1040'/>
 </PLOTS>
